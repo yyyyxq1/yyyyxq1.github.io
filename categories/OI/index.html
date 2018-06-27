@@ -10,7 +10,7 @@
     
     
     
-    <title>NOI2007 社交网络 | illyasviel</title>
+    <title>Categories: OI | illyasviel</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -163,134 +163,41 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <div class="cube-article">
-    <h1 class="title">NOI2007 社交网络</h1>
+            <style>
+    @media(max-width: 768px) {
+        body {
+            background-color: #fff!important;
+        }
+    }
+</style>
+<div class="cube-archives">
     
-    <div class="cube-article-header">
-        <div class="cube-article-date">
-            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-            <!-- moment.js对象 -->
-            2018-06-27
-        </div>
-        <div class="cube-article-tags">
-    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-    
-    <a href="/tags/NOI/">#NOI</a>
-    
-    <a href="/tags/SPFA/">#SPFA</a>
-    
-</div>
+    <div class="cube-archive" style="margin-top: 0;">
+        <h1 class="title">OI</h1>
+        
+        <ul class="posts">
+            
+            <li class="post">
+                <a href="/2018/06/27/NOI2007-社交网络/">NOI2007 社交网络</a>
+            </li>
+            
+            <li class="post">
+                <a href="/2018/06/26/BZOJ2402-陶陶的难题II/">BZOJ2042 陶陶的难题II</a>
+            </li>
+            
+            <li class="post">
+                <a href="/2018/06/24/斜率优化/">斜率优化</a>
+            </li>
+            
+            <li class="post">
+                <a href="/2018/06/24/杜教筛/">杜教筛</a>
+            </li>
+            
+        </ul>
+        
     </div>
     
-    <div class="cube-article-content cube-markdown">
-        
-        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="一个无向连通图c_st表示从s到t的最短路条数c_stv表示经过v从s到t的最短路条数"><a class="markdownIt-Anchor" href="#一个无向连通图c_st表示从s到t的最短路条数c_stv表示经过v从s到t的最短路条数"></a>     一个无向连通图，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{s,t}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">s</span><span class="mpunct">,</span><span class="mord mathit">t</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示从s到t的最短路条数，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi></mrow></msub><mo>(</mo><mi>v</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">C_{s,t}(v)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">s</span><span class="mpunct">,</span><span class="mord mathit">t</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span>表示经过v从s到t的最短路条数。</h3>
-<h3 id="对于每个点v求出lvsum-limits_sneq-vt-neq-vfracc_stvc_sts到t的最短路上经过v"><a class="markdownIt-Anchor" href="#对于每个点v求出lvsum-limits_sneq-vt-neq-vfracc_stvc_sts到t的最短路上经过v"></a>     对于每个点v，求出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mo>(</mo><mi>v</mi><mo>)</mo><mo>=</mo><msub><mo>∑</mo><mrow><mi>s</mi><mo>≠</mo><mi>v</mi><mo separator="true">,</mo><mi>t</mi><mo>≠</mo><mi>v</mi></mrow></msub><mfrac><mrow><msub><mi>C</mi><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi></mrow></msub><mo>(</mo><mi>v</mi><mo>)</mo></mrow><mrow><msub><mi>C</mi><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">l(v)=\sum \limits_{s\neq v,t \neq v}\frac{C_{s,t}(v)}{C_{s,t}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.03722em;"></span><span class="strut bottom" style="height:2.2049250000000002em;vertical-align:-1.167705em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mrel">=</span><span class="mop op-limits"><span class="vlist"><span style="top:0.9172049999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">s</span><span class="mrel">≠</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mpunct">,</span><span class="mord mathit">t</span><span class="mrel">≠</span><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span></span><span style="top:-0.000005000000000088267em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span><span class="op-symbol small-op mop">∑</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">s</span><span class="mpunct">,</span><span class="mord mathit">t</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.51222em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">s</span><span class="mpunct">,</span><span class="mord mathit">t</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>(s到t的最短路上经过v)</h3>
-<h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h3>
-<h3 id="由于点数小于100直接对于每个点spfa完了之后暴力计算"><a class="markdownIt-Anchor" href="#由于点数小于100直接对于每个点spfa完了之后暴力计算"></a>     由于点数小于100，直接对于每个点SPFA完了之后暴力计算</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#define N 220000
-using namespace std;
-int tot,h[N],Next[N],w[N],v[N];
-long long n,m,p[120],q[N],d[120][120],f[120][120],behind[N];
-int add(int x,int y,int z){
-    tot++;
-    Next[tot]=h[x];
-    v[tot]=y;
-    w[tot]=z;
-    h[x]=tot;
-}
-int l[120];
-int spfa(long long d[],long long f[],int s){
-    for(int i=0;i&lt;=n;i++)d[i]=0x7fffffff;
-    int head=0,tail=1;
-    d[s]=0;
-    p[s]=1;
-    q[1]=s;
-    p[s]=1;
-    memset(p,0,sizeof(p));
-    while(head&lt;tail){
-        int now=q[++head];
-        for(int i=h[now];i;i=Next[i]){
-            if(d[now]+w[i]&lt;d[v[i]]){
-                d[v[i]]=d[now]+w[i];
-                if(p[v[i]]==0){
-                    q[++tail]=v[i];
-                    p[v[i]]=1;
-                }
-            }
-        }
-        p[now]=0;
-    }
-    memset(l,0,sizeof(l));
-    for(int i=1;i&lt;=2*m;i++)if(d[v[behind[i]]]+w[i]==d[v[i]])l[v[i]]++;
-    f[s]=1;
-    q[1]=s;
-    p[s]=1;
-    head=0,tail=1;
-    memset(p,0,sizeof(p));
-    while(head&lt;tail){
-        int now=q[++head];
-        for(int i=h[now];i;i=Next[i]){
-            if(d[v[i]]==d[now]+w[i]){
-                f[v[i]]+=f[now];
-                l[v[i]]--;
-                if(l[v[i]]==0)q[++tail]=v[i];
-            }
-        }
-    }
-}
-double cal(int x){
-    double ans=0;
-    for(int i=1;i&lt;=n;i++){
-        if(x==i)continue;
-        for(int j=1;j&lt;=n;j++){
-            if(x==j)continue;
-            if(d[x][i]+d[x][j]&gt;d[i][j])continue;
-            ans+=((double)f[x][i]+0.0)*f[x][j]/f[i][j];
-        }
-    }
-    return ans;
-}
-int main(){
-    freopen(&quot;1.in&quot;,&quot;r&quot;,stdin);
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i=1;i&lt;=m;i++){
-        int x,y,z;
-        scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;z);
-        add(x,y,z);behind[tot]=tot+1;
-        add(y,x,z);behind[tot]=tot-1;
-    }
-    for(int i=1;i&lt;=n;i++)spfa(d[i],f[i],i);
-    for(int i=1;i&lt;=n;i++)printf(&quot;%.7lf\n&quot;,cal(i));
-}
-</code></pre>
-
-    </div>
 </div>
-
-<div class="cube-article-nav">
-    <ul>
-        
-        
-        <li class="next">
-            <a href="/2018/06/26/BZOJ2402-陶陶的难题II/">
-                BZOJ2042 陶陶的难题II
-                <i class="cube-icon cube-next" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-    </ul>
-</div>
-
-
-<!-- TODO 根据theme.comment的内容进行入口选择 -->
-
-
-
         </div>
         <div class="cube-right">
             
@@ -438,7 +345,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -474,7 +381,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/数学/">#数学</a>
         </div>
         
@@ -484,7 +391,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
@@ -494,12 +401,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         

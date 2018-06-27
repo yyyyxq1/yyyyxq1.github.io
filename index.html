@@ -525,8 +525,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h1 id="font-size6-face黑体-斜率优化font"><a class="markdownIt-Anchor" href="#font-size6-face黑体-斜率优化font"></a> <font size="6" face="黑体"> 斜率优化</font></h1>
-<h1 id="作用"><a class="markdownIt-Anchor" href="#作用"></a> 作用：</h1>
+           <h1 id="作用"><a class="markdownIt-Anchor" href="#作用"></a> 作用：</h1>
 <p><font size="4" face="黑体">    　　  将某些复杂度不对的dp方程降一个维度，譬如O（n^2）的dp方程，若其满足决策单调性，既可通过斜率优化对其进行降维打击，让它强行变成O（n）的。</font><br>
 #决策单调性：<br>
 <font size="4" face="黑体">    　　   若对于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>来说，选择k这个决策是最优的，那么对于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.902771em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">f_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>来说，选择k之前的决策不会比选择k更优。例如：若f具有决策单调性<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.902771em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>的决策一定是k或在k后面的决策。</font></p>
@@ -619,8 +618,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h3 id="杜教筛"><a class="markdownIt-Anchor" href="#杜教筛"></a> 杜教筛</h3>
-<p>​      我不会什么狄利克雷卷积，但同我反演只用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mo>∑</mo><mrow><mi>d</mi><mi mathvariant="normal">∣</mi><mi>n</mi></mrow></msub><mi>μ</mi><mo>(</mo><mi>d</mi><mo>)</mo><mo>=</mo><mo>(</mo><mi>n</mi><mo>=</mo><mo>=</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">\sum_{d|n}\mu(d)=(n==1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.22501em;vertical-align:-0.47501em;"></span><span class="base textstyle uncramped"><span class="mop"><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span><span class="vlist"><span style="top:0.30001em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">d</span><span class="mord mathrm">∣</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">μ</span><span class="mopen">(</span><span class="mord mathit">d</span><span class="mclose">)</span><span class="mrel">=</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mrel">=</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>这条式子一样，我觉得杜教筛也是相似的。</p>
+           <p>​      我不会什么狄利克雷卷积，但同我反演只用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mo>∑</mo><mrow><mi>d</mi><mi mathvariant="normal">∣</mi><mi>n</mi></mrow></msub><mi>μ</mi><mo>(</mo><mi>d</mi><mo>)</mo><mo>=</mo><mo>(</mo><mi>n</mi><mo>=</mo><mo>=</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">\sum_{d|n}\mu(d)=(n==1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.22501em;vertical-align:-0.47501em;"></span><span class="base textstyle uncramped"><span class="mop"><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span><span class="vlist"><span style="top:0.30001em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">d</span><span class="mord mathrm">∣</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">μ</span><span class="mopen">(</span><span class="mord mathit">d</span><span class="mclose">)</span><span class="mrel">=</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mrel">=</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>这条式子一样，我觉得杜教筛也是相似的。</p>
 <h4 id="例题1"><a class="markdownIt-Anchor" href="#例题1"></a> 例题1：</h4>
 <p>​    <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></msubsup><mi>μ</mi><mo>(</mo><mi>i</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\sum_{i=1}^{n}\mu(i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.0500099999999999em;vertical-align:-0.30001em;"></span><span class="base textstyle uncramped"><span class="mop"><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">μ</span><span class="mopen">(</span><span class="mord mathit">i</span><span class="mclose">)</span></span></span></span>范围：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mrow><mn>1</mn><mn>0</mn></mrow></msup></mrow><annotation encoding="application/x-tex">n\le10^{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></p>
 <h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h3>
@@ -832,7 +830,7 @@ int main(){
     <div class="count">
         <a class="count articles"><span>5</span>Article</a>
         <a class="count tags"><span>10</span>Tags</a>
-        <a class="count categories"><span>0</span>Categories</a>
+        <a class="count categories"><span>1</span>Categories</a>
     </div>
 </div>
 
@@ -933,6 +931,20 @@ int main(){
 
 
 
+<div class="cube-categories cube-sidebar" id="cube-categories">
+    <div class="title">
+        <a href="/categories">Categories</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/categories/OI/">#OI</a>
+        </div>
+        
+    </div>
+</div>
+
 
 
 <div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
@@ -962,16 +974,6 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/NOI/">#NOI</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
         <div class="cube-box ">
             <a href="/tags/数学/">#数学</a>
         </div>
@@ -982,12 +984,22 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/积性函数/">#积性函数</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/积性函数/">#积性函数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
@@ -1097,21 +1109,6 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a
 <!-- inject:script -->
 <script src="/js/script.js"></script>
 <!-- endinject -->
-<div class="cube-loading out"></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<div class="cube-loading out"></div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

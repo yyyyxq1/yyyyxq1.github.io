@@ -184,8 +184,7 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h1 id="font-size6-face黑体-斜率优化font"><a class="markdownIt-Anchor" href="#font-size6-face黑体-斜率优化font"></a> <font size="6" face="黑体"> 斜率优化</font></h1>
-<h1 id="作用"><a class="markdownIt-Anchor" href="#作用"></a> 作用：</h1>
+        <h1 id="作用"><a class="markdownIt-Anchor" href="#作用"></a> 作用：</h1>
 <p><font size="4" face="黑体">    　　  将某些复杂度不对的dp方程降一个维度，譬如O（n^2）的dp方程，若其满足决策单调性，既可通过斜率优化对其进行降维打击，让它强行变成O（n）的。</font><br>
 #决策单调性：<br>
 <font size="4" face="黑体">    　　   若对于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>来说，选择k这个决策是最优的，那么对于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.902771em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">f_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>来说，选择k之前的决策不会比选择k更优。例如：若f具有决策单调性<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.902771em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>的决策一定是k或在k后面的决策。</font></p>
@@ -316,7 +315,7 @@
     <div class="count">
         <a class="count articles"><span>5</span>Article</a>
         <a class="count tags"><span>10</span>Tags</a>
-        <a class="count categories"><span>0</span>Categories</a>
+        <a class="count categories"><span>1</span>Categories</a>
     </div>
 </div>
 
@@ -417,6 +416,20 @@
 
 
 
+<div class="cube-categories cube-sidebar" id="cube-categories">
+    <div class="title">
+        <a href="/categories">Categories</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/categories/OI/">#OI</a>
+        </div>
+        
+    </div>
+</div>
+
 
 
 <div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
@@ -431,7 +444,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/分数规划/">#分数规划</a>
         </div>
         
@@ -446,6 +459,16 @@
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/数学/">#数学</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/dp优化/">#dp优化</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
@@ -457,21 +480,11 @@
         
         
         <div class="cube-box ">
-            <a href="/tags/数学/">#数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/dp优化/">#dp优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
@@ -581,21 +594,6 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a
 <!-- inject:script -->
 <script src="/js/script.js"></script>
 <!-- endinject -->
-<div class="cube-loading out"></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<div class="cube-loading out"></div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
