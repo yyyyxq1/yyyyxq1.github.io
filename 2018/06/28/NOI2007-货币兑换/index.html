@@ -349,8 +349,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>7</span>Article</a>
-        <a class="count tags"><span>13</span>Tags</a>
+        <a class="count articles"><span>8</span>Article</a>
+        <a class="count tags"><span>15</span>Tags</a>
         <a class="count categories"><span>1</span>Categories</a>
     </div>
 </div>
@@ -388,7 +388,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/06/28/NOI2007-项链工厂/" title="NOI2007 项链工厂">NOI2007 项链工厂</a>
+                    <a href="/2018/06/30/NOI2007-生成树计数/" title="NOI2007 生成树计数">NOI2007 生成树计数</a>
                 </p>
             </div>
             
@@ -402,7 +402,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/06/28/NOI2007-货币兑换/" title="NOI2007 货币兑换">NOI2007 货币兑换</a>
+                    <a href="/2018/06/28/NOI2007-项链工厂/" title="NOI2007 项链工厂">NOI2007 项链工厂</a>
                 </p>
             </div>
         </li>
@@ -415,7 +415,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/06/27/NOI2007-社交网络/" title="NOI2007 社交网络">NOI2007 社交网络</a>
+                    <a href="/2018/06/28/NOI2007-货币兑换/" title="NOI2007 货币兑换">NOI2007 货币兑换</a>
                 </p>
             </div>
         </li>
@@ -428,7 +428,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/06/26/BZOJ2402-陶陶的难题II/" title="BZOJ2042 陶陶的难题II">BZOJ2042 陶陶的难题II</a>
+                    <a href="/2018/06/27/NOI2007-社交网络/" title="NOI2007 社交网络">NOI2007 社交网络</a>
                 </p>
             </div>
         </li>
@@ -441,7 +441,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/06/24/斜率优化/" title="斜率优化">斜率优化</a>
+                    <a href="/2018/06/26/BZOJ2402-陶陶的难题II/" title="BZOJ2042 陶陶的难题II">BZOJ2042 陶陶的难题II</a>
                 </p>
             </div>
         </li>
@@ -459,7 +459,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -475,13 +475,18 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/线段树/">#线段树</a>
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
@@ -500,8 +505,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
@@ -510,12 +520,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
@@ -535,7 +545,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
@@ -645,6 +655,21 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a
 <!-- inject:script -->
 <script src="/js/script.js"></script>
 <!-- endinject -->
-<div class="cube-loading out"></div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<div class="cube-loading out"></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

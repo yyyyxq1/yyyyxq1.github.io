@@ -175,6 +175,178 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-NOI2007 生成树计数">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/06/30/NOI2007-生成树计数/">NOI2007 生成树计数</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-06-30
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
+                
+                <a href="/tags/状压DP/" class="cube-excerpt-tag-link">#状压DP</a>
+                
+                <a href="/tags/最小表示法/" class="cube-excerpt-tag-link">#最小表示法</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="有一条链链上长度不超过k的点之间都会进行连边求生成树个数"><a class="markdownIt-Anchor" href="#有一条链链上长度不超过k的点之间都会进行连边求生成树个数"></a>     有一条链，链上长度不超过k的点之间都会进行连边，求生成树个数。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="60做法on3nleq-100"><a class="markdownIt-Anchor" href="#60做法on3nleq-100"></a>     60%做法：O(n^3)，n\leq 100</h3>
+<h3 id="那么直接连边按照用矩阵树定理高斯消元解行列式即可"><a class="markdownIt-Anchor" href="#那么直接连边按照用矩阵树定理高斯消元解行列式即可"></a>     那么直接连边按照，用矩阵树定理高斯消元解行列式即可。</h3>
+<h3 id="因为nleq100那么直接连边按照用矩阵树定理n3高斯消元解行列式即可"><a class="markdownIt-Anchor" href="#因为nleq100那么直接连边按照用矩阵树定理n3高斯消元解行列式即可"></a>  因为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">n\leq100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>那么直接连边按照，用矩阵树定理<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">n^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>高斯消元解行列式即可。</h3>
+<h3 id="100做法ol3lognnleq-1015l为所有联通形式种类当k5时l52"><a class="markdownIt-Anchor" href="#100做法ol3lognnleq-1015l为所有联通形式种类当k5时l52"></a>     100%做法：O(l^3\log(n))，n\leq 10^{15},l为所有联通形式种类，当k=5时l=52。</h3>
+<h3 id="考虑到对于第i-k号点如果最后会成为生成树他必定与i-k1到i号点中至少一个是一个联通快的-因此我们维护f_ij表示在当前第i个点前j个点的联通块是怎么样的每次转移则是用第i号点与前面的连边情况进行转移维护判断i-k号点在转移后是否与i-k1到i号点中的部分点联通-搜索我们可以得到转移矩阵"><a class="markdownIt-Anchor" href="#考虑到对于第i-k号点如果最后会成为生成树他必定与i-k1到i号点中至少一个是一个联通快的-因此我们维护f_ij表示在当前第i个点前j个点的联通块是怎么样的每次转移则是用第i号点与前面的连边情况进行转移维护判断i-k号点在转移后是否与i-k1到i号点中的部分点联通-搜索我们可以得到转移矩阵"></a>     考虑到对于第i-k号点，如果最后会成为生成树，他必定与i-k+1到i号点中至少一个是一个联通快的。因此，我们维护<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示，在当前第i个点，前j个点的联通块是怎么样的，每次转移则是用第i号点与前面的连边情况进行转移，维护判断i-k号点在转移后是否与i-k+1到i号点中的部分点联通。搜索我们可以得到转移矩阵。</h3>
+<h3 id="初始条件因为在前k个点中所有点之间都是两两相连的n个点的完全图的最小生成树是nn-2这个可用purfer序列简易证明"><a class="markdownIt-Anchor" href="#初始条件因为在前k个点中所有点之间都是两两相连的n个点的完全图的最小生成树是nn-2这个可用purfer序列简易证明"></a>      初始条件：因为在前k个点中，所有点之间都是两两相连的，n个点的完全图的最小生成树是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">n^{n-2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，这个可用purfer序列简易证明。</h3>
+<h3 id="关于最小表示法既联通情况2231与联通情况1123是相同的所有本质相同的情况我们用它的最小表示来识别它"><a class="markdownIt-Anchor" href="#关于最小表示法既联通情况2231与联通情况1123是相同的所有本质相同的情况我们用它的最小表示来识别它"></a>      关于最小表示法：既联通情况2,2,3,1与联通情况1,1,2,3是相同的，所有本质相同的情况我们用它的最小表示来识别它。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;map&gt;
+#define N 120
+#define P 65521
+using namespace std;
+int cnt,k,tot,l;
+int a[10],b[10],q[60];
+long long n;
+map&lt;int,int&gt;p;
+struct matrix{
+    long long a[N][N];
+    int clear(){memset(a,0,sizeof(a));}
+    int E(){for(int i=1;i&lt;=cnt;i++)a[i][i]=1;}
+}g,f;
+matrix operator *(matrix a,matrix b){
+    matrix ans;
+    ans.clear();
+    for(int i=1;i&lt;=cnt;i++){
+        for(int j=1;j&lt;=cnt;j++){
+            for(int k=1;k&lt;=cnt;k++){
+                (ans.a[i][j]+=a.a[i][k]*b.a[k][j])%=P;
+            }
+        }
+    }
+    return ans;
+}
+matrix power(matrix x,long long k){
+    matrix ans;
+    ans.clear();
+    ans.E();
+    while(k){
+        if(k&amp;1)ans=ans*x;
+        x=x*x;
+        k&gt;&gt;=1;
+    }
+    return ans;
+}
+int get(int x){
+    memset(a,0,sizeof(a));
+    memset(b,0,sizeof(b));
+    int tot=0;
+    for(int i=1;i&lt;=k;i++)a[i]=(x&gt;&gt;(3*(k-i)))%(1&lt;&lt;3);
+    for(int i=1;i&lt;=k;i++){
+        if(b[a[i]])a[i]=b[a[i]];
+        else b[a[i]]=++tot,a[i]=tot;
+    }
+    int y=0;
+    for(int i=1;i&lt;=k;i++)y=y&lt;&lt;3,y+=a[i];
+    return y;
+}
+int powerr(int x,int k){
+    int ans=1;
+    if(k&lt;=0)return ans;
+    while(k){
+        if(k&amp;1)(ans*=x)%=P;
+        (x*=x)%=P;
+        k&gt;&gt;=1;
+    }
+    return ans;
+}
+int gett(int x){
+    int ans=1;
+    memset(a,0,sizeof(a));
+    memset(b,0,sizeof(b));
+    for(int i=1;i&lt;=k;i++)a[i]=(x&gt;&gt;(3*(k-i)))%(1&lt;&lt;3),b[a[i]]++;
+    for(int i=1;i&lt;=k;i++)ans*=powerr(b[i],b[i]-2);
+    return ans;
+}
+int dfs(int x,int o){
+    if(x==l){
+        int y=get(o);
+        if(p[y]==0){
+            p[y]=++cnt;
+            q[cnt]=y;
+            f.a[1][cnt]=gett(y);
+        }
+        return 0;
+    }
+    for(int i=1;i&lt;=k;i++){
+        dfs(x+1,(o&lt;&lt;3)+i);
+    }
+}
+int check(int x,int y){
+    int o=0;
+    memset(a,0,sizeof(a));
+    memset(b,0,sizeof(b));
+    for(int i=1;i&lt;=k;i++)a[i]=(x&gt;&gt;(3*(k-i)))%(1&lt;&lt;3);
+    for(int i=2;i&lt;=k;i++){
+        if(a[i]==a[1])break;
+        if(y&amp;1)continue;
+        if(i==k)return 0;
+    }
+    for(int i=0;i&lt;k;i++){
+        if((1&lt;&lt;i)&amp;y){
+            if(o==0)o=a[i+1];
+            if(b[a[i+1]]&gt;0)return 0;
+            b[a[i+1]]=o;
+        }
+    }
+    for(int i=1;i&lt;=k;i++)if(b[a[i]]&gt;0)a[i]=o;
+    int l=0;
+    for(int i=2;i&lt;=k;i++)l=(l&lt;&lt;3)+a[i];
+    l&lt;&lt;=3;
+    if(y!=0)l+=o;
+    else l+=k+1;
+    int ans=get(l);
+    return p[ans];
+}
+int cal(int x){
+    for(int i=1;i&lt;=cnt;i++){
+        int l=check(q[i],x);
+        if(l&gt;0){
+            g.a[i][l]++;
+        }
+    }
+}
+int main(){
+    scanf(&quot;%d%lld&quot;,&amp;k,&amp;n);
+    if(k&gt;n){
+        printf(&quot;%d&quot;,powerr(n,n-2));
+        return 0;
+    }
+    l=k;
+    dfs(0,0);
+    for(int i=0;i&lt;(1&lt;&lt;k);i++)cal(i);
+    f=f*power(g,n-k);
+    printf(&quot;%d\n&quot;,f.a[1][1]);
+} 
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/06/30/NOI2007-生成树计数/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-NOI2007 项链工厂">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/06/28/NOI2007-项链工厂/">NOI2007 项链工厂</a></h1>
@@ -1171,8 +1343,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>7</span>Article</a>
-        <a class="count tags"><span>13</span>Tags</a>
+        <a class="count articles"><span>8</span>Article</a>
+        <a class="count tags"><span>15</span>Tags</a>
         <a class="count categories"><span>1</span>Categories</a>
     </div>
 </div>
@@ -1210,7 +1382,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/06/28/NOI2007-项链工厂/" title="NOI2007 项链工厂">NOI2007 项链工厂</a>
+                    <a href="/2018/06/30/NOI2007-生成树计数/" title="NOI2007 生成树计数">NOI2007 生成树计数</a>
                 </p>
             </div>
             
@@ -1224,7 +1396,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/06/28/NOI2007-货币兑换/" title="NOI2007 货币兑换">NOI2007 货币兑换</a>
+                    <a href="/2018/06/28/NOI2007-项链工厂/" title="NOI2007 项链工厂">NOI2007 项链工厂</a>
                 </p>
             </div>
         </li>
@@ -1237,7 +1409,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/06/27/NOI2007-社交网络/" title="NOI2007 社交网络">NOI2007 社交网络</a>
+                    <a href="/2018/06/28/NOI2007-货币兑换/" title="NOI2007 货币兑换">NOI2007 货币兑换</a>
                 </p>
             </div>
         </li>
@@ -1250,7 +1422,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/06/26/BZOJ2402-陶陶的难题II/" title="BZOJ2042 陶陶的难题II">BZOJ2042 陶陶的难题II</a>
+                    <a href="/2018/06/27/NOI2007-社交网络/" title="NOI2007 社交网络">NOI2007 社交网络</a>
                 </p>
             </div>
         </li>
@@ -1263,7 +1435,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/06/24/斜率优化/" title="斜率优化">斜率优化</a>
+                    <a href="/2018/06/26/BZOJ2402-陶陶的难题II/" title="BZOJ2042 陶陶的难题II">BZOJ2042 陶陶的难题II</a>
                 </p>
             </div>
         </li>
@@ -1297,13 +1469,18 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
@@ -1322,12 +1499,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
@@ -1337,7 +1519,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
@@ -1347,7 +1529,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
@@ -1357,7 +1539,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
@@ -1467,6 +1649,21 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a
 <!-- inject:script -->
 <script src="/js/script.js"></script>
 <!-- endinject -->
-<div class="cube-loading out"></div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<div class="cube-loading out"></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
