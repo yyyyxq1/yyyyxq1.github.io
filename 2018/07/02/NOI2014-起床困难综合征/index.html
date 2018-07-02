@@ -10,7 +10,7 @@
     
     
     
-    <title>Tags: 数学 | illyasviel</title>
+    <title>NOI2014 起床困难综合征 | illyasviel</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -174,33 +174,92 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <style>
-    @media(max-width: 768px) {
-        body {
-            background-color: #fff!important;
-        }
-    }
-</style>
-<div class="cube-archives">
+            <div class="cube-article">
+    <h1 class="title">NOI2014 起床困难综合征</h1>
     
-    <div class="cube-archive" style="margin-top: 0;">
-        <h1 class="title">数学</h1>
-        
-        <ul class="posts">
-            
-            <li class="post">
-                <a href="/2018/06/24/斜率优化/">斜率优化</a>
-            </li>
-            
-            <li class="post">
-                <a href="/2018/06/24/杜教筛/">杜教筛</a>
-            </li>
-            
-        </ul>
-        
-    </div>
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-07-02
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/NOI/">#NOI</a>
+    
+    <a href="/tags/贪心/">#贪心</a>
     
 </div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给定一系列位运算操作在1到m里选一个数使这个数在经历一系列操作后值最大"><a class="markdownIt-Anchor" href="#给定一系列位运算操作在1到m里选一个数使这个数在经历一系列操作后值最大"></a>     给定一系列位运算操作，在1到m里选一个数，使这个数在经历一系列操作后值最大。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="对于每一位分别求出输入时是0和1为多少从高位往低位贪心选择较大值如果在相同满足要求的结果下选择输入较小的"><a class="markdownIt-Anchor" href="#对于每一位分别求出输入时是0和1为多少从高位往低位贪心选择较大值如果在相同满足要求的结果下选择输入较小的"></a>     对于每一位分别求出输入时是0和1为多少，从高位往低位贪心选择较大值，如果在相同满足要求的结果下选择输入较小的。</h3>
+<pre class="highlight"><code class="">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt; 
+using namespace std;
+long long n,m,d,ans,l;
+char s[100];
+int main(){
+    scanf(&quot;%lld%lld&quot;,&amp;n,&amp;m);
+    long long x=0,y=(1LL&lt;&lt;32)-1;
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%s&quot;,s+1);
+        scanf(&quot;%lld&quot;,&amp;d);
+        if(s[1]=='O')x=x|d,y=y|d;
+        if(s[1]=='A')x=x&amp;d,y=y&amp;d;
+        if(s[1]=='X')x=x^d,y=y^d;
+    }
+    for(int i=32;i&gt;=0;i--){
+        if(x&amp;(1LL&lt;&lt;(i))){
+            ans+=1LL&lt;&lt;i;
+        }else{
+            if(y&amp;(1LL&lt;&lt;i)){
+                if(l+(1LL&lt;&lt;i)&lt;=m){
+                    ans+=1LL&lt;&lt;i;
+                    l+=1LL&lt;&lt;i;
+                }
+            }
+        }
+    }
+    printf(&quot;%lld&quot;,ans);
+}
+</code></pre>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2018/07/02/NOI2014-动物园/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                NOI2014 动物园
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2018/06/30/NOI2007-生成树计数/">
+                NOI2007 生成树计数
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
         </div>
         <div class="cube-right">
             
@@ -348,7 +407,7 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -364,7 +423,7 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -399,7 +458,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
@@ -409,7 +468,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
@@ -429,7 +488,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
@@ -439,12 +498,12 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         

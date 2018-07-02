@@ -10,7 +10,7 @@
     
     
     
-    <title>Tags: 数学 | illyasviel</title>
+    <title>NOI2014 动物园 | illyasviel</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -174,33 +174,113 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <style>
-    @media(max-width: 768px) {
-        body {
-            background-color: #fff!important;
-        }
-    }
-</style>
-<div class="cube-archives">
+            <div class="cube-article">
+    <h1 class="title">NOI2014 动物园</h1>
     
-    <div class="cube-archive" style="margin-top: 0;">
-        <h1 class="title">数学</h1>
-        
-        <ul class="posts">
-            
-            <li class="post">
-                <a href="/2018/06/24/斜率优化/">斜率优化</a>
-            </li>
-            
-            <li class="post">
-                <a href="/2018/06/24/杜教筛/">杜教筛</a>
-            </li>
-            
-        </ul>
-        
-    </div>
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-07-02
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/NOI/">#NOI</a>
+    
+    <a href="/tags/KMP/">#KMP</a>
+    
+    <a href="/tags/倍增/">#倍增</a>
+    
+    <a href="/tags/卡常/">#卡常</a>
     
 </div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="对于s的每个前缀t对于t求出有多少个长度小于t的前缀和后缀相同讲每个前缀t的答案加一乘起来膜1000000007"><a class="markdownIt-Anchor" href="#对于s的每个前缀t对于t求出有多少个长度小于t的前缀和后缀相同讲每个前缀t的答案加一乘起来膜1000000007"></a>     对于S的每个前缀T，对于T求出有多少个长度小于|T|的前缀和后缀相同，讲每个前缀T的答案加一乘起来膜<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>7</mn></mrow><annotation encoding="application/x-tex">1000000007</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">7</span></span></span></span>。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="直接求next数组然后倍增就好了-倍增前后坐标相反能快差不多一倍不然卡不过去qwq"><a class="markdownIt-Anchor" href="#直接求next数组然后倍增就好了-倍增前后坐标相反能快差不多一倍不然卡不过去qwq"></a>     直接求Next数组然后倍增就好了。（倍增前后坐标相反能快差不多一倍，不然卡不过去qwq）</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 1200000
+#define P 1000000007
+using namespace std;
+char s[N];
+long long f[21][N],ans;
+int Next[N],q[N],g[N];
+int cal(int x){
+    if(f[0][x]==0)return 0;
+    int o=x;
+    for(int i=20;i&gt;=0;i--)
+        if(f[i][o]&gt;x/2)o=f[i][o];
+    return f[0][o];
+}
+int get(){
+    memset(f,0,sizeof(f));
+    memset(q,0,sizeof(q));
+    memset(g,0,sizeof(g));
+    memset(Next,0,sizeof(Next));
+    int l=strlen(s+1);
+    q[1]=1;
+    for(int i=2;i&lt;=l;i++){
+        int j=Next[i-1];
+        while(j&amp;&amp;s[j+1]!=s[i])j=Next[j];
+        Next[i]=j+(s[j+1]==s[i]);
+        q[i]=q[Next[i]]+1;
+        f[0][i]=Next[i];
+        for(int j=1;j&lt;=20;j++){
+            f[j][i]=f[j-1][f[j-1][i]];
+            if(f[j][i]==0)break;
+        }
+    }
+    ans=1;
+    for(int i=1;i&lt;=l;i++)g[i]=q[cal(i)];
+    for(int i=1;i&lt;=l;i++)(ans*=1LL*g[i]+1)%=P; 
+    printf(&quot;%lld\n&quot;,ans);
+}
+int main(){
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%s&quot;,s+1);
+        get();
+    }
+}
+</code></pre>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2018/07/02/NOI2014-魔法森林/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                NOI2014 魔法森林
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2018/07/02/NOI2014-起床困难综合征/">
+                NOI2014 起床困难综合征
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
         </div>
         <div class="cube-right">
             
@@ -348,7 +428,7 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -364,7 +444,7 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -374,7 +454,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
@@ -399,17 +479,17 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
@@ -429,12 +509,12 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
@@ -454,7 +534,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/卡常/">#卡常</a>
         </div>
         

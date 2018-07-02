@@ -10,7 +10,7 @@
     
     
     
-    <title>Tags: 数学 | illyasviel</title>
+    <title>NOI2014 随机数生成器 | illyasviel</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -174,33 +174,107 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <style>
-    @media(max-width: 768px) {
-        body {
-            background-color: #fff!important;
-        }
-    }
-</style>
-<div class="cube-archives">
+            <div class="cube-article">
+    <h1 class="title">NOI2014 随机数生成器</h1>
     
-    <div class="cube-archive" style="margin-top: 0;">
-        <h1 class="title">数学</h1>
-        
-        <ul class="posts">
-            
-            <li class="post">
-                <a href="/2018/06/24/斜率优化/">斜率优化</a>
-            </li>
-            
-            <li class="post">
-                <a href="/2018/06/24/杜教筛/">杜教筛</a>
-            </li>
-            
-        </ul>
-        
-    </div>
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-07-02
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/NOI/">#NOI</a>
+    
+    <a href="/tags/贪心/">#贪心</a>
+    
+    <a href="/tags/卡常/">#卡常</a>
+    
+    <a href="/tags/模拟/">#模拟</a>
     
 </div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给出一个随机生成的矩阵数字为1到nm求字典序最小的排序后的从11到nm的数字序列"><a class="markdownIt-Anchor" href="#给出一个随机生成的矩阵数字为1到nm求字典序最小的排序后的从11到nm的数字序列"></a>     给出一个随机生成的矩阵（数字为1到n*m），求字典序最小的排序后的从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>1</mn><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">(1,1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>n</mi><mo separator="true">,</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(n,m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">n</span><span class="mpunct">,</span><span class="mord mathit">m</span><span class="mclose">)</span></span></span></span>的数字序列。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="按照题意模拟出来之后从小到大贪心每次加入点之后把不可能的情况排除直接暴力排除遇到被排除的就退因为每个点最多只会被排除一次所以排除的复杂度是onm的模拟出矩阵也是onm的总复杂度为onm"><a class="markdownIt-Anchor" href="#按照题意模拟出来之后从小到大贪心每次加入点之后把不可能的情况排除直接暴力排除遇到被排除的就退因为每个点最多只会被排除一次所以排除的复杂度是onm的模拟出矩阵也是onm的总复杂度为onm"></a>     按照题意模拟出来之后从小到大贪心，每次加入点之后把不可能的情况排除，直接暴力排除（遇到被排除的就退），因为每个点最多只会被排除一次，所以排除的复杂度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>∗</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n*m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">∗</span><span class="mord mathit">m</span><span class="mclose">)</span></span></span></span>的，模拟出矩阵也是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>∗</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n*m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">∗</span><span class="mord mathit">m</span><span class="mclose">)</span></span></span></span>的，总复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>∗</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n*m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">∗</span><span class="mord mathit">m</span><span class="mclose">)</span></span></span></span>。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define swap(x,y) t=x;x=y;y=t;
+using namespace std;
+int x0,a,b,c,d,n,m,q,tot;
+int f[26000000],p[26000000],l[10200],r[10200];
+static int t;
+int main(){
+    scanf(&quot;%d%d%d%d%d&quot;,&amp;x0,&amp;a,&amp;b,&amp;c,&amp;d);
+    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;q);
+    for(int i=1;i&lt;=n*m;i++)f[i]=i;
+    for(int i=1;i&lt;=n*m;i++){
+        x0=(1LL*a*x0*x0+1LL*b*x0+c)%d;
+        swap(f[i],f[x0%i+1]);
+    }
+    static int x,y;
+    for(static int i=1;i&lt;=q;i++){
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+        swap(f[x],f[y]);
+    }
+    for(static int i=1;i&lt;=n*m;i++)p[f[i]]=i;
+    for(static int i=1;i&lt;=n*m;i++){
+        bool ooo=true;
+        int y=(p[i]-1)%m+1;
+        int x=(p[i]-y)/m+1;
+        if(p[i]==0)continue;
+        for(int i=x-1;i&gt;=1;i--){
+            for(int j=y+1;j&lt;=m;j++){
+                int ooo=((i-1)*m+j);
+                if(p[f[ooo]]==0)break;
+                p[f[ooo]]=0;
+            }
+        }
+        for(int i=x+1;i&lt;=n;i++){
+            for(int j=y-1;j&gt;=1;j--){
+                int ooo=((i-1)*m+j);
+                if(p[f[ooo]]==0)break;
+                p[f[ooo]]=0;
+            }
+        }
+        if(ooo==false)continue;
+        l[++tot]=x;
+        r[tot]=y;
+        printf(&quot;%d &quot;,i);
+        if(tot==n+m-1)return 0; 
+    }
+}
+</code></pre>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        
+        <li class="next">
+            <a href="/2018/07/02/NOI2014-魔法森林/">
+                NOI2014 魔法森林
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
         </div>
         <div class="cube-right">
             
@@ -348,7 +422,7 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -379,12 +453,12 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
@@ -399,7 +473,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
@@ -409,7 +483,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
@@ -429,17 +503,17 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
