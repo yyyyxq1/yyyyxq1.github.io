@@ -175,6 +175,256 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-JLOI2015 骗我呢">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/08/JLOI2015-骗我呢/">JLOI2015 骗我呢</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-08
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/组合数学/" class="cube-excerpt-tag-link">#组合数学</a>
+                
+                <a href="/tags/计数/" class="cube-excerpt-tag-link">#计数</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给出n和m求满足a_ija_i-1j1且a_ija_ij1且0leq-a_ijleq-m1leq-ileq-n1leq-jleq-m的方案数"><a class="markdownIt-Anchor" href="#给出n和m求满足a_ija_i-1j1且a_ija_ij1且0leq-a_ijleq-m1leq-ileq-n1leq-jleq-m的方案数"></a>     给出n和m，求满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i-1,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>≤</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>≤</mo><mi>m</mi><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">0\leq a_{i,j}\leq m,1\leq i\leq n,1\leq j\leq m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.9456279999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit">m</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">i</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mrel">≤</span><span class="mord mathit">m</span></span></span></span>的方案数。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="题解-2"><a class="markdownIt-Anchor" href="#题解-2"></a>  题解：</h3>
+<h3 id="考虑每一行a_ija_ij1总共m个数而值只有m1个意味着每一行只有一个位置的差会为2其他都为1"><a class="markdownIt-Anchor" href="#考虑每一行a_ija_ij1总共m个数而值只有m1个意味着每一行只有一个位置的差会为2其他都为1"></a>     考虑每一行，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，总共m个数，而值只有m+1个，意味着每一行只有一个位置的差会为2，其他都为1。</h3>
+<h3 id="考虑对于每上面一行a_ija_i-1j1意味着对于第i行来说他突变的位置最前能够比第i-1行的突变位置前一格"><a class="markdownIt-Anchor" href="#考虑对于每上面一行a_ija_i-1j1意味着对于第i行来说他突变的位置最前能够比第i-1行的突变位置前一格"></a>     考虑对于每上面一行，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i-1,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，意味着对于第i行来说，他突变的位置最前能够比第i-1行的突变位置前一格。</h3>
+<h3 id="得到onm的方程设f_ij表示第i行的未突变位置小于等于j的方案数-f_ijf_i-1j1f_ij-1-j的范围为0到m-f_001因为小于等于相当于求前缀和所以可以只有一个点有值"><a class="markdownIt-Anchor" href="#得到onm的方程设f_ij表示第i行的未突变位置小于等于j的方案数-f_ijf_i-1j1f_ij-1-j的范围为0到m-f_001因为小于等于相当于求前缀和所以可以只有一个点有值"></a>     得到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nm)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mord mathit">m</span><span class="mclose">)</span></span></span></span>的方程，设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示第i行的未突变位置小于等于j的方案数。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}=f_{i-1,j+1}+f_{i,j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。j的范围为0到m。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mn>0</mn><mo separator="true">,</mo><mn>0</mn></mrow></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f_{0,0}=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span>(因为小于等于相当于求前缀和，所以可以只有一个点有值)。</h3>
+<h3 id="考虑将对于第i行将其第二维下标向右移i行得到方程f_ijf_i-1jf_ij-1-而j的范围是从i到im-那么原题就转化成了对一个n1行nm1列的网格图这里说的是格点有两条线不能越过yx1yx-m2从11走到n1nm1的方案数"><a class="markdownIt-Anchor" href="#考虑将对于第i行将其第二维下标向右移i行得到方程f_ijf_i-1jf_ij-1-而j的范围是从i到im-那么原题就转化成了对一个n1行nm1列的网格图这里说的是格点有两条线不能越过yx1yx-m2从11走到n1nm1的方案数"></a>     考虑将对于第i行，将其第二维下标向右移i行，得到方程<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}=f_{i-1,j}+f_{i,j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。而j的范围是从i到i+m。那么原题就转化成了对一个n+1行n+m+1列的网格图(这里说的是格点)，有两条线不能越过（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>y</mi><mo>=</mo><mi>x</mi><mo>−</mo><mo>(</mo><mi>m</mi><mo>+</mo><mn>2</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">y=x+1,y=x-(m+2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathit">x</span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mopen">(</span><span class="mord mathit">m</span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mclose">)</span></span></span></span>），从（1,1）走到（n+1,n+m+1）的方案数。</h3>
+<h3 id="答案等于全集-先越过a线的-先越过b线的"><a class="markdownIt-Anchor" href="#答案等于全集-先越过a线的-先越过b线的"></a>     答案等于=全集-先越过A线的-先越过B线的。</h3>
+<h3 id="将多次触碰同一条线视为一次触碰那么一条线触碰ab的方案要么是abababab要么是babababa-对于先触碰a的我们考虑先删掉以a结尾的方案加上以ba结尾的方案减掉以aba结尾的方案直到方案数为0就退出每次至少向前移动一次最多移动on次-那么就可以减掉所有第一次触碰禁忌线a的方案-同理可删除先触碰b的"><a class="markdownIt-Anchor" href="#将多次触碰同一条线视为一次触碰那么一条线触碰ab的方案要么是abababab要么是babababa-对于先触碰a的我们考虑先删掉以a结尾的方案加上以ba结尾的方案减掉以aba结尾的方案直到方案数为0就退出每次至少向前移动一次最多移动on次-那么就可以减掉所有第一次触碰禁忌线a的方案-同理可删除先触碰b的"></a> 将多次触碰同一条线视为一次触碰，那么一条线触碰AB的方案要么是ABABABAB……，要么是BABABABA……。对于先触碰A的，我们考虑先删掉以A结尾的方案，加上以BA结尾的方案，减掉以ABA结尾的方案……，直到方案数为０，就退出（每次至少向前移动一次，最多移动Ｏ（ｎ）次）。那么就可以减掉所有第一次触碰禁忌线A的方案。同理可删除先触碰B的。</h3>
+<h3 id="对于末尾为a的方案数计算将终点对a线对称翻转然后直接计算从11到对称点的方案因为将路径沿a翻转必定过a然后到终点-而计算ba为末尾就将点再沿b对称过去计算11到对称点的方案-以此类推"><a class="markdownIt-Anchor" href="#对于末尾为a的方案数计算将终点对a线对称翻转然后直接计算从11到对称点的方案因为将路径沿a翻转必定过a然后到终点-而计算ba为末尾就将点再沿b对称过去计算11到对称点的方案-以此类推"></a>     对于末尾为A的方案数计算，将终点对A线对称翻转，然后直接计算从(1,1)到对称点的方案（因为将路径沿A翻转，必定过A然后到终点。）而计算BA为末尾，就将点再沿B对称过去，计算(1,1)到对称点的方案。以此类推。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 13000000
+#define P 1000000007
+using namespace std;
+long long fac[N],ifac[N];
+int n,m;
+long long power(long long x,int k){
+    long long ans=1;
+    while(k){
+        if(k&amp;1)(ans*=x)%=P;
+        (x*=x)%=P;
+        k&gt;&gt;=1;
+    }
+    return ans;
+}
+int pre(){
+    fac[0]=1;
+    for(int i=1;i&lt;=12000000;i++)fac[i]=fac[i-1]*i%P;
+    ifac[12000000]=power(fac[12000000],P-2);
+    for(int i=11999999;i&gt;=0;i--)ifac[i]=ifac[i+1]*(i+1)%P;
+}
+long long C(long long n,long long m){
+    return fac[n]*ifac[m]%P*ifac[n-m]%P;
+}
+long long calc(int x,int y){
+    if(x&lt;0||y&lt;0)return 0;
+    return C(x+y,x);
+}
+int flipA(int &amp;x,int &amp;y){
+    swap(x,y);
+    x--;y++;
+}
+int flipB(int &amp;x,int &amp;y){
+    swap(x,y);
+    x+=m+2;
+    y-=m+2;
+}
+int main(){
+    pre();
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    long long ans=calc(n+m+1,n);
+    int x=n+m+1,y=n;
+    while(x&gt;=0&amp;&amp;y&gt;=0){
+        flipA(x,y);
+        ans-=calc(x,y);
+        flipB(x,y);
+        ans+=calc(x,y);
+        ans%=P;
+    }
+    x=n+m+1,y=n;
+    while(x&gt;=0&amp;&amp;y&gt;=0){
+        flipB(x,y);
+        ans-=calc(x,y);
+        flipA(x,y);
+        ans+=calc(x,y);
+        ans%=P;
+    }
+    ans+=P;
+    ans%=P;
+    printf(&quot;%lld&quot;,ans); 
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/08/JLOI2015-骗我呢/">Read More</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-JLOI2015 装备购买">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/08/JLOI2015-装备购买/">JLOI2015 装备购买</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-08
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/线性基/" class="cube-excerpt-tag-link">#线性基</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给n个装备每个装备有m个属性求花费最小的基底"><a class="markdownIt-Anchor" href="#给n个装备每个装备有m个属性求花费最小的基底"></a>    给n个装备，每个装备有m个属性，求花费最小的基底。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="排序贪心然后用线性基维护即可"><a class="markdownIt-Anchor" href="#排序贪心然后用线性基维护即可"></a>     排序，贪心，然后用线性基维护即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;algorithm&gt;
+#include&lt;cmath&gt;
+using namespace std;
+#define eps 1e-8
+const int N=505;
+int n,m;
+long double lb[N][N];
+struct node{
+    long double a[N];
+    int w;
+}s[N];
+int tot,ans;
+bool cmp(node x,node y){return x.w&lt;y.w;}
+int main(){
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++)
+        for(int j=1,x;j&lt;=m;j++)scanf(&quot;%llf&quot;,&amp;s[i].a[j]);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;s[i].w);
+    sort(s+1,s+1+n,cmp);
+    for(int x=1;x&lt;=n;x++)
+        for(int i=1;i&lt;=m;i++)
+            if(fabs(s[x].a[i])&gt;=eps){
+                if(fabs(lb[i][i])&lt;eps){
+                    for(int j=i;j&lt;=m;j++)lb[i][j]=s[x].a[j];
+                    tot++;
+                    ans+=s[x].w;
+                    break;
+                }
+                for(int j=m;j&gt;=i;j--)s[x].a[j]-=lb[i][j]*(s[x].a[i]/lb[i][i]);
+            }
+    printf(&quot;%d %d\n&quot;,tot,ans);
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/08/JLOI2015-装备购买/">Read More</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-JLOI2015 城池攻占">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/08/JLOI2015-城池攻占/">JLOI2015 城池攻占</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-08
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/倍增/" class="cube-excerpt-tag-link">#倍增</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述：</h2>
+<h3 id="小铭铭最近获得了一副新的桌游游戏中需要用m个骑士攻占n个城池"><a class="markdownIt-Anchor" href="#小铭铭最近获得了一副新的桌游游戏中需要用m个骑士攻占n个城池"></a>     小铭铭最近获得了一副新的桌游，游戏中需要用m个骑士攻占n个城池。</h3>
+<h3 id="这n个城池用1到n的整数表示-除1号城池外城池i会受到另一座城池f_i的管辖其中f_i-i-也就是说所有城池构成了一棵有根树-这m个骑士用1到m的整数表示其中第i个骑士的初始战斗力为s_i第一个攻击的城池为c_i"><a class="markdownIt-Anchor" href="#这n个城池用1到n的整数表示-除1号城池外城池i会受到另一座城池f_i的管辖其中f_i-i-也就是说所有城池构成了一棵有根树-这m个骑士用1到m的整数表示其中第i个骑士的初始战斗力为s_i第一个攻击的城池为c_i"></a>     这n个城池用1到n的整数表示。除1号城池外，城池i会受到另一座城池<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>的管辖，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub><mo>&lt;</mo><mi>i</mi></mrow><annotation encoding="application/x-tex">f_i &lt;i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord mathit">i</span></span></span></span>。也就是说，所有城池构成了一棵有根树。这m个骑士用1到m的整数表示，其中第i个骑士的初始战斗力为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">s_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，第一个攻击的城池为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">c_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</h3>
+<h3 id="每个城池有一个防御值h_i如果一个骑士的战斗力大于等于城池的生命值那么骑士就可以占领这座城池否则占领失败骑士将在这座城池牺牲-占领一个城池以后骑士的战斗力将发生变化然后继续攻击管辖这座城池的城池直到占领1号城池或牺牲为止"><a class="markdownIt-Anchor" href="#每个城池有一个防御值h_i如果一个骑士的战斗力大于等于城池的生命值那么骑士就可以占领这座城池否则占领失败骑士将在这座城池牺牲-占领一个城池以后骑士的战斗力将发生变化然后继续攻击管辖这座城池的城池直到占领1号城池或牺牲为止"></a>     每个城池有一个防御值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">h_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">h</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，如果一个骑士的战斗力大于等于城池的生命值，那么骑士就可以占领这座城池；否则占领失败，骑士将在这座城池牺牲。占领一个城池以后，骑士的战斗力将发生变化，然后继续攻击管辖这座城池的城池，直到占领1号城池，或牺牲为止。</h3>
+<h3 id="除1号城池外每个城池i会给出两个战斗力变化参数a_i-v_i-若a_i0攻占城池i以后骑士战斗力会增加v_i若a_i-1攻占城池i以后战斗力会乘以v_i-注意每个骑士是单独计算的-也就是说一个骑士攻击一座城池不管结果如何均不会影响其他骑士攻击这座城池的结果"><a class="markdownIt-Anchor" href="#除1号城池外每个城池i会给出两个战斗力变化参数a_i-v_i-若a_i0攻占城池i以后骑士战斗力会增加v_i若a_i-1攻占城池i以后战斗力会乘以v_i-注意每个骑士是单独计算的-也就是说一个骑士攻击一座城池不管结果如何均不会影响其他骑士攻击这座城池的结果"></a>     除1号城池外，每个城池i会给出两个战斗力变化参数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a_i=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span>，攻占城池i以后骑士战斗力会增加<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>；若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a_i =1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span>，攻占城池i以后，战斗力会乘以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。注意每个骑士是单独计算的。也就是说一个骑士攻击一座城池，不管结果如何，均不会影响其他骑士攻击这座城池的结果。</h3>
+<h3 id="现在的问题是对于每个城池输出有多少个骑士在这里牺牲对于每个骑士输出他攻占的城池数量"><a class="markdownIt-Anchor" href="#现在的问题是对于每个城池输出有多少个骑士在这里牺牲对于每个骑士输出他攻占的城池数量"></a>     现在的问题是，对于每个城池，输出有多少个骑士在这里牺牲；对于每个骑士，输出他攻占的城池数量。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑对于一个点来说初始值越大最后能到达的高度也就越高-那么直接倍增维护跳2i所需的初始值并将函数复合即可"><a class="markdownIt-Anchor" href="#考虑对于一个点来说初始值越大最后能到达的高度也就越高-那么直接倍增维护跳2i所需的初始值并将函数复合即可"></a>     考虑对于一个点来说，初始值越大，最后能到达的高度也就越高。那么直接倍增维护跳2^i所需的初始值，并将函数复合即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 320000
+using namespace std;
+long long fa[21][N],f[21][N],g[21][N],l[21][N];
+long long p[N],a[N],v[N]; 
+long long ans[N],bns[N];
+int n,m;
+int main(){
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%lld&quot;,&amp;p[i]);
+    for(int i=2;i&lt;=n;i++)scanf(&quot;%lld%lld%lld&quot;,&amp;fa[0][i],&amp;a[i],&amp;v[i]);
+    for(int i=1;i&lt;=n;i++){
+        f[0][i]=1;g[0][i]=0;
+        if(a[i]==0)g[0][i]=v[i];
+        else f[0][i]=v[i];
+        l[0][i]=p[i];
+        for(int j=1;j&lt;=20;j++){
+            fa[j][i]=fa[j-1][fa[j-1][i]];
+            if(fa[j][i]==0)break;
+            f[j][i]=f[j-1][fa[j-1][i]]*f[j-1][i];
+            g[j][i]=g[j-1][fa[j-1][i]]+f[j-1][fa[j-1][i]]*g[j-1][i];
+            l[j][i]=max(l[j-1][i],(l[j-1][fa[j-1][i]]-g[j-1][i])/f[j-1][i]+((l[j-1][fa[j-1][i]]-g[j-1][i])%f[j-1][i]!=0));
+        }
+    }
+    for(int i=1;i&lt;=m;i++){
+        long long x,y;
+        scanf(&quot;%lld%lld&quot;,&amp;x,&amp;y);
+        int k=i;
+        for(int i=20;i&gt;=0;i--){
+            if(fa[i][y]==0)continue;
+            if(x&gt;=l[i][y]){
+                bns[k]+=(1&lt;&lt;i);
+                x=x*f[i][y]+g[i][y];
+                y=fa[i][y];
+            }
+        }
+        if(x&gt;=p[y])bns[i]++;
+        else ans[y]++;
+    }
+    for(int i=1;i&lt;=n;i++)printf(&quot;%d\n&quot;,ans[i]);
+    for(int i=1;i&lt;=m;i++)printf(&quot;%d\n&quot;,bns[i]);
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/08/JLOI2015-城池攻占/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-JLOI2015 有意义的字符串">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/05/JLOI2015-有意义的字符串/">JLOI2015 有意义的字符串</a></h1>
@@ -922,451 +1172,6 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-NOI2007 项链工厂">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/06/28/NOI2007-项链工厂/">NOI2007 项链工厂</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-06-28
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
-                
-                <a href="/tags/线段树/" class="cube-excerpt-tag-link">#线段树</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="维护一个环和一个指针有以下几种操作该指针的下标为1其余为位置的下标顺时针递增"><a class="markdownIt-Anchor" href="#维护一个环和一个指针有以下几种操作该指针的下标为1其余为位置的下标顺时针递增"></a>    维护一个环，和一个指针，有以下几种操作（该指针的下标为1，其余为位置的下标顺时针递增）:</h3>
-<h3 id="1将指针逆时针移动k位"><a class="markdownIt-Anchor" href="#1将指针逆时针移动k位"></a>    1:将指针逆时针移动k位</h3>
-<h3 id="2将环以指针做对称轴翻转"><a class="markdownIt-Anchor" href="#2将环以指针做对称轴翻转"></a>    2:将环以指针做对称轴翻转</h3>
-<h3 id="3交换l位置和r位置上的颜色"><a class="markdownIt-Anchor" href="#3交换l位置和r位置上的颜色"></a>    3:交换l位置和r位置上的颜色</h3>
-<h3 id="4将l到r染成c颜色"><a class="markdownIt-Anchor" href="#4将l到r染成c颜色"></a>    4:将l到r染成c颜色</h3>
-<h3 id="5查询当前项链有多少段颜色首尾相同算一段"><a class="markdownIt-Anchor" href="#5查询当前项链有多少段颜色首尾相同算一段"></a>    5:查询当前项链有多少段颜色（首尾相同算一段）</h3>
-<h3 id="6-查询l到r有多少段颜色"><a class="markdownIt-Anchor" href="#6-查询l到r有多少段颜色"></a>    6: 查询l到r有多少段颜色</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="线段树"><a class="markdownIt-Anchor" href="#线段树"></a>    线段树</h3>
-<h3 id="对于翻转操作我们修改对应下标然后更新即可需要完成的模块有区间更新lazy标记区间查询单点更新单点查询"><a class="markdownIt-Anchor" href="#对于翻转操作我们修改对应下标然后更新即可需要完成的模块有区间更新lazy标记区间查询单点更新单点查询"></a>    对于翻转操作，我们修改对应下标，然后更新即可，需要完成的模块有区间更新（lazy标记），区间查询，单点更新，单点查询。</h3>
-<h3 id="由于代码是在拍宣传片时候写的思维极度混乱由于实现问题甚至需要开八倍空间这份代码极度丑陋qwq"><a class="markdownIt-Anchor" href="#由于代码是在拍宣传片时候写的思维极度混乱由于实现问题甚至需要开八倍空间这份代码极度丑陋qwq"></a>    （由于代码是在拍宣传片时候写的，思维极度混乱，由于实现问题甚至需要开八倍空间，这份代码极度丑陋qwq）。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#define N 2200000
-using namespace std;
-int a[N],n,c,ooo;
-struct node{
-    int lx[N],rx[N],tag[N],t[N],ll,rr,ans;
-    int pushdown(int i){
-        if(tag[i]){
-            lx[i]=tag[i];
-            rx[i]=tag[i];
-            t[i]=1;
-            tag[i*2]=tag[i];
-            tag[i*2+1]=tag[i];
-            tag[i]=0;
-            return 0;
-        }
-    }
-    int merge(int i,int l,int r){
-        if(tag[l])pushdown(l);
-        if(tag[r])pushdown(r);
-        t[i]=t[l]+t[r]-(rx[l]==lx[r]);
-        lx[i]=lx[l];
-        rx[i]=rx[r];
-    }
-    int build(int i,int l,int r){
-        if(l==r){
-            lx[i]=a[l];
-            rx[i]=a[l];
-            t[i]=1;
-            return 0;
-        }
-        int mid=(l+r)/2;
-        build(i*2,l,mid);
-        build(i*2+1,mid+1,r);
-        merge(i,i*2,i*2+1);
-    }
-    int insert(int i,int l,int r,int x,int y,int c){
-        pushdown(i);
-        if(x&lt;=l&amp;&amp;r&lt;=y){
-            tag[i]=c;
-            pushdown(i);
-            merge(i,i*2,i*2+1);
-            return 0;
-        }
-        int mid=(l+r)/2;
-        if(mid&gt;=x)insert(i*2,l,mid,x,y,c);
-        if(mid&lt;y)insert(i*2+1,mid+1,r,x,y,c);
-        merge(i,i*2,i*2+1);
-    }
-    int add(int i){
-        if(ll==0&amp;&amp;rr==0){
-            ll=lx[i],rr=rx[i];
-            ans=t[i];
-            return 0;
-        }
-        ans=t[i]+ans-(rr==lx[i]);
-        rr=rx[i];
-        return 0;
-    }
-    int query(int i,int l,int r,int x,int y){
-        pushdown(i); 
-        if(x&lt;=l&amp;&amp;y&gt;=r){
-            add(i);return ans;
-        }
-        int mid=(l+r)/2;
-        if(x&lt;=mid)query(i*2,l,mid,x,y);
-        if(y&gt;mid)query(i*2+1,mid+1,r,x,y);
-        merge(i,i*2,i*2+1);
-        return ans;
-    }
-    int clear(){
-        ll=0,rr=0;
-        ans=0;
-        return 0;
-    }
-    int insert(int i,int l,int r,int x,int a){
-        pushdown(i); 
-        if(l==r){
-            t[i]=1;
-            lx[i]=a;
-            rx[i]=a;
-            return 0;
-        }
-        int mid=(l+r)/2;
-        if(x&lt;=mid)insert(i*2,l,mid,x,a);
-        else insert(i*2+1,mid+1,r,x,a);
-        merge(i,i*2,i*2+1);
-    }
-    int query_color(int i,int l,int r,int x){
-        pushdown(i);
-        if(l==r)return lx[i];
-        int mid=(l+r)/2;
-        if(x&lt;=mid)return query_color(i*2,l,mid,x);
-        else return query_color(i*2+1,mid+1,r,x);
-        merge(i,i*2,i*2+1);
-    }
-}s;
-int q;
-char ss[10];
-int get(int &amp;x){
-    x%=n;x+=n;x%=n;
-    if(x==0)x=n;
-}
-int tot;
-int main(){
-    int p=0;
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;c);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
-    s.build(1,1,n);
-    scanf(&quot;%d&quot;,&amp;q);
-    int o=1;
-    for(int i=1;i&lt;=q;i++){
-        scanf(&quot;%s&quot;,ss+1);
-        if(ss[1]=='R'){
-            int k;
-            scanf(&quot;%d&quot;,&amp;k);
-            if(p==0)o-=k;
-            else o+=k;
-            get(o);
-        }
-        if(ss[1]=='F'){p^=1;}
-        if(ss[1]=='S'){
-            int l,r;
-            scanf(&quot;%d%d&quot;,&amp;l,&amp;r);
-            if(p==0)l+=o-1,r+=o-1;
-                else{
-                    l=o+1-l,r=o+1-r;
-                }
-            get(l),get(r);
-            int lx=s.query_color(1,1,n,l),rx=s.query_color(1,1,n,r);
-            s.insert(1,1,n,r,lx);
-            s.insert(1,1,n,l,rx); 
-        }
-        if(ss[1]=='P'){
-            int l,r,x;
-            scanf(&quot;%d%d%d&quot;,&amp;l,&amp;r,&amp;x);
-            if(p==0)l+=o-1,r+=o-1;
-                else{
-                    l=o+1-l,r=o+1-r;
-                    swap(l,r);
-                }
-            get(l),get(r);
-            if(l&lt;=r)s.insert(1,1,n,l,r,x);
-            else s.insert(1,1,n,1,r,x),s.insert(1,1,n,l,n,x);
-        } 
-        if(ss[1]=='C'){
-            tot++;
-//          if(tot==11){
-//              printf(&quot;\n&quot;);
-//              for(int i=1;i&lt;=n;i++)printf(&quot;%d &quot;,s.query_color(1,1,n,i));
-//              printf(&quot;\n&quot;);
-//          }
-            int l=1,r=n,ooo=1;
-            if(ss[2]=='S'){
-                scanf(&quot;%d%d&quot;,&amp;l,&amp;r);
-                if(p==0)l+=o-1,r+=o-1;
-                else{
-                    l=o+1-l,r=o+1-r;
-                    swap(l,r);
-                }
-                get(l);get(r);
-            }
-            int ans=0;
-            s.clear();
-            if(l&lt;=r)ans=s.query(1,1,n,l,r)-(r-l+1==n?(s.query_color(1,1,n,1)==s.query_color(1,1,n,n)):0);
-            else{
-                ans=s.query(1,1,n,1,r);s.clear();
-                ans+=s.query(1,1,n,l,n)-(s.query_color(1,1,n,1)==s.query_color(1,1,n,n));
-            }
-            printf(&quot;%d\n&quot;,max(ans,1));
-        }
-    } 
-}
-</code></pre>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/06/28/NOI2007-项链工厂/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-NOI2007 货币兑换">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/06/28/NOI2007-货币兑换/">NOI2007 货币兑换</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-06-28
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
-                
-                <a href="/tags/斜率优化/" class="cube-excerpt-tag-link">#斜率优化</a>
-                
-                <a href="/tags/CDQ分治/" class="cube-excerpt-tag-link">#CDQ分治</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="股市有n天有a和b两只股票给出a_ib_i表示a劵和b劵的价值r_i表示每天提供的a劵与b劵的比例必须按照这个比例来买"><a class="markdownIt-Anchor" href="#股市有n天有a和b两只股票给出a_ib_i表示a劵和b劵的价值r_i表示每天提供的a劵与b劵的比例必须按照这个比例来买"></a>     股市有n天，有A和B两只股票，给出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">b_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示A劵和B劵的价值，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">r_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示每天提供的A劵与B劵的比例（必须按照这个比例来买）。</h3>
-<h3 id="给出开局的金额s求n天后最多能得到的钱"><a class="markdownIt-Anchor" href="#给出开局的金额s求n天后最多能得到的钱"></a>     给出开局的金额S，求n天后最多能得到的钱。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="易证每天必须全部卖出或者全部买入"><a class="markdownIt-Anchor" href="#易证每天必须全部卖出或者全部买入"></a>     易证每天必须全部卖出或者全部买入</h3>
-<h3 id="60做法on2dp"><a class="markdownIt-Anchor" href="#60做法on2dp"></a>     60%做法，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">O(n^2)dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mord mathit">d</span><span class="mord mathit">p</span></span></span></span>：</h3>
-<h3 id="f_imaxf_i-1a_ja_ib_jb_i"><a class="markdownIt-Anchor" href="#f_imaxf_i-1a_ja_ib_jb_i"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub><mo>=</mo><mi>max</mi><mo>(</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>A</mi><mi>j</mi></msub><mo>∗</mo><msub><mi>a</mi><mi>i</mi></msub><mo>+</mo><msub><mi>B</mi><mi>j</mi></msub><mo>∗</mo><msub><mi>b</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">f_i=\max(f_{i-1},A_j*a_i+B_j*b_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mop">max</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">∗</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">∗</span><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span></h3>
-<h3 id="100做法onlog2n斜率优化cdq分治"><a class="markdownIt-Anchor" href="#100做法onlog2n斜率优化cdq分治"></a>     100%做法，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><msup><mi>g</mi><mn>2</mn></msup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlog^2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>斜率优化+cdq分治:</h3>
-<h3 id="若k优于j且a_ka_j则"><a class="markdownIt-Anchor" href="#若k优于j且a_ka_j则"></a>     若k优于j且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">A_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>&gt;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">A_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，则：</h3>
-<h3 id="a_ja_ib_jb_ia_ka_ib_kb_i"><a class="markdownIt-Anchor" href="#a_ja_ib_jb_ia_ka_ib_kb_i"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>j</mi></msub><mo>∗</mo><msub><mi>a</mi><mi>i</mi></msub><mo>+</mo><msub><mi>B</mi><mi>j</mi></msub><mo>∗</mo><msub><mi>b</mi><mi>i</mi></msub><mo>&lt;</mo><msub><mi>A</mi><mi>k</mi></msub><mo>∗</mo><msub><mi>a</mi><mi>i</mi></msub><mo>+</mo><msub><mi>B</mi><mi>k</mi></msub><mo>∗</mo><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_j*a_i+B_j*b_i&lt;A_k*a_i+B_k*b_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">∗</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">∗</span><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">∗</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">∗</span><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></h3>
-<h3 id="b_ib_j-b_ka_ia_k-a_j"><a class="markdownIt-Anchor" href="#b_ib_j-b_ka_ia_k-a_j"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub><mo>∗</mo><mo>(</mo><msub><mi>B</mi><mi>j</mi></msub><mo>−</mo><msub><mi>B</mi><mi>k</mi></msub><mo>)</mo><mo>&lt;</mo><msub><mi>a</mi><mi>i</mi></msub><mo>∗</mo><mo>(</mo><msub><mi>A</mi><mi>k</mi></msub><mo>−</mo><msub><mi>A</mi><mi>j</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">b_i*(B_j-B_k)&lt;a_i*(A_k-A_j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">∗</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">∗</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span></h3>
-<h3 id="-fraca_k-a_jb_k-b_jfraca_ib_i"><a class="markdownIt-Anchor" href="#-fraca_k-a_jb_k-b_jfraca_ib_i"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mfrac><mrow><msub><mi>A</mi><mi>k</mi></msub><mo>−</mo><msub><mi>A</mi><mi>j</mi></msub></mrow><mrow><msub><mi>B</mi><mi>k</mi></msub><mo>−</mo><msub><mi>B</mi><mi>j</mi></msub></mrow></mfrac><mo>&lt;</mo><mfrac><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">-\frac{A_k-A_j}{B_k-B_j}&lt;\frac{a_i}{b_i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.990551em;"></span><span class="strut bottom" style="height:1.537771em;vertical-align:-0.54722em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15122857142857138em;margin-right:0.07142857142857144em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.51222em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15122857142857138em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">&lt;</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.4149999999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></h3>
-<h3 id="fraca_k-a_jb_k-b_j-fraca_ib_i"><a class="markdownIt-Anchor" href="#fraca_k-a_jb_k-b_j-fraca_ib_i"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><msub><mi>A</mi><mi>k</mi></msub><mo>−</mo><msub><mi>A</mi><mi>j</mi></msub></mrow><mrow><msub><mi>B</mi><mi>k</mi></msub><mo>−</mo><msub><mi>B</mi><mi>j</mi></msub></mrow></mfrac><mo>&gt;</mo><mo>−</mo><mfrac><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{A_k-A_j}{B_k-B_j}&gt;-\frac{a_i}{b_i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.990551em;"></span><span class="strut bottom" style="height:1.537771em;vertical-align:-0.54722em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15122857142857138em;margin-right:0.07142857142857144em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.51222em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15122857142857138em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">&gt;</span><span class="mord">−</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.4149999999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></h3>
-<h3 id="考虑将b_i作为横坐标a_i作为纵坐标对于每个i来说取最优答案即在上凸包做斜率为-fraca_ib_i切线处取点"><a class="markdownIt-Anchor" href="#考虑将b_i作为横坐标a_i作为纵坐标对于每个i来说取最优答案即在上凸包做斜率为-fraca_ib_i切线处取点"></a>     考虑将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>B</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">B_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05017em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>作为横坐标<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>作为纵坐标，对于每个i来说，取最优答案即在上凸包做斜率为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mfrac><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">-\frac{a_i}{b_i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7163919999999999em;"></span><span class="strut bottom" style="height:1.1663919999999999em;vertical-align:-0.44999999999999996em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.4149999999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>切线处取点。</h3>
-<h3 id="cdq分治solvelr"><a class="markdownIt-Anchor" href="#cdq分治solvelr"></a>     CDQ分治：solve(l,r)</h3>
-<h3 id="先按斜率-fraca_ib_i排序-在solvelr把时间小于等于mid的放到数组前半段大于mid的放到数组后半段solvelmid并将其暴力构建凸包对mid1到r的答案进行更新这时满足斜率单调的条件而最先开始的按照斜率排序保证了后半段的查询中斜率式单调递增的-然后solvemid1r最后将l到r中的点按照横纵坐标排序为了返回之后能构建凸包"><a class="markdownIt-Anchor" href="#先按斜率-fraca_ib_i排序-在solvelr把时间小于等于mid的放到数组前半段大于mid的放到数组后半段solvelmid并将其暴力构建凸包对mid1到r的答案进行更新这时满足斜率单调的条件而最先开始的按照斜率排序保证了后半段的查询中斜率式单调递增的-然后solvemid1r最后将l到r中的点按照横纵坐标排序为了返回之后能构建凸包"></a>     先按斜率<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mfrac><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><mrow><msub><mi>b</mi><mi>i</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">-\frac{a_i}{b_i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7163919999999999em;"></span><span class="strut bottom" style="height:1.1663919999999999em;vertical-align:-0.44999999999999996em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.4149999999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>排序。在solve(l,r)把时间小于等于mid的放到数组前半段，大于mid的放到数组后半段，solve(l,mid)，并将其暴力构建凸包，对mid+1到r的答案进行更新（这时满足斜率单调的条件，而最先开始的按照斜率排序保证了后半段的查询中斜率式单调递增的）。然后solve(mid+1,r)，最后将l到r中的点按照横纵坐标排序（为了返回之后能构建凸包）。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;algorithm&gt;
-#include&lt;cmath&gt;
-#define eps 1e-9
-#define N 1200000
-using namespace std;
-struct node{
-    double a,b,k,x,y,r;
-    int id;
-}a[N],t[N];
-int s[N];
-double f[N];
-int n;
-bool cmp(node x,node y){
-    return x.k&gt;y.k;
-}
-bool cmp1(node x,node y){
-    if(fabs(x.x-y.x)&lt;eps)return x.y&lt;y.y;
-    return x.x&lt;y.x;
-}
-bool slope(node x,node y,node z){
-    return (z.x-x.x)*(y.y-x.y)-eps&lt;(y.x-x.x)*(z.y-x.y);
-}
-double slope(node x,node y){
-    if(fabs(x.x-y.x)&lt;eps)return 1e10;
-    return (y.y-x.y)/(y.x-x.x);
-}
-int solve(int l,int r){
-    if(l==r){
-        f[l]=max(f[l],f[l-1]);
-        a[l].y=f[l]/(a[l].a*a[l].r+a[l].b);
-        a[l].x=a[l].y*a[l].r;
-        return 0;
-    }
-    int mid=(l+r)/2;
-    int l1=l-1,l2=mid;
-    for(int i=l;i&lt;=r;i++)if(a[i].id&lt;=mid)t[++l1]=a[i];else t[++l2]=a[i];
-    for(int i=l;i&lt;=r;i++)a[i]=t[i];
-    solve(l,mid);
-    int top=0;
-    for(int i=l;i&lt;=mid;i++){
-        while(top&gt;1&amp;&amp;slope(a[s[top-1]],a[s[top]],a[i]))top--;
-        s[++top]=i;
-    }
-    int j=1;
-    for(int i=mid+1;i&lt;=r;i++){
-        while(j&lt;top&amp;&amp;slope(a[s[j]],a[s[j+1]])+eps&gt;a[i].k)j++;
-        int now=a[i].id,o=s[j];
-        f[now]=max(f[now],a[i].a*a[o].x+a[i].b*a[o].y);
-    }
-    solve(mid+1,r);
-    l1=l,l2=mid+1;
-    for(int i=l;i&lt;=r;i++)if((l2&gt;r)||(l1&lt;=mid&amp;&amp;cmp1(a[l1],a[l2])))t[i]=a[l1++];else t[i]=a[l2++];
-    for(int i=l;i&lt;=r;i++)a[i]=t[i];
-}
-int main(){ 
-    scanf(&quot;%d%lf&quot;,&amp;n,&amp;f[0]);
-    for(int i=1;i&lt;=n;i++){
-        scanf(&quot;%lf%lf%lf&quot;,&amp;a[i].a,&amp;a[i].b,&amp;a[i].r);
-        a[i].k=-a[i].a/a[i].b;
-        a[i].id=i;
-    }
-    sort(a+1,a+1+n,cmp);
-    solve(1,n);
-    printf(&quot;%.5lf\n&quot;,f[n]);
-}
-</code></pre>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/06/28/NOI2007-货币兑换/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-NOI2007 社交网络">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/06/27/NOI2007-社交网络/">NOI2007 社交网络</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-06-27
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
-                
-                <a href="/tags/SPFA/" class="cube-excerpt-tag-link">#SPFA</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="一个无向连通图c_st表示从s到t的最短路条数c_stv表示经过v从s到t的最短路条数"><a class="markdownIt-Anchor" href="#一个无向连通图c_st表示从s到t的最短路条数c_stv表示经过v从s到t的最短路条数"></a>     一个无向连通图，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{s,t}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">s</span><span class="mpunct">,</span><span class="mord mathit">t</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示从s到t的最短路条数，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi></mrow></msub><mo>(</mo><mi>v</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">C_{s,t}(v)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">s</span><span class="mpunct">,</span><span class="mord mathit">t</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span>表示经过v从s到t的最短路条数。</h3>
-<h3 id="对于每个点v求出lvsum-limits_sneq-vt-neq-vfracc_stvc_sts到t的最短路上经过v"><a class="markdownIt-Anchor" href="#对于每个点v求出lvsum-limits_sneq-vt-neq-vfracc_stvc_sts到t的最短路上经过v"></a>     对于每个点v，求出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mo>(</mo><mi>v</mi><mo>)</mo><mo>=</mo><msub><mo>∑</mo><mrow><mi>s</mi><mo>≠</mo><mi>v</mi><mo separator="true">,</mo><mi>t</mi><mo>≠</mo><mi>v</mi></mrow></msub><mfrac><mrow><msub><mi>C</mi><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi></mrow></msub><mo>(</mo><mi>v</mi><mo>)</mo></mrow><mrow><msub><mi>C</mi><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">l(v)=\sum \limits_{s\neq v,t \neq v}\frac{C_{s,t}(v)}{C_{s,t}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.03722em;"></span><span class="strut bottom" style="height:2.2049250000000002em;vertical-align:-1.167705em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mrel">=</span><span class="mop op-limits"><span class="vlist"><span style="top:0.9172049999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">s</span><span class="mrel">≠</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mpunct">,</span><span class="mord mathit">t</span><span class="mrel">≠</span><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span></span><span style="top:-0.000005000000000088267em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span><span class="op-symbol small-op mop">∑</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">s</span><span class="mpunct">,</span><span class="mord mathit">t</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.51222em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.07153em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">s</span><span class="mpunct">,</span><span class="mord mathit">t</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>(s到t的最短路上经过v)</h3>
-<h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h3>
-<h3 id="由于点数小于100直接对于每个点spfa完了之后暴力计算"><a class="markdownIt-Anchor" href="#由于点数小于100直接对于每个点spfa完了之后暴力计算"></a>     由于点数小于100，直接对于每个点SPFA完了之后暴力计算</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#define N 220000
-using namespace std;
-int tot,h[N],Next[N],w[N],v[N];
-long long n,m,p[120],q[N],d[120][120],f[120][120],behind[N];
-int add(int x,int y,int z){
-    tot++;
-    Next[tot]=h[x];
-    v[tot]=y;
-    w[tot]=z;
-    h[x]=tot;
-}
-int l[120];
-int spfa(long long d[],long long f[],int s){
-    for(int i=0;i&lt;=n;i++)d[i]=0x7fffffff;
-    int head=0,tail=1;
-    d[s]=0;
-    p[s]=1;
-    q[1]=s;
-    p[s]=1;
-    memset(p,0,sizeof(p));
-    while(head&lt;tail){
-        int now=q[++head];
-        for(int i=h[now];i;i=Next[i]){
-            if(d[now]+w[i]&lt;d[v[i]]){
-                d[v[i]]=d[now]+w[i];
-                if(p[v[i]]==0){
-                    q[++tail]=v[i];
-                    p[v[i]]=1;
-                }
-            }
-        }
-        p[now]=0;
-    }
-    memset(l,0,sizeof(l));
-    for(int i=1;i&lt;=2*m;i++)if(d[v[behind[i]]]+w[i]==d[v[i]])l[v[i]]++;
-    f[s]=1;
-    q[1]=s;
-    p[s]=1;
-    head=0,tail=1;
-    memset(p,0,sizeof(p));
-    while(head&lt;tail){
-        int now=q[++head];
-        for(int i=h[now];i;i=Next[i]){
-            if(d[v[i]]==d[now]+w[i]){
-                f[v[i]]+=f[now];
-                l[v[i]]--;
-                if(l[v[i]]==0)q[++tail]=v[i];
-            }
-        }
-    }
-}
-double cal(int x){
-    double ans=0;
-    for(int i=1;i&lt;=n;i++){
-        if(x==i)continue;
-        for(int j=1;j&lt;=n;j++){
-            if(x==j)continue;
-            if(d[x][i]+d[x][j]&gt;d[i][j])continue;
-            ans+=((double)f[x][i]+0.0)*f[x][j]/f[i][j];
-        }
-    }
-    return ans;
-}
-int main(){
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i=1;i&lt;=m;i++){
-        int x,y,z;
-        scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;z);
-        add(x,y,z);behind[tot]=tot+1;
-        add(y,x,z);behind[tot]=tot-1;
-    }
-    for(int i=1;i&lt;=n;i++)spfa(d[i],f[i],i);
-    for(int i=1;i&lt;=n;i++)printf(&quot;%.7lf\n&quot;,cal(i));
-}
-</code></pre>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/06/27/NOI2007-社交网络/">Read More</a>
-    </footer>
-</div>
-
 
 
 <ul class="cube-pagination cube-pagination-6">
@@ -1436,8 +1241,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>14</span>Article</a>
-        <a class="count tags"><span>23</span>Tags</a>
+        <a class="count articles"><span>17</span>Article</a>
+        <a class="count tags"><span>26</span>Tags</a>
         <a class="count categories"><span>1</span>Categories</a>
     </div>
 </div>
@@ -1475,7 +1280,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/05/JLOI2015-有意义的字符串/" title="JLOI2015 有意义的字符串">JLOI2015 有意义的字符串</a>
+                    <a href="/2018/07/08/JLOI2015-骗我呢/" title="JLOI2015 骗我呢">JLOI2015 骗我呢</a>
                 </p>
             </div>
             
@@ -1489,7 +1294,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/05/NOI2014-购票/" title="NOI2014 购票">NOI2014 购票</a>
+                    <a href="/2018/07/08/JLOI2015-装备购买/" title="JLOI2015 装备购买">JLOI2015 装备购买</a>
                 </p>
             </div>
         </li>
@@ -1502,7 +1307,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/02/NOI2014-随机数生成器/" title="NOI2014 随机数生成器">NOI2014 随机数生成器</a>
+                    <a href="/2018/07/08/JLOI2015-城池攻占/" title="JLOI2015 城池攻占">JLOI2015 城池攻占</a>
                 </p>
             </div>
         </li>
@@ -1515,7 +1320,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/02/NOI2014-魔法森林/" title="NOI2014 魔法森林">NOI2014 魔法森林</a>
+                    <a href="/2018/07/05/JLOI2015-有意义的字符串/" title="JLOI2015 有意义的字符串">JLOI2015 有意义的字符串</a>
                 </p>
             </div>
         </li>
@@ -1528,7 +1333,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/02/NOI2014-动物园/" title="NOI2014 动物园">NOI2014 动物园</a>
+                    <a href="/2018/07/05/NOI2014-购票/" title="NOI2014 购票">NOI2014 购票</a>
                 </p>
             </div>
         </li>
@@ -1563,17 +1368,72 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/BZOJ/">#BZOJ</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/分数规划/">#分数规划</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/树链剖分/">#树链剖分</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/凸包/">#凸包</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/组合数学/">#组合数学</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/计数/">#计数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
@@ -1587,38 +1447,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/BZOJ/">#BZOJ</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/分数规划/">#分数规划</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/树链剖分/">#树链剖分</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/凸包/">#凸包</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
             <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
@@ -1632,13 +1462,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/卡常/">#卡常</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/贪心/">#贪心</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/模拟/">#模拟</a>
         </div>
         
         
@@ -1647,33 +1482,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/dp优化/">#dp优化</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/模拟/">#模拟</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
     </div>
@@ -1794,21 +1614,6 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a
 <!-- inject:script -->
 <script src="/js/script.js"></script>
 <!-- endinject -->
-<div class="cube-loading out"></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<div class="cube-loading out"></div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
