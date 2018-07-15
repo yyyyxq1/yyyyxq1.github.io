@@ -175,6 +175,327 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-NOI2014 动物园">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/02/NOI2014-动物园/">NOI2014 动物园</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-02
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/倍增/" class="cube-excerpt-tag-link">#倍增</a>
+                
+                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
+                
+                <a href="/tags/KMP/" class="cube-excerpt-tag-link">#KMP</a>
+                
+                <a href="/tags/卡常/" class="cube-excerpt-tag-link">#卡常</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="对于s的每个前缀t对于t求出有多少个长度小于t的前缀和后缀相同讲每个前缀t的答案加一乘起来膜1000000007"><a class="markdownIt-Anchor" href="#对于s的每个前缀t对于t求出有多少个长度小于t的前缀和后缀相同讲每个前缀t的答案加一乘起来膜1000000007"></a>     对于S的每个前缀T，对于T求出有多少个长度小于|T|的前缀和后缀相同，讲每个前缀T的答案加一乘起来膜<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>7</mn></mrow><annotation encoding="application/x-tex">1000000007</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">7</span></span></span></span>。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="直接求next数组然后倍增就好了-倍增前后坐标相反能快差不多一倍不然卡不过去qwq"><a class="markdownIt-Anchor" href="#直接求next数组然后倍增就好了-倍增前后坐标相反能快差不多一倍不然卡不过去qwq"></a>     直接求Next数组然后倍增就好了。（倍增前后坐标相反能快差不多一倍，不然卡不过去qwq）</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 1200000
+#define P 1000000007
+using namespace std;
+char s[N];
+long long f[21][N],ans;
+int Next[N],q[N],g[N];
+int cal(int x){
+    if(f[0][x]==0)return 0;
+    int o=x;
+    for(int i=20;i&gt;=0;i--)
+        if(f[i][o]&gt;x/2)o=f[i][o];
+    return f[0][o];
+}
+int get(){
+    memset(f,0,sizeof(f));
+    memset(q,0,sizeof(q));
+    memset(g,0,sizeof(g));
+    memset(Next,0,sizeof(Next));
+    int l=strlen(s+1);
+    q[1]=1;
+    for(int i=2;i&lt;=l;i++){
+        int j=Next[i-1];
+        while(j&amp;&amp;s[j+1]!=s[i])j=Next[j];
+        Next[i]=j+(s[j+1]==s[i]);
+        q[i]=q[Next[i]]+1;
+        f[0][i]=Next[i];
+        for(int j=1;j&lt;=20;j++){
+            f[j][i]=f[j-1][f[j-1][i]];
+            if(f[j][i]==0)break;
+        }
+    }
+    ans=1;
+    for(int i=1;i&lt;=l;i++)g[i]=q[cal(i)];
+    for(int i=1;i&lt;=l;i++)(ans*=1LL*g[i]+1)%=P; 
+    printf(&quot;%lld\n&quot;,ans);
+}
+int main(){
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%s&quot;,s+1);
+        get();
+    }
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/02/NOI2014-动物园/">Read More</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-NOI2014 起床困难综合征">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/02/NOI2014-起床困难综合征/">NOI2014 起床困难综合征</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-02
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
+                
+                <a href="/tags/贪心/" class="cube-excerpt-tag-link">#贪心</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给定一系列位运算操作在1到m里选一个数使这个数在经历一系列操作后值最大"><a class="markdownIt-Anchor" href="#给定一系列位运算操作在1到m里选一个数使这个数在经历一系列操作后值最大"></a>     给定一系列位运算操作，在1到m里选一个数，使这个数在经历一系列操作后值最大。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="对于每一位分别求出输入时是0和1为多少从高位往低位贪心选择较大值如果在相同满足要求的结果下选择输入较小的"><a class="markdownIt-Anchor" href="#对于每一位分别求出输入时是0和1为多少从高位往低位贪心选择较大值如果在相同满足要求的结果下选择输入较小的"></a>     对于每一位分别求出输入时是0和1为多少，从高位往低位贪心选择较大值，如果在相同满足要求的结果下选择输入较小的。</h3>
+<pre class="highlight"><code class="">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt; 
+using namespace std;
+long long n,m,d,ans,l;
+char s[100];
+int main(){
+    scanf(&quot;%lld%lld&quot;,&amp;n,&amp;m);
+    long long x=0,y=(1LL&lt;&lt;32)-1;
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%s&quot;,s+1);
+        scanf(&quot;%lld&quot;,&amp;d);
+        if(s[1]=='O')x=x|d,y=y|d;
+        if(s[1]=='A')x=x&amp;d,y=y&amp;d;
+        if(s[1]=='X')x=x^d,y=y^d;
+    }
+    for(int i=32;i&gt;=0;i--){
+        if(x&amp;(1LL&lt;&lt;(i))){
+            ans+=1LL&lt;&lt;i;
+        }else{
+            if(y&amp;(1LL&lt;&lt;i)){
+                if(l+(1LL&lt;&lt;i)&lt;=m){
+                    ans+=1LL&lt;&lt;i;
+                    l+=1LL&lt;&lt;i;
+                }
+            }
+        }
+    }
+    printf(&quot;%lld&quot;,ans);
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/02/NOI2014-起床困难综合征/">Read More</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-NOI2007 生成树计数">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/06/30/NOI2007-生成树计数/">NOI2007 生成树计数</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-06-30
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
+                
+                <a href="/tags/状压DP/" class="cube-excerpt-tag-link">#状压DP</a>
+                
+                <a href="/tags/最小表示法/" class="cube-excerpt-tag-link">#最小表示法</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="有一条链链上长度不超过k的点之间都会进行连边求生成树个数"><a class="markdownIt-Anchor" href="#有一条链链上长度不超过k的点之间都会进行连边求生成树个数"></a>     有一条链，链上长度不超过k的点之间都会进行连边，求生成树个数。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="60做法on3n-leq-100"><a class="markdownIt-Anchor" href="#60做法on3n-leq-100"></a>     60%做法：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">n \leq 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></h3>
+<h3 id="那么直接连边按照用矩阵树定理高斯消元解行列式即可"><a class="markdownIt-Anchor" href="#那么直接连边按照用矩阵树定理高斯消元解行列式即可"></a>     那么直接连边按照，用矩阵树定理高斯消元解行列式即可。</h3>
+<h3 id="因为nleq100那么直接连边按照用矩阵树定理n3高斯消元解行列式即可"><a class="markdownIt-Anchor" href="#因为nleq100那么直接连边按照用矩阵树定理n3高斯消元解行列式即可"></a>  因为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">n\leq100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>那么直接连边按照，用矩阵树定理<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">n^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>高斯消元解行列式即可。</h3>
+<h3 id="100做法ol3lognnleq-1015l为所有联通形式种类当k5时l52"><a class="markdownIt-Anchor" href="#100做法ol3lognnleq-1015l为所有联通形式种类当k5时l52"></a>     100%做法：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>l</mi><mn>3</mn></msup><mi>l</mi><mi>o</mi><mi>g</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">O(l^3log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mrow><mn>1</mn><mn>5</mn></mrow></msup></mrow><annotation encoding="application/x-tex">n\leq 10^{15}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">5</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>,l为所有联通形式种类，当k=5时l=52。</h3>
+<h3 id="考虑到对于第i-k号点如果最后会成为生成树他必定与i-k1到i号点中至少一个是一个联通快的-因此我们维护f_ij表示在当前第i个点前j个点的联通块是怎么样的每次转移则是用第i号点与前面的连边情况进行转移维护判断i-k号点在转移后是否与i-k1到i号点中的部分点联通-搜索我们可以得到转移矩阵"><a class="markdownIt-Anchor" href="#考虑到对于第i-k号点如果最后会成为生成树他必定与i-k1到i号点中至少一个是一个联通快的-因此我们维护f_ij表示在当前第i个点前j个点的联通块是怎么样的每次转移则是用第i号点与前面的连边情况进行转移维护判断i-k号点在转移后是否与i-k1到i号点中的部分点联通-搜索我们可以得到转移矩阵"></a>     考虑到对于第i-k号点，如果最后会成为生成树，他必定与i-k+1到i号点中至少一个是一个联通快的。因此，我们维护<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示，在当前第i个点，前j个点的联通块是怎么样的，每次转移则是用第i号点与前面的连边情况进行转移，维护判断i-k号点在转移后是否与i-k+1到i号点中的部分点联通。搜索我们可以得到转移矩阵。</h3>
+<h3 id="初始条件因为在前k个点中所有点之间都是两两相连的n个点的完全图的最小生成树是nn-2这个可用purfer序列简易证明"><a class="markdownIt-Anchor" href="#初始条件因为在前k个点中所有点之间都是两两相连的n个点的完全图的最小生成树是nn-2这个可用purfer序列简易证明"></a>      初始条件：因为在前k个点中，所有点之间都是两两相连的，n个点的完全图的最小生成树是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">n^{n-2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，这个可用purfer序列简易证明。</h3>
+<h3 id="关于最小表示法既联通情况2231与联通情况1123是相同的所有本质相同的情况我们用它的最小表示来识别它"><a class="markdownIt-Anchor" href="#关于最小表示法既联通情况2231与联通情况1123是相同的所有本质相同的情况我们用它的最小表示来识别它"></a>      关于最小表示法：既联通情况2,2,3,1与联通情况1,1,2,3是相同的，所有本质相同的情况我们用它的最小表示来识别它。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;map&gt;
+#define N 120
+#define P 65521
+using namespace std;
+int cnt,k,tot,l;
+int a[10],b[10],q[60];
+long long n;
+map&lt;int,int&gt;p;
+struct matrix{
+    long long a[N][N];
+    int clear(){memset(a,0,sizeof(a));}
+    int E(){for(int i=1;i&lt;=cnt;i++)a[i][i]=1;}
+}g,f;
+matrix operator *(matrix a,matrix b){
+    matrix ans;
+    ans.clear();
+    for(int i=1;i&lt;=cnt;i++){
+        for(int j=1;j&lt;=cnt;j++){
+            for(int k=1;k&lt;=cnt;k++){
+                (ans.a[i][j]+=a.a[i][k]*b.a[k][j])%=P;
+            }
+        }
+    }
+    return ans;
+}
+matrix power(matrix x,long long k){
+    matrix ans;
+    ans.clear();
+    ans.E();
+    while(k){
+        if(k&amp;1)ans=ans*x;
+        x=x*x;
+        k&gt;&gt;=1;
+    }
+    return ans;
+}
+int get(int x){
+    memset(a,0,sizeof(a));
+    memset(b,0,sizeof(b));
+    int tot=0;
+    for(int i=1;i&lt;=k;i++)a[i]=(x&gt;&gt;(3*(k-i)))%(1&lt;&lt;3);
+    for(int i=1;i&lt;=k;i++){
+        if(b[a[i]])a[i]=b[a[i]];
+        else b[a[i]]=++tot,a[i]=tot;
+    }
+    int y=0;
+    for(int i=1;i&lt;=k;i++)y=y&lt;&lt;3,y+=a[i];
+    return y;
+}
+int powerr(int x,int k){
+    int ans=1;
+    if(k&lt;=0)return ans;
+    while(k){
+        if(k&amp;1)(ans*=x)%=P;
+        (x*=x)%=P;
+        k&gt;&gt;=1;
+    }
+    return ans;
+}
+int gett(int x){
+    int ans=1;
+    memset(a,0,sizeof(a));
+    memset(b,0,sizeof(b));
+    for(int i=1;i&lt;=k;i++)a[i]=(x&gt;&gt;(3*(k-i)))%(1&lt;&lt;3),b[a[i]]++;
+    for(int i=1;i&lt;=k;i++)ans*=powerr(b[i],b[i]-2);
+    return ans;
+}
+int dfs(int x,int o){
+    if(x==l){
+        int y=get(o);
+        if(p[y]==0){
+            p[y]=++cnt;
+            q[cnt]=y;
+            f.a[1][cnt]=gett(y);
+        }
+        return 0;
+    }
+    for(int i=1;i&lt;=k;i++){
+        dfs(x+1,(o&lt;&lt;3)+i);
+    }
+}
+int check(int x,int y){
+    int o=0;
+    memset(a,0,sizeof(a));
+    memset(b,0,sizeof(b));
+    for(int i=1;i&lt;=k;i++)a[i]=(x&gt;&gt;(3*(k-i)))%(1&lt;&lt;3);
+    for(int i=2;i&lt;=k;i++){
+        if(a[i]==a[1])break;
+        if(y&amp;1)continue;
+        if(i==k)return 0;
+    }
+    for(int i=0;i&lt;k;i++){
+        if((1&lt;&lt;i)&amp;y){
+            if(o==0)o=a[i+1];
+            if(b[a[i+1]]&gt;0)return 0;
+            b[a[i+1]]=o;
+        }
+    }
+    for(int i=1;i&lt;=k;i++)if(b[a[i]]&gt;0)a[i]=o;
+    int l=0;
+    for(int i=2;i&lt;=k;i++)l=(l&lt;&lt;3)+a[i];
+    l&lt;&lt;=3;
+    if(y!=0)l+=o;
+    else l+=k+1;
+    int ans=get(l);
+    return p[ans];
+}
+int cal(int x){
+    for(int i=1;i&lt;=cnt;i++){
+        int l=check(q[i],x);
+        if(l&gt;0){
+            g.a[i][l]++;
+        }
+    }
+}
+int main(){
+    scanf(&quot;%d%lld&quot;,&amp;k,&amp;n);
+    if(k&gt;n){
+        printf(&quot;%d&quot;,powerr(n,n-2));
+        return 0;
+    }
+    l=k;
+    dfs(0,0);
+    for(int i=0;i&lt;(1&lt;&lt;k);i++)cal(i);
+    f=f*power(g,n-k);
+    printf(&quot;%d\n&quot;,f.a[1][1]);
+} 
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/06/30/NOI2007-生成树计数/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-NOI2007 项链工厂">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/06/28/NOI2007-项链工厂/">NOI2007 项链工厂</a></h1>
@@ -1183,8 +1504,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>27</span>Article</a>
-        <a class="count tags"><span>35</span>Tags</a>
+        <a class="count articles"><span>30</span>Article</a>
+        <a class="count tags"><span>39</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
 </div>
@@ -1236,7 +1557,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/15/聪聪可可/" title="聪聪可可">聪聪可可</a>
+                    <a href="/2018/07/15/火星人/" title="JSOI2008 火星人prefix">JSOI2008 火星人prefix</a>
                 </p>
             </div>
         </li>
@@ -1249,7 +1570,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/15/矩阵第k大/" title="矩阵乘法">矩阵乘法</a>
+                    <a href="/2018/07/15/括号匹配/" title="Bracket">Bracket</a>
                 </p>
             </div>
         </li>
@@ -1262,7 +1583,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/15/兔子与樱花/" title="兔子与樱花">兔子与樱花</a>
+                    <a href="/2018/07/15/消除回文串/" title="zuma">zuma</a>
                 </p>
             </div>
         </li>
@@ -1275,7 +1596,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/14/期望排名/" title="rank">rank</a>
+                    <a href="/2018/07/15/聪聪可可/" title="聪聪可可">聪聪可可</a>
                 </p>
             </div>
         </li>
@@ -1298,7 +1619,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -1315,12 +1636,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
+            <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
@@ -1334,7 +1650,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
@@ -1345,6 +1661,16 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/特征方程/">#特征方程</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
@@ -1354,13 +1680,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/好题/">#好题</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -1374,17 +1710,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
@@ -1399,12 +1725,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/卡常/">#卡常</a>
         </div>
         
@@ -1419,22 +1745,22 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
+            <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/期望/">#期望</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/数学/">#数学</a>
         </div>
         
@@ -1445,7 +1771,27 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/期望/">#期望</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
@@ -1459,8 +1805,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/点分治/">#点分治</a>
+        <div class="cube-box ">
+            <a href="/tags/splay/">#splay</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/二分/">#二分</a>
         </div>
         
         
@@ -1474,18 +1825,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
         </div>
         
     </div>
@@ -1606,21 +1947,6 @@ Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a
 <!-- inject:script -->
 <script src="/js/script.js"></script>
 <!-- endinject -->
-<div class="cube-loading out"></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<div class="cube-loading out"></div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
