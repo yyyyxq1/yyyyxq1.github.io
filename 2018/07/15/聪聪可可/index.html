@@ -10,7 +10,7 @@
     
     
     
-    <title>Tags: BZOJ | illyasviel</title>
+    <title>聪聪可可 | illyasviel</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -174,29 +174,110 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <style>
-    @media(max-width: 768px) {
-        body {
-            background-color: #fff!important;
-        }
-    }
-</style>
-<div class="cube-archives">
+            <div class="cube-article">
+    <h1 class="title">聪聪可可</h1>
     
-    <div class="cube-archive" style="margin-top: 0;">
-        <h1 class="title">BZOJ</h1>
-        
-        <ul class="posts">
-            
-            <li class="post">
-                <a href="/2018/06/26/BZOJ2402-陶陶的难题II/">BZOJ2042 陶陶的难题II</a>
-            </li>
-            
-        </ul>
-        
-    </div>
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-07-15
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+    
+    <a href="/tags/树形DP/">#树形DP</a>
     
 </div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给出一棵树询问树上有多少路径长度是3的倍数"><a class="markdownIt-Anchor" href="#给出一棵树询问树上有多少路径长度是3的倍数"></a>     给出一棵树，询问树上有多少路径长度是3的倍数。</h3>
+<h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h3>
+<h3 id="对于每个点维护从这个点到其子树模3为012的路径数然后随意统计一下答案即可"><a class="markdownIt-Anchor" href="#对于每个点维护从这个点到其子树模3为012的路径数然后随意统计一下答案即可"></a>     对于每个点维护从这个点到其子树模3为0,1,2的路径数然后随意统计一下答案即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 120000
+using namespace std;
+int tot,Next[N],v[N],w[N],h[N],ans,n;
+int f[N][3],b[3];
+int add(int x,int y,int z){
+    tot++;
+    Next[tot]=h[x];
+    v[tot]=y;
+    w[tot]=z;
+    h[x]=tot;
+}
+int dfs(int x,int fa){
+    //xx
+    f[x][0]++;
+    for(int i=h[x];i;i=Next[i]){
+        if(v[i]==fa)continue;
+        b[0]=0,b[1]=0,b[2]=0;
+        dfs(v[i],x);
+        b[(0+w[i])%3]=f[v[i]][0];
+        b[(1+w[i])%3]=f[v[i]][1];
+        b[(2+w[i])%3]=f[v[i]][2];
+        ans+=(b[0]*f[x][0])+(b[1]*f[x][2])+(b[2]*f[x][1]);
+         f[x][0]+=b[0];
+        f[x][1]+=b[1];
+        f[x][2]+=b[2];
+    }
+}
+int gcd(int x,int y){
+    if(x%y==0)return y;
+    return gcd(y,x%y);
+}
+int main(){
+    freopen(&quot;1.in&quot;,&quot;r&quot;,stdin);
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;n;i++){
+        int x,y,z;
+        scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;z);
+        add(x,y,z);
+        add(y,x,z);
+    }
+    dfs(1,0); 
+    int l=gcd(ans*2+n,n*n);
+    printf(&quot;%d/%d\n&quot;,(ans*2+n)/l,(n*n)/l);
+}
+</code></pre>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1467&amp;pid=2" target="_blank" rel="noopener">聪聪可可</a></p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2018/07/15/暑假计划/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                2018暑假计划
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2018/07/15/矩阵第k大/">
+                矩阵乘法
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
         </div>
         <div class="cube-right">
             
@@ -349,7 +430,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -380,17 +461,17 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/分数规划/">#分数规划</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
@@ -415,27 +496,27 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
@@ -460,7 +541,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
@@ -475,7 +556,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/计划表/">#计划表</a>
         </div>
         
@@ -490,7 +571,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
@@ -510,12 +591,12 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
@@ -525,12 +606,12 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/概率/">#概率</a>
         </div>
         

@@ -10,7 +10,7 @@
     
     
     
-    <title>Tags: BZOJ | illyasviel</title>
+    <title>兔子与樱花 | illyasviel</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -174,29 +174,111 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <style>
-    @media(max-width: 768px) {
-        body {
-            background-color: #fff!important;
-        }
-    }
-</style>
-<div class="cube-archives">
+            <div class="cube-article">
+    <h1 class="title">兔子与樱花</h1>
     
-    <div class="cube-archive" style="margin-top: 0;">
-        <h1 class="title">BZOJ</h1>
-        
-        <ul class="posts">
-            
-            <li class="post">
-                <a href="/2018/06/26/BZOJ2402-陶陶的难题II/">BZOJ2042 陶陶的难题II</a>
-            </li>
-            
-        </ul>
-        
-    </div>
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-07-15
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/贪心/">#贪心</a>
+    
+    <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
     
 </div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="很久很久之前森林里住着一群兔子-有一天兔子们突然决定要去看樱花-兔子们所在森林里的樱花树很特殊-樱花树由n个树枝分叉点组成编号从0到n-1这n个分叉点由n-1个树枝连接我们可以把它看成一个有根树结构其中0号节点是根节点-这个树的每个节点上都会有一些樱花其中第i个节点有c_i朵樱花-樱花树的每一个节点都有最大的载重m对于每一个节点i它的儿子节点的个数和i节点上樱花个数之和不能超过m即son_ic_ileq-m其中son_i表示i的儿子的个数如果i为叶子节点则son_i0"><a class="markdownIt-Anchor" href="#很久很久之前森林里住着一群兔子-有一天兔子们突然决定要去看樱花-兔子们所在森林里的樱花树很特殊-樱花树由n个树枝分叉点组成编号从0到n-1这n个分叉点由n-1个树枝连接我们可以把它看成一个有根树结构其中0号节点是根节点-这个树的每个节点上都会有一些樱花其中第i个节点有c_i朵樱花-樱花树的每一个节点都有最大的载重m对于每一个节点i它的儿子节点的个数和i节点上樱花个数之和不能超过m即son_ic_ileq-m其中son_i表示i的儿子的个数如果i为叶子节点则son_i0"></a>     很久很久之前，森林里住着一群兔子。有一天，兔子们突然决定要去看樱花。兔子们所在森林里的樱花树很特殊。樱花树由n个树枝分叉点组成，编号从0到n-1，这n个分叉点由n-1个树枝连接，我们可以把它看成一个有根树结构，其中0号节点是根节点。这个树的每个节点上都会有一些樱花，其中第i个节点有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">c_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>朵樱花。樱花树的每一个节点都有最大的载重m，对于每一个节点i，它的儿子节点的个数和i节点上樱花个数之和不能超过m，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub><mo>+</mo><msub><mi>c</mi><mi>i</mi></msub><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">son_i+c_i\leq m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.63597em;"></span><span class="strut bottom" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit">m</span></span></span></span>，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">son_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示i的儿子的个数，如果i为叶子节点，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">son_i=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span>。</h3>
+<h3 id="现在兔子们觉得樱花树上节点太多希望去掉一些节点-当一个节点被去掉之后这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上-如果父节点也被删除那么就会继续向上连接直到第一个没有被删除的节点为止"><a class="markdownIt-Anchor" href="#现在兔子们觉得樱花树上节点太多希望去掉一些节点-当一个节点被去掉之后这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上-如果父节点也被删除那么就会继续向上连接直到第一个没有被删除的节点为止"></a>     现在兔子们觉得樱花树上节点太多，希望去掉一些节点。当一个节点被去掉之后，这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上。如果父节点也被删除，那么就会继续向上连接，直到第一个没有被删除的节点为止。</h3>
+<h3 id="现在兔子们希望计算在不违背最大载重的情况下最多能删除多少节点"><a class="markdownIt-Anchor" href="#现在兔子们希望计算在不违背最大载重的情况下最多能删除多少节点"></a>     现在兔子们希望计算在不违背最大载重的情况下，最多能删除多少节点。</h3>
+<h3 id="注意根节点不能被删除被删除的节点不被计入载重"><a class="markdownIt-Anchor" href="#注意根节点不能被删除被删除的节点不被计入载重"></a>     注意根节点不能被删除，被删除的节点不被计入载重。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="对于最终删完之后的树来说先删上层的点还是先删下层的点的顺序没有影响-而如果一个第i层的点删到i-2层的点上则意味着第i-1层的点往上删了那么也就相当于先把第i层删到第i-1层再往上删到第i-2层-意味着每个点往父亲删就可以了-对于每个节点往儿子贪心即可"><a class="markdownIt-Anchor" href="#对于最终删完之后的树来说先删上层的点还是先删下层的点的顺序没有影响-而如果一个第i层的点删到i-2层的点上则意味着第i-1层的点往上删了那么也就相当于先把第i层删到第i-1层再往上删到第i-2层-意味着每个点往父亲删就可以了-对于每个节点往儿子贪心即可"></a>     对于最终删完之后的树来说，先删上层的点还是先删下层的点的顺序没有影响。而如果一个第i层的点删到i-2层的点上，则意味着第i-1层的点往上删了，那么，也就相当于先把第i层删到第i-1层再往上删到第i-2层。意味着，每个点往父亲删就可以了。对于每个节点往儿子贪心即可。</h3>
+<h3 id="场上随手写的一个贪心居然a掉了qwq"><a class="markdownIt-Anchor" href="#场上随手写的一个贪心居然a掉了qwq"></a>     (场上随手写的一个贪心居然A掉了qwq)</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;algorithm&gt;
+#define N 4200000
+using namespace std;
+int tot,Next[N],v[N],h[N],a[N],b[N];
+int ans,m,n;
+int add(int x,int y){
+    tot++;
+    Next[tot]=h[x];
+    v[tot]=y;
+    h[x]=tot;
+}
+int dfs(int x,int fa){
+    for(int i=h[x];i;i=Next[i]){
+        a[x]++;
+        dfs(v[i],x);
+    }
+    int tot=0;
+    for(int i=h[x];i;i=Next[i]){
+        b[++tot]=a[v[i]];
+    }
+    sort(b+1,b+1+tot);
+    for(int i=1;i&lt;=tot;i++){
+        if(a[x]+b[i]-1&lt;=m)a[x]+=b[i]-1,ans++;
+    }
+}
+int main(){
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]); 
+    for(int i=1;i&lt;=n;i++){
+        int o;
+        scanf(&quot;%d&quot;,&amp;o);
+        for(int j=1;j&lt;=o;j++){
+            int x;
+            scanf(&quot;%d&quot;,&amp;x);
+            x++;
+            add(i,x);
+        }
+    }
+    dfs(1,0);
+    printf(&quot;%d\n&quot;,ans);
+}
+</code></pre>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1467&amp;pid=0" target="_blank" rel="noopener">兔子与樱花</a></p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2018/07/15/矩阵第k大/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                矩阵乘法
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2018/07/14/期望排名/">
+                rank
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
         </div>
         <div class="cube-right">
             
@@ -349,7 +431,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -385,12 +467,12 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
@@ -420,7 +502,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
@@ -440,7 +522,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
@@ -455,17 +537,17 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/卡常/">#卡常</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/模拟/">#模拟</a>
         </div>
         
@@ -480,7 +562,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
@@ -500,12 +582,12 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
@@ -515,7 +597,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
@@ -525,7 +607,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
