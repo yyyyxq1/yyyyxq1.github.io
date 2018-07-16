@@ -10,7 +10,7 @@
     
     
     
-    <title>Tags: dp优化 | illyasviel</title>
+    <title>等差子序列 | illyasviel</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -174,29 +174,125 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <style>
-    @media(max-width: 768px) {
-        body {
-            background-color: #fff!important;
-        }
-    }
-</style>
-<div class="cube-archives">
+            <div class="cube-article">
+    <h1 class="title">等差子序列</h1>
     
-    <div class="cube-archive" style="margin-top: 0;">
-        <h1 class="title">dp优化</h1>
-        
-        <ul class="posts">
-            
-            <li class="post">
-                <a href="/2018/06/24/斜率优化/">斜率优化</a>
-            </li>
-            
-        </ul>
-        
-    </div>
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-07-16
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/树状数组/">#树状数组</a>
+    
+    <a href="/tags/hash/">#hash</a>
     
 </div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给一个1到n的排列a_i询问是否存在1leq-p_1p_2p_3p_4p_5p_lenleq-n-lengeq-3"><a class="markdownIt-Anchor" href="#给一个1到n的排列a_i询问是否存在1leq-p_1p_2p_3p_4p_5p_lenleq-n-lengeq-3"></a>     给一个1到N的排列{A_i}，询问是否存在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><msub><mi>p</mi><mn>1</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>2</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>3</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>4</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>5</mn></msub><mo>&lt;</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>&lt;</mo><msub><mi>p</mi><mrow><mi>L</mi><mi>e</mi><mi>n</mi></mrow></msub><mo>≤</mo><mi>N</mi><mo>(</mo><mi>L</mi><mi>e</mi><mi>n</mi><mo>≥</mo><mn>3</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">1\leq p_1&lt;p_2&lt;p_3&lt;p_4&lt;p_5&lt;...&lt;p_{Len}\leq N (Len\geq 3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">L</span><span class="mord mathit">e</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord mathit">L</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mrel">≥</span><span class="mord mathrm">3</span><span class="mclose">)</span></span></span></span>，</h3>
+<h3 id="使得a_p1ap2ap3aplen是一个等差序列"><a class="markdownIt-Anchor" href="#使得a_p1ap2ap3aplen是一个等差序列"></a>     使得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mrow><mi>p</mi><mn>1</mn></mrow></msub><mo separator="true">,</mo><mi>A</mi><mrow><mi>p</mi><mn>2</mn></mrow><mo separator="true">,</mo><mi>A</mi><mrow><mi>p</mi><mn>3</mn></mrow><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>A</mi><mrow><mi>p</mi><mi>L</mi><mi>e</mi><mi>n</mi></mrow></mrow><annotation encoding="application/x-tex">A_{p1},A{p2},A{p3},...A{pLen}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">p</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord mathit">A</span><span class="mord textstyle uncramped"><span class="mord mathit">p</span><span class="mord mathrm">2</span></span><span class="mpunct">,</span><span class="mord mathit">A</span><span class="mord textstyle uncramped"><span class="mord mathit">p</span><span class="mord mathrm">3</span></span><span class="mpunct">,</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathit">A</span><span class="mord textstyle uncramped"><span class="mord mathit">p</span><span class="mord mathit">L</span><span class="mord mathit">e</span><span class="mord mathit">n</span></span></span></span></span>是一个等差序列。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="树状数组维护hash值"><a class="markdownIt-Anchor" href="#树状数组维护hash值"></a>     树状数组维护hash值。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;string.h&gt;
+#include&lt;stdio.h&gt;
+#define N 120000
+#define P 1000000007
+#define lowbit(x) (x&amp;-x)
+using namespace std;
+int n,pw[N],a[N];
+struct node{
+    long long a[N];    
+    int add(int x,int b){
+        for(int i=x;i&lt;=n;i+=lowbit(i))(a[i]+=b)%=P;
+    }
+    long long sum(int x){
+        long long ans=0;
+        for(int i=x;i&gt;0;i-=lowbit(i))(ans+=a[i])%=P;
+        return ans;
+    }
+    int clear(){
+        memset(a,0,sizeof(a));
+    }
+}L,R;
+long long power(long long x,int k){
+    long long ans=1;
+    while(k){
+        if(k&amp;1)(ans*=x)%=P;
+        (x*=x)%=P;
+        k&gt;&gt;=1;
+    }
+    return ans;
+}
+int main(){
+    int T;
+    pw[0]=1;
+    scanf(&quot;%d&quot;,&amp;T);
+    for(int i=1;i&lt;=N-10;i++)pw[i]=pw[i-1]*2%P;
+    while(T--){
+        scanf(&quot;%d&quot;,&amp;n);
+        for(int i=1;i&lt;=n;i++)scanf(&quot;%lld&quot;,&amp;a[i]);
+        bool ans=false;
+        L.clear();
+        R.clear();
+        for(int i=1;i&lt;=n;i++){
+            int o=a[i];
+            L.add(o,pw[o]);
+            R.add(n-o+1,pw[n-o+1]);
+            if(o&lt;=n/2)
+            if(L.sum(o-1)!=((R.sum(n-o)-R.sum(n-o-o+1))*power(pw[n-o-o+1],P-2)%P+P)%P){
+                ans=true;
+                break;
+            }
+            if(o&gt;n/2)
+            if(((L.sum(o-1)-L.sum(o-1-(n-o)))*power(pw[o-1-(n-o)],P-2)%P+P)%P!=R.sum(n-o)){
+                ans=true;
+                break;
+            }
+        }
+        if(ans)printf(&quot;Y\n&quot;);
+        else printf(&quot;N\n&quot;);
+    }
+}
+</code></pre>
+<p>原题链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2124" target="_blank" rel="noopener">等差子序列</a></p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2018/07/16/大包子的完美组合/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                大包子的完美组合
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2018/07/16/splay板子/">
+                普通平衡树
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
         </div>
         <div class="cube-right">
             
@@ -365,7 +461,7 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -375,12 +471,12 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
@@ -400,7 +496,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/线性基/">#线性基</a>
         </div>
         
@@ -435,7 +531,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
@@ -445,7 +541,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
@@ -455,7 +551,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
@@ -465,7 +561,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/点分治/">#点分治</a>
         </div>
         
@@ -480,12 +576,12 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
@@ -500,22 +596,22 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/数学/">#数学</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/计划表/">#计划表</a>
         </div>
         
@@ -530,7 +626,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
@@ -560,17 +656,17 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/hash/">#hash</a>
         </div>
         
