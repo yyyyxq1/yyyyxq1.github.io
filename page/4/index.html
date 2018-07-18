@@ -175,6 +175,91 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-NOI2014 动物园">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/02/NOI2014-动物园/">NOI2014 动物园</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-02
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/倍增/" class="cube-excerpt-tag-link">#倍增</a>
+                
+                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
+                
+                <a href="/tags/KMP/" class="cube-excerpt-tag-link">#KMP</a>
+                
+                <a href="/tags/卡常/" class="cube-excerpt-tag-link">#卡常</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="对于s的每个前缀t对于t求出有多少个长度小于t的前缀和后缀相同讲每个前缀t的答案加一乘起来膜1000000007"><a class="markdownIt-Anchor" href="#对于s的每个前缀t对于t求出有多少个长度小于t的前缀和后缀相同讲每个前缀t的答案加一乘起来膜1000000007"></a>     对于S的每个前缀T，对于T求出有多少个长度小于|T|的前缀和后缀相同，讲每个前缀T的答案加一乘起来膜<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>7</mn></mrow><annotation encoding="application/x-tex">1000000007</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">7</span></span></span></span>。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="直接求next数组然后倍增就好了-倍增前后坐标相反能快差不多一倍不然卡不过去qwq"><a class="markdownIt-Anchor" href="#直接求next数组然后倍增就好了-倍增前后坐标相反能快差不多一倍不然卡不过去qwq"></a>     直接求Next数组然后倍增就好了。（倍增前后坐标相反能快差不多一倍，不然卡不过去qwq）</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 1200000
+#define P 1000000007
+using namespace std;
+char s[N];
+long long f[21][N],ans;
+int Next[N],q[N],g[N];
+int cal(int x){
+    if(f[0][x]==0)return 0;
+    int o=x;
+    for(int i=20;i&gt;=0;i--)
+        if(f[i][o]&gt;x/2)o=f[i][o];
+    return f[0][o];
+}
+int get(){
+    memset(f,0,sizeof(f));
+    memset(q,0,sizeof(q));
+    memset(g,0,sizeof(g));
+    memset(Next,0,sizeof(Next));
+    int l=strlen(s+1);
+    q[1]=1;
+    for(int i=2;i&lt;=l;i++){
+        int j=Next[i-1];
+        while(j&amp;&amp;s[j+1]!=s[i])j=Next[j];
+        Next[i]=j+(s[j+1]==s[i]);
+        q[i]=q[Next[i]]+1;
+        f[0][i]=Next[i];
+        for(int j=1;j&lt;=20;j++){
+            f[j][i]=f[j-1][f[j-1][i]];
+            if(f[j][i]==0)break;
+        }
+    }
+    ans=1;
+    for(int i=1;i&lt;=l;i++)g[i]=q[cal(i)];
+    for(int i=1;i&lt;=l;i++)(ans*=1LL*g[i]+1)%=P; 
+    printf(&quot;%lld\n&quot;,ans);
+}
+int main(){
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%s&quot;,s+1);
+        get();
+    }
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/02/NOI2014-动物园/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-NOI2014 起床困难综合征">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/02/NOI2014-起床困难综合征/">NOI2014 起床困难综合征</a></h1>
@@ -1425,8 +1510,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>39</span>Article</a>
-        <a class="count tags"><span>46</span>Tags</a>
+        <a class="count articles"><span>40</span>Article</a>
+        <a class="count tags"><span>47</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
 </div>
@@ -1464,7 +1549,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/17/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/07/18/暑假计划/" title="2018暑假计划">2018暑假计划</a>
                 </p>
             </div>
             
@@ -1478,7 +1563,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/17/征服王/" title="征服王">征服王</a>
+                    <a href="/2018/07/17/NOI2018-归程/" title="归程">归程</a>
                 </p>
             </div>
         </li>
@@ -1491,7 +1576,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/17/相似字串/" title="相似字串">相似字串</a>
+                    <a href="/2018/07/17/征服王/" title="征服王">征服王</a>
                 </p>
             </div>
         </li>
@@ -1504,7 +1589,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/17/Find-the-outlier异常/" title="Find the outlier">Find the outlier</a>
+                    <a href="/2018/07/17/相似字串/" title="相似字串">相似字串</a>
                 </p>
             </div>
         </li>
@@ -1517,7 +1602,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/16/大包子的完美组合/" title="大包子的完美组合">大包子的完美组合</a>
+                    <a href="/2018/07/17/Find-the-outlier异常/" title="Find the outlier">Find the outlier</a>
                 </p>
             </div>
         </li>
@@ -1556,8 +1641,23 @@ int main(){
     <div class="cube-boxs">
         
         
+        <div class="cube-box ">
+            <a href="/tags/BZOJ/">#BZOJ</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/分数规划/">#分数规划</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/树链剖分/">#树链剖分</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
-            <a href="/tags/倍增/">#倍增</a>
+            <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
@@ -1576,17 +1676,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
@@ -1597,11 +1697,11 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
+            <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
@@ -1616,13 +1716,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/线段树/">#线段树</a>
+            <a href="/tags/KMP/">#KMP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/卡常/">#卡常</a>
         </div>
         
         
@@ -1636,28 +1741,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/KMP/">#KMP</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/卡常/">#卡常</a>
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/贪心/">#贪心</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/模拟/">#模拟</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
+            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
@@ -1667,22 +1757,37 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
+            <a href="/tags/splay/">#splay</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/模拟/">#模拟</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/贪心/">#贪心</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/数学/">#数学</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/dp优化/">#dp优化</a>
+            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
@@ -1692,11 +1797,11 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/期望/">#期望</a>
+            <a href="/tags/数学/">#数学</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
@@ -1707,22 +1812,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/概率/">#概率</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/最小生成树/">#最小生成树</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/splay/">#splay</a>
+            <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
         
@@ -1732,17 +1827,27 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/搜索/">#搜索</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/期望/">#期望</a>
+        </div>
+        
+        
         <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+            <a href="/tags/搜索/">#搜索</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/树形DP/">#树形DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
@@ -1752,27 +1857,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/BZOJ/">#BZOJ</a>
+            <a href="/tags/最小生成树/">#最小生成树</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/分数规划/">#分数规划</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/树链剖分/">#树链剖分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/凸包/">#凸包</a>
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
