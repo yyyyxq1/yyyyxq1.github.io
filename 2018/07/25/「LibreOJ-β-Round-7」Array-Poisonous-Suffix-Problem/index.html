@@ -10,7 +10,7 @@
     
     
     
-    <title>「LibreOJ β Round | illyasviel</title>
+    <title>【Array Poisonous Suffix Problem】 | illyasviel</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -175,7 +175,7 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title">「LibreOJ β Round</h1>
+    <h1 class="title">【Array Poisonous Suffix Problem】</h1>
     
     <div class="cube-article-header">
         <div class="cube-article-date">
@@ -211,7 +211,7 @@
 <h3 id="sa_i表示的是排名为i的后缀的起始位置"><a class="markdownIt-Anchor" href="#sa_i表示的是排名为i的后缀的起始位置"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sa_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示的是排名为i的后缀的起始位置。</h3>
 <h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
 <h3 id="n最小为k1因为k个字符的话每个字符不同可使sa达到全排列"><a class="markdownIt-Anchor" href="#n最小为k1因为k个字符的话每个字符不同可使sa达到全排列"></a>     n最小为k+1，因为k个字符的话每个字符不同可使sa达到全排列。</h3>
-<h3 id="我们设gx为字符串s_xn我们现在考虑一个排列a使得ga_1ga_2ga_3ga_n"><a class="markdownIt-Anchor" href="#我们设gx为字符串s_xn我们现在考虑一个排列a使得ga_1ga_2ga_3ga_n"></a>     我们设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">g(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>为字符串<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mrow><mi>x</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">s_{x...n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">x</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>,我们现在考虑一个排列a，使得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><msub><mi>a</mi><mn>1</mn></msub><mo>)</mo><mo>&lt;</mo><mi>g</mi><mo>(</mo><msub><mi>a</mi><mn>2</mn></msub><mo>)</mo><mo>&lt;</mo><mi>g</mi><mo>(</mo><msub><mi>a</mi><mn>3</mn></msub><mo>)</mo><mo>&lt;</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>&lt;</mo><mi>g</mi><mo>(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">g(a_1)&lt;g(a_2)&lt;g(a_3)&lt;...&lt;g(a_n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>。</h3>
+<h3 id="我们设gx为字符串s_xn我们现在考虑一个排列a使得ga_1ga_2ga_3ga_n"><a class="markdownIt-Anchor" href="#我们设gx为字符串s_xn我们现在考虑一个排列a使得ga_1ga_2ga_3ga_n"></a>     我们设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">g(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>为字符串<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>x</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">S_{x...n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">x</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>,我们现在考虑一个排列a，使得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><msub><mi>a</mi><mn>1</mn></msub><mo>)</mo><mo>&lt;</mo><mi>g</mi><mo>(</mo><msub><mi>a</mi><mn>2</mn></msub><mo>)</mo><mo>&lt;</mo><mi>g</mi><mo>(</mo><msub><mi>a</mi><mn>3</mn></msub><mo>)</mo><mo>&lt;</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>&lt;</mo><mi>g</mi><mo>(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">g(a_1)&lt;g(a_2)&lt;g(a_3)&lt;...&lt;g(a_n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>。</h3>
 <h3 id="那么我们要达成的要求就是使得s_a_1s_a_2s_a_3s_a_n字符集为n-1所以要有n个严格小于的关系"><a class="markdownIt-Anchor" href="#那么我们要达成的要求就是使得s_a_1s_a_2s_a_3s_a_n字符集为n-1所以要有n个严格小于的关系"></a>     那么，我们要达成的要求就是使得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><msub><mi>a</mi><mn>1</mn></msub></mrow></msub><mo>&lt;</mo><msub><mi>S</mi><mrow><msub><mi>a</mi><mn>2</mn></msub></mrow></msub><mo>&lt;</mo><msub><mi>S</mi><mrow><msub><mi>a</mi><mn>3</mn></msub></mrow></msub><mo>&lt;</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>&lt;</mo><msub><mi>S</mi><mrow><msub><mi>a</mi><mi>n</mi></msub></mrow></msub></mrow><annotation encoding="application/x-tex">S_{a_1}&lt;S_{a_2}&lt;S_{a_3}&lt;...&lt;S_{a_n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.93833em;vertical-align:-0.255em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>(字符集为n-1,所以要有n个严格小于的关系)。</h3>
 <h3 id="考虑ga_iga_i1我们要使s_a_is_a_i1那么必须要使ga_i1ga_i11因为gx相当于是s_x与gx1拼凑出来的字符串而为了严格小于字典序小的第二位开始的后缀必须要大于字典序大的"><a class="markdownIt-Anchor" href="#考虑ga_iga_i1我们要使s_a_is_a_i1那么必须要使ga_i1ga_i11因为gx相当于是s_x与gx1拼凑出来的字符串而为了严格小于字典序小的第二位开始的后缀必须要大于字典序大的"></a>     考虑<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><msub><mi>a</mi><mi>i</mi></msub><mo>)</mo><mo>&lt;</mo><mi>g</mi><mo>(</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">g(a_i)&lt;g(a_{i+1})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>，我们要使<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow></msub><mo>&lt;</mo><msub><mi>S</mi><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow></msub></mrow><annotation encoding="application/x-tex">S_{a_i}&lt;S_{a_{i+1}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.979995em;vertical-align:-0.29666499999999996em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.14999999999999997em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，那么必须要使<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><msub><mi>a</mi><mi>i</mi></msub><mo>+</mo><mn>1</mn><mo>)</mo><mo>&gt;</mo><mi>g</mi><mo>(</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">g(a_i+1)&gt;g(a_{i+1}+1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mrel">&gt;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>(因为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">g(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>相当于是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">S_{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">x</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">g(x+1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>拼凑出来的字符串，而为了严格小于，字典序小的第二位开始的后缀必须要大于字典序大的)。</h3>
 <h3 id="那么便有"><a class="markdownIt-Anchor" href="#那么便有"></a>     那么便有：</h3>
@@ -219,7 +219,7 @@
 <h3 id="ga_n1ga_n-11ga_n-21ga_11g里的值域为2到n1"><a class="markdownIt-Anchor" href="#ga_n1ga_n-11ga_n-21ga_11g里的值域为2到n1"></a> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mn>1</mn><mo>)</mo><mo>&lt;</mo><mi>g</mi><mo>(</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mn>1</mn><mo>)</mo><mo>&lt;</mo><mi>g</mi><mo>(</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msub><mo>+</mo><mn>1</mn><mo>)</mo><mo>&lt;</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>&lt;</mo><mi>g</mi><mo>(</mo><msub><mi>a</mi><mn>1</mn></msub><mo>+</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">g(a_n+1)&lt;g(a_{n-1}+1)&lt;g(a_{n-2}+1)&lt;...&lt;g(a_1+1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>（g里的值域为2到n+1）</h3>
 <h3 id="上面与下面一一对应除了当上方g中的a_x1时也就是上面比下面多一项除了这一项其他都是一一对应的"><a class="markdownIt-Anchor" href="#上面与下面一一对应除了当上方g中的a_x1时也就是上面比下面多一项除了这一项其他都是一一对应的"></a>     上面与下面一一对应（除了当上方g中的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>x</mi></mrow></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a_{x}=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">x</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span>时）（也就是上面比下面多一项，除了这一项，其他都是一一对应的）</h3>
 <h3 id="a_n1n1上方的第一项已经确定n1neq1"><a class="markdownIt-Anchor" href="#a_n1n1上方的第一项已经确定n1neq1"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mn>1</mn><mo>=</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a_n+1=n+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mrel">=</span><span class="mord mathit">n</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>（上方的第一项已经确定<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn><mo>≠</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1\neq1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.716em;"></span><span class="strut bottom" style="height:0.9309999999999999em;vertical-align:-0.215em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mrel">≠</span><span class="mord mathrm">1</span></span></span></span>）</h3>
-<h3 id="a_n确定后a_1又可以确定这样递归确定下去知道a_x等于1了就可以推出"><a class="markdownIt-Anchor" href="#a_n确定后a_1又可以确定这样递归确定下去知道a_x等于1了就可以推出"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">a_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>确定后，a_1又可以确定，这样递归确定下去，知道<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">a_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">x</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>等于1了，就可以推出。</h3>
+<h3 id="a_n确定后a_1又可以确定这样递归确定下去知道a_x等于1了就可以推出"><a class="markdownIt-Anchor" href="#a_n确定后a_1又可以确定这样递归确定下去知道a_x等于1了就可以推出"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">a_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>确定后，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">a_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>又可以确定，这样递归确定下去，知道<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">a_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">x</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>等于1了，就可以推出。</h3>
 <h3 id="可以发现满足要求的排列是唯一的-并且这个求出来的是sa的逆数组rk数组再返回去就可以on得到答案"><a class="markdownIt-Anchor" href="#可以发现满足要求的排列是唯一的-并且这个求出来的是sa的逆数组rk数组再返回去就可以on得到答案"></a>     可以发现，满足要求的排列是唯一的。并且，这个求出来的，是sa的逆数组rk数组，再返回去，就可以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>得到答案。</h3>
 <h3 id="也可以归纳一下变成下面代码的形式"><a class="markdownIt-Anchor" href="#也可以归纳一下变成下面代码的形式"></a>     也可以归纳一下变成下面代码的形式。</h3>
 <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
@@ -363,7 +363,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/25/「LibreOJ-β-Round-7」Array-Poisonous-Suffix-Problem/" title="「LibreOJ β Round">「LibreOJ β Round</a>
+                    <a href="/2018/07/25/「LibreOJ-β-Round-7」Array-Poisonous-Suffix-Problem/" title="【Array Poisonous Suffix Problem】">【Array Poisonous Suffix Problem】</a>
                 </p>
             </div>
         </li>
@@ -442,6 +442,26 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/BZOJ/">#BZOJ</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/分数规划/">#分数规划</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/树链剖分/">#树链剖分</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/凸包/">#凸包</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
@@ -456,7 +476,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
         </div>
         
@@ -466,17 +491,22 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/好题/">#好题</a>
         </div>
         
@@ -491,28 +521,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/BZOJ/">#BZOJ</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/分数规划/">#分数规划</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/树链剖分/">#树链剖分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/凸包/">#凸包</a>
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -526,33 +541,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/KMP/">#KMP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/卡常/">#卡常</a>
+            <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
@@ -562,11 +552,36 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/KMP/">#KMP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/卡常/">#卡常</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/模拟/">#模拟</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
@@ -581,23 +596,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/构造/">#构造</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/模拟/">#模拟</a>
+        <div class="cube-box ">
+            <a href="/tags/hash/">#hash</a>
         </div>
         
         
@@ -611,17 +616,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/数学/">#数学</a>
         </div>
         
@@ -631,27 +636,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/期望/">#期望</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/最小生成树/">#最小生成树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/二分/">#二分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
@@ -662,12 +647,27 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/最小生成树/">#最小生成树</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/FFT/">#FFT</a>
+            <a href="/tags/搜索/">#搜索</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/上下界网络流/">#上下界网络流</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/二分/">#二分</a>
         </div>
         
         
@@ -677,32 +677,32 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/搜索/">#搜索</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/树状数组/">#树状数组</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/上下界网络流/">#上下界网络流</a>
+            <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/整体二分/">#整体二分</a>
+            <a href="/tags/FFT/">#FFT</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/树形DP/">#树形DP</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/期望/">#期望</a>
         </div>
         
         
