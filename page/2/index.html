@@ -175,6 +175,151 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-奇数国">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/21/奇数国/">奇数国</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-21
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/线段树/" class="cube-excerpt-tag-link">#线段树</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="求区间乘积的phi"><a class="markdownIt-Anchor" href="#求区间乘积的phi"></a>     求区间乘积的phi。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="用把有哪些质因数压成longlong维护乘积然后乘上逆元变为phi"><a class="markdownIt-Anchor" href="#用把有哪些质因数压成longlong维护乘积然后乘上逆元变为phi"></a>     用把有哪些质因数压成longlong，维护乘积，然后乘上逆元变为phi。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define P 19961993
+#define N 8200000 
+using namespace std;
+long long prime[1200],p[1200],o[1200],tot,inv[1200];
+struct node{
+    long long x,y;//x为值y为状态 
+};
+long long find(long long x){
+    long long ans;
+    for(long long i=1;i&lt;=60;i++)if(x%prime[i]==0)ans+=1LL&lt;&lt;i;
+    return ans;
+}
+namespace seg{
+    long long a[N],p[N]; 
+    long long build(long long i,long long l,long long r){
+        if(l==r){
+            a[i]=3;
+            p[i]=1&lt;&lt;2;
+            return 0;
+        }
+        long long mid=(l+r)/2;
+        build(i*2,l,mid);
+        build(i*2+1,mid+1,r);
+        a[i]=a[i*2]*a[i*2+1]%P;
+        p[i]=p[i*2]|p[i*2+1];
+    }
+    node merge(node x,node y){
+        node ans;
+        ans.x=x.x*y.x%P;
+        ans.y=x.y|y.y;
+        return ans;
+    }
+    node query(long long i,long long l,long long r,long long x,long long y){
+        node ans;
+        ans.x=1;
+        ans.y=0;
+        if(x&lt;=l&amp;&amp;r&lt;=y){
+            ans.x=a[i];
+            ans.y=p[i];
+            return ans;
+        }
+        long long mid=(l+r)/2;
+        if(mid&gt;=x)ans=merge(ans,query(i*2,l,mid,x,y));
+        if(mid&lt;y)ans=merge(ans,query(i*2+1,mid+1,r,x,y));
+        return ans;
+    }
+    long long insert(long long i,long long l,long long r,long long x,long long A){
+        if(l==r){
+            a[i]=A;
+            p[i]=find(A);
+            return 0;
+        }
+        long long mid=(l+r)/2;
+        if(x&lt;=mid)insert(i*2,l,mid,x,A);
+        else insert(i*2+1,mid+1,r,x,A);
+        a[i]=a[i*2]*a[i*2+1]%P;
+        p[i]=p[i*2]|p[i*2+1];
+    }
+}
+long long power(long long x,long long k){
+    long long ans=1;
+    while(k){
+        if(k&amp;1)(ans*=x)%=P;
+        (x*=x)%=P;
+        k&gt;&gt;=1; 
+    }
+    return ans;
+}
+long long pre(){
+    for(long long i=2;i&lt;300;i++){
+        if(p[i]==0)prime[++tot]=i,inv[tot]=power(i,P-2),o[i]=tot;
+        for(long long j=1;j&lt;=tot&amp;&amp;i*prime[j]&lt;300;j++){
+            p[i*prime[j]]=1;
+            if(i%prime[j]==0)break;
+        }
+    }
+}
+long long cal(node x){
+    long long ans=x.x;
+    for(long long i=1;i&lt;=60;i++){
+        if(x.y&amp;(1LL&lt;&lt;i)){
+            ans=ans*inv[i]%P*(prime[i]-1)%P;
+        }
+    }
+    return ans;
+}
+int main(){
+    pre();
+    long long n;
+    scanf(&quot;%lld&quot;,&amp;n);
+    seg::build(1,1,100000);
+    for(long long i=1;i&lt;=n;i++){
+        long long type;
+        scanf(&quot;%lld&quot;,&amp;type);
+        if(type==0){
+            long long l,r;
+            scanf(&quot;%lld%lld&quot;,&amp;l,&amp;r);
+            printf(&quot;%lld\n&quot;,cal(seg::query(1,1,100000,l,r)));
+        }
+        if(type==1){
+            long long x;
+            long long y;
+            scanf(&quot;%lld%lld&quot;,&amp;x,&amp;y);
+            seg::insert(1,1,100000,x,y);
+        }
+    }
+}
+</code></pre>
+<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1471&amp;pid=2" target="_blank" rel="noopener">奇数国</a></p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/21/奇数国/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-清理雪道">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/21/清理雪道/">清理雪道</a></h1>
@@ -590,130 +735,6 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-Race">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/19/点分x/">Race</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-19
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
-                
-                <a href="/tags/点分治/" class="cube-excerpt-tag-link">#点分治</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#define N 420000
-using namespace std;
-int h[N],v[N],w[N],Next[N],q[N],p[N],siz[N],son[N],s[N*10];
-int dep[N],l[N],tot,k,n,ans,head,tail;
-int add(int x,int y,int z){
-    tot++;
-    Next[tot]=h[x];
-    v[tot]=y;
-    w[tot]=z;
-    h[x]=tot;
-}
-int solve(int x,int fa){
-    if(l[x]&gt;k){
-        l[x]=0;
-        return 0;
-    }
-    if(l[x]==k)ans=min(ans,dep[x]-1);
-    q[++tail]=x;
-    for(int i=h[x];i;i=Next[i]){
-        if(p[v[i]]==1)continue;
-        if(v[i]==fa)continue;
-        l[v[i]]=l[x]+w[i];
-        solve(v[i],x);
-    }
-    return ans;
-}
-int pre(int x,int fa){
-    siz[x]=1;
-    dep[x]=dep[fa]+1;
-    for(int i=h[x];i;i=Next[i]){
-        if(p[v[i]]==1)continue;
-        if(v[i]==fa)continue;
-        pre(v[i],x);
-        siz[x]=siz[x]+siz[v[i]];
-    }
-}
-int get_son(int x,int fa,int ooo){
-    son[x]=ooo-siz[x];
-    int ans=0,bns;
-    for(int i=h[x];i;i=Next[i]){
-        if(p[v[i]]==1)continue;
-        if(v[i]==fa)continue;
-        bns=get_son(v[i],x,ooo);
-        son[x]=max(son[x],siz[v[i]]);
-        if(ans==0)ans=bns;
-        else{
-            if(son[bns]&lt;son[ans])ans=bns;
-        }
-    }
-    if(son[x]&lt;son[ans])ans=x;
-    if(ans==0)ans=x;
-    return ans;
-}
-int dfs(int x){
-    p[x]=1;
-    pre(x,0);
-    head=0,tail=0;
-    for(int i=h[x];i;i=Next[i]){
-        if(p[v[i]]==1)continue;
-        l[v[i]]=l[x]+w[i];
-        solve(v[i],x);
-        for(int j=head+1;j&lt;=tail;j++)if(s[k-l[q[j]]]){
-            ans=min(ans,s[k-l[q[j]]]+dep[q[j]]-2);
-        }
-        for(int j=head+1;j&lt;=tail;j++){
-            if(s[l[q[j]]])s[l[q[j]]]=min(s[l[q[j]]],dep[q[j]]);
-            else s[l[q[j]]]=dep[q[j]];
-        }
-        head=tail; 
-    }
-    for(int i=1;i&lt;=tail;i++)s[l[q[i]]]=0,l[q[i]]=0,dep[q[i]]=0;
-    for(int i=h[x];i;i=Next[i]){
-        if(p[v[i]]==1)continue;
-        dfs(get_son(v[i],0,siz[v[i]]));
-    }
-}
-int main(){
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
-    for(int i=1;i&lt;n;i++){
-        int x,y,z;
-        scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;z);
-        x++;y++;
-        add(x,y,z);
-        add(y,x,z);
-    }
-    ans=0x7fffffff;
-    dfs(1);
-    if(ans&gt;n)printf(&quot;-1\n&quot;);
-    else printf(&quot;%d\n&quot;,ans);
-}
-</code></pre>
-<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1470&amp;pid=1" target="_blank" rel="noopener">Race</a></p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/19/点分x/">Read More</a>
-    </footer>
-</div>
-
 <div class="cube-excerpt" id="cube-excerpt-Milk Patterns">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/19/奶牛质量/">Milk Patterns</a></h1>
@@ -852,6 +873,293 @@ int main(){
     </article>
     <footer class="cube-excerpt-footer">
         <a class="cube-excerpt-more" href="/2018/07/19/雪崩/">Read More</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-Race">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/19/点分x/">Race</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-19
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/点分治/" class="cube-excerpt-tag-link">#点分治</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 420000
+using namespace std;
+int h[N],v[N],w[N],Next[N],q[N],p[N],siz[N],son[N],s[N*10];
+int dep[N],l[N],tot,k,n,ans,head,tail;
+int add(int x,int y,int z){
+    tot++;
+    Next[tot]=h[x];
+    v[tot]=y;
+    w[tot]=z;
+    h[x]=tot;
+}
+int solve(int x,int fa){
+    if(l[x]&gt;k){
+        l[x]=0;
+        return 0;
+    }
+    if(l[x]==k)ans=min(ans,dep[x]-1);
+    q[++tail]=x;
+    for(int i=h[x];i;i=Next[i]){
+        if(p[v[i]]==1)continue;
+        if(v[i]==fa)continue;
+        l[v[i]]=l[x]+w[i];
+        solve(v[i],x);
+    }
+    return ans;
+}
+int pre(int x,int fa){
+    siz[x]=1;
+    dep[x]=dep[fa]+1;
+    for(int i=h[x];i;i=Next[i]){
+        if(p[v[i]]==1)continue;
+        if(v[i]==fa)continue;
+        pre(v[i],x);
+        siz[x]=siz[x]+siz[v[i]];
+    }
+}
+int get_son(int x,int fa,int ooo){
+    son[x]=ooo-siz[x];
+    int ans=0,bns;
+    for(int i=h[x];i;i=Next[i]){
+        if(p[v[i]]==1)continue;
+        if(v[i]==fa)continue;
+        bns=get_son(v[i],x,ooo);
+        son[x]=max(son[x],siz[v[i]]);
+        if(ans==0)ans=bns;
+        else{
+            if(son[bns]&lt;son[ans])ans=bns;
+        }
+    }
+    if(son[x]&lt;son[ans])ans=x;
+    if(ans==0)ans=x;
+    return ans;
+}
+int dfs(int x){
+    p[x]=1;
+    pre(x,0);
+    head=0,tail=0;
+    for(int i=h[x];i;i=Next[i]){
+        if(p[v[i]]==1)continue;
+        l[v[i]]=l[x]+w[i];
+        solve(v[i],x);
+        for(int j=head+1;j&lt;=tail;j++)if(s[k-l[q[j]]]){
+            ans=min(ans,s[k-l[q[j]]]+dep[q[j]]-2);
+        }
+        for(int j=head+1;j&lt;=tail;j++){
+            if(s[l[q[j]]])s[l[q[j]]]=min(s[l[q[j]]],dep[q[j]]);
+            else s[l[q[j]]]=dep[q[j]];
+        }
+        head=tail; 
+    }
+    for(int i=1;i&lt;=tail;i++)s[l[q[i]]]=0,l[q[i]]=0,dep[q[i]]=0;
+    for(int i=h[x];i;i=Next[i]){
+        if(p[v[i]]==1)continue;
+        dfs(get_son(v[i],0,siz[v[i]]));
+    }
+}
+int main(){
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
+    for(int i=1;i&lt;n;i++){
+        int x,y,z;
+        scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;z);
+        x++;y++;
+        add(x,y,z);
+        add(y,x,z);
+    }
+    ans=0x7fffffff;
+    dfs(1);
+    if(ans&gt;n)printf(&quot;-1\n&quot;);
+    else printf(&quot;%d\n&quot;,ans);
+}
+</code></pre>
+<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1470&amp;pid=1" target="_blank" rel="noopener">Race</a></p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/19/点分x/">Read More</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-征服王">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/17/征服王/">征服王</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-17
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/费用流/" class="cube-excerpt-tag-link">#费用流</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="求最小可重复多起点多终点路径覆盖"><a class="markdownIt-Anchor" href="#求最小可重复多起点多终点路径覆盖"></a>     求最小可重复多起点多终点路径覆盖。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="tarjan缩点后费用流然后计算增广次数即可"><a class="markdownIt-Anchor" href="#tarjan缩点后费用流然后计算增广次数即可"></a>     tarjan缩点后，费用流然后计算增广次数即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;vector&gt;
+#define inf 0x7fffffff
+using namespace std;
+int S,T;
+int n,m,A,B,tot;
+int ind,top,scc,cost,ans;
+int dfn[1005],low[1005],bl[1005];
+int a[1005],b[1005];
+int d[2005],q[2005];
+bool mark[2005],inq[1005];
+int Next[120000],c[120000],v[120000],w[120000],h[120000];
+vector&lt;int&gt;e[120000];
+void add(int x,int y,int W,int C){
+    tot++;
+    Next[tot]=h[x];
+    v[tot]=y;
+    w[tot]=W;
+    c[tot]=C;
+    h[x]=tot;
+    tot++;
+    Next[tot]=h[y];
+    v[tot]=x;
+    w[tot]=0;
+    c[tot]=-C;
+    h[y]=tot;
+}
+void tarjan(int x){
+    low[x]=dfn[x]=++ind;
+    q[++top]=x;inq[x]=1;
+    for(int i=0;i&lt;e[x].size();i++)
+        if(!dfn[e[x][i]]){
+            tarjan(e[x][i]);
+            low[x]=min(low[x],low[e[x][i]]);
+        }
+        else if(inq[e[x][i]])low[x]=min(low[x],dfn[e[x][i]]);
+    if(low[x]==dfn[x]){
+        int now=0;scc++;
+        while(now!=x){
+            now=q[top--];inq[now]=0;
+            bl[now]=scc;
+        }
+    }
+}
+bool spfa(){
+    memset(mark,0,sizeof(mark));
+    for(int i=0;i&lt;=S;i++)d[i]=-1;
+    int head=0,tail=1;
+    q[0]=T;d[T]=0;mark[T]=1;
+    while(head!=tail){
+        int now=q[head];head++;if(head&gt;2000)head=0;
+        mark[now]=0;
+        for(int i=h[now];i;i=Next[i])
+            if(w[i^1]&amp;&amp;d[now]+c[i^1]&gt;d[v[i]]){
+                d[v[i]]=d[now]+c[i^1];
+                if(!mark[v[i]]){
+                    mark[v[i]]=1;
+                    q[tail++]=v[i];
+                    if(tail&gt;2000)tail=0; 
+                }
+        }
+    }
+    return d[S]!=-1;
+}
+int dfs(int x,int f){
+    mark[x]=1;
+    if(x==T)return f;
+    int W,used=0;
+    for(int i=h[x];i;i=Next[i])
+        if(!mark[v[i]]&amp;&amp;w[i]&amp;&amp;d[x]-c[i]==d[v[i]]){
+            W=dfs(v[i],min(w[i],f-used));
+            w[i]-=W;w[i^1]+=W;cost+=c[i]*W;
+            used+=W;
+            if(used==f)return f;
+        }
+    return used;
+}
+void solve(){
+    tot=1;
+    T=2*scc+1;S=T+1;
+    for(int i=1;i&lt;=A;i++)add(0,bl[a[i]],inf,0);
+    for(int i=1;i&lt;=B;i++)add(bl[b[i]]+scc,T,inf,0);
+    for(int x=1;x&lt;=n;x++)
+        for(int i=0;i&lt;e[x].size();i++)
+            if(bl[x]!=bl[e[x][i]])
+                add(bl[x]+scc,bl[e[x][i]],inf,0);
+    for(int i=1;i&lt;=scc;i++){
+        add(i,i+scc,1,1);
+        add(i,i+scc,inf,0);
+    }
+    add(S,0,1,0);
+    while(spfa()){
+        int pre=cost;
+        mark[T]=1;
+        while(mark[T]){
+            memset(mark,0,sizeof(mark));
+            dfs(S,inf);
+        }
+        add(S,0,1,0);
+        if(pre==cost)break;
+        else ans++;
+    }
+}
+int main(){
+    int T;
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--){
+        memset(h,0,sizeof(h));
+        memset(dfn,0,sizeof(dfn));
+        ans=scc=cost=ind=tot=0;
+        scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;m,&amp;A,&amp;B);
+        for(int i=1;i&lt;=100000;i++)e[i].clear();
+        for(int i=1;i&lt;=A;i++)scanf(&quot;%d&quot;,&amp;a[i]);
+        for(int i=1;i&lt;=B;i++)scanf(&quot;%d&quot;,&amp;b[i]);
+        for(int i=1;i&lt;=m;i++){
+            int u,v;
+            scanf(&quot;%d%d&quot;,&amp;u,&amp;v);
+            e[u].push_back(v);
+        }
+        for(int i=1;i&lt;=n;i++)
+            if(!dfn[i])tarjan(i);
+        solve();
+        if(cost!=scc)puts(&quot;no solution&quot;);
+        else printf(&quot;%d\n&quot;,ans);
+    }
+    return 0;
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/17/征服王/">Read More</a>
     </footer>
 </div>
 
@@ -1054,169 +1362,6 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-征服王">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/17/征服王/">征服王</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-17
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
-                
-                <a href="/tags/费用流/" class="cube-excerpt-tag-link">#费用流</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="求最小可重复多起点多终点路径覆盖"><a class="markdownIt-Anchor" href="#求最小可重复多起点多终点路径覆盖"></a>     求最小可重复多起点多终点路径覆盖。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="tarjan缩点后费用流然后计算增广次数即可"><a class="markdownIt-Anchor" href="#tarjan缩点后费用流然后计算增广次数即可"></a>     tarjan缩点后，费用流然后计算增广次数即可。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;vector&gt;
-#define inf 0x7fffffff
-using namespace std;
-int S,T;
-int n,m,A,B,tot;
-int ind,top,scc,cost,ans;
-int dfn[1005],low[1005],bl[1005];
-int a[1005],b[1005];
-int d[2005],q[2005];
-bool mark[2005],inq[1005];
-int Next[120000],c[120000],v[120000],w[120000],h[120000];
-vector&lt;int&gt;e[120000];
-void add(int x,int y,int W,int C){
-    tot++;
-    Next[tot]=h[x];
-    v[tot]=y;
-    w[tot]=W;
-    c[tot]=C;
-    h[x]=tot;
-    tot++;
-    Next[tot]=h[y];
-    v[tot]=x;
-    w[tot]=0;
-    c[tot]=-C;
-    h[y]=tot;
-}
-void tarjan(int x){
-    low[x]=dfn[x]=++ind;
-    q[++top]=x;inq[x]=1;
-    for(int i=0;i&lt;e[x].size();i++)
-        if(!dfn[e[x][i]]){
-            tarjan(e[x][i]);
-            low[x]=min(low[x],low[e[x][i]]);
-        }
-        else if(inq[e[x][i]])low[x]=min(low[x],dfn[e[x][i]]);
-    if(low[x]==dfn[x]){
-        int now=0;scc++;
-        while(now!=x){
-            now=q[top--];inq[now]=0;
-            bl[now]=scc;
-        }
-    }
-}
-bool spfa(){
-    memset(mark,0,sizeof(mark));
-    for(int i=0;i&lt;=S;i++)d[i]=-1;
-    int head=0,tail=1;
-    q[0]=T;d[T]=0;mark[T]=1;
-    while(head!=tail){
-        int now=q[head];head++;if(head&gt;2000)head=0;
-        mark[now]=0;
-        for(int i=h[now];i;i=Next[i])
-            if(w[i^1]&amp;&amp;d[now]+c[i^1]&gt;d[v[i]]){
-                d[v[i]]=d[now]+c[i^1];
-                if(!mark[v[i]]){
-                    mark[v[i]]=1;
-                    q[tail++]=v[i];
-                    if(tail&gt;2000)tail=0; 
-                }
-        }
-    }
-    return d[S]!=-1;
-}
-int dfs(int x,int f){
-    mark[x]=1;
-    if(x==T)return f;
-    int W,used=0;
-    for(int i=h[x];i;i=Next[i])
-        if(!mark[v[i]]&amp;&amp;w[i]&amp;&amp;d[x]-c[i]==d[v[i]]){
-            W=dfs(v[i],min(w[i],f-used));
-            w[i]-=W;w[i^1]+=W;cost+=c[i]*W;
-            used+=W;
-            if(used==f)return f;
-        }
-    return used;
-}
-void solve(){
-    tot=1;
-    T=2*scc+1;S=T+1;
-    for(int i=1;i&lt;=A;i++)add(0,bl[a[i]],inf,0);
-    for(int i=1;i&lt;=B;i++)add(bl[b[i]]+scc,T,inf,0);
-    for(int x=1;x&lt;=n;x++)
-        for(int i=0;i&lt;e[x].size();i++)
-            if(bl[x]!=bl[e[x][i]])
-                add(bl[x]+scc,bl[e[x][i]],inf,0);
-    for(int i=1;i&lt;=scc;i++){
-        add(i,i+scc,1,1);
-        add(i,i+scc,inf,0);
-    }
-    add(S,0,1,0);
-    while(spfa()){
-        int pre=cost;
-        mark[T]=1;
-        while(mark[T]){
-            memset(mark,0,sizeof(mark));
-            dfs(S,inf);
-        }
-        add(S,0,1,0);
-        if(pre==cost)break;
-        else ans++;
-    }
-}
-int main(){
-    int T;
-    scanf(&quot;%d&quot;,&amp;T);
-    while(T--){
-        memset(h,0,sizeof(h));
-        memset(dfn,0,sizeof(dfn));
-        ans=scc=cost=ind=tot=0;
-        scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;m,&amp;A,&amp;B);
-        for(int i=1;i&lt;=100000;i++)e[i].clear();
-        for(int i=1;i&lt;=A;i++)scanf(&quot;%d&quot;,&amp;a[i]);
-        for(int i=1;i&lt;=B;i++)scanf(&quot;%d&quot;,&amp;b[i]);
-        for(int i=1;i&lt;=m;i++){
-            int u,v;
-            scanf(&quot;%d%d&quot;,&amp;u,&amp;v);
-            e[u].push_back(v);
-        }
-        for(int i=1;i&lt;=n;i++)
-            if(!dfn[i])tarjan(i);
-        solve();
-        if(cost!=scc)puts(&quot;no solution&quot;);
-        else printf(&quot;%d\n&quot;,ans);
-    }
-    return 0;
-}
-</code></pre>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/17/征服王/">Read More</a>
-    </footer>
-</div>
-
 <div class="cube-excerpt" id="cube-excerpt-相似字串">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/17/相似字串/">相似字串</a></h1>
@@ -1339,109 +1484,6 @@ int main(){
     </article>
     <footer class="cube-excerpt-footer">
         <a class="cube-excerpt-more" href="/2018/07/17/相似字串/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-Find the outlier">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/17/Find-the-outlier异常/">Find the outlier</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-17
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/高斯消元/" class="cube-excerpt-tag-link">#高斯消元</a>
-                
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="abacus教授刚刚完成了一个制作数表的计算引擎的设计-它被设计用于同时计算一个多项式在许多点的取值-例如对于多项式fxx22x1一种可能的计算结果是-f01f14f29f316f425-不幸的是引擎存在一个故障使得计算出的值总有一个是错的例如对于上述多项式它可能输出-14121625-而不是-1491625-请你帮教授找出发生故障的是哪个点值"><a class="markdownIt-Anchor" href="#abacus教授刚刚完成了一个制作数表的计算引擎的设计-它被设计用于同时计算一个多项式在许多点的取值-例如对于多项式fxx22x1一种可能的计算结果是-f01f14f29f316f425-不幸的是引擎存在一个故障使得计算出的值总有一个是错的例如对于上述多项式它可能输出-14121625-而不是-1491625-请你帮教授找出发生故障的是哪个点值"></a>     Abacus教授刚刚完成了一个制作数表的计算引擎的设计。它被设计用于同时计算一个多项式在许多点的取值。例如对于多项式<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(x)=x^2+2x+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mord mathit">x</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>，一种可能的计算结果是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>4</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>2</mn><mo>)</mo><mo>=</mo><mn>9</mn><mi mathvariant="normal">.</mi><mi>f</mi><mo>(</mo><mn>3</mn><mo>)</mo><mo>=</mo><mn>1</mn><mn>6</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>4</mn><mo>)</mo><mo>=</mo><mn>2</mn><mn>5</mn></mrow><annotation encoding="application/x-tex">f(0)=1,f(1)=4,f(2)=9.f(3)=16,f(4)=25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">4</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">9</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">3</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mord mathrm">6</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">4</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">5</span></span></span></span> 。不幸的是，引擎存在一个故障使得计算出的值总有一个是错的，例如对于上述多项式，它可能输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>1</mn><mn>2</mn><mo separator="true">,</mo><mn>1</mn><mn>6</mn><mo separator="true">,</mo><mn>2</mn><mn>5</mn></mrow><annotation encoding="application/x-tex">1,4,12,16,25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">4</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">6</span><span class="mpunct">,</span><span class="mord mathrm">2</span><span class="mord mathrm">5</span></span></span></span> 而不是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>9</mn><mo separator="true">,</mo><mn>1</mn><mn>6</mn><mo separator="true">,</mo><mn>2</mn><mn>5</mn></mrow><annotation encoding="application/x-tex">1,4,9,16,25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">4</span><span class="mpunct">,</span><span class="mord mathrm">9</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">6</span><span class="mpunct">,</span><span class="mord mathrm">2</span><span class="mord mathrm">5</span></span></span></span> 。请你帮教授找出发生故障的是哪个点值。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="暴力高斯消元检验即可"><a class="markdownIt-Anchor" href="#暴力高斯消元检验即可"></a>     暴力高斯消元检验即可。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;math.h&gt;
-#define N 22
-#define eps 1e-3
-using namespace std;
-double g[N][N],p[N][N],f[N][N];
-int tot;
-int n;
-int gass(int n,int o){
-    for(int i=1;i&lt;=n;i++){
-        if(fabs(g[i][i])&lt;eps){
-            for(int j=1;j&lt;=n;j++){
-                if(g[j][i]){
-                    for(int k=1;k&lt;=n;k++)swap(g[j][k],g[i][k]);
-                    break;
-                }
-            }
-        }
-        for(int j=1;j&lt;=n+1;j++){
-            if(i==j)continue;
-            double l=g[j][i]/g[i][i];
-            for(int k=1;k&lt;=n+1;k++){
-                g[j][k]+=-l*g[i][k];
-            }
-        }
-    }
-    for(int i=1;i&lt;=n;i++)p[o][i]=g[i][n+1]/g[i][i];
-}
-bool check(int x){
-    int o=0;
-    memset(p,0,sizeof(p));
-    for(int i=0;i&lt;n+3;i++){
-        if(i==x)continue;
-        memset(g,0,sizeof(g)); 
-        tot=0;
-        ++o;
-        for(int j=0;j&lt;n+3;j++){
-            if(j==x)continue;
-            if(j==i)continue;
-            ++tot;
-            for(int k=0;k&lt;n+3;k++)g[tot][k+1]=f[j][k];
-        } 
-        gass(n+1,o);
-        if(o==1)continue;
-        for(int j=1;j&lt;=n+1;j++)
-            if(fabs(p[o][j]-p[o-1][j])&gt;eps)return false;
-    }
-    return true;
-}
-int main(){
-    while(1){        
-        scanf(&quot;%d&quot;,&amp;n);
-        if(n==0)return 0;
-        for(int i=0;i&lt;n+3;i++){
-            scanf(&quot;%lf&quot;,&amp;f[i][n+1]);
-            f[i][0]=1;
-            for(int j=1;j&lt;=n;j++)f[i][j]=pow(i,j); 
-        } 
-        for(int i=0;i&lt;n+3;i++)
-            if(check(i)){
-                printf(&quot;%d\n&quot;,i);
-                break;
-            }
-    //    return 0;
-    }
-} 
-</code></pre>
-<p>原题链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1469&amp;pid=0" target="_blank" rel="noopener">Find the outlier</a></p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/17/Find-the-outlier异常/">Read More</a>
     </footer>
 </div>
 
@@ -1573,7 +1615,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/25/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/07/26/杜教筛/" title="杜教筛">杜教筛</a>
                 </p>
             </div>
             
@@ -1587,7 +1629,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/25/「LibreOJ-β-Round-7」Array-Poisonous-Suffix-Problem/" title="【Array Poisonous Suffix Problem】">【Array Poisonous Suffix Problem】</a>
+                    <a href="/2018/07/25/暑假计划/" title="2018暑假计划">2018暑假计划</a>
                 </p>
             </div>
         </li>
@@ -1600,7 +1642,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/25/HAOI2016-找相同字符/" title="HAOI2016 找相同字符">HAOI2016 找相同字符</a>
+                    <a href="/2018/07/25/「LibreOJ-β-Round-7」Array-Poisonous-Suffix-Problem/" title="【Array Poisonous Suffix Problem】">【Array Poisonous Suffix Problem】</a>
                 </p>
             </div>
         </li>
@@ -1613,7 +1655,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/25/SDOI2016-生成魔咒/" title="SDOI2016 诸神眷顾的幻想乡">SDOI2016 诸神眷顾的幻想乡</a>
+                    <a href="/2018/07/25/HAOI2016-找相同字符/" title="HAOI2016 找相同字符">HAOI2016 找相同字符</a>
                 </p>
             </div>
         </li>
@@ -1626,7 +1668,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/25/TJOI2015-弦论/" title="TJOI2015 弦论">TJOI2015 弦论</a>
+                    <a href="/2018/07/25/SDOI2016-生成魔咒/" title="SDOI2016 诸神眷顾的幻想乡">SDOI2016 诸神眷顾的幻想乡</a>
                 </p>
             </div>
         </li>
@@ -1670,17 +1712,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/分数规划/">#分数规划</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
@@ -1700,12 +1742,42 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/组合数学/">#组合数学</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/计数/">#计数</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/好题/">#好题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/NOI/">#NOI</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
         </div>
         
@@ -1716,42 +1788,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/组合数学/">#组合数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计数/">#计数</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/好题/">#好题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/NOI/">#NOI</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
@@ -1762,11 +1804,6 @@ int main(){
         
         <div class="cube-box-bg ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
@@ -1785,6 +1822,11 @@ int main(){
         </div>
         
         
+        <div class="cube-box ">
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
@@ -1795,13 +1837,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/中国剩余定理/">#中国剩余定理</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
@@ -1811,11 +1848,11 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -1831,26 +1868,16 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/哈希/">#哈希</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/数学/">#数学</a>
         </div>
         
@@ -1860,13 +1887,28 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/哈希/">#哈希</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/费用流/">#费用流</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
@@ -1881,17 +1923,17 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/搜索/">#搜索</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/上下界网络流/">#上下界网络流</a>
+            <a href="/tags/期望/">#期望</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/二分/">#二分</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
@@ -1911,11 +1953,11 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/FFT/">#FFT</a>
+            <a href="/tags/上下界网络流/">#上下界网络流</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
@@ -1925,12 +1967,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/期望/">#期望</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/计划表/">#计划表</a>
         </div>
         
