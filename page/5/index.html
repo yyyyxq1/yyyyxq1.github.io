@@ -175,6 +175,394 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-Count on a tree">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/14/树上计数/">Count on a tree</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-14
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/可持久化线段树/" class="cube-excerpt-tag-link">#可持久化线段树</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h3 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h3>
+<h3 id="询问树上链第k小的点值强制在线"><a class="markdownIt-Anchor" href="#询问树上链第k小的点值强制在线"></a>     询问树上链第k小的点值，强制在线。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="树上可持久化线段树时间复杂度onlog-n"><a class="markdownIt-Anchor" href="#树上可持久化线段树时间复杂度onlog-n"></a>     树上可持久化线段树，时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;algorithm&gt;
+#define N 1690000
+#define M 220000
+using namespace std;
+int n,m;
+int h[M],v[M],Next[M],rt[M],f[21][M],tot,dep[M];
+int a[M],b[M],c[M];
+struct seg{
+    int lx[N],rx[N],siz[N],l[N],r[N];
+    int insert(int i,int j,int a){
+        if(lx[i]==0){lx[i]=1,rx[i]=n;}
+        if(lx[i]==rx[i]){
+            siz[i]=siz[j]+1;
+            return 0;
+        }
+        int mid=(lx[i]+rx[i])/2;
+        if(a&lt;=mid){
+            r[i]=r[j];
+            l[i]=++tot;
+            lx[tot]=lx[i];
+            rx[tot]=mid;
+            insert(l[i],l[j],a);
+        }else{
+            l[i]=l[j];
+            r[i]=++tot;
+            lx[tot]=mid+1;
+            rx[tot]=rx[i];
+            insert(r[i],r[j],a);
+        }
+        siz[i]=siz[l[i]]+siz[r[i]];
+    }
+    int query(int x,int y,int z,int fa,int k){
+        if(max(max(lx[x],lx[y]),max(lx[z],lx[fa]))==max(max(rx[x],rx[y]),max(rx[z],rx[fa])))return max(max(lx[x],lx[y]),max(lx[z],lx[fa]));
+        int ls=siz[l[x]]+siz[l[y]]-siz[l[z]]-siz[l[fa]];
+        if(ls&gt;=k)return query(l[x],l[y],l[z],l[fa],k);
+        else return query(r[x],r[y],r[z],r[fa],k-ls); 
+    }
+}s;
+int add(int x,int y){
+    tot++;
+    Next[tot]=h[x];
+    v[tot]=y;
+    h[x]=tot;
+}
+int dfs(int x,int fa){
+    dep[x]=dep[fa]+1;
+    rt[x]=++tot;
+    f[0][x]=fa;
+    for(int i=1;i&lt;=20;i++)f[i][x]=f[i-1][f[i-1][x]];
+    s.insert(rt[x],rt[fa],c[x]);
+    for(int i=h[x];i;i=Next[i]){
+        if(v[i]==fa)continue;
+        dfs(v[i],x);
+    }
+}
+int lca(int x,int y){
+    if(dep[x]&lt;dep[y])swap(x,y);
+    for(int i=20;i&gt;=0;i--)if(dep[f[i][x]]&gt;=dep[y])x=f[i][x];
+    if(x==y)return x;
+    for(int i=20;i&gt;=0;i--){
+        if(f[i][x]!=f[i][y])x=f[i][x],y=f[i][y];
+    }
+    return f[0][x];
+}
+int main(){
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
+    for(int i=1;i&lt;=n;i++)b[i]=a[i];
+    sort(b+1,b+1+n);
+    for(int i=1;i&lt;=n;i++)c[i]=lower_bound(b+1,b+1+n,a[i])-b;
+    for(int i=1;i&lt;n;i++){
+        int x,y;
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+        add(x,y);
+        add(y,x);
+    }
+    tot=0;
+    dfs(1,0);
+//    for(int i=1;i&lt;=n;i++)printf(&quot;%d &quot;,dep[i]);
+    int lastans=0;
+    for(int i=1;i&lt;=m;i++){
+        int x,y,k;
+        scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;k);
+        x^=lastans;
+        int z=lca(x,y);
+        int ans=s.query(rt[x],rt[y],rt[z],rt[f[0][z]],k);
+        printf(&quot;%d\n&quot;,b[ans]);
+        lastans=b[ans];
+    }
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/14/树上计数/">Read More</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-病毒">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/14/病毒/">病毒</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-14
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/AC自动机/" class="cube-excerpt-tag-link">#AC自动机</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给定一堆01串指定这些不能出现问是否能够构造出一个无限长度的字符串满足这些都没有出现过"><a class="markdownIt-Anchor" href="#给定一堆01串指定这些不能出现问是否能够构造出一个无限长度的字符串满足这些都没有出现过"></a>     给定一堆01串，指定这些不能出现，问是否能够构造出一个无限长度的字符串满足这些都没有出现过。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="直接建出trie图判断有没有环字符串末尾的点都不能经过"><a class="markdownIt-Anchor" href="#直接建出trie图判断有没有环字符串末尾的点都不能经过"></a>     直接建出trie图，判断有没有环（字符串末尾的点都不能经过）</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 320000
+using namespace std;
+char s[N];
+int ch[N][2];
+int tot,tag[N],fail[N],q[N],p[N],l[N],n;
+int insert(){
+    int l=strlen(s+1);
+    int x=0;
+    for(int i=1;i&lt;=l;i++){
+        if(ch[x][s[i]-'0']==0)ch[x][s[i]-'0']=++tot;
+        x=ch[x][s[i]-'0'];
+    }
+    tag[x]=1;
+}
+int head,tail;
+int build(){
+    head=0,tail=0;
+    int x=0; 
+    for(int i=0;i&lt;=1;i++)if(ch[x][i])q[++tail]=ch[x][i];
+    while(head&lt;tail){
+        int now=q[++head];
+        for(int i=0;i&lt;=1;i++){
+            if(!ch[now][i]){ch[now][i]=ch[fail[now]][i];continue;}
+            q[++tail]=ch[now][i];
+            int p=fail[now];
+            while(p&amp;&amp;!ch[p][i])p=fail[p];
+            fail[ch[now][i]]=ch[p][i];
+            tag[ch[now][i]]|=tag[fail[ch[now][i]]];
+        }
+    }
+}
+int dfs(int x){
+    p[x]++;
+    l[x]++;
+    for(int i=0;i&lt;=1;i++){
+        if(tag[ch[x][i]])continue;
+        if(p[ch[x][i]])return 1;
+        if(l[ch[x][i]])continue;
+        if(dfs(ch[x][i]))return 1;
+    }
+    p[x]--;
+    return 0;
+}
+int main(){
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%s&quot;,s+1);
+        insert();
+    }
+    build();
+    if(dfs(0))printf(&quot;TAK\n&quot;);
+    else printf(&quot;NIE\n&quot;);
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/14/病毒/">Read More</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-game with probability">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/14/概率游戏/">game with probability</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-14
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/概率/" class="cube-excerpt-tag-link">#概率</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="alice和bob在玩一个游戏-有n个石子在这里alice和bob轮流投掷硬币如果正面朝上则从n个石子中取出一个石子否则不做任何事-取到最后一颗石子的人胜利-alice在投掷硬币时有p的概率投掷出他想投的一面同样bob有q的概率投掷出他相投的一面"><a class="markdownIt-Anchor" href="#alice和bob在玩一个游戏-有n个石子在这里alice和bob轮流投掷硬币如果正面朝上则从n个石子中取出一个石子否则不做任何事-取到最后一颗石子的人胜利-alice在投掷硬币时有p的概率投掷出他想投的一面同样bob有q的概率投掷出他相投的一面"></a>     Alice和Bob在玩一个游戏。有n个石子在这里，Alice和Bob轮流投掷硬币，如果正面朝上，则从n个石子中取出一个石子，否则不做任何事。取到最后一颗石子的人胜利。Alice在投掷硬币时有p的概率投掷出他想投的一面，同样，Bob有q的概率投掷出他相投的一面。</h3>
+<h3 id="现在alice先手投掷硬币假设他们都想赢得游戏问你alice胜利的概率为多少"><a class="markdownIt-Anchor" href="#现在alice先手投掷硬币假设他们都想赢得游戏问你alice胜利的概率为多少"></a>     现在Alice先手投掷硬币，假设他们都想赢得游戏，问你Alice胜利的概率为多少。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑fi表示还剩下i个石子时alice先手alice必胜的概率"><a class="markdownIt-Anchor" href="#考虑fi表示还剩下i个石子时alice先手alice必胜的概率"></a>     考虑f[i]表示还剩下i个石子时，Alice先手，Alice必胜的概率</h3>
+<h3 id="考虑gi表示还剩下i个石子时bob先手alice必胜的概率bob好可怜qwq"><a class="markdownIt-Anchor" href="#考虑gi表示还剩下i个石子时bob先手alice必胜的概率bob好可怜qwq"></a>     考虑g[i]表示还剩下i个石子时，Bob先手，Alice必胜的概率（Bob好可怜qwq）</h3>
+<h3 id="假设每次都是的决策都是想取石子"><a class="markdownIt-Anchor" href="#假设每次都是的决策都是想取石子"></a>     假设每次都是的决策都是想取石子</h3>
+<h3 id="f_iptimes-g_i-11-ptimes-g_i"><a class="markdownIt-Anchor" href="#f_iptimes-g_i-11-ptimes-g_i"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub><mo>=</mo><mi>p</mi><mo>×</mo><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo>)</mo><mo>×</mo><msub><mi>g</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i=p\times g_{i-1}+(1-p)\times g_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mclose">)</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></h3>
+<h3 id="g_iqtimes-f_i-11-qtimes-f_i"><a class="markdownIt-Anchor" href="#g_iqtimes-f_i-11-qtimes-f_i"></a>     $g_i=q\times f_{i-1}+(1-q)\times f_i $</h3>
+<h3 id="联立一下得"><a class="markdownIt-Anchor" href="#联立一下得"></a>     联立一下得：</h3>
+<h3 id="f_ifracptimes-g_i-11-ptimes-qtimes-f_i-1pq-ptimes-q"><a class="markdownIt-Anchor" href="#f_ifracptimes-g_i-11-ptimes-qtimes-f_i-1pq-ptimes-q"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>p</mi><mo>×</mo><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo>)</mo><mo>×</mo><mi>q</mi><mo>×</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><mrow><mi>p</mi><mo>+</mo><mi>q</mi><mo>−</mo><mi>p</mi><mo>×</mo><mi>q</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">f_{i}=\frac{p\times g_{i-1}+(1-p)\times q\times f_{i-1}}{p+q-p\times q}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.491108em;vertical-align:-0.481108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">p</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mclose">)</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></h3>
+<h3 id="g_ifracqtimes-f_i-11-qtimes-ptimes-g_i-1pq-ptimes-q"><a class="markdownIt-Anchor" href="#g_ifracqtimes-f_i-11-qtimes-ptimes-g_i-1pq-ptimes-q"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>g</mi><mrow><mi>i</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>q</mi><mo>×</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>q</mi><mo>)</mo><mo>×</mo><mi>p</mi><mo>×</mo><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><mrow><mi>p</mi><mo>+</mo><mi>q</mi><mo>−</mo><mi>p</mi><mo>×</mo><mi>q</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">g_{i}=\frac{q\times f_{i-1}+(1-q)\times p\times g_{i-1}}{p+q-p\times q}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.491108em;vertical-align:-0.481108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">p</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mclose">)</span><span class="mbin">×</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></h3>
+<h3 id="考虑每次是否想取石子如果f_i-1比g_i-1大说明取完之后alice先手的胜率高也就是alice要在这里先手会比较优那alice就不会想取第i个-而跟alice的更优决策点应该是一样的所以bob也不会想要-反而亦之-最后输出f_n也就是答案-总体复杂度是on的但是n特别大但我们可以打表发现这玩意是收敛的不知道为什么收敛于是最多求到十万项就可以不管了-就变成了ominn10000好像有人只扫了一百次就过了qwq"><a class="markdownIt-Anchor" href="#考虑每次是否想取石子如果f_i-1比g_i-1大说明取完之后alice先手的胜率高也就是alice要在这里先手会比较优那alice就不会想取第i个-而跟alice的更优决策点应该是一样的所以bob也不会想要-反而亦之-最后输出f_n也就是答案-总体复杂度是on的但是n特别大但我们可以打表发现这玩意是收敛的不知道为什么收敛于是最多求到十万项就可以不管了-就变成了ominn10000好像有人只扫了一百次就过了qwq"></a>     考虑每次是否想取石子，如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.902771em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>比<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">g_{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>大，说明取完之后Alice先手的胜率高，也就是Alice要在这里先手会比较优，那Alice就不会想取第i个。而跟Alice的更优决策点，应该是一样的，所以Bob也不会想要。反而亦之。最后输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">f_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>也就是答案。总体复杂度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>的，但是n特别大，但我们可以打表发现这玩意是收敛的（不知道为什么收敛），于是最多求到十万项就可以不管了。就变成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>n</mi><mo separator="true">,</mo><mn>1</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">O(min(n,10000))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">m</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>(好像有人只扫了一百次就过了qwq)。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 120000 
+using namespace std;
+int n,t;
+double f[N],g[N],p,q;
+int solve(){
+    scanf(&quot;%d%lf%lf&quot;,&amp;n,&amp;p,&amp;q);
+    n=min(n,110000);
+    g[0]=1;
+    for(int i=1;i&lt;=n;i++){
+        if(f[i-1]&gt;g[i-1])p=1.0-p,q=1.0-q;
+        f[i]=(p*g[i-1]+(1-p)*q*f[i-1])/(p+q-p*q);
+        g[i]=(q*f[i-1]+(1-q)*p*g[i-1])/(p+q-p*q);
+        if(f[i-1]&gt;g[i-1])p=1.0-p,q=1.0-q;
+    }
+    printf(&quot;%.6lf\n&quot;,f[n]);
+}
+int main(){
+    scanf(&quot;%d&quot;,&amp;t);
+    while(t--)solve();
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/14/概率游戏/">Read More</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-JLOI2015 骗我呢">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/08/JLOI2015-骗我呢/">JLOI2015 骗我呢</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-08
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/组合数学/" class="cube-excerpt-tag-link">#组合数学</a>
+                
+                <a href="/tags/计数/" class="cube-excerpt-tag-link">#计数</a>
+                
+                <a href="/tags/好题/" class="cube-excerpt-tag-link">#好题</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给出n和m求满足a_ija_i-1j1且a_ija_ij1且0leq-a_ijleq-m1leq-ileq-n1leq-jleq-m的方案数"><a class="markdownIt-Anchor" href="#给出n和m求满足a_ija_i-1j1且a_ija_ij1且0leq-a_ijleq-m1leq-ileq-n1leq-jleq-m的方案数"></a>     给出n和m，求满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i-1,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>≤</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>≤</mo><mi>m</mi><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">0\leq a_{i,j}\leq m,1\leq i\leq n,1\leq j\leq m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.9456279999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit">m</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">i</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mrel">≤</span><span class="mord mathit">m</span></span></span></span>的方案数。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑每一行a_ija_ij1总共m个数而值只有m1个意味着每一行只有一个位置的差会为2其他都为1"><a class="markdownIt-Anchor" href="#考虑每一行a_ija_ij1总共m个数而值只有m1个意味着每一行只有一个位置的差会为2其他都为1"></a>     考虑每一行，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，总共m个数，而值只有m+1个，意味着每一行只有一个位置的差会为2，其他都为1。</h3>
+<h3 id="考虑对于每上面一行a_ija_i-1j1意味着对于第i行来说他突变的位置最前能够比第i-1行的突变位置前一格"><a class="markdownIt-Anchor" href="#考虑对于每上面一行a_ija_i-1j1意味着对于第i行来说他突变的位置最前能够比第i-1行的突变位置前一格"></a>     考虑对于每上面一行，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i-1,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，意味着对于第i行来说，他突变的位置最前能够比第i-1行的突变位置前一格。</h3>
+<h3 id="得到onm的方程设f_ij表示第i行的未突变位置小于等于j的方案数-f_ijf_i-1j1f_ij-1-j的范围为0到m-f_001因为小于等于相当于求前缀和所以可以只有一个点有值"><a class="markdownIt-Anchor" href="#得到onm的方程设f_ij表示第i行的未突变位置小于等于j的方案数-f_ijf_i-1j1f_ij-1-j的范围为0到m-f_001因为小于等于相当于求前缀和所以可以只有一个点有值"></a>     得到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nm)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mord mathit">m</span><span class="mclose">)</span></span></span></span>的方程，设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示第i行的未突变位置小于等于j的方案数。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}=f_{i-1,j+1}+f_{i,j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。j的范围为0到m。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mn>0</mn><mo separator="true">,</mo><mn>0</mn></mrow></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f_{0,0}=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span>(因为小于等于相当于求前缀和，所以可以只有一个点有值)。</h3>
+<h3 id="考虑将对于第i行将其第二维下标向右移i行得到方程f_ijf_i-1jf_ij-1-而j的范围是从i到im-那么原题就转化成了对一个n1行nm1列的网格图这里说的是格点有两条线不能越过yx1yx-m2从11走到n1nm1的方案数"><a class="markdownIt-Anchor" href="#考虑将对于第i行将其第二维下标向右移i行得到方程f_ijf_i-1jf_ij-1-而j的范围是从i到im-那么原题就转化成了对一个n1行nm1列的网格图这里说的是格点有两条线不能越过yx1yx-m2从11走到n1nm1的方案数"></a>     考虑将对于第i行，将其第二维下标向右移i行，得到方程<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}=f_{i-1,j}+f_{i,j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。而j的范围是从i到i+m。那么原题就转化成了对一个n+1行n+m+1列的网格图(这里说的是格点)，有两条线不能越过（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>y</mi><mo>=</mo><mi>x</mi><mo>−</mo><mo>(</mo><mi>m</mi><mo>+</mo><mn>2</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">y=x+1,y=x-(m+2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathit">x</span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mopen">(</span><span class="mord mathit">m</span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mclose">)</span></span></span></span>），从（1,1）走到（n+1,n+m+1）的方案数。</h3>
+<h3 id="答案等于全集-先越过a线的-先越过b线的"><a class="markdownIt-Anchor" href="#答案等于全集-先越过a线的-先越过b线的"></a>     答案等于=全集-先越过A线的-先越过B线的。</h3>
+<h3 id="将多次触碰同一条线视为一次触碰那么一条线触碰ab的方案要么是abababab要么是babababa-对于先触碰a的我们考虑先删掉以a结尾的方案加上以ba结尾的方案减掉以aba结尾的方案直到方案数为0就退出每次至少向前移动一次最多移动on次-那么就可以减掉所有第一次触碰禁忌线a的方案-同理可删除先触碰b的"><a class="markdownIt-Anchor" href="#将多次触碰同一条线视为一次触碰那么一条线触碰ab的方案要么是abababab要么是babababa-对于先触碰a的我们考虑先删掉以a结尾的方案加上以ba结尾的方案减掉以aba结尾的方案直到方案数为0就退出每次至少向前移动一次最多移动on次-那么就可以减掉所有第一次触碰禁忌线a的方案-同理可删除先触碰b的"></a> 将多次触碰同一条线视为一次触碰，那么一条线触碰AB的方案要么是ABABABAB……，要么是BABABABA……。对于先触碰A的，我们考虑先删掉以A结尾的方案，加上以BA结尾的方案，减掉以ABA结尾的方案……，直到方案数为０，就退出（每次至少向前移动一次，最多移动Ｏ（ｎ）次）。那么就可以减掉所有第一次触碰禁忌线A的方案。同理可删除先触碰B的。</h3>
+<h3 id="对于末尾为a的方案数计算将终点对a线对称翻转然后直接计算从11到对称点的方案因为将路径沿a翻转必定过a然后到终点-而计算ba为末尾就将点再沿b对称过去计算11到对称点的方案-以此类推"><a class="markdownIt-Anchor" href="#对于末尾为a的方案数计算将终点对a线对称翻转然后直接计算从11到对称点的方案因为将路径沿a翻转必定过a然后到终点-而计算ba为末尾就将点再沿b对称过去计算11到对称点的方案-以此类推"></a>     对于末尾为A的方案数计算，将终点对A线对称翻转，然后直接计算从(1,1)到对称点的方案（因为将路径沿A翻转，必定过A然后到终点。）而计算BA为末尾，就将点再沿B对称过去，计算(1,1)到对称点的方案。以此类推。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 13000000
+#define P 1000000007
+using namespace std;
+long long fac[N],ifac[N];
+int n,m;
+long long power(long long x,int k){
+    long long ans=1;
+    while(k){
+        if(k&amp;1)(ans*=x)%=P;
+        (x*=x)%=P;
+        k&gt;&gt;=1;
+    }
+    return ans;
+}
+int pre(){
+    fac[0]=1;
+    for(int i=1;i&lt;=12000000;i++)fac[i]=fac[i-1]*i%P;
+    ifac[12000000]=power(fac[12000000],P-2);
+    for(int i=11999999;i&gt;=0;i--)ifac[i]=ifac[i+1]*(i+1)%P;
+}
+long long C(long long n,long long m){
+    return fac[n]*ifac[m]%P*ifac[n-m]%P;
+}
+long long calc(int x,int y){
+    if(x&lt;0||y&lt;0)return 0;
+    return C(x+y,x);
+}
+int flipA(int &amp;x,int &amp;y){
+    swap(x,y);
+    x--;y++;
+}
+int flipB(int &amp;x,int &amp;y){
+    swap(x,y);
+    x+=m+2;
+    y-=m+2;
+}
+int main(){
+    pre();
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    long long ans=calc(n+m+1,n);
+    int x=n+m+1,y=n;
+    while(x&gt;=0&amp;&amp;y&gt;=0){
+        flipA(x,y);
+        ans-=calc(x,y);
+        flipB(x,y);
+        ans+=calc(x,y);
+        ans%=P;
+    }
+    x=n+m+1,y=n;
+    while(x&gt;=0&amp;&amp;y&gt;=0){
+        flipB(x,y);
+        ans-=calc(x,y);
+        flipA(x,y);
+        ans+=calc(x,y);
+        ans%=P;
+    }
+    ans+=P;
+    ans%=P;
+    printf(&quot;%lld&quot;,ans); 
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/08/JLOI2015-骗我呢/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-JLOI2015 装备购买">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/08/JLOI2015-装备购买/">JLOI2015 装备购买</a></h1>
@@ -747,544 +1135,6 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-NOI2014 动物园">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/02/NOI2014-动物园/">NOI2014 动物园</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-02
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/倍增/" class="cube-excerpt-tag-link">#倍增</a>
-                
-                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
-                
-                <a href="/tags/KMP/" class="cube-excerpt-tag-link">#KMP</a>
-                
-                <a href="/tags/卡常/" class="cube-excerpt-tag-link">#卡常</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="对于s的每个前缀t对于t求出有多少个长度小于t的前缀和后缀相同讲每个前缀t的答案加一乘起来膜1000000007"><a class="markdownIt-Anchor" href="#对于s的每个前缀t对于t求出有多少个长度小于t的前缀和后缀相同讲每个前缀t的答案加一乘起来膜1000000007"></a>     对于S的每个前缀T，对于T求出有多少个长度小于|T|的前缀和后缀相同，讲每个前缀T的答案加一乘起来膜<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>7</mn></mrow><annotation encoding="application/x-tex">1000000007</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">7</span></span></span></span>。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="直接求next数组然后倍增就好了-倍增前后坐标相反能快差不多一倍不然卡不过去qwq"><a class="markdownIt-Anchor" href="#直接求next数组然后倍增就好了-倍增前后坐标相反能快差不多一倍不然卡不过去qwq"></a>     直接求Next数组然后倍增就好了。（倍增前后坐标相反能快差不多一倍，不然卡不过去qwq）</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#define N 1200000
-#define P 1000000007
-using namespace std;
-char s[N];
-long long f[21][N],ans;
-int Next[N],q[N],g[N];
-int cal(int x){
-    if(f[0][x]==0)return 0;
-    int o=x;
-    for(int i=20;i&gt;=0;i--)
-        if(f[i][o]&gt;x/2)o=f[i][o];
-    return f[0][o];
-}
-int get(){
-    memset(f,0,sizeof(f));
-    memset(q,0,sizeof(q));
-    memset(g,0,sizeof(g));
-    memset(Next,0,sizeof(Next));
-    int l=strlen(s+1);
-    q[1]=1;
-    for(int i=2;i&lt;=l;i++){
-        int j=Next[i-1];
-        while(j&amp;&amp;s[j+1]!=s[i])j=Next[j];
-        Next[i]=j+(s[j+1]==s[i]);
-        q[i]=q[Next[i]]+1;
-        f[0][i]=Next[i];
-        for(int j=1;j&lt;=20;j++){
-            f[j][i]=f[j-1][f[j-1][i]];
-            if(f[j][i]==0)break;
-        }
-    }
-    ans=1;
-    for(int i=1;i&lt;=l;i++)g[i]=q[cal(i)];
-    for(int i=1;i&lt;=l;i++)(ans*=1LL*g[i]+1)%=P; 
-    printf(&quot;%lld\n&quot;,ans);
-}
-int main(){
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    for(int i=1;i&lt;=n;i++){
-        scanf(&quot;%s&quot;,s+1);
-        get();
-    }
-}
-</code></pre>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/02/NOI2014-动物园/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-NOI2014 起床困难综合征">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/02/NOI2014-起床困难综合征/">NOI2014 起床困难综合征</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-02
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
-                
-                <a href="/tags/贪心/" class="cube-excerpt-tag-link">#贪心</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="给定一系列位运算操作在1到m里选一个数使这个数在经历一系列操作后值最大"><a class="markdownIt-Anchor" href="#给定一系列位运算操作在1到m里选一个数使这个数在经历一系列操作后值最大"></a>     给定一系列位运算操作，在1到m里选一个数，使这个数在经历一系列操作后值最大。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="对于每一位分别求出输入时是0和1为多少从高位往低位贪心选择较大值如果在相同满足要求的结果下选择输入较小的"><a class="markdownIt-Anchor" href="#对于每一位分别求出输入时是0和1为多少从高位往低位贪心选择较大值如果在相同满足要求的结果下选择输入较小的"></a>     对于每一位分别求出输入时是0和1为多少，从高位往低位贪心选择较大值，如果在相同满足要求的结果下选择输入较小的。</h3>
-<pre class="highlight"><code class="">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt; 
-using namespace std;
-long long n,m,d,ans,l;
-char s[100];
-int main(){
-    scanf(&quot;%lld%lld&quot;,&amp;n,&amp;m);
-    long long x=0,y=(1LL&lt;&lt;32)-1;
-    for(int i=1;i&lt;=n;i++){
-        scanf(&quot;%s&quot;,s+1);
-        scanf(&quot;%lld&quot;,&amp;d);
-        if(s[1]=='O')x=x|d,y=y|d;
-        if(s[1]=='A')x=x&amp;d,y=y&amp;d;
-        if(s[1]=='X')x=x^d,y=y^d;
-    }
-    for(int i=32;i&gt;=0;i--){
-        if(x&amp;(1LL&lt;&lt;(i))){
-            ans+=1LL&lt;&lt;i;
-        }else{
-            if(y&amp;(1LL&lt;&lt;i)){
-                if(l+(1LL&lt;&lt;i)&lt;=m){
-                    ans+=1LL&lt;&lt;i;
-                    l+=1LL&lt;&lt;i;
-                }
-            }
-        }
-    }
-    printf(&quot;%lld&quot;,ans);
-}
-</code></pre>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/02/NOI2014-起床困难综合征/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-NOI2007 生成树计数">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/06/30/NOI2007-生成树计数/">NOI2007 生成树计数</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-06-30
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
-                
-                <a href="/tags/状压DP/" class="cube-excerpt-tag-link">#状压DP</a>
-                
-                <a href="/tags/最小表示法/" class="cube-excerpt-tag-link">#最小表示法</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="有一条链链上长度不超过k的点之间都会进行连边求生成树个数"><a class="markdownIt-Anchor" href="#有一条链链上长度不超过k的点之间都会进行连边求生成树个数"></a>     有一条链，链上长度不超过k的点之间都会进行连边，求生成树个数。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="60做法on3n-leq-100"><a class="markdownIt-Anchor" href="#60做法on3n-leq-100"></a>     60%做法：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">n \leq 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></h3>
-<h3 id="那么直接连边按照用矩阵树定理高斯消元解行列式即可"><a class="markdownIt-Anchor" href="#那么直接连边按照用矩阵树定理高斯消元解行列式即可"></a>     那么直接连边按照，用矩阵树定理高斯消元解行列式即可。</h3>
-<h3 id="因为nleq100那么直接连边按照用矩阵树定理n3高斯消元解行列式即可"><a class="markdownIt-Anchor" href="#因为nleq100那么直接连边按照用矩阵树定理n3高斯消元解行列式即可"></a>  因为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">n\leq100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>那么直接连边按照，用矩阵树定理<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">n^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>高斯消元解行列式即可。</h3>
-<h3 id="100做法ol3lognnleq-1015l为所有联通形式种类当k5时l52"><a class="markdownIt-Anchor" href="#100做法ol3lognnleq-1015l为所有联通形式种类当k5时l52"></a>     100%做法：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>l</mi><mn>3</mn></msup><mi>l</mi><mi>o</mi><mi>g</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">O(l^3log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mrow><mn>1</mn><mn>5</mn></mrow></msup></mrow><annotation encoding="application/x-tex">n\leq 10^{15}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">5</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>,l为所有联通形式种类，当k=5时l=52。</h3>
-<h3 id="考虑到对于第i-k号点如果最后会成为生成树他必定与i-k1到i号点中至少一个是一个联通快的-因此我们维护f_ij表示在当前第i个点前j个点的联通块是怎么样的每次转移则是用第i号点与前面的连边情况进行转移维护判断i-k号点在转移后是否与i-k1到i号点中的部分点联通-搜索我们可以得到转移矩阵"><a class="markdownIt-Anchor" href="#考虑到对于第i-k号点如果最后会成为生成树他必定与i-k1到i号点中至少一个是一个联通快的-因此我们维护f_ij表示在当前第i个点前j个点的联通块是怎么样的每次转移则是用第i号点与前面的连边情况进行转移维护判断i-k号点在转移后是否与i-k1到i号点中的部分点联通-搜索我们可以得到转移矩阵"></a>     考虑到对于第i-k号点，如果最后会成为生成树，他必定与i-k+1到i号点中至少一个是一个联通快的。因此，我们维护<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示，在当前第i个点，前j个点的联通块是怎么样的，每次转移则是用第i号点与前面的连边情况进行转移，维护判断i-k号点在转移后是否与i-k+1到i号点中的部分点联通。搜索我们可以得到转移矩阵。</h3>
-<h3 id="初始条件因为在前k个点中所有点之间都是两两相连的n个点的完全图的最小生成树是nn-2这个可用purfer序列简易证明"><a class="markdownIt-Anchor" href="#初始条件因为在前k个点中所有点之间都是两两相连的n个点的完全图的最小生成树是nn-2这个可用purfer序列简易证明"></a>      初始条件：因为在前k个点中，所有点之间都是两两相连的，n个点的完全图的最小生成树是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">n^{n-2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，这个可用purfer序列简易证明。</h3>
-<h3 id="关于最小表示法既联通情况2231与联通情况1123是相同的所有本质相同的情况我们用它的最小表示来识别它"><a class="markdownIt-Anchor" href="#关于最小表示法既联通情况2231与联通情况1123是相同的所有本质相同的情况我们用它的最小表示来识别它"></a>      关于最小表示法：既联通情况2,2,3,1与联通情况1,1,2,3是相同的，所有本质相同的情况我们用它的最小表示来识别它。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;map&gt;
-#define N 120
-#define P 65521
-using namespace std;
-int cnt,k,tot,l;
-int a[10],b[10],q[60];
-long long n;
-map&lt;int,int&gt;p;
-struct matrix{
-    long long a[N][N];
-    int clear(){memset(a,0,sizeof(a));}
-    int E(){for(int i=1;i&lt;=cnt;i++)a[i][i]=1;}
-}g,f;
-matrix operator *(matrix a,matrix b){
-    matrix ans;
-    ans.clear();
-    for(int i=1;i&lt;=cnt;i++){
-        for(int j=1;j&lt;=cnt;j++){
-            for(int k=1;k&lt;=cnt;k++){
-                (ans.a[i][j]+=a.a[i][k]*b.a[k][j])%=P;
-            }
-        }
-    }
-    return ans;
-}
-matrix power(matrix x,long long k){
-    matrix ans;
-    ans.clear();
-    ans.E();
-    while(k){
-        if(k&amp;1)ans=ans*x;
-        x=x*x;
-        k&gt;&gt;=1;
-    }
-    return ans;
-}
-int get(int x){
-    memset(a,0,sizeof(a));
-    memset(b,0,sizeof(b));
-    int tot=0;
-    for(int i=1;i&lt;=k;i++)a[i]=(x&gt;&gt;(3*(k-i)))%(1&lt;&lt;3);
-    for(int i=1;i&lt;=k;i++){
-        if(b[a[i]])a[i]=b[a[i]];
-        else b[a[i]]=++tot,a[i]=tot;
-    }
-    int y=0;
-    for(int i=1;i&lt;=k;i++)y=y&lt;&lt;3,y+=a[i];
-    return y;
-}
-int powerr(int x,int k){
-    int ans=1;
-    if(k&lt;=0)return ans;
-    while(k){
-        if(k&amp;1)(ans*=x)%=P;
-        (x*=x)%=P;
-        k&gt;&gt;=1;
-    }
-    return ans;
-}
-int gett(int x){
-    int ans=1;
-    memset(a,0,sizeof(a));
-    memset(b,0,sizeof(b));
-    for(int i=1;i&lt;=k;i++)a[i]=(x&gt;&gt;(3*(k-i)))%(1&lt;&lt;3),b[a[i]]++;
-    for(int i=1;i&lt;=k;i++)ans*=powerr(b[i],b[i]-2);
-    return ans;
-}
-int dfs(int x,int o){
-    if(x==l){
-        int y=get(o);
-        if(p[y]==0){
-            p[y]=++cnt;
-            q[cnt]=y;
-            f.a[1][cnt]=gett(y);
-        }
-        return 0;
-    }
-    for(int i=1;i&lt;=k;i++){
-        dfs(x+1,(o&lt;&lt;3)+i);
-    }
-}
-int check(int x,int y){
-    int o=0;
-    memset(a,0,sizeof(a));
-    memset(b,0,sizeof(b));
-    for(int i=1;i&lt;=k;i++)a[i]=(x&gt;&gt;(3*(k-i)))%(1&lt;&lt;3);
-    for(int i=2;i&lt;=k;i++){
-        if(a[i]==a[1])break;
-        if(y&amp;1)continue;
-        if(i==k)return 0;
-    }
-    for(int i=0;i&lt;k;i++){
-        if((1&lt;&lt;i)&amp;y){
-            if(o==0)o=a[i+1];
-            if(b[a[i+1]]&gt;0)return 0;
-            b[a[i+1]]=o;
-        }
-    }
-    for(int i=1;i&lt;=k;i++)if(b[a[i]]&gt;0)a[i]=o;
-    int l=0;
-    for(int i=2;i&lt;=k;i++)l=(l&lt;&lt;3)+a[i];
-    l&lt;&lt;=3;
-    if(y!=0)l+=o;
-    else l+=k+1;
-    int ans=get(l);
-    return p[ans];
-}
-int cal(int x){
-    for(int i=1;i&lt;=cnt;i++){
-        int l=check(q[i],x);
-        if(l&gt;0){
-            g.a[i][l]++;
-        }
-    }
-}
-int main(){
-    scanf(&quot;%d%lld&quot;,&amp;k,&amp;n);
-    if(k&gt;n){
-        printf(&quot;%d&quot;,powerr(n,n-2));
-        return 0;
-    }
-    l=k;
-    dfs(0,0);
-    for(int i=0;i&lt;(1&lt;&lt;k);i++)cal(i);
-    f=f*power(g,n-k);
-    printf(&quot;%d\n&quot;,f.a[1][1]);
-} 
-</code></pre>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/06/30/NOI2007-生成树计数/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-NOI2007 项链工厂">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/06/28/NOI2007-项链工厂/">NOI2007 项链工厂</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-06-28
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOI/" class="cube-excerpt-tag-link">#NOI</a>
-                
-                <a href="/tags/线段树/" class="cube-excerpt-tag-link">#线段树</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="维护一个环和一个指针有以下几种操作该指针的下标为1其余为位置的下标顺时针递增"><a class="markdownIt-Anchor" href="#维护一个环和一个指针有以下几种操作该指针的下标为1其余为位置的下标顺时针递增"></a>    维护一个环，和一个指针，有以下几种操作（该指针的下标为1，其余为位置的下标顺时针递增）:</h3>
-<h3 id="1将指针逆时针移动k位"><a class="markdownIt-Anchor" href="#1将指针逆时针移动k位"></a>    1:将指针逆时针移动k位</h3>
-<h3 id="2将环以指针做对称轴翻转"><a class="markdownIt-Anchor" href="#2将环以指针做对称轴翻转"></a>    2:将环以指针做对称轴翻转</h3>
-<h3 id="3交换l位置和r位置上的颜色"><a class="markdownIt-Anchor" href="#3交换l位置和r位置上的颜色"></a>    3:交换l位置和r位置上的颜色</h3>
-<h3 id="4将l到r染成c颜色"><a class="markdownIt-Anchor" href="#4将l到r染成c颜色"></a>    4:将l到r染成c颜色</h3>
-<h3 id="5查询当前项链有多少段颜色首尾相同算一段"><a class="markdownIt-Anchor" href="#5查询当前项链有多少段颜色首尾相同算一段"></a>    5:查询当前项链有多少段颜色（首尾相同算一段）</h3>
-<h3 id="6-查询l到r有多少段颜色"><a class="markdownIt-Anchor" href="#6-查询l到r有多少段颜色"></a>    6: 查询l到r有多少段颜色</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="线段树"><a class="markdownIt-Anchor" href="#线段树"></a>    线段树</h3>
-<h3 id="对于翻转操作我们修改对应下标然后更新即可需要完成的模块有区间更新lazy标记区间查询单点更新单点查询"><a class="markdownIt-Anchor" href="#对于翻转操作我们修改对应下标然后更新即可需要完成的模块有区间更新lazy标记区间查询单点更新单点查询"></a>    对于翻转操作，我们修改对应下标，然后更新即可，需要完成的模块有区间更新（lazy标记），区间查询，单点更新，单点查询。</h3>
-<h3 id="由于代码是在拍宣传片时候写的思维极度混乱由于实现问题甚至需要开八倍空间这份代码极度丑陋qwq"><a class="markdownIt-Anchor" href="#由于代码是在拍宣传片时候写的思维极度混乱由于实现问题甚至需要开八倍空间这份代码极度丑陋qwq"></a>    （由于代码是在拍宣传片时候写的，思维极度混乱，由于实现问题甚至需要开八倍空间，这份代码极度丑陋qwq）。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#define N 2200000
-using namespace std;
-int a[N],n,c,ooo;
-struct node{
-    int lx[N],rx[N],tag[N],t[N],ll,rr,ans;
-    int pushdown(int i){
-        if(tag[i]){
-            lx[i]=tag[i];
-            rx[i]=tag[i];
-            t[i]=1;
-            tag[i*2]=tag[i];
-            tag[i*2+1]=tag[i];
-            tag[i]=0;
-            return 0;
-        }
-    }
-    int merge(int i,int l,int r){
-        if(tag[l])pushdown(l);
-        if(tag[r])pushdown(r);
-        t[i]=t[l]+t[r]-(rx[l]==lx[r]);
-        lx[i]=lx[l];
-        rx[i]=rx[r];
-    }
-    int build(int i,int l,int r){
-        if(l==r){
-            lx[i]=a[l];
-            rx[i]=a[l];
-            t[i]=1;
-            return 0;
-        }
-        int mid=(l+r)/2;
-        build(i*2,l,mid);
-        build(i*2+1,mid+1,r);
-        merge(i,i*2,i*2+1);
-    }
-    int insert(int i,int l,int r,int x,int y,int c){
-        pushdown(i);
-        if(x&lt;=l&amp;&amp;r&lt;=y){
-            tag[i]=c;
-            pushdown(i);
-            merge(i,i*2,i*2+1);
-            return 0;
-        }
-        int mid=(l+r)/2;
-        if(mid&gt;=x)insert(i*2,l,mid,x,y,c);
-        if(mid&lt;y)insert(i*2+1,mid+1,r,x,y,c);
-        merge(i,i*2,i*2+1);
-    }
-    int add(int i){
-        if(ll==0&amp;&amp;rr==0){
-            ll=lx[i],rr=rx[i];
-            ans=t[i];
-            return 0;
-        }
-        ans=t[i]+ans-(rr==lx[i]);
-        rr=rx[i];
-        return 0;
-    }
-    int query(int i,int l,int r,int x,int y){
-        pushdown(i); 
-        if(x&lt;=l&amp;&amp;y&gt;=r){
-            add(i);return ans;
-        }
-        int mid=(l+r)/2;
-        if(x&lt;=mid)query(i*2,l,mid,x,y);
-        if(y&gt;mid)query(i*2+1,mid+1,r,x,y);
-        merge(i,i*2,i*2+1);
-        return ans;
-    }
-    int clear(){
-        ll=0,rr=0;
-        ans=0;
-        return 0;
-    }
-    int insert(int i,int l,int r,int x,int a){
-        pushdown(i); 
-        if(l==r){
-            t[i]=1;
-            lx[i]=a;
-            rx[i]=a;
-            return 0;
-        }
-        int mid=(l+r)/2;
-        if(x&lt;=mid)insert(i*2,l,mid,x,a);
-        else insert(i*2+1,mid+1,r,x,a);
-        merge(i,i*2,i*2+1);
-    }
-    int query_color(int i,int l,int r,int x){
-        pushdown(i);
-        if(l==r)return lx[i];
-        int mid=(l+r)/2;
-        if(x&lt;=mid)return query_color(i*2,l,mid,x);
-        else return query_color(i*2+1,mid+1,r,x);
-        merge(i,i*2,i*2+1);
-    }
-}s;
-int q;
-char ss[10];
-int get(int &amp;x){
-    x%=n;x+=n;x%=n;
-    if(x==0)x=n;
-}
-int tot;
-int main(){
-    int p=0;
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;c);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
-    s.build(1,1,n);
-    scanf(&quot;%d&quot;,&amp;q);
-    int o=1;
-    for(int i=1;i&lt;=q;i++){
-        scanf(&quot;%s&quot;,ss+1);
-        if(ss[1]=='R'){
-            int k;
-            scanf(&quot;%d&quot;,&amp;k);
-            if(p==0)o-=k;
-            else o+=k;
-            get(o);
-        }
-        if(ss[1]=='F'){p^=1;}
-        if(ss[1]=='S'){
-            int l,r;
-            scanf(&quot;%d%d&quot;,&amp;l,&amp;r);
-            if(p==0)l+=o-1,r+=o-1;
-                else{
-                    l=o+1-l,r=o+1-r;
-                }
-            get(l),get(r);
-            int lx=s.query_color(1,1,n,l),rx=s.query_color(1,1,n,r);
-            s.insert(1,1,n,r,lx);
-            s.insert(1,1,n,l,rx); 
-        }
-        if(ss[1]=='P'){
-            int l,r,x;
-            scanf(&quot;%d%d%d&quot;,&amp;l,&amp;r,&amp;x);
-            if(p==0)l+=o-1,r+=o-1;
-                else{
-                    l=o+1-l,r=o+1-r;
-                    swap(l,r);
-                }
-            get(l),get(r);
-            if(l&lt;=r)s.insert(1,1,n,l,r,x);
-            else s.insert(1,1,n,1,r,x),s.insert(1,1,n,l,n,x);
-        } 
-        if(ss[1]=='C'){
-            tot++;
-//          if(tot==11){
-//              printf(&quot;\n&quot;);
-//              for(int i=1;i&lt;=n;i++)printf(&quot;%d &quot;,s.query_color(1,1,n,i));
-//              printf(&quot;\n&quot;);
-//          }
-            int l=1,r=n,ooo=1;
-            if(ss[2]=='S'){
-                scanf(&quot;%d%d&quot;,&amp;l,&amp;r);
-                if(p==0)l+=o-1,r+=o-1;
-                else{
-                    l=o+1-l,r=o+1-r;
-                    swap(l,r);
-                }
-                get(l);get(r);
-            }
-            int ans=0;
-            s.clear();
-            if(l&lt;=r)ans=s.query(1,1,n,l,r)-(r-l+1==n?(s.query_color(1,1,n,1)==s.query_color(1,1,n,n)):0);
-            else{
-                ans=s.query(1,1,n,1,r);s.clear();
-                ans+=s.query(1,1,n,l,n)-(s.query_color(1,1,n,1)==s.query_color(1,1,n,n));
-            }
-            printf(&quot;%d\n&quot;,max(ans,1));
-        }
-    } 
-}
-</code></pre>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/06/28/NOI2007-项链工厂/">Read More</a>
-    </footer>
-</div>
-
 
 
 <ul class="cube-pagination cube-pagination-9">
@@ -1374,8 +1224,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>55</span>Article</a>
-        <a class="count tags"><span>54</span>Tags</a>
+        <a class="count articles"><span>59</span>Article</a>
+        <a class="count tags"><span>57</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
 </div>
@@ -1413,7 +1263,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/26/杜教筛/" title="杜教筛">杜教筛</a>
+                    <a href="/2018/07/31/pyh的求和/" title="pyh的求和">pyh的求和</a>
                 </p>
             </div>
             
@@ -1427,7 +1277,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/25/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/07/31/暑假计划/" title="2018暑假计划">2018暑假计划</a>
                 </p>
             </div>
         </li>
@@ -1440,7 +1290,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/25/「LibreOJ-β-Round-7」Array-Poisonous-Suffix-Problem/" title="【Array Poisonous Suffix Problem】">【Array Poisonous Suffix Problem】</a>
+                    <a href="/2018/07/31/抵制克苏恩/" title="抵制克苏恩">抵制克苏恩</a>
                 </p>
             </div>
         </li>
@@ -1453,7 +1303,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/25/HAOI2016-找相同字符/" title="HAOI2016 找相同字符">HAOI2016 找相同字符</a>
+                    <a href="/2018/07/31/美味/" title="SCOI2016 美味">SCOI2016 美味</a>
                 </p>
             </div>
         </li>
@@ -1466,7 +1316,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/25/SDOI2016-生成魔咒/" title="SDOI2016 诸神眷顾的幻想乡">SDOI2016 诸神眷顾的幻想乡</a>
+                    <a href="/2018/07/31/Mushroom追妹纸/" title="Mushroom 追妹纸">Mushroom 追妹纸</a>
                 </p>
             </div>
         </li>
@@ -1484,12 +1334,12 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -1505,7 +1355,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -1515,7 +1365,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
@@ -1526,22 +1376,22 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
+            <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
@@ -1555,7 +1405,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/线性基/">#线性基</a>
         </div>
         
@@ -1565,13 +1415,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/好题/">#好题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/hash/">#hash</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/二分/">#二分</a>
         </div>
         
         
@@ -1580,7 +1440,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
@@ -1590,7 +1450,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
@@ -1606,26 +1466,26 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/卡常/">#卡常</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/模拟/">#模拟</a>
         </div>
         
@@ -1635,7 +1495,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/中国剩余定理/">#中国剩余定理</a>
         </div>
         
@@ -1651,11 +1511,21 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/分块/">#分块</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -1671,17 +1541,17 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/费用流/">#费用流</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率与期望/">#概率与期望</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
         
@@ -1701,21 +1571,21 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/积性函数/">#积性函数</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/杜教筛/">#杜教筛</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/积性函数/">#积性函数</a>
+        </div>
+        
+        
         <div class="cube-box ">
+            <a href="/tags/杜教筛/">#杜教筛</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/概率/">#概率</a>
         </div>
         
@@ -1725,13 +1595,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/二分/">#二分</a>
+        <div class="cube-box ">
+            <a href="/tags/上下界网络流/">#上下界网络流</a>
         </div>
         
         
@@ -1740,7 +1610,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
@@ -1751,26 +1621,21 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/FFT/">#FFT</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/上下界网络流/">#上下界网络流</a>
+            <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/树形DP/">#树形DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/计划表/">#计划表</a>
         </div>
         
