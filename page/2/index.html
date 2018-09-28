@@ -341,96 +341,6 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-ZJOI2015 诸神眷顾的幻想乡">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/25/ZJOI2015-诸神眷顾的幻想乡/">ZJOI2015 诸神眷顾的幻想乡</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-25
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/广义后缀自动机/" class="cube-excerpt-tag-link">#广义后缀自动机</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#define N 220000
-#define M 12000000
-using namespace std;
-int tot,Next[N],v[N],h[N],w[N],d[N]; 
-int cnt,len[M],ch[M][15],fail[M],last;
-int add(int x,int y){
-    tot++;
-    Next[tot]=h[x];
-    v[tot]=y;
-    h[x]=tot;
-}
-int newnode(int x){
-    cnt++;
-    len[cnt]=x;
-    return cnt;
-}
-int extend(int p,int x){
-    int np=newnode(len[p]+1);
-    while(p&amp;&amp;!ch[p][x])ch[p][x]=np,p=fail[p];
-    if(p==0)fail[np]=1;
-    else{
-        int q=ch[p][x];
-        if(len[q]==len[p]+1)fail[np]=q;
-        else{
-            int nq=newnode(len[p]+1);
-            memcpy(ch[nq],ch[q],sizeof(ch[q]));
-            fail[nq]=fail[q];
-            fail[np]=fail[q]=nq;
-            while(ch[p][x]==q)ch[p][x]=nq,p=fail[p];
-        }
-    }
-    last=np;
-    return np;
-}
-int dfs(int x,int fa,int now){
-    int k=extend(now,w[x]);
-    for(int i=h[x];i;i=Next[i]){
-        if(v[i]==fa)continue;
-        dfs(v[i],x,k);
-    }
-}
-int main(){
-    int n,c;
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;c);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;w[i]),w[i]++;
-    len[++cnt]=0,last=1;
-    for(int i=1;i&lt;n;i++){
-        int x,y;
-        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
-        add(x,y);
-        add(y,x);
-        d[x]++,d[y]++;
-    }
-    for(int i=1;i&lt;=n;i++)if(d[i]==1)dfs(i,0,1);
-    long long ans=0;
-    for(int i=1;i&lt;=cnt;i++)ans+=(0LL+len[i]-len[fail[i]]);
-    printf(&quot;%lld\n&quot;,ans);
-}
-</code></pre>
-<p>题目链接:<a href="https://loj.ac/problem/2137" target="_blank" rel="noopener">「ZJOI2015」诸神眷顾的幻想乡</a></p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/25/ZJOI2015-诸神眷顾的幻想乡/">Read More</a>
-    </footer>
-</div>
-
 <div class="cube-excerpt" id="cube-excerpt-TJOI2015 弦论">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/25/TJOI2015-弦论/">TJOI2015 弦论</a></h1>
@@ -531,6 +441,96 @@ int main(){
     </article>
     <footer class="cube-excerpt-footer">
         <a class="cube-excerpt-more" href="/2018/07/25/TJOI2015-弦论/">Read More</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-ZJOI2015 诸神眷顾的幻想乡">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/25/ZJOI2015-诸神眷顾的幻想乡/">ZJOI2015 诸神眷顾的幻想乡</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-25
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/广义后缀自动机/" class="cube-excerpt-tag-link">#广义后缀自动机</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 220000
+#define M 12000000
+using namespace std;
+int tot,Next[N],v[N],h[N],w[N],d[N]; 
+int cnt,len[M],ch[M][15],fail[M],last;
+int add(int x,int y){
+    tot++;
+    Next[tot]=h[x];
+    v[tot]=y;
+    h[x]=tot;
+}
+int newnode(int x){
+    cnt++;
+    len[cnt]=x;
+    return cnt;
+}
+int extend(int p,int x){
+    int np=newnode(len[p]+1);
+    while(p&amp;&amp;!ch[p][x])ch[p][x]=np,p=fail[p];
+    if(p==0)fail[np]=1;
+    else{
+        int q=ch[p][x];
+        if(len[q]==len[p]+1)fail[np]=q;
+        else{
+            int nq=newnode(len[p]+1);
+            memcpy(ch[nq],ch[q],sizeof(ch[q]));
+            fail[nq]=fail[q];
+            fail[np]=fail[q]=nq;
+            while(ch[p][x]==q)ch[p][x]=nq,p=fail[p];
+        }
+    }
+    last=np;
+    return np;
+}
+int dfs(int x,int fa,int now){
+    int k=extend(now,w[x]);
+    for(int i=h[x];i;i=Next[i]){
+        if(v[i]==fa)continue;
+        dfs(v[i],x,k);
+    }
+}
+int main(){
+    int n,c;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;c);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;w[i]),w[i]++;
+    len[++cnt]=0,last=1;
+    for(int i=1;i&lt;n;i++){
+        int x,y;
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+        add(x,y);
+        add(y,x);
+        d[x]++,d[y]++;
+    }
+    for(int i=1;i&lt;=n;i++)if(d[i]==1)dfs(i,0,1);
+    long long ans=0;
+    for(int i=1;i&lt;=cnt;i++)ans+=(0LL+len[i]-len[fail[i]]);
+    printf(&quot;%lld\n&quot;,ans);
+}
+</code></pre>
+<p>题目链接:<a href="https://loj.ac/problem/2137" target="_blank" rel="noopener">「ZJOI2015」诸神眷顾的幻想乡</a></p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/25/ZJOI2015-诸神眷顾的幻想乡/">Read More</a>
     </footer>
 </div>
 
@@ -1462,12 +1462,12 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -1498,12 +1498,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
@@ -1523,7 +1523,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/树形DP/">#树形DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
         </div>
         
@@ -1538,8 +1543,18 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/组合数学/">#组合数学</a>
+        </div>
+        
+        
         <div class="cube-box ">
-            <a href="/tags/树形DP/">#树形DP</a>
+            <a href="/tags/计数/">#计数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/好题/">#好题</a>
         </div>
         
         
@@ -1548,23 +1563,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/二分/">#二分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/组合数学/">#组合数学</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/计数/">#计数</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/好题/">#好题</a>
+            <a href="/tags/二分/">#二分</a>
         </div>
         
         
@@ -1583,27 +1583,32 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
@@ -1614,17 +1619,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
+            <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
         <div class="cube-box-bg ">
             <a href="/tags/模拟/">#模拟</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
@@ -1648,22 +1648,22 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/分块/">#分块</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -1678,7 +1678,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/费用流/">#费用流</a>
         </div>
         
@@ -1688,13 +1688,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
@@ -1709,17 +1704,22 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/哈希/">#哈希</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/积性函数/">#积性函数</a>
+            <a href="/tags/期望/">#期望</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/期望/">#期望</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
@@ -1738,17 +1738,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/上下界网络流/">#上下界网络流</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
@@ -1759,12 +1759,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/FFT/">#FFT</a>
+            <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/树状数组/">#树状数组</a>
+            <a href="/tags/FFT/">#FFT</a>
         </div>
         
     </div>
