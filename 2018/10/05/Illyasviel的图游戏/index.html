@@ -10,7 +10,7 @@
     
     
     
-    <title>Tags: 线性基 | illyasviel</title>
+    <title>Illyasviel的图游戏 | illyasviel</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -174,29 +174,105 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <style>
-    @media(max-width: 768px) {
-        body {
-            background-color: #fff!important;
-        }
-    }
-</style>
-<div class="cube-archives">
+            <div class="cube-article">
+    <h1 class="title">Illyasviel的图游戏</h1>
     
-    <div class="cube-archive" style="margin-top: 0;">
-        <h1 class="title">线性基</h1>
-        
-        <ul class="posts">
-            
-            <li class="post">
-                <a href="/2018/07/08/JLOI2015-装备购买/">JLOI2015 装备购买</a>
-            </li>
-            
-        </ul>
-        
-    </div>
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-10-05
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/好题/">#好题</a>
+    
+    <a href="/tags/博弈论/">#博弈论</a>
     
 </div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h2 id="题意"><a class="markdownIt-Anchor" href="#题意"></a> 题意：</h2>
+<h3 id="alice和bob在玩游戏"><a class="markdownIt-Anchor" href="#alice和bob在玩游戏"></a>     Alice和Bob在玩游戏。</h3>
+<h3 id="他们有一张n个点m条边的带正权的简单无向图其中除了1号点和n号点每个点度数小于等于2"><a class="markdownIt-Anchor" href="#他们有一张n个点m条边的带正权的简单无向图其中除了1号点和n号点每个点度数小于等于2"></a>     他们有一张n个点m条边的带正权的简单无向图，其中除了1号点和n号点每个点度数小于等于2。</h3>
+<h3 id="alice和bob轮流操作alice先手每次操作的人可以选择一条仍然存在的边并且使得边权减一-如果有一条边边权减为了零它会立即消失"><a class="markdownIt-Anchor" href="#alice和bob轮流操作alice先手每次操作的人可以选择一条仍然存在的边并且使得边权减一-如果有一条边边权减为了零它会立即消失"></a>     Alice和Bob轮流操作，Alice先手，每次操作的人可以选择一条仍然存在的边，并且使得边权减一。如果有一条边边权减为了零，它会立即消失。</h3>
+<h3 id="在这张图上有一只illyasviel想要从1号点走到n号点如果在某个时刻illyasviel不能从1号点走到n号点他会十分生气并且判定上一个操作的玩家输"><a class="markdownIt-Anchor" href="#在这张图上有一只illyasviel想要从1号点走到n号点如果在某个时刻illyasviel不能从1号点走到n号点他会十分生气并且判定上一个操作的玩家输"></a>     在这张图上有一只Illyasviel想要从1号点走到n号点，如果在某个时刻Illyasviel不能从1号点走到n号点，他会十分生气并且判定上一个操作的玩家输。</h3>
+<h3 id="假设alice和bob都采取最优策略请输出alice是否可以获胜是输出yes-否则输出no"><a class="markdownIt-Anchor" href="#假设alice和bob都采取最优策略请输出alice是否可以获胜是输出yes-否则输出no"></a>     假设Alice和Bob都采取最优策略，请输出Alice是否可以获胜，是输出“Yes”， 否则输出“No”</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="题目中对于图的限制可以看做-1-到-n-的所有简单路径互不相交-在结束游戏前的最后一步一定是剩下一条-1-到-n-的路径并且路径上的权值全都是一-如果剩下的最后一条路径确定了游戏的总步数也确定了那么先后手的胜负也确定了-那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径即尽可能切断使对方必胜的路径-切断一条路径需要的步数是这条路径上的权值的最小值-我们只需要比较双方切断对方必胜的路径所需要的步数即可-此处是官方题解"><a class="markdownIt-Anchor" href="#题目中对于图的限制可以看做-1-到-n-的所有简单路径互不相交-在结束游戏前的最后一步一定是剩下一条-1-到-n-的路径并且路径上的权值全都是一-如果剩下的最后一条路径确定了游戏的总步数也确定了那么先后手的胜负也确定了-那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径即尽可能切断使对方必胜的路径-切断一条路径需要的步数是这条路径上的权值的最小值-我们只需要比较双方切断对方必胜的路径所需要的步数即可-此处是官方题解"></a>     题目中对于图的限制可以看做 1 到 n 的所有简单路径互不相交。在结束游戏前的最后一步一定是剩下一条 1 到 n 的路径，并且路径上的权值全都是一。如果剩下的最后一条路径确定了，游戏的总步数也确定了，那么先后手的胜负也确定了。那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径，即尽可能切断使对方必胜的路径。切断一条路径需要的步数是这条路径上的权值的最小值。我们只需要比较双方切断对方必胜的路径所需要的步数即可。(此处是官方题解)</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 720000
+using namespace std;
+int tot,Next[N],v[N],h[N],w[N];
+int n,p[N],m,bns;
+long long L,R;
+long long ans;
+int add(int x,int y,int z){
+    tot++;
+    Next[tot]=h[x];
+    v[tot]=y;
+    w[tot]=z;
+    h[x]=tot;
+    return 0;
+}
+int dfs(int x,int a,int len){//L 奇 R 偶
+    if(x==n){
+        if(len&amp;1)L+=a;
+        else R+=a;
+        return 1;
+    }
+    p[x]=1;
+    int flag=0;
+    for(int i=h[x];i;i=Next[i]){
+        if(p[v[i]]==1&amp;&amp;v[i]!=n)continue;
+        dfs(v[i],min(a,w[i]),len+1);
+    }
+    return flag;
+}
+int main(){
+    tot=1;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=m;i++){
+        int x,y,z;
+        scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;z);
+        add(x,y,z);
+        add(y,x,z);
+        ans+=z;
+    }
+    dfs(1,0x7fffffff,0);
+    if((((ans-1)&amp;1)&amp;&amp;(L&gt;=R))||(((ans)&amp;1)&amp;&amp;(R&gt;=L)))printf(&quot;Yes\n&quot;);
+    else printf(&quot;No\n&quot;);
+}
+</code></pre>
+<p>题目链接:<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?id=3266" target="_blank" rel="noopener">Illyasviel的图游戏</a></p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        
+        <li class="next">
+            <a href="/2018/10/05/复活-1/">
+                复活
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
         </div>
         <div class="cube-right">
             
@@ -410,7 +486,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/线性基/">#线性基</a>
         </div>
         
@@ -420,7 +496,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
@@ -430,7 +506,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/hash/">#hash</a>
         </div>
         
@@ -440,7 +516,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
@@ -460,22 +536,22 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
@@ -490,7 +566,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
@@ -505,7 +581,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
@@ -520,7 +596,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
@@ -540,7 +616,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/构造/">#构造</a>
         </div>
         
@@ -550,12 +626,12 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
@@ -575,17 +651,17 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/数学/">#数学</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
@@ -595,7 +671,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
@@ -615,7 +691,7 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
@@ -635,7 +711,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
@@ -645,7 +721,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
