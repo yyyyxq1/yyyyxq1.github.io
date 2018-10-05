@@ -175,6 +175,70 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-Division expression">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/21/除法表达式/">Division expression</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-21
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/贪心/" class="cube-excerpt-tag-link">#贪心</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意:</h2>
+<h3 id="给出序列a问加上括号后a_1a_2a_3a_5a_n能否变为整数"><a class="markdownIt-Anchor" href="#给出序列a问加上括号后a_1a_2a_3a_5a_n能否变为整数"></a>     给出序列a，问加上括号后<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mi mathvariant="normal">/</mi><msub><mi>a</mi><mn>2</mn></msub><mi mathvariant="normal">/</mi><msub><mi>a</mi><mn>3</mn></msub><mi mathvariant="normal">/</mi><msub><mi>a</mi><mn>5</mn></msub><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">/</mi><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">a_1/a_2/a_3/a_5.../a_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathrm">/</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathrm">/</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathrm">/</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">/</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>能否变为整数。</h3>
+<h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h3>
+<h3 id="发现a_2一定会是分母而其他都可以为分子贪心即可"><a class="markdownIt-Anchor" href="#发现a_2一定会是分母而其他都可以为分子贪心即可"></a>     发现<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">a_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>一定会是分母，而其他都可以为分子，贪心即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+using namespace std;
+int a[120000],n,x;
+int gcd(int x,int y){
+    if(x%y==0)return y;
+    return gcd(y,x%y);
+}
+int solve(){
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
+    x=a[2];
+    for(int i=1;i&lt;=n;i++){
+        if(i==2)continue;
+        x=x/gcd(x,a[i]);
+        if(x==1)return 1;
+    }
+    return 0;
+} 
+int main(){
+    int t;
+    scanf(&quot;%d&quot;,&amp;t);
+    while(t--){
+        if(solve())printf(&quot;YES\n&quot;);
+        else printf(&quot;NO\n&quot;);
+    }
+}
+
+</code></pre>
+<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1471&amp;pid=0" target="_blank" rel="noopener">Division expression</a></p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/21/除法表达式/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-NOI2018 屠龙勇士">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/20/NOI2018-屠龙勇士/">NOI2018 屠龙勇士</a></h1>
@@ -462,6 +526,90 @@ int main(){
     </footer>
 </div>
 
+<div class="cube-excerpt" id="cube-excerpt-Milk Patterns">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/19/奶牛质量/">Milk Patterns</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-19
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/hash/" class="cube-excerpt-tag-link">#hash</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;map&gt;
+#define hash 19260817
+#define N 22000
+using namespace std;
+typedef unsigned long long ull;
+ull h[N];
+int n,k,a[N];
+map&lt;ull,int&gt;p;
+int print(int x,int y){
+    for(int i=x;i&lt;=y;i++)printf(&quot;%d &quot;,a[i]);
+}
+bool check(int l){
+    p.clear();
+    if(l==0)return true;
+    ull o=0;
+    for(int i=1;i&lt;=l;i++)
+        o*=hash,o+=a[i];
+//      print(1,l);
+//      printf(&quot; %llu \n&quot;,o);
+    p[o]=1;
+     
+    for(int i=1;i&lt;=n-l;i++){
+        o-=h[l-1]*a[i];
+        o*=hash;
+        o+=a[i+l];
+//      print(i+1,i+l);
+//      printf(&quot; %llu \n&quot;,o);
+        if(++p[o]&gt;=k)return true;
+    }
+    return false;
+}
+int main(){
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
+    h[0]=1;
+    for(int i=1;i&lt;=n;i++)h[i]=h[i-1]*hash;
+    int l=0,r=n;
+//  printf(&quot;%d\n&quot;,check(9));
+    while(r-l&gt;4){
+        int m=(l+r)/2;
+        if(check(m))l=m;
+        else r=m-1;
+    }
+    for(int i=r;i&gt;=l;i--){
+        if(check(i)){
+            printf(&quot;%d\n&quot;,i);
+            return 0;
+        }
+    }
+}
+</code></pre>
+<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1470&amp;pid=2" target="_blank" rel="noopener">Milk Patterns</a></p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/19/奶牛质量/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-Race">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/19/点分x/">Race</a></h1>
@@ -583,90 +731,6 @@ int main(){
     </article>
     <footer class="cube-excerpt-footer">
         <a class="cube-excerpt-more" href="/2018/07/19/点分x/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-Milk Patterns">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/19/奶牛质量/">Milk Patterns</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-19
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
-                
-                <a href="/tags/hash/" class="cube-excerpt-tag-link">#hash</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;map&gt;
-#define hash 19260817
-#define N 22000
-using namespace std;
-typedef unsigned long long ull;
-ull h[N];
-int n,k,a[N];
-map&lt;ull,int&gt;p;
-int print(int x,int y){
-    for(int i=x;i&lt;=y;i++)printf(&quot;%d &quot;,a[i]);
-}
-bool check(int l){
-    p.clear();
-    if(l==0)return true;
-    ull o=0;
-    for(int i=1;i&lt;=l;i++)
-        o*=hash,o+=a[i];
-//      print(1,l);
-//      printf(&quot; %llu \n&quot;,o);
-    p[o]=1;
-     
-    for(int i=1;i&lt;=n-l;i++){
-        o-=h[l-1]*a[i];
-        o*=hash;
-        o+=a[i+l];
-//      print(i+1,i+l);
-//      printf(&quot; %llu \n&quot;,o);
-        if(++p[o]&gt;=k)return true;
-    }
-    return false;
-}
-int main(){
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
-    h[0]=1;
-    for(int i=1;i&lt;=n;i++)h[i]=h[i-1]*hash;
-    int l=0,r=n;
-//  printf(&quot;%d\n&quot;,check(9));
-    while(r-l&gt;4){
-        int m=(l+r)/2;
-        if(check(m))l=m;
-        else r=m-1;
-    }
-    for(int i=r;i&gt;=l;i--){
-        if(check(i)){
-            printf(&quot;%d\n&quot;,i);
-            return 0;
-        }
-    }
-}
-</code></pre>
-<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1470&amp;pid=2" target="_blank" rel="noopener">Milk Patterns</a></p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/19/奶牛质量/">Read More</a>
     </footer>
 </div>
 
@@ -1351,103 +1415,6 @@ int main(void){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-等差子序列">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/16/等差子序列/">等差子序列</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-16
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/hash/" class="cube-excerpt-tag-link">#hash</a>
-                
-                <a href="/tags/树状数组/" class="cube-excerpt-tag-link">#树状数组</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="给一个1到n的排列a_i询问是否存在1leq-p_1p_2p_3p_4p_5p_lenleq-n-lengeq-3"><a class="markdownIt-Anchor" href="#给一个1到n的排列a_i询问是否存在1leq-p_1p_2p_3p_4p_5p_lenleq-n-lengeq-3"></a>     给一个1到N的排列{A_i}，询问是否存在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><msub><mi>p</mi><mn>1</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>2</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>3</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>4</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>5</mn></msub><mo>&lt;</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>&lt;</mo><msub><mi>p</mi><mrow><mi>L</mi><mi>e</mi><mi>n</mi></mrow></msub><mo>≤</mo><mi>N</mi><mo>(</mo><mi>L</mi><mi>e</mi><mi>n</mi><mo>≥</mo><mn>3</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">1\leq p_1&lt;p_2&lt;p_3&lt;p_4&lt;p_5&lt;...&lt;p_{Len}\leq N (Len\geq 3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">L</span><span class="mord mathit">e</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord mathit">L</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mrel">≥</span><span class="mord mathrm">3</span><span class="mclose">)</span></span></span></span>，</h3>
-<h3 id="使得a_p1ap2ap3aplen是一个等差序列"><a class="markdownIt-Anchor" href="#使得a_p1ap2ap3aplen是一个等差序列"></a>     使得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mrow><mi>p</mi><mn>1</mn></mrow></msub><mo separator="true">,</mo><mi>A</mi><mrow><mi>p</mi><mn>2</mn></mrow><mo separator="true">,</mo><mi>A</mi><mrow><mi>p</mi><mn>3</mn></mrow><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>A</mi><mrow><mi>p</mi><mi>L</mi><mi>e</mi><mi>n</mi></mrow></mrow><annotation encoding="application/x-tex">A_{p1},A{p2},A{p3},...A{pLen}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">p</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord mathit">A</span><span class="mord textstyle uncramped"><span class="mord mathit">p</span><span class="mord mathrm">2</span></span><span class="mpunct">,</span><span class="mord mathit">A</span><span class="mord textstyle uncramped"><span class="mord mathit">p</span><span class="mord mathrm">3</span></span><span class="mpunct">,</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathit">A</span><span class="mord textstyle uncramped"><span class="mord mathit">p</span><span class="mord mathit">L</span><span class="mord mathit">e</span><span class="mord mathit">n</span></span></span></span></span>是一个等差序列。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="树状数组维护hash值"><a class="markdownIt-Anchor" href="#树状数组维护hash值"></a>     树状数组维护hash值。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;string.h&gt;
-#include&lt;stdio.h&gt;
-#define N 120000
-#define P 1000000007
-#define lowbit(x) (x&amp;-x)
-using namespace std;
-int n,pw[N],a[N];
-struct node{
-    long long a[N];    
-    int add(int x,int b){
-        for(int i=x;i&lt;=n;i+=lowbit(i))(a[i]+=b)%=P;
-    }
-    long long sum(int x){
-        long long ans=0;
-        for(int i=x;i&gt;0;i-=lowbit(i))(ans+=a[i])%=P;
-        return ans;
-    }
-    int clear(){
-        memset(a,0,sizeof(a));
-    }
-}L,R;
-long long power(long long x,int k){
-    long long ans=1;
-    while(k){
-        if(k&amp;1)(ans*=x)%=P;
-        (x*=x)%=P;
-        k&gt;&gt;=1;
-    }
-    return ans;
-}
-int main(){
-    int T;
-    pw[0]=1;
-    scanf(&quot;%d&quot;,&amp;T);
-    for(int i=1;i&lt;=N-10;i++)pw[i]=pw[i-1]*2%P;
-    while(T--){
-        scanf(&quot;%d&quot;,&amp;n);
-        for(int i=1;i&lt;=n;i++)scanf(&quot;%lld&quot;,&amp;a[i]);
-        bool ans=false;
-        L.clear();
-        R.clear();
-        for(int i=1;i&lt;=n;i++){
-            int o=a[i];
-            L.add(o,pw[o]);
-            R.add(n-o+1,pw[n-o+1]);
-            if(o&lt;=n/2)
-            if(L.sum(o-1)!=((R.sum(n-o)-R.sum(n-o-o+1))*power(pw[n-o-o+1],P-2)%P+P)%P){
-                ans=true;
-                break;
-            }
-            if(o&gt;n/2)
-            if(((L.sum(o-1)-L.sum(o-1-(n-o)))*power(pw[o-1-(n-o)],P-2)%P+P)%P!=R.sum(n-o)){
-                ans=true;
-                break;
-            }
-        }
-        if(ans)printf(&quot;Y\n&quot;);
-        else printf(&quot;N\n&quot;);
-    }
-}
-</code></pre>
-<p>原题链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2124" target="_blank" rel="noopener">等差子序列</a></p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/16/等差子序列/">Read More</a>
-    </footer>
-</div>
-
 
 
 <ul class="cube-pagination cube-pagination-9">
@@ -1537,7 +1504,7 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>61</span>Article</a>
+        <a class="count articles"><span>62</span>Article</a>
         <a class="count tags"><span>57</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
@@ -1576,7 +1543,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
                 </p>
             </div>
             
@@ -1590,7 +1557,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
+                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
                 </p>
             </div>
         </li>
@@ -1603,7 +1570,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/SCOI2015-选数/" title="CQOI2015 选数">CQOI2015 选数</a>
+                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
                 </p>
             </div>
         </li>
@@ -1616,7 +1583,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/JLOI2015-战争调度/" title="JLOI2015 战争调度">JLOI2015 战争调度</a>
+                    <a href="/2018/08/01/SCOI2015-选数/" title="CQOI2015 选数">CQOI2015 选数</a>
                 </p>
             </div>
         </li>
@@ -1629,7 +1596,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/31/pyh的求和/" title="pyh的求和">pyh的求和</a>
+                    <a href="/2018/08/01/JLOI2015-战争调度/" title="JLOI2015 战争调度">JLOI2015 战争调度</a>
                 </p>
             </div>
         </li>
@@ -1647,7 +1614,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -1668,6 +1635,16 @@ int main(){
     <div class="cube-boxs">
         
         
+        <div class="cube-box ">
+            <a href="/tags/高斯消元/">#高斯消元</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
@@ -1683,28 +1660,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        <div class="cube-box ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
@@ -1723,7 +1690,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/线性基/">#线性基</a>
         </div>
         
@@ -1738,7 +1705,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/好题/">#好题</a>
         </div>
         
@@ -1768,7 +1735,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
@@ -1778,7 +1745,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
@@ -1788,18 +1755,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/卡常/">#卡常</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
@@ -1819,21 +1786,21 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/杜教筛/">#杜教筛</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/杜教筛/">#杜教筛</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
@@ -1849,21 +1816,21 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/splay/">#splay</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/构造/">#构造</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/splay/">#splay</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/费用流/">#费用流</a>
         </div>
         
@@ -1878,7 +1845,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/哈希/">#哈希</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/数学/">#数学</a>
         </div>
         
@@ -1889,36 +1861,31 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/哈希/">#哈希</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/概率/">#概率</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/最小生成树/">#最小生成树</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
@@ -1928,13 +1895,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+        <div class="cube-box ">
+            <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
@@ -1943,13 +1910,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/树状数组/">#树状数组</a>
+        <div class="cube-box ">
+            <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/FFT/">#FFT</a>
+            <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
     </div>

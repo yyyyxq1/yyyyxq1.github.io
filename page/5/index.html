@@ -175,6 +175,89 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-兔子与樱花">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/15/兔子与樱花/">兔子与樱花</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-15
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/贪心/" class="cube-excerpt-tag-link">#贪心</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="很久很久之前森林里住着一群兔子-有一天兔子们突然决定要去看樱花-兔子们所在森林里的樱花树很特殊-樱花树由n个树枝分叉点组成编号从0到n-1这n个分叉点由n-1个树枝连接我们可以把它看成一个有根树结构其中0号节点是根节点-这个树的每个节点上都会有一些樱花其中第i个节点有c_i朵樱花-樱花树的每一个节点都有最大的载重m对于每一个节点i它的儿子节点的个数和i节点上樱花个数之和不能超过m即son_ic_ileq-m其中son_i表示i的儿子的个数如果i为叶子节点则son_i0"><a class="markdownIt-Anchor" href="#很久很久之前森林里住着一群兔子-有一天兔子们突然决定要去看樱花-兔子们所在森林里的樱花树很特殊-樱花树由n个树枝分叉点组成编号从0到n-1这n个分叉点由n-1个树枝连接我们可以把它看成一个有根树结构其中0号节点是根节点-这个树的每个节点上都会有一些樱花其中第i个节点有c_i朵樱花-樱花树的每一个节点都有最大的载重m对于每一个节点i它的儿子节点的个数和i节点上樱花个数之和不能超过m即son_ic_ileq-m其中son_i表示i的儿子的个数如果i为叶子节点则son_i0"></a>     很久很久之前，森林里住着一群兔子。有一天，兔子们突然决定要去看樱花。兔子们所在森林里的樱花树很特殊。樱花树由n个树枝分叉点组成，编号从0到n-1，这n个分叉点由n-1个树枝连接，我们可以把它看成一个有根树结构，其中0号节点是根节点。这个树的每个节点上都会有一些樱花，其中第i个节点有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">c_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>朵樱花。樱花树的每一个节点都有最大的载重m，对于每一个节点i，它的儿子节点的个数和i节点上樱花个数之和不能超过m，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub><mo>+</mo><msub><mi>c</mi><mi>i</mi></msub><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">son_i+c_i\leq m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.63597em;"></span><span class="strut bottom" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit">m</span></span></span></span>，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">son_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示i的儿子的个数，如果i为叶子节点，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">son_i=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span>。</h3>
+<h3 id="现在兔子们觉得樱花树上节点太多希望去掉一些节点-当一个节点被去掉之后这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上-如果父节点也被删除那么就会继续向上连接直到第一个没有被删除的节点为止"><a class="markdownIt-Anchor" href="#现在兔子们觉得樱花树上节点太多希望去掉一些节点-当一个节点被去掉之后这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上-如果父节点也被删除那么就会继续向上连接直到第一个没有被删除的节点为止"></a>     现在兔子们觉得樱花树上节点太多，希望去掉一些节点。当一个节点被去掉之后，这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上。如果父节点也被删除，那么就会继续向上连接，直到第一个没有被删除的节点为止。</h3>
+<h3 id="现在兔子们希望计算在不违背最大载重的情况下最多能删除多少节点"><a class="markdownIt-Anchor" href="#现在兔子们希望计算在不违背最大载重的情况下最多能删除多少节点"></a>     现在兔子们希望计算在不违背最大载重的情况下，最多能删除多少节点。</h3>
+<h3 id="注意根节点不能被删除被删除的节点不被计入载重"><a class="markdownIt-Anchor" href="#注意根节点不能被删除被删除的节点不被计入载重"></a>     注意根节点不能被删除，被删除的节点不被计入载重。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="对于最终删完之后的树来说先删上层的点还是先删下层的点的顺序没有影响-而如果一个第i层的点删到i-2层的点上则意味着第i-1层的点往上删了那么也就相当于先把第i层删到第i-1层再往上删到第i-2层-意味着每个点往父亲删就可以了-对于每个节点往儿子贪心即可"><a class="markdownIt-Anchor" href="#对于最终删完之后的树来说先删上层的点还是先删下层的点的顺序没有影响-而如果一个第i层的点删到i-2层的点上则意味着第i-1层的点往上删了那么也就相当于先把第i层删到第i-1层再往上删到第i-2层-意味着每个点往父亲删就可以了-对于每个节点往儿子贪心即可"></a>     对于最终删完之后的树来说，先删上层的点还是先删下层的点的顺序没有影响。而如果一个第i层的点删到i-2层的点上，则意味着第i-1层的点往上删了，那么，也就相当于先把第i层删到第i-1层再往上删到第i-2层。意味着，每个点往父亲删就可以了。对于每个节点往儿子贪心即可。</h3>
+<h3 id="场上随手写的一个贪心居然a掉了qwq"><a class="markdownIt-Anchor" href="#场上随手写的一个贪心居然a掉了qwq"></a>     (场上随手写的一个贪心居然A掉了qwq)</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;algorithm&gt;
+#define N 4200000
+using namespace std;
+int tot,Next[N],v[N],h[N],a[N],b[N];
+int ans,m,n;
+int add(int x,int y){
+    tot++;
+    Next[tot]=h[x];
+    v[tot]=y;
+    h[x]=tot;
+}
+int dfs(int x,int fa){
+    for(int i=h[x];i;i=Next[i]){
+        a[x]++;
+        dfs(v[i],x);
+    }
+    int tot=0;
+    for(int i=h[x];i;i=Next[i]){
+        b[++tot]=a[v[i]];
+    }
+    sort(b+1,b+1+tot);
+    for(int i=1;i&lt;=tot;i++){
+        if(a[x]+b[i]-1&lt;=m)a[x]+=b[i]-1,ans++;
+    }
+}
+int main(){
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]); 
+    for(int i=1;i&lt;=n;i++){
+        int o;
+        scanf(&quot;%d&quot;,&amp;o);
+        for(int j=1;j&lt;=o;j++){
+            int x;
+            scanf(&quot;%d&quot;,&amp;x);
+            x++;
+            add(i,x);
+        }
+    }
+    dfs(1,0);
+    printf(&quot;%d\n&quot;,ans);
+}
+</code></pre>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1467&amp;pid=0" target="_blank" rel="noopener">兔子与樱花</a></p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/15/兔子与樱花/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-rank">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/14/期望排名/">rank</a></h1>
@@ -939,108 +1022,6 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-JLOI2015 有意义的字符串">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/05/JLOI2015-有意义的字符串/">JLOI2015 有意义的字符串</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-05
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/矩阵快速幂/" class="cube-excerpt-tag-link">#矩阵快速幂</a>
-                
-                <a href="/tags/特征方程/" class="cube-excerpt-tag-link">#特征方程</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="求fracbsqrtd2n-mod-7528443412579576937"><a class="markdownIt-Anchor" href="#求fracbsqrtd2n-mod-7528443412579576937"></a>     求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mo>(</mo><mfrac><mrow><mi>b</mi><mo>+</mo><msqrt><mrow><mi>d</mi></mrow></msqrt></mrow><mrow><mn>2</mn></mrow></mfrac><msup><mo>)</mo><mi>n</mi></msup><mo>]</mo></mrow><annotation encoding="application/x-tex">[(\frac{b+\sqrt{d}}{2})^n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.072054em;"></span><span class="strut bottom" style="height:1.417054em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mopen">(</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">b</span><span class="mbin">+</span><span class="sqrt mord"><span class="sqrt-sign" style="top:-0.11150571428571421em;"><span class="style-wrap reset-scriptstyle scriptstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="mord scriptstyle cramped"><span class="mord mathit">d</span></span></span><span style="top:-0.8543628571428571em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="reset-scriptstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">]</span></span></span></span> mod <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>7</mn><mn>5</mn><mn>2</mn><mn>8</mn><mn>4</mn><mn>4</mn><mn>3</mn><mn>4</mn><mn>1</mn><mn>2</mn><mn>5</mn><mn>7</mn><mn>9</mn><mn>5</mn><mn>7</mn><mn>6</mn><mn>9</mn><mn>3</mn><mn>7</mn></mrow><annotation encoding="application/x-tex">7528443412579576937</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">7</span><span class="mord mathrm">5</span><span class="mord mathrm">2</span><span class="mord mathrm">8</span><span class="mord mathrm">4</span><span class="mord mathrm">4</span><span class="mord mathrm">3</span><span class="mord mathrm">4</span><span class="mord mathrm">1</span><span class="mord mathrm">2</span><span class="mord mathrm">5</span><span class="mord mathrm">7</span><span class="mord mathrm">9</span><span class="mord mathrm">5</span><span class="mord mathrm">7</span><span class="mord mathrm">6</span><span class="mord mathrm">9</span><span class="mord mathrm">3</span><span class="mord mathrm">7</span></span></span></span>。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="将式子转化成fracbsqrtd2nfracb-sqrtd2n-fracb-sqrtd2n"><a class="markdownIt-Anchor" href="#将式子转化成fracbsqrtd2nfracb-sqrtd2n-fracb-sqrtd2n"></a>     将式子转化成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mo>[</mo><mo>(</mo><mfrac><mrow><mi>b</mi><mo>+</mo><msqrt><mrow><mi>d</mi></mrow></msqrt></mrow><mrow><mn>2</mn></mrow></mfrac><msup><mo>)</mo><mi>n</mi></msup><mo>]</mo><mo>+</mo><mo>[</mo><mo>(</mo><mfrac><mrow><mi>b</mi><mo>−</mo><msqrt><mrow><mi>d</mi></mrow></msqrt></mrow><mrow><mn>2</mn></mrow></mfrac><msup><mo>)</mo><mi>n</mi></msup><mo>]</mo><mo>)</mo><mo>−</mo><mo>[</mo><mo>(</mo><mfrac><mrow><mi>b</mi><mo>−</mo><msqrt><mrow><mi>d</mi></mrow></msqrt></mrow><mrow><mn>2</mn></mrow></mfrac><msup><mo>)</mo><mi>n</mi></msup><mo>]</mo></mrow><annotation encoding="application/x-tex">([(\frac{b+\sqrt{d}}{2})^n]+[(\frac{b-\sqrt{d}}{2})^n])-[(\frac{b-\sqrt{d}}{2})^n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.072054em;"></span><span class="strut bottom" style="height:1.417054em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mopen">[</span><span class="mopen">(</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">b</span><span class="mbin">+</span><span class="sqrt mord"><span class="sqrt-sign" style="top:-0.11150571428571421em;"><span class="style-wrap reset-scriptstyle scriptstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="mord scriptstyle cramped"><span class="mord mathit">d</span></span></span><span style="top:-0.8543628571428571em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="reset-scriptstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">]</span><span class="mbin">+</span><span class="mopen">[</span><span class="mopen">(</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">b</span><span class="mbin">−</span><span class="sqrt mord"><span class="sqrt-sign" style="top:-0.11150571428571421em;"><span class="style-wrap reset-scriptstyle scriptstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="mord scriptstyle cramped"><span class="mord mathit">d</span></span></span><span style="top:-0.8543628571428571em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="reset-scriptstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">]</span><span class="mclose">)</span><span class="mbin">−</span><span class="mopen">[</span><span class="mopen">(</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">b</span><span class="mbin">−</span><span class="sqrt mord"><span class="sqrt-sign" style="top:-0.11150571428571421em;"><span class="style-wrap reset-scriptstyle scriptstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="mord scriptstyle cramped"><span class="mord mathit">d</span></span></span><span style="top:-0.8543628571428571em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="reset-scriptstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">]</span></span></span></span></h3>
-<h3 id="将左边看成特征方程的两个解还原特征方程"><a class="markdownIt-Anchor" href="#将左边看成特征方程的两个解还原特征方程"></a>     将左边看成特征方程的两个解，还原特征方程。</h3>
-<h3 id="x2-bxfracb2-d40"><a class="markdownIt-Anchor" href="#x2-bxfracb2-d40"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mi>b</mi><mi>x</mi><mo>+</mo><mfrac><mrow><msup><mi>b</mi><mn>2</mn></msup><mo>−</mo><mi>d</mi></mrow><mrow><mn>4</mn></mrow></mfrac><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x^2-bx+\frac{b^2-d}{4}=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.97032em;"></span><span class="strut bottom" style="height:1.3153199999999998em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord mathit">b</span><span class="mord mathit">x</span><span class="mbin">+</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">4</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:-0.363em;margin-right:0.07142857142857144em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord mathit">d</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span></h3>
-<h3 id="将式子左边括号中转成一个数列a得a_na_n-1ba_n-2fracd-b24"><a class="markdownIt-Anchor" href="#将式子左边括号中转成一个数列a得a_na_n-1ba_n-2fracd-b24"></a>     将式子左边括号中转成一个数列a，得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>=</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mi>b</mi><mo>+</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msub><mfrac><mrow><mi>d</mi><mo>−</mo><msup><mi>b</mi><mn>2</mn></msup></mrow><mrow><mn>4</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">a_n=a_{n-1}b+a_{n-2}\frac{d-b^2}{4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.97032em;"></span><span class="strut bottom" style="height:1.3153199999999998em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">b</span><span class="mbin">+</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">4</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">d</span><span class="mbin">−</span><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:-0.363em;margin-right:0.07142857142857144em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></h3>
-<h3 id="这个数列可通过矩阵快速幂求得而减号后的只会为0或者1按照数据范围讨论特判即可"><a class="markdownIt-Anchor" href="#这个数列可通过矩阵快速幂求得而减号后的只会为0或者1按照数据范围讨论特判即可"></a>     这个数列可通过矩阵快速幂求得，而减号后的只会为0或者1（按照数据范围讨论），特判即可。</h3>
-<h3 id="复杂度olog2n因为这个模数很恶心所以要再花一个log时间来快速乘法使得不会爆longlong"><a class="markdownIt-Anchor" href="#复杂度olog2n因为这个模数很恶心所以要再花一个log时间来快速乘法使得不会爆longlong"></a>     复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>log</mi><mn>2</mn></msup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log^2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>：因为这个模数很恶心，所以要再花一个log时间来快速乘法，使得不会爆longlong。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#define P 7528443412579576937LL
-using namespace std;
-struct matrix{
-    long long a[3][3];
-    int clear(){memset(a,0,sizeof(a));}
-}E;
-long long add(long long x,long long y){
-    long long ans=-P+x+y;
-    if(ans&lt;0)ans+=P;
-    return ans;
-}
-long long mul(long long x,long long y){
-    long long ans=0;
-    while(y){
-        if(y&amp;1)ans=add(ans,x);
-        x=add(x,x);
-        y&gt;&gt;=1;
-    }
-    return ans;
-}
-matrix operator * (matrix a,matrix b){
-    matrix ans;
-    ans.clear();
-    for(int i=1;i&lt;=2;i++){
-        for(int j=1;j&lt;=2;j++){
-            for(int k=1;k&lt;=2;k++){
-                ans.a[i][j]=add(mul(a.a[i][k],b.a[k][j]),ans.a[i][j]);
-            }
-        }
-    }
-    return ans;
-}
-matrix power(matrix x,long long k){
-    matrix ans;
-    ans.clear();
-    ans=E;
-    while(k){
-        if(k&amp;1)ans=ans*x;
-        x=x*x;
-        k&gt;&gt;=1; 
-    }
-    return ans;
-}
-int main(){
-    E.a[1][1]=1;
-    E.a[2][2]=1;
-    long long b,d,n;
-    scanf(&quot;%lld%lld%lld&quot;,&amp;b,&amp;d,&amp;n);
-    matrix o;
-    o.clear();
-    o.a[1][1]=2;
-    o.a[1][2]=b;
-    matrix p;
-    p.clear();
-    p.a[2][1]=1;
-    p.a[2][2]=b;
-    p.a[1][2]=(d-b*b)/4;
-    o=o*power(p,n);
-    printf(&quot;%lld&quot;,o.a[1][1]-(b*b!=d&amp;&amp;n%2==0));
-}
-</code></pre>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/05/JLOI2015-有意义的字符串/">Read More</a>
-    </footer>
-</div>
-
 
 
 <ul class="cube-pagination cube-pagination-9">
@@ -1130,7 +1111,7 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>61</span>Article</a>
+        <a class="count articles"><span>62</span>Article</a>
         <a class="count tags"><span>57</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
@@ -1169,7 +1150,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
                 </p>
             </div>
             
@@ -1183,7 +1164,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
+                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
                 </p>
             </div>
         </li>
@@ -1196,7 +1177,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/SCOI2015-选数/" title="CQOI2015 选数">CQOI2015 选数</a>
+                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
                 </p>
             </div>
         </li>
@@ -1209,7 +1190,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/JLOI2015-战争调度/" title="JLOI2015 战争调度">JLOI2015 战争调度</a>
+                    <a href="/2018/08/01/SCOI2015-选数/" title="CQOI2015 选数">CQOI2015 选数</a>
                 </p>
             </div>
         </li>
@@ -1222,7 +1203,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/07/31/pyh的求和/" title="pyh的求和">pyh的求和</a>
+                    <a href="/2018/08/01/JLOI2015-战争调度/" title="JLOI2015 战争调度">JLOI2015 战争调度</a>
                 </p>
             </div>
         </li>
@@ -1245,7 +1226,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -1259,6 +1240,16 @@ int main(){
         <a href="/tags">Tagcloud</a>
     </div>
     <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/高斯消元/">#高斯消元</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
         
         
         <div class="cube-box ">
@@ -1276,28 +1267,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
@@ -1311,12 +1292,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/线性基/">#线性基</a>
         </div>
         
@@ -1326,7 +1307,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
@@ -1336,7 +1317,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/hash/">#hash</a>
         </div>
         
@@ -1346,12 +1327,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
@@ -1371,18 +1352,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/线段树/">#线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
@@ -1397,22 +1373,22 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/模拟/">#模拟</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
         </div>
         
         
@@ -1421,8 +1397,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/杜教筛/">#杜教筛</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
@@ -1431,7 +1412,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
@@ -1442,12 +1423,12 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/splay/">#splay</a>
+            <a href="/tags/构造/">#构造</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/构造/">#构造</a>
+            <a href="/tags/splay/">#splay</a>
         </div>
         
         
@@ -1466,23 +1447,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/数学/">#数学</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/dp优化/">#dp优化</a>
+            <a href="/tags/数学/">#数学</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/哈希/">#哈希</a>
+            <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
@@ -1501,7 +1482,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/概率/">#概率</a>
         </div>
         
@@ -1521,28 +1502,28 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/树状数组/">#树状数组</a>
+            <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/FFT/">#FFT</a>
+        <div class="cube-box ">
+            <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
     </div>
