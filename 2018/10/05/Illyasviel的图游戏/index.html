@@ -195,15 +195,7 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题意"><a class="markdownIt-Anchor" href="#题意"></a> 题意：</h2>
-<h3 id="alice和bob在玩游戏"><a class="markdownIt-Anchor" href="#alice和bob在玩游戏"></a>     Alice和Bob在玩游戏。</h3>
-<h3 id="他们有一张n个点m条边的带正权的简单无向图其中除了1号点和n号点每个点度数小于等于2"><a class="markdownIt-Anchor" href="#他们有一张n个点m条边的带正权的简单无向图其中除了1号点和n号点每个点度数小于等于2"></a>     他们有一张n个点m条边的带正权的简单无向图，其中除了1号点和n号点每个点度数小于等于2。</h3>
-<h3 id="alice和bob轮流操作alice先手每次操作的人可以选择一条仍然存在的边并且使得边权减一-如果有一条边边权减为了零它会立即消失"><a class="markdownIt-Anchor" href="#alice和bob轮流操作alice先手每次操作的人可以选择一条仍然存在的边并且使得边权减一-如果有一条边边权减为了零它会立即消失"></a>     Alice和Bob轮流操作，Alice先手，每次操作的人可以选择一条仍然存在的边，并且使得边权减一。如果有一条边边权减为了零，它会立即消失。</h3>
-<h3 id="在这张图上有一只illyasviel想要从1号点走到n号点如果在某个时刻illyasviel不能从1号点走到n号点他会十分生气并且判定上一个操作的玩家输"><a class="markdownIt-Anchor" href="#在这张图上有一只illyasviel想要从1号点走到n号点如果在某个时刻illyasviel不能从1号点走到n号点他会十分生气并且判定上一个操作的玩家输"></a>     在这张图上有一只Illyasviel想要从1号点走到n号点，如果在某个时刻Illyasviel不能从1号点走到n号点，他会十分生气并且判定上一个操作的玩家输。</h3>
-<h3 id="假设alice和bob都采取最优策略请输出alice是否可以获胜是输出yes-否则输出no"><a class="markdownIt-Anchor" href="#假设alice和bob都采取最优策略请输出alice是否可以获胜是输出yes-否则输出no"></a>     假设Alice和Bob都采取最优策略，请输出Alice是否可以获胜，是输出“Yes”， 否则输出“No”</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="题目中对于图的限制可以看做-1-到-n-的所有简单路径互不相交-在结束游戏前的最后一步一定是剩下一条-1-到-n-的路径并且路径上的权值全都是一-如果剩下的最后一条路径确定了游戏的总步数也确定了那么先后手的胜负也确定了-那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径即尽可能切断使对方必胜的路径-切断一条路径需要的步数是这条路径上的权值的最小值-我们只需要比较双方切断对方必胜的路径所需要的步数即可-此处是官方题解"><a class="markdownIt-Anchor" href="#题目中对于图的限制可以看做-1-到-n-的所有简单路径互不相交-在结束游戏前的最后一步一定是剩下一条-1-到-n-的路径并且路径上的权值全都是一-如果剩下的最后一条路径确定了游戏的总步数也确定了那么先后手的胜负也确定了-那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径即尽可能切断使对方必胜的路径-切断一条路径需要的步数是这条路径上的权值的最小值-我们只需要比较双方切断对方必胜的路径所需要的步数即可-此处是官方题解"></a>     题目中对于图的限制可以看做 1 到 n 的所有简单路径互不相交。在结束游戏前的最后一步一定是剩下一条 1 到 n 的路径，并且路径上的权值全都是一。如果剩下的最后一条路径确定了，游戏的总步数也确定了，那么先后手的胜负也确定了。那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径，即尽可能切断使对方必胜的路径。切断一条路径需要的步数是这条路径上的权值的最小值。我们只需要比较双方切断对方必胜的路径所需要的步数即可。(此处是官方题解)</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+        <h2 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h2><h3 id="emsp-emsp-Alice和Bob在玩游戏。"><a href="#emsp-emsp-Alice和Bob在玩游戏。" class="headerlink" title="&emsp; &emsp; Alice和Bob在玩游戏。"></a>&emsp; &emsp; Alice和Bob在玩游戏。</h3><h3 id="emsp-emsp-他们有一张n个点m条边的带正权的简单无向图，其中除了1号点和n号点每个点度数小于等于2。"><a href="#emsp-emsp-他们有一张n个点m条边的带正权的简单无向图，其中除了1号点和n号点每个点度数小于等于2。" class="headerlink" title="&emsp; &emsp; 他们有一张n个点m条边的带正权的简单无向图，其中除了1号点和n号点每个点度数小于等于2。"></a>&emsp; &emsp; 他们有一张n个点m条边的带正权的简单无向图，其中除了1号点和n号点每个点度数小于等于2。</h3><h3 id="emsp-emsp-Alice和Bob轮流操作，Alice先手，每次操作的人可以选择一条仍然存在的边，并且使得边权减一。如果有一条边边权减为了零，它会立即消失。"><a href="#emsp-emsp-Alice和Bob轮流操作，Alice先手，每次操作的人可以选择一条仍然存在的边，并且使得边权减一。如果有一条边边权减为了零，它会立即消失。" class="headerlink" title="&emsp; &emsp; Alice和Bob轮流操作，Alice先手，每次操作的人可以选择一条仍然存在的边，并且使得边权减一。如果有一条边边权减为了零，它会立即消失。"></a>&emsp; &emsp; Alice和Bob轮流操作，Alice先手，每次操作的人可以选择一条仍然存在的边，并且使得边权减一。如果有一条边边权减为了零，它会立即消失。</h3><h3 id="emsp-emsp-在这张图上有一只Illyasviel想要从1号点走到n号点，如果在某个时刻Illyasviel不能从1号点走到n号点，他会十分生气并且判定上一个操作的玩家输。"><a href="#emsp-emsp-在这张图上有一只Illyasviel想要从1号点走到n号点，如果在某个时刻Illyasviel不能从1号点走到n号点，他会十分生气并且判定上一个操作的玩家输。" class="headerlink" title="&emsp; &emsp; 在这张图上有一只Illyasviel想要从1号点走到n号点，如果在某个时刻Illyasviel不能从1号点走到n号点，他会十分生气并且判定上一个操作的玩家输。"></a>&emsp; &emsp; 在这张图上有一只Illyasviel想要从1号点走到n号点，如果在某个时刻Illyasviel不能从1号点走到n号点，他会十分生气并且判定上一个操作的玩家输。</h3><h3 id="emsp-emsp-假设Alice和Bob都采取最优策略，请输出Alice是否可以获胜，是输出“Yes”，-否则输出“No”"><a href="#emsp-emsp-假设Alice和Bob都采取最优策略，请输出Alice是否可以获胜，是输出“Yes”，-否则输出“No”" class="headerlink" title="&emsp; &emsp; 假设Alice和Bob都采取最优策略，请输出Alice是否可以获胜，是输出“Yes”， 否则输出“No”"></a>&emsp; &emsp; 假设Alice和Bob都采取最优策略，请输出Alice是否可以获胜，是输出“Yes”， 否则输出“No”</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-题目中对于图的限制可以看做-1-到-n-的所有简单路径互不相交。在结束游戏前的最后一步一定是剩下一条-1-到-n-的路径，并且路径上的权值全都是一。如果剩下的最后一条路径确定了，游戏的总步数也确定了，那么先后手的胜负也确定了。那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径，即尽可能切断使对方必胜的路径。切断一条路径需要的步数是这条路径上的权值的最小值。我们只需要比较双方切断对方必胜的路径所需要的步数即可。-此处是官方题解"><a href="#emsp-emsp-题目中对于图的限制可以看做-1-到-n-的所有简单路径互不相交。在结束游戏前的最后一步一定是剩下一条-1-到-n-的路径，并且路径上的权值全都是一。如果剩下的最后一条路径确定了，游戏的总步数也确定了，那么先后手的胜负也确定了。那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径，即尽可能切断使对方必胜的路径。切断一条路径需要的步数是这条路径上的权值的最小值。我们只需要比较双方切断对方必胜的路径所需要的步数即可。-此处是官方题解" class="headerlink" title="&emsp; &emsp; 题目中对于图的限制可以看做 1 到 n 的所有简单路径互不相交。在结束游戏前的最后一步一定是剩下一条 1 到 n 的路径，并且路径上的权值全都是一。如果剩下的最后一条路径确定了，游戏的总步数也确定了，那么先后手的胜负也确定了。那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径，即尽可能切断使对方必胜的路径。切断一条路径需要的步数是这条路径上的权值的最小值。我们只需要比较双方切断对方必胜的路径所需要的步数即可。(此处是官方题解)"></a>&emsp; &emsp; 题目中对于图的限制可以看做 1 到 n 的所有简单路径互不相交。在结束游戏前的最后一步一定是剩下一条 1 到 n 的路径，并且路径上的权值全都是一。如果剩下的最后一条路径确定了，游戏的总步数也确定了，那么先后手的胜负也确定了。那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径，即尽可能切断使对方必胜的路径。切断一条路径需要的步数是这条路径上的权值的最小值。我们只需要比较双方切断对方必胜的路径所需要的步数即可。(此处是官方题解)</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 720000
@@ -420,7 +412,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -446,7 +438,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/分数规划/">#分数规划</a>
         </div>
         
@@ -461,8 +453,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
+        <div class="cube-box ">
+            <a href="/tags/高斯消元/">#高斯消元</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
         
@@ -471,23 +468,48 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/树形DP/">#树形DP</a>
+        <div class="cube-box ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/hash/">#hash</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/二分/">#二分</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/线性基/">#线性基</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/好题/">#好题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/博弈论/">#博弈论</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
         
@@ -502,27 +524,27 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/好题/">#好题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/二分/">#二分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/斜率优化/">#斜率优化</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/CDQ分治/">#CDQ分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
@@ -536,38 +558,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/斜率优化/">#斜率优化</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/CDQ分治/">#CDQ分治</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/线段树/">#线段树</a>
-        </div>
-        
-        
         <div class="cube-box ">
-            <a href="/tags/KMP/">#KMP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/卡常/">#卡常</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/贪心/">#贪心</a>
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -576,13 +568,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/卡常/">#卡常</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+            <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
@@ -596,28 +588,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/构造/">#构造</a>
+            <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
         
@@ -627,17 +609,22 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/KMP/">#KMP</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/构造/">#构造</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/splay/">#splay</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/博弈论/">#博弈论</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
@@ -646,7 +633,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
@@ -656,38 +643,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/数学/">#数学</a>
+        <div class="cube-box ">
+            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/dp优化/">#dp优化</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/积性函数/">#积性函数</a>
+            <a href="/tags/数学/">#数学</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/最小生成树/">#最小生成树</a>
+            <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
@@ -696,13 +668,28 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/最小生成树/">#最小生成树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/上下界网络流/">#上下界网络流</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/积性函数/">#积性函数</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
@@ -712,17 +699,22 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/AC自动机/">#AC自动机</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/FFT/">#FFT</a>
+            <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/树状数组/">#树状数组</a>
+            <a href="/tags/FFT/">#FFT</a>
         </div>
         
     </div>
@@ -794,12 +786,6 @@ int main(){
             <!-- TODO change avatar.png to friend.png-->
             <img src="https://yyxxqq.github.io/picture/lyy.jpg">
             <a href="http://www.cnblogs.com/jefflyy/" target="_blank">梁蕴誉</a>
-        </li>
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="https://yyxxqq.github.io/picture/dtz.jpg">
-            <a href="http://www.cnblogs.com/RogerDTZ" target="_blank">董廷臻</a>
         </li>
         
         <li>

@@ -195,11 +195,7 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="对于给出的n个询问每次求有多少个数对xy满足aleq-xleq-bcleq-yleq-d且gcdxykgcdxy函数为x和y的最大公约数"><a class="markdownIt-Anchor" href="#对于给出的n个询问每次求有多少个数对xy满足aleq-xleq-bcleq-yleq-d且gcdxykgcdxy函数为x和y的最大公约数"></a>     对于给出的n个询问，每次求有多少个数对<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">x</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>，满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>≤</mo><mi>x</mi><mo>≤</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a\leq x\leq b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.83041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span><span class="mrel">≤</span><span class="mord mathit">x</span><span class="mrel">≤</span><span class="mord mathit">b</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mo>≤</mo><mi>y</mi><mo>≤</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">c\leq y\leq d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">≤</span><span class="mord mathit">d</span></span></span></span>，且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mi>c</mi><mi>d</mi><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo><mo>=</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">gcd(x,y)=k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">c</span><span class="mord mathit">d</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mi>c</mi><mi>d</mi><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">gcd(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">c</span><span class="mord mathit">d</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>函数为x和y的最大公约数。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="莫比乌斯反演"><a class="markdownIt-Anchor" href="#莫比乌斯反演"></a>     莫比乌斯反演</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-对于给出的n个询问，每次求有多少个数对-x-y-，满足-a-leq-x-leq-b-，-c-leq-y-leq-d-，且-gcd-x-y-k-，-gcd-x-y-函数为x和y的最大公约数。"><a href="#emsp-emsp-对于给出的n个询问，每次求有多少个数对-x-y-，满足-a-leq-x-leq-b-，-c-leq-y-leq-d-，且-gcd-x-y-k-，-gcd-x-y-函数为x和y的最大公约数。" class="headerlink" title="&emsp; &emsp; 对于给出的n个询问，每次求有多少个数对$(x,y)$，满足$a\leq x\leq b$，$c\leq y\leq d$，且$gcd(x,y)=k$，$gcd(x,y)$函数为x和y的最大公约数。"></a>&emsp; &emsp; 对于给出的n个询问，每次求有多少个数对$(x,y)$，满足$a\leq x\leq b$，$c\leq y\leq d$，且$gcd(x,y)=k$，$gcd(x,y)$函数为x和y的最大公约数。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-莫比乌斯反演"><a href="#emsp-emsp-莫比乌斯反演" class="headerlink" title="&emsp; &emsp; 莫比乌斯反演"></a>&emsp; &emsp; 莫比乌斯反演</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 120000
@@ -242,9 +238,8 @@ int main(){
         printf(&quot;%lld\n&quot;,cal(b/k,d/k)-cal(b/k,(c-1)/k)-cal((a-1)/k,d/k)+cal((a-1)/k,(c-1)/k));
     }
 }
-
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1468&amp;pid=0" target="_blank" rel="noopener">gcd</a></p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1468&amp;pid=0" target="_blank" rel="noopener">gcd</a> </p>
 
     </div>
 </div>
@@ -422,7 +417,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -453,18 +448,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
+            <a href="/tags/高斯消元/">#高斯消元</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
         
@@ -474,7 +474,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/树形DP/">#树形DP</a>
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
@@ -483,13 +483,38 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/hash/">#hash</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/二分/">#二分</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/线性基/">#线性基</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/好题/">#好题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/博弈论/">#博弈论</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
         
@@ -503,42 +528,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/好题/">#好题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/二分/">#二分</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
+            <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
@@ -549,42 +549,37 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/KMP/">#KMP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/卡常/">#卡常</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/贪心/">#贪心</a>
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/模拟/">#模拟</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
+            <a href="/tags/卡常/">#卡常</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        <div class="cube-box ">
+            <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
@@ -614,6 +609,16 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/分块/">#分块</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/KMP/">#KMP</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
@@ -624,22 +629,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/分块/">#分块</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/splay/">#splay</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/博弈论/">#博弈论</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
@@ -659,17 +649,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/数学/">#数学</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/dp优化/">#dp优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
+            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
@@ -679,7 +659,22 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/积性函数/">#积性函数</a>
+            <a href="/tags/数学/">#数学</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/dp优化/">#dp优化</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/搜索/">#搜索</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/最小生成树/">#最小生成树</a>
         </div>
         
         
@@ -689,17 +684,22 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/最小生成树/">#最小生成树</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/搜索/">#搜索</a>
+            <a href="/tags/上下界网络流/">#上下界网络流</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/上下界网络流/">#上下界网络流</a>
+            <a href="/tags/积性函数/">#积性函数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
@@ -709,22 +709,17 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+            <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/整体二分/">#整体二分</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/FFT/">#FFT</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
     </div>
@@ -796,12 +791,6 @@ int main(){
             <!-- TODO change avatar.png to friend.png-->
             <img src="https://yyxxqq.github.io/picture/lyy.jpg">
             <a href="http://www.cnblogs.com/jefflyy/" target="_blank">梁蕴誉</a>
-        </li>
-        
-        <li>
-            <!-- TODO change avatar.png to friend.png-->
-            <img src="https://yyxxqq.github.io/picture/dtz.jpg">
-            <a href="http://www.cnblogs.com/RogerDTZ" target="_blank">董廷臻</a>
         </li>
         
         <li>
