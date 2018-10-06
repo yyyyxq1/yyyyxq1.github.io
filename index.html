@@ -800,6 +800,110 @@ int main(){
     </footer>
 </div>
 
+<div class="cube-excerpt" id="cube-excerpt-SCOI2016 美味">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/31/美味/">SCOI2016 美味</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-31
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/贪心/" class="cube-excerpt-tag-link">#贪心</a>
+                
+                <a href="/tags/可持久化线段树/" class="cube-excerpt-tag-link">#可持久化线段树</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><h3 id="emsp-emsp-一家餐厅有-n-道菜，编号-1…n-，大家对第-i-道菜的评价值为-a-i-1-leq-i-leq-n-。有-m-位顾客，第-i-位顾客的期望值为-bi，而他的偏好值为-xi-。因此，第-i-位顾客认为第-j-道菜的美味度为-b-i-XOR-a-j-x-i-，-XOR-表示异或运算。第-i-位顾客希望从这些菜中挑出他认为最美味的菜，即美味值最大的菜，但由于价格等因素，他只能从第-l-i-道到第-r-i-道中选择。请你帮助他们找出最美味的菜。"><a href="#emsp-emsp-一家餐厅有-n-道菜，编号-1…n-，大家对第-i-道菜的评价值为-a-i-1-leq-i-leq-n-。有-m-位顾客，第-i-位顾客的期望值为-bi，而他的偏好值为-xi-。因此，第-i-位顾客认为第-j-道菜的美味度为-b-i-XOR-a-j-x-i-，-XOR-表示异或运算。第-i-位顾客希望从这些菜中挑出他认为最美味的菜，即美味值最大的菜，但由于价格等因素，他只能从第-l-i-道到第-r-i-道中选择。请你帮助他们找出最美味的菜。" class="headerlink" title="&emsp; &emsp; 一家餐厅有$n$道菜，编号$1…n$，大家对第 i 道菜的评价值为 $a_i(1\leq i\leq n)$。有 m 位顾客，第 i 位顾客的期望值为 bi，而他的偏好值为 xi 。因此，第 i 位顾客认为第 j 道菜的美味度为$b_i XOR (a_j+x_i)$，$XOR$表示异或运算。第 i 位顾客希望从这些菜中挑出他认为最美味的菜，即美味值最大的菜，但由于价格等因素，他只能从第$l_i$道到第$r_i$道中选择。请你帮助他们找出最美味的菜。"></a>&emsp; &emsp; 一家餐厅有$n$道菜，编号$1…n$，大家对第 i 道菜的评价值为 $a_i(1\leq i\leq n)$。有 m 位顾客，第 i 位顾客的期望值为 bi，而他的偏好值为 xi 。因此，第 i 位顾客认为第 j 道菜的美味度为$b_i XOR (a_j+x_i)$，$XOR$表示异或运算。第 i 位顾客希望从这些菜中挑出他认为最美味的菜，即美味值最大的菜，但由于价格等因素，他只能从第$l_i$道到第$r_i$道中选择。请你帮助他们找出最美味的菜。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-贪心每一位，然后确定区间，用可持久化线段树确认当前区间是否有值。"><a href="#emsp-emsp-贪心每一位，然后确定区间，用可持久化线段树确认当前区间是否有值。" class="headerlink" title="&emsp; &emsp; 贪心每一位，然后确定区间，用可持久化线段树确认当前区间是否有值。"></a>&emsp; &emsp; 贪心每一位，然后确定区间，用可持久化线段树确认当前区间是否有值。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 5230000
+using namespace std;
+int a[N],ans,X,K,root[N];
+namespace seg{
+    int t[N],tot,lx[N],rx[N];
+    int insert(int i,int j,int l,int r,int x){
+        if(l==r){
+            t[j]=t[i]+1;
+            return 0;
+        }
+        int mid=(l+r)/2;
+        if(x&lt;=mid){
+            lx[j]=++tot;
+            rx[j]=rx[i];
+            insert(lx[i],lx[j],l,mid,x);
+        }
+        else{
+            lx[j]=lx[i];
+            rx[j]=++tot;
+            insert(rx[i],rx[j],mid+1,r,x);
+        }
+        t[j]=t[lx[j]]+t[rx[j]];
+    }
+    int query(int i,int j,int l,int r,int x,int y){
+        if(x&lt;=l&amp;&amp;y&gt;=r)return t[i]-t[j];
+        int ans=0;
+        int mid=(l+r)/2;
+        if(x&lt;=mid)ans+=query(lx[i],lx[j],l,mid,x,y);
+        if(y&gt;mid)ans+=query(rx[i],rx[j],mid+1,r,x,y);
+        return ans; 
+    }
+    int Query(int i,int j,int x,int y){
+        x++; 
+        y++;
+        if(x&lt;=0&amp;&amp;y&lt;=0)return 0;
+        if(y&lt;=0)return 0; 
+        x=max(x,1);y=max(y,1);
+        return (query(i,j,1,1&lt;&lt;18,x,y));
+    }
+}
+int main(){
+    int n,m;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%d&quot;,&amp;a[i]);
+        root[i]=++seg::tot;
+        a[i]++;
+        seg::insert(root[i-1],root[i],1,1&lt;&lt;18,a[i]);
+    }
+    for(int i=1;i&lt;=m;i++){
+        int x,y;
+        scanf(&quot;%d%d%d%d&quot;,&amp;X,&amp;K,&amp;x,&amp;y);
+        ans=0;
+        int l=0,L,R;
+        for(int i=17;i&gt;=0;i--){
+            int o=(X&amp;(1&lt;&lt;i));
+            if(o==0){//o 0 a 1
+                L=l+(1&lt;&lt;i);
+                R=l+(1&lt;&lt;(i+1))-1;
+                if(seg::Query(root[y],root[x-1],L-K,R-K)&gt;0)l=L;
+            }
+            else{//o 1 a 0
+                L=l;
+                R=l+(1&lt;&lt;(i))-1;
+                if(seg::Query(root[y],root[x-1],L-K,R-K)&lt;=0)l=l+(1&lt;&lt;i);
+            }
+        }
+        printf(&quot;%d\n&quot;,l^X);
+    }
+}
+</code></pre>
+<p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4571" target="_blank" rel="noopener"> Scoi2016 美味</a> </p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/31/美味/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-抵制克苏恩">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/31/抵制克苏恩/">抵制克苏恩</a></h1>
@@ -972,110 +1076,6 @@ int main(){
     </article>
     <footer class="cube-excerpt-footer">
         <a class="cube-excerpt-more" href="/2018/07/31/Mushroom追妹纸/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-SCOI2016 美味">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/31/美味/">SCOI2016 美味</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-31
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/贪心/" class="cube-excerpt-tag-link">#贪心</a>
-                
-                <a href="/tags/可持久化线段树/" class="cube-excerpt-tag-link">#可持久化线段树</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><h3 id="emsp-emsp-一家餐厅有-n-道菜，编号-1…n-，大家对第-i-道菜的评价值为-a-i-1-leq-i-leq-n-。有-m-位顾客，第-i-位顾客的期望值为-bi，而他的偏好值为-xi-。因此，第-i-位顾客认为第-j-道菜的美味度为-b-i-XOR-a-j-x-i-，-XOR-表示异或运算。第-i-位顾客希望从这些菜中挑出他认为最美味的菜，即美味值最大的菜，但由于价格等因素，他只能从第-l-i-道到第-r-i-道中选择。请你帮助他们找出最美味的菜。"><a href="#emsp-emsp-一家餐厅有-n-道菜，编号-1…n-，大家对第-i-道菜的评价值为-a-i-1-leq-i-leq-n-。有-m-位顾客，第-i-位顾客的期望值为-bi，而他的偏好值为-xi-。因此，第-i-位顾客认为第-j-道菜的美味度为-b-i-XOR-a-j-x-i-，-XOR-表示异或运算。第-i-位顾客希望从这些菜中挑出他认为最美味的菜，即美味值最大的菜，但由于价格等因素，他只能从第-l-i-道到第-r-i-道中选择。请你帮助他们找出最美味的菜。" class="headerlink" title="&emsp; &emsp; 一家餐厅有$n$道菜，编号$1…n$，大家对第 i 道菜的评价值为 $a_i(1\leq i\leq n)$。有 m 位顾客，第 i 位顾客的期望值为 bi，而他的偏好值为 xi 。因此，第 i 位顾客认为第 j 道菜的美味度为$b_i XOR (a_j+x_i)$，$XOR$表示异或运算。第 i 位顾客希望从这些菜中挑出他认为最美味的菜，即美味值最大的菜，但由于价格等因素，他只能从第$l_i$道到第$r_i$道中选择。请你帮助他们找出最美味的菜。"></a>&emsp; &emsp; 一家餐厅有$n$道菜，编号$1…n$，大家对第 i 道菜的评价值为 $a_i(1\leq i\leq n)$。有 m 位顾客，第 i 位顾客的期望值为 bi，而他的偏好值为 xi 。因此，第 i 位顾客认为第 j 道菜的美味度为$b_i XOR (a_j+x_i)$，$XOR$表示异或运算。第 i 位顾客希望从这些菜中挑出他认为最美味的菜，即美味值最大的菜，但由于价格等因素，他只能从第$l_i$道到第$r_i$道中选择。请你帮助他们找出最美味的菜。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-贪心每一位，然后确定区间，用可持久化线段树确认当前区间是否有值。"><a href="#emsp-emsp-贪心每一位，然后确定区间，用可持久化线段树确认当前区间是否有值。" class="headerlink" title="&emsp; &emsp; 贪心每一位，然后确定区间，用可持久化线段树确认当前区间是否有值。"></a>&emsp; &emsp; 贪心每一位，然后确定区间，用可持久化线段树确认当前区间是否有值。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#define N 5230000
-using namespace std;
-int a[N],ans,X,K,root[N];
-namespace seg{
-    int t[N],tot,lx[N],rx[N];
-    int insert(int i,int j,int l,int r,int x){
-        if(l==r){
-            t[j]=t[i]+1;
-            return 0;
-        }
-        int mid=(l+r)/2;
-        if(x&lt;=mid){
-            lx[j]=++tot;
-            rx[j]=rx[i];
-            insert(lx[i],lx[j],l,mid,x);
-        }
-        else{
-            lx[j]=lx[i];
-            rx[j]=++tot;
-            insert(rx[i],rx[j],mid+1,r,x);
-        }
-        t[j]=t[lx[j]]+t[rx[j]];
-    }
-    int query(int i,int j,int l,int r,int x,int y){
-        if(x&lt;=l&amp;&amp;y&gt;=r)return t[i]-t[j];
-        int ans=0;
-        int mid=(l+r)/2;
-        if(x&lt;=mid)ans+=query(lx[i],lx[j],l,mid,x,y);
-        if(y&gt;mid)ans+=query(rx[i],rx[j],mid+1,r,x,y);
-        return ans; 
-    }
-    int Query(int i,int j,int x,int y){
-        x++; 
-        y++;
-        if(x&lt;=0&amp;&amp;y&lt;=0)return 0;
-        if(y&lt;=0)return 0; 
-        x=max(x,1);y=max(y,1);
-        return (query(i,j,1,1&lt;&lt;18,x,y));
-    }
-}
-int main(){
-    int n,m;
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i=1;i&lt;=n;i++){
-        scanf(&quot;%d&quot;,&amp;a[i]);
-        root[i]=++seg::tot;
-        a[i]++;
-        seg::insert(root[i-1],root[i],1,1&lt;&lt;18,a[i]);
-    }
-    for(int i=1;i&lt;=m;i++){
-        int x,y;
-        scanf(&quot;%d%d%d%d&quot;,&amp;X,&amp;K,&amp;x,&amp;y);
-        ans=0;
-        int l=0,L,R;
-        for(int i=17;i&gt;=0;i--){
-            int o=(X&amp;(1&lt;&lt;i));
-            if(o==0){//o 0 a 1
-                L=l+(1&lt;&lt;i);
-                R=l+(1&lt;&lt;(i+1))-1;
-                if(seg::Query(root[y],root[x-1],L-K,R-K)&gt;0)l=L;
-            }
-            else{//o 1 a 0
-                L=l;
-                R=l+(1&lt;&lt;(i))-1;
-                if(seg::Query(root[y],root[x-1],L-K,R-K)&lt;=0)l=l+(1&lt;&lt;i);
-            }
-        }
-        printf(&quot;%d\n&quot;,l^X);
-    }
-}
-</code></pre>
-<p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4571" target="_blank" rel="noopener"> Scoi2016 美味</a> </p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/31/美味/">Read More</a>
     </footer>
 </div>
 
@@ -1299,7 +1299,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -1314,48 +1314,43 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
+        </div>
+        
+        
         <div class="cube-box ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/特征方程/">#特征方程</a>
+            <a href="/tags/好题/">#好题</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
+            <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/二分/">#二分</a>
+            <a href="/tags/树形DP/">#树形DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
@@ -1365,21 +1360,6 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/好题/">#好题</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/博弈论/">#博弈论</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
@@ -1389,13 +1369,33 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/NOI/">#NOI</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/hash/">#hash</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
+            <a href="/tags/二分/">#二分</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/NOI/">#NOI</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -1409,28 +1409,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/SPFA/">#SPFA</a>
+            <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/模拟/">#模拟</a>
+            <a href="/tags/KMP/">#KMP</a>
         </div>
         
         
@@ -1440,7 +1425,17 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/贪心/">#贪心</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/模拟/">#模拟</a>
         </div>
         
         
@@ -1450,6 +1445,11 @@ int main(){
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
@@ -1459,23 +1459,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
-        </div>
-        
-        
         <div class="cube-box ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/分块/">#分块</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/KMP/">#KMP</a>
         </div>
         
         
@@ -1485,7 +1470,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/构造/">#构造</a>
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/分块/">#分块</a>
         </div>
         
         
@@ -1495,11 +1485,21 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/构造/">#构造</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/费用流/">#费用流</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/概率与期望/">#概率与期望</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
@@ -1510,12 +1510,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/期望/">#期望</a>
+            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
@@ -1524,8 +1519,28 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/dp优化/">#dp优化</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/期望/">#期望</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/积性函数/">#积性函数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/最小生成树/">#最小生成树</a>
         </div>
         
         
@@ -1535,32 +1550,7 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/最小生成树/">#最小生成树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/上下界网络流/">#上下界网络流</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/积性函数/">#积性函数</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
@@ -1570,7 +1560,17 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/整体二分/">#整体二分</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
@@ -1580,7 +1580,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/FFT/">#FFT</a>
+            <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
     </div>

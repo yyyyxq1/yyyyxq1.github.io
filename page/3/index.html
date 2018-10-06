@@ -305,9 +305,9 @@ int main(){
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
-                
                 <a href="/tags/贪心/" class="cube-excerpt-tag-link">#贪心</a>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
                 
             </div>
         </div>
@@ -583,90 +583,6 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-Milk Patterns">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/19/奶牛质量/">Milk Patterns</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-19
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
-                
-                <a href="/tags/hash/" class="cube-excerpt-tag-link">#hash</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;map&gt;
-#define hash 19260817
-#define N 22000
-using namespace std;
-typedef unsigned long long ull;
-ull h[N];
-int n,k,a[N];
-map&lt;ull,int&gt;p;
-int print(int x,int y){
-    for(int i=x;i&lt;=y;i++)printf(&quot;%d &quot;,a[i]);
-}
-bool check(int l){
-    p.clear();
-    if(l==0)return true;
-    ull o=0;
-    for(int i=1;i&lt;=l;i++)
-        o*=hash,o+=a[i];
-//      print(1,l);
-//      printf(&quot; %llu \n&quot;,o);
-    p[o]=1;
-
-    for(int i=1;i&lt;=n-l;i++){
-        o-=h[l-1]*a[i];
-        o*=hash;
-        o+=a[i+l];
-//      print(i+1,i+l);
-//      printf(&quot; %llu \n&quot;,o);
-        if(++p[o]&gt;=k)return true;
-    }
-    return false;
-}
-int main(){
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
-    h[0]=1;
-    for(int i=1;i&lt;=n;i++)h[i]=h[i-1]*hash;
-    int l=0,r=n;
-//  printf(&quot;%d\n&quot;,check(9));
-    while(r-l&gt;4){
-        int m=(l+r)/2;
-        if(check(m))l=m;
-        else r=m-1;
-    }
-    for(int i=r;i&gt;=l;i--){
-        if(check(i)){
-            printf(&quot;%d\n&quot;,i);
-            return 0;
-        }
-    }
-}
-</code></pre>
-<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1470&amp;pid=2" target="_blank" rel="noopener">Milk Patterns</a> </p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/19/奶牛质量/">Read More</a>
-    </footer>
-</div>
-
 <div class="cube-excerpt" id="cube-excerpt-PRZ">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/19/雪崩/">PRZ</a></h1>
@@ -678,9 +594,9 @@ int main(){
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
-                
                 <a href="/tags/状压DP/" class="cube-excerpt-tag-link">#状压DP</a>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
                 
             </div>
         </div>
@@ -735,9 +651,9 @@ int main(){
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
-                
                 <a href="/tags/点分治/" class="cube-excerpt-tag-link">#点分治</a>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
                 
             </div>
         </div>
@@ -848,20 +764,20 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-征服王">
+<div class="cube-excerpt" id="cube-excerpt-Milk Patterns">
     <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/17/征服王/">征服王</a></h1>
+        <h1><a href="/2018/07/19/奶牛质量/">Milk Patterns</a></h1>
         <div class="cube-excerpt-header-msg">
             <div class="cube-excerpt-date">
                 <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-17
+                2018-07-19
             </div>
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                <a href="/tags/hash/" class="cube-excerpt-tag-link">#hash</a>
                 
-                <a href="/tags/费用流/" class="cube-excerpt-tag-link">#费用流</a>
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
                 
             </div>
         </div>
@@ -869,141 +785,66 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-求最小可重复多起点多终点路径覆盖。"><a href="#emsp-emsp-求最小可重复多起点多终点路径覆盖。" class="headerlink" title="&emsp; &emsp; 求最小可重复多起点多终点路径覆盖。"></a>&emsp; &emsp; 求最小可重复多起点多终点路径覆盖。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-tarjan缩点后，费用流然后计算增广次数即可。"><a href="#emsp-emsp-tarjan缩点后，费用流然后计算增广次数即可。" class="headerlink" title="&emsp; &emsp; tarjan缩点后，费用流然后计算增广次数即可。"></a>&emsp; &emsp; tarjan缩点后，费用流然后计算增广次数即可。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+           <pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
-#include&lt;vector&gt;
-#define inf 0x7fffffff
+#include&lt;map&gt;
+#define hash 19260817
+#define N 22000
 using namespace std;
-int S,T;
-int n,m,A,B,tot;
-int ind,top,scc,cost,ans;
-int dfn[1005],low[1005],bl[1005];
-int a[1005],b[1005];
-int d[2005],q[2005];
-bool mark[2005],inq[1005];
-int Next[120000],c[120000],v[120000],w[120000],h[120000];
-vector&lt;int&gt;e[120000];
-void add(int x,int y,int W,int C){
-    tot++;
-    Next[tot]=h[x];
-    v[tot]=y;
-    w[tot]=W;
-    c[tot]=C;
-    h[x]=tot;
-    tot++;
-    Next[tot]=h[y];
-    v[tot]=x;
-    w[tot]=0;
-    c[tot]=-C;
-    h[y]=tot;
+typedef unsigned long long ull;
+ull h[N];
+int n,k,a[N];
+map&lt;ull,int&gt;p;
+int print(int x,int y){
+    for(int i=x;i&lt;=y;i++)printf(&quot;%d &quot;,a[i]);
 }
-void tarjan(int x){
-    low[x]=dfn[x]=++ind;
-    q[++top]=x;inq[x]=1;
-    for(int i=0;i&lt;e[x].size();i++)
-        if(!dfn[e[x][i]]){
-            tarjan(e[x][i]);
-            low[x]=min(low[x],low[e[x][i]]);
-        }
-        else if(inq[e[x][i]])low[x]=min(low[x],dfn[e[x][i]]);
-    if(low[x]==dfn[x]){
-        int now=0;scc++;
-        while(now!=x){
-            now=q[top--];inq[now]=0;
-            bl[now]=scc;
-        }
+bool check(int l){
+    p.clear();
+    if(l==0)return true;
+    ull o=0;
+    for(int i=1;i&lt;=l;i++)
+        o*=hash,o+=a[i];
+//      print(1,l);
+//      printf(&quot; %llu \n&quot;,o);
+    p[o]=1;
+
+    for(int i=1;i&lt;=n-l;i++){
+        o-=h[l-1]*a[i];
+        o*=hash;
+        o+=a[i+l];
+//      print(i+1,i+l);
+//      printf(&quot; %llu \n&quot;,o);
+        if(++p[o]&gt;=k)return true;
     }
-}
-bool spfa(){
-    memset(mark,0,sizeof(mark));
-    for(int i=0;i&lt;=S;i++)d[i]=-1;
-    int head=0,tail=1;
-    q[0]=T;d[T]=0;mark[T]=1;
-    while(head!=tail){
-        int now=q[head];head++;if(head&gt;2000)head=0;
-        mark[now]=0;
-        for(int i=h[now];i;i=Next[i])
-            if(w[i^1]&amp;&amp;d[now]+c[i^1]&gt;d[v[i]]){
-                d[v[i]]=d[now]+c[i^1];
-                if(!mark[v[i]]){
-                    mark[v[i]]=1;
-                    q[tail++]=v[i];
-                    if(tail&gt;2000)tail=0; 
-                }
-        }
-    }
-    return d[S]!=-1;
-}
-int dfs(int x,int f){
-    mark[x]=1;
-    if(x==T)return f;
-    int W,used=0;
-    for(int i=h[x];i;i=Next[i])
-        if(!mark[v[i]]&amp;&amp;w[i]&amp;&amp;d[x]-c[i]==d[v[i]]){
-            W=dfs(v[i],min(w[i],f-used));
-            w[i]-=W;w[i^1]+=W;cost+=c[i]*W;
-            used+=W;
-            if(used==f)return f;
-        }
-    return used;
-}
-void solve(){
-    tot=1;
-    T=2*scc+1;S=T+1;
-    for(int i=1;i&lt;=A;i++)add(0,bl[a[i]],inf,0);
-    for(int i=1;i&lt;=B;i++)add(bl[b[i]]+scc,T,inf,0);
-    for(int x=1;x&lt;=n;x++)
-        for(int i=0;i&lt;e[x].size();i++)
-            if(bl[x]!=bl[e[x][i]])
-                add(bl[x]+scc,bl[e[x][i]],inf,0);
-    for(int i=1;i&lt;=scc;i++){
-        add(i,i+scc,1,1);
-        add(i,i+scc,inf,0);
-    }
-    add(S,0,1,0);
-    while(spfa()){
-        int pre=cost;
-        mark[T]=1;
-        while(mark[T]){
-            memset(mark,0,sizeof(mark));
-            dfs(S,inf);
-        }
-        add(S,0,1,0);
-        if(pre==cost)break;
-        else ans++;
-    }
+    return false;
 }
 int main(){
-    int T;
-    scanf(&quot;%d&quot;,&amp;T);
-    while(T--){
-        memset(h,0,sizeof(h));
-        memset(dfn,0,sizeof(dfn));
-        ans=scc=cost=ind=tot=0;
-        scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;m,&amp;A,&amp;B);
-        for(int i=1;i&lt;=100000;i++)e[i].clear();
-        for(int i=1;i&lt;=A;i++)scanf(&quot;%d&quot;,&amp;a[i]);
-        for(int i=1;i&lt;=B;i++)scanf(&quot;%d&quot;,&amp;b[i]);
-        for(int i=1;i&lt;=m;i++){
-            int u,v;
-            scanf(&quot;%d%d&quot;,&amp;u,&amp;v);
-            e[u].push_back(v);
-        }
-        for(int i=1;i&lt;=n;i++)
-            if(!dfn[i])tarjan(i);
-        solve();
-        if(cost!=scc)puts(&quot;no solution&quot;);
-        else printf(&quot;%d\n&quot;,ans);
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
+    h[0]=1;
+    for(int i=1;i&lt;=n;i++)h[i]=h[i-1]*hash;
+    int l=0,r=n;
+//  printf(&quot;%d\n&quot;,check(9));
+    while(r-l&gt;4){
+        int m=(l+r)/2;
+        if(check(m))l=m;
+        else r=m-1;
     }
-    return 0;
+    for(int i=r;i&gt;=l;i--){
+        if(check(i)){
+            printf(&quot;%d\n&quot;,i);
+            return 0;
+        }
+    }
 }
 </code></pre>
+<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1470&amp;pid=2" target="_blank" rel="noopener">Milk Patterns</a> </p>
 
         
     </article>
     <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/17/征服王/">Read More</a>
+        <a class="cube-excerpt-more" href="/2018/07/19/奶牛质量/">Read More</a>
     </footer>
 </div>
 
@@ -1202,6 +1043,165 @@ int main(){
     </footer>
 </div>
 
+<div class="cube-excerpt" id="cube-excerpt-征服王">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/17/征服王/">征服王</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-17
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/费用流/" class="cube-excerpt-tag-link">#费用流</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-求最小可重复多起点多终点路径覆盖。"><a href="#emsp-emsp-求最小可重复多起点多终点路径覆盖。" class="headerlink" title="&emsp; &emsp; 求最小可重复多起点多终点路径覆盖。"></a>&emsp; &emsp; 求最小可重复多起点多终点路径覆盖。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-tarjan缩点后，费用流然后计算增广次数即可。"><a href="#emsp-emsp-tarjan缩点后，费用流然后计算增广次数即可。" class="headerlink" title="&emsp; &emsp; tarjan缩点后，费用流然后计算增广次数即可。"></a>&emsp; &emsp; tarjan缩点后，费用流然后计算增广次数即可。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;vector&gt;
+#define inf 0x7fffffff
+using namespace std;
+int S,T;
+int n,m,A,B,tot;
+int ind,top,scc,cost,ans;
+int dfn[1005],low[1005],bl[1005];
+int a[1005],b[1005];
+int d[2005],q[2005];
+bool mark[2005],inq[1005];
+int Next[120000],c[120000],v[120000],w[120000],h[120000];
+vector&lt;int&gt;e[120000];
+void add(int x,int y,int W,int C){
+    tot++;
+    Next[tot]=h[x];
+    v[tot]=y;
+    w[tot]=W;
+    c[tot]=C;
+    h[x]=tot;
+    tot++;
+    Next[tot]=h[y];
+    v[tot]=x;
+    w[tot]=0;
+    c[tot]=-C;
+    h[y]=tot;
+}
+void tarjan(int x){
+    low[x]=dfn[x]=++ind;
+    q[++top]=x;inq[x]=1;
+    for(int i=0;i&lt;e[x].size();i++)
+        if(!dfn[e[x][i]]){
+            tarjan(e[x][i]);
+            low[x]=min(low[x],low[e[x][i]]);
+        }
+        else if(inq[e[x][i]])low[x]=min(low[x],dfn[e[x][i]]);
+    if(low[x]==dfn[x]){
+        int now=0;scc++;
+        while(now!=x){
+            now=q[top--];inq[now]=0;
+            bl[now]=scc;
+        }
+    }
+}
+bool spfa(){
+    memset(mark,0,sizeof(mark));
+    for(int i=0;i&lt;=S;i++)d[i]=-1;
+    int head=0,tail=1;
+    q[0]=T;d[T]=0;mark[T]=1;
+    while(head!=tail){
+        int now=q[head];head++;if(head&gt;2000)head=0;
+        mark[now]=0;
+        for(int i=h[now];i;i=Next[i])
+            if(w[i^1]&amp;&amp;d[now]+c[i^1]&gt;d[v[i]]){
+                d[v[i]]=d[now]+c[i^1];
+                if(!mark[v[i]]){
+                    mark[v[i]]=1;
+                    q[tail++]=v[i];
+                    if(tail&gt;2000)tail=0; 
+                }
+        }
+    }
+    return d[S]!=-1;
+}
+int dfs(int x,int f){
+    mark[x]=1;
+    if(x==T)return f;
+    int W,used=0;
+    for(int i=h[x];i;i=Next[i])
+        if(!mark[v[i]]&amp;&amp;w[i]&amp;&amp;d[x]-c[i]==d[v[i]]){
+            W=dfs(v[i],min(w[i],f-used));
+            w[i]-=W;w[i^1]+=W;cost+=c[i]*W;
+            used+=W;
+            if(used==f)return f;
+        }
+    return used;
+}
+void solve(){
+    tot=1;
+    T=2*scc+1;S=T+1;
+    for(int i=1;i&lt;=A;i++)add(0,bl[a[i]],inf,0);
+    for(int i=1;i&lt;=B;i++)add(bl[b[i]]+scc,T,inf,0);
+    for(int x=1;x&lt;=n;x++)
+        for(int i=0;i&lt;e[x].size();i++)
+            if(bl[x]!=bl[e[x][i]])
+                add(bl[x]+scc,bl[e[x][i]],inf,0);
+    for(int i=1;i&lt;=scc;i++){
+        add(i,i+scc,1,1);
+        add(i,i+scc,inf,0);
+    }
+    add(S,0,1,0);
+    while(spfa()){
+        int pre=cost;
+        mark[T]=1;
+        while(mark[T]){
+            memset(mark,0,sizeof(mark));
+            dfs(S,inf);
+        }
+        add(S,0,1,0);
+        if(pre==cost)break;
+        else ans++;
+    }
+}
+int main(){
+    int T;
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--){
+        memset(h,0,sizeof(h));
+        memset(dfn,0,sizeof(dfn));
+        ans=scc=cost=ind=tot=0;
+        scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;m,&amp;A,&amp;B);
+        for(int i=1;i&lt;=100000;i++)e[i].clear();
+        for(int i=1;i&lt;=A;i++)scanf(&quot;%d&quot;,&amp;a[i]);
+        for(int i=1;i&lt;=B;i++)scanf(&quot;%d&quot;,&amp;b[i]);
+        for(int i=1;i&lt;=m;i++){
+            int u,v;
+            scanf(&quot;%d%d&quot;,&amp;u,&amp;v);
+            e[u].push_back(v);
+        }
+        for(int i=1;i&lt;=n;i++)
+            if(!dfn[i])tarjan(i);
+        solve();
+        if(cost!=scc)puts(&quot;no solution&quot;);
+        else printf(&quot;%d\n&quot;,ans);
+    }
+    return 0;
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/17/征服王/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-相似字串">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/17/相似字串/">相似字串</a></h1>
@@ -1333,9 +1333,9 @@ int main(){
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
-                <a href="/tags/高斯消元/" class="cube-excerpt-tag-link">#高斯消元</a>
-                
                 <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/高斯消元/" class="cube-excerpt-tag-link">#高斯消元</a>
                 
             </div>
         </div>
@@ -1620,7 +1620,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -1651,7 +1651,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
@@ -1662,12 +1662,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
@@ -1676,37 +1671,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/二分/">#二分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/好题/">#好题</a>
         </div>
         
@@ -1722,12 +1687,37 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/组合数学/">#组合数学</a>
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/组合数学/">#组合数学</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/计数/">#计数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/hash/">#hash</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/二分/">#二分</a>
         </div>
         
         
@@ -1737,7 +1727,17 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -1752,22 +1752,27 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/KMP/">#KMP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/卡常/">#卡常</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
+            <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
@@ -1777,17 +1782,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/卡常/">#卡常</a>
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/贪心/">#贪心</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
@@ -1802,22 +1802,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/分块/">#分块</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/KMP/">#KMP</a>
         </div>
         
         
@@ -1827,7 +1812,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/构造/">#构造</a>
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/分块/">#分块</a>
         </div>
         
         
@@ -1836,7 +1826,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/构造/">#构造</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/费用流/">#费用流</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/概率与期望/">#概率与期望</a>
         </div>
         
@@ -1852,7 +1852,17 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/数学/">#数学</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
@@ -1862,17 +1872,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/数学/">#数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/dp优化/">#dp优化</a>
+            <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/搜索/">#搜索</a>
+            <a href="/tags/概率/">#概率</a>
         </div>
         
         
@@ -1882,7 +1887,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
+            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
@@ -1892,12 +1897,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/积性函数/">#积性函数</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
+            <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
@@ -1907,22 +1907,22 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/整体二分/">#整体二分</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/FFT/">#FFT</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
     </div>
