@@ -300,6 +300,114 @@ int main(){
     </footer>
 </div>
 
+<div class="cube-excerpt" id="cube-excerpt-SCOI2016 美味">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/31/美味/">SCOI2016 美味</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-31
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/贪心/" class="cube-excerpt-tag-link">#贪心</a>
+                
+                <a href="/tags/可持久化线段树/" class="cube-excerpt-tag-link">#可持久化线段树</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目：</h2>
+<h3 id="一家餐厅有n道菜编号1n大家对第-i-道菜的评价值为-a_i1leq-ileq-n-有-m-位顾客第-i-位顾客的期望值为-bi而他的偏好值为-xi-因此第-i-位顾客认为第-j-道菜的美味度为b_i-xor-a_jx_ixor表示异或运算-第-i-位顾客希望从这些菜中挑出他认为最美味的菜即美味值最大的菜但由于价格等因素他只能从第l_i道到第r_i道中选择-请你帮助他们找出最美味的菜"><a class="markdownIt-Anchor" href="#一家餐厅有n道菜编号1n大家对第-i-道菜的评价值为-a_i1leq-ileq-n-有-m-位顾客第-i-位顾客的期望值为-bi而他的偏好值为-xi-因此第-i-位顾客认为第-j-道菜的美味度为b_i-xor-a_jx_ixor表示异或运算-第-i-位顾客希望从这些菜中挑出他认为最美味的菜即美味值最大的菜但由于价格等因素他只能从第l_i道到第r_i道中选择-请你帮助他们找出最美味的菜"></a>     一家餐厅有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>道菜，编号<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">1...n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathit">n</span></span></span></span>，大家对第 i 道菜的评价值为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo>(</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">a_i(1\leq i\leq n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">i</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>。有 m 位顾客，第 i 位顾客的期望值为 bi，而他的偏好值为 xi 。因此，第 i 位顾客认为第 j 道菜的美味度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub><mi>X</mi><mi>O</mi><mi>R</mi><mo>(</mo><msub><mi>a</mi><mi>j</mi></msub><mo>+</mo><msub><mi>x</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">b_i XOR (a_j+x_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi><mi>O</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">XOR</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mord mathit" style="margin-right:0.00773em;">R</span></span></span></span>表示异或运算。第 i 位顾客希望从这些菜中挑出他认为最美味的菜，即美味值最大的菜，但由于价格等因素，他只能从第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>l</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">l_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.01968em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>道到第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">r_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>道中选择。请你帮助他们找出最美味的菜。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="贪心每一位然后确定区间用可持久化线段树确认当前区间是否有值"><a class="markdownIt-Anchor" href="#贪心每一位然后确定区间用可持久化线段树确认当前区间是否有值"></a>     贪心每一位，然后确定区间，用可持久化线段树确认当前区间是否有值。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 5230000
+using namespace std;
+int a[N],ans,X,K,root[N];
+namespace seg{
+    int t[N],tot,lx[N],rx[N];
+    int insert(int i,int j,int l,int r,int x){
+        if(l==r){
+            t[j]=t[i]+1;
+            return 0;
+        }
+        int mid=(l+r)/2;
+        if(x&lt;=mid){
+            lx[j]=++tot;
+            rx[j]=rx[i];
+            insert(lx[i],lx[j],l,mid,x);
+        }
+        else{
+            lx[j]=lx[i];
+            rx[j]=++tot;
+            insert(rx[i],rx[j],mid+1,r,x);
+        }
+        t[j]=t[lx[j]]+t[rx[j]];
+    }
+    int query(int i,int j,int l,int r,int x,int y){
+        if(x&lt;=l&amp;&amp;y&gt;=r)return t[i]-t[j];
+        int ans=0;
+        int mid=(l+r)/2;
+        if(x&lt;=mid)ans+=query(lx[i],lx[j],l,mid,x,y);
+        if(y&gt;mid)ans+=query(rx[i],rx[j],mid+1,r,x,y);
+        return ans; 
+    }
+    int Query(int i,int j,int x,int y){
+        x++; 
+        y++;
+        if(x&lt;=0&amp;&amp;y&lt;=0)return 0;
+        if(y&lt;=0)return 0; 
+        x=max(x,1);y=max(y,1);
+        return (query(i,j,1,1&lt;&lt;18,x,y));
+    }
+}
+int main(){
+    int n,m;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%d&quot;,&amp;a[i]);
+        root[i]=++seg::tot;
+        a[i]++;
+        seg::insert(root[i-1],root[i],1,1&lt;&lt;18,a[i]);
+    }
+    for(int i=1;i&lt;=m;i++){
+        int x,y;
+        scanf(&quot;%d%d%d%d&quot;,&amp;X,&amp;K,&amp;x,&amp;y);
+        ans=0;
+        int l=0,L,R;
+        for(int i=17;i&gt;=0;i--){
+            int o=(X&amp;(1&lt;&lt;i));
+            if(o==0){//o 0 a 1
+                L=l+(1&lt;&lt;i);
+                R=l+(1&lt;&lt;(i+1))-1;
+                if(seg::Query(root[y],root[x-1],L-K,R-K)&gt;0)l=L;
+            }
+            else{//o 1 a 0
+                L=l;
+                R=l+(1&lt;&lt;(i))-1;
+                if(seg::Query(root[y],root[x-1],L-K,R-K)&lt;=0)l=l+(1&lt;&lt;i);
+            }
+        }
+        printf(&quot;%d\n&quot;,l^X);
+    }
+}
+</code></pre>
+<p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4571" target="_blank" rel="noopener"> Scoi2016 美味</a></p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/31/美味/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-杜教筛">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/26/杜教筛/">杜教筛</a></h1>
@@ -1098,108 +1206,6 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-礼物">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/24/礼物/">礼物</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-24
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
-                
-                <a href="/tags/FFT/" class="cube-excerpt-tag-link">#FFT</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目：</h2>
-<h3 id="我的室友最近喜欢上了一个可爱的小女生-马上就要到她的生日了他决定买一对情侣手环一个留给自己一个送给她-每个手环上各有-n-个装饰物并且每个装饰物都有一定的亮度-但是在她生日的前一天我的室友突然发现他好像拿错了一个手环而且已经没时间去更换它了他只能使用一种特殊的方法将其中一个手环中所有装饰物的亮度增加一个相同的自然数-c即非负整数-并且由于这个手环是一个圆可以以任意的角度旋转它但是由于上面-装饰物的方向是固定的所以手环不能翻转-需要在经过亮度改造和旋转之后使得两个手环的差异值最小-在将两个手环旋转且装饰物对齐了之后从对齐的某个位置开始逆时针方向对装饰物编号-12n其中-n-为每个手环的装饰物个数第-1-个手环的-i-号位置装饰物亮度为x_i第-2-个手-环的-i-号位置装饰物亮度为y_i两个手环之间的差异值为参见输入输出样例和样例解释-sum_i1nx_i-y_i2麻烦你帮他计算一下进行调整亮度改造和旋转使得两个手环之间的差异值最小-这个最小值是多少呢"><a class="markdownIt-Anchor" href="#我的室友最近喜欢上了一个可爱的小女生-马上就要到她的生日了他决定买一对情侣手环一个留给自己一个送给她-每个手环上各有-n-个装饰物并且每个装饰物都有一定的亮度-但是在她生日的前一天我的室友突然发现他好像拿错了一个手环而且已经没时间去更换它了他只能使用一种特殊的方法将其中一个手环中所有装饰物的亮度增加一个相同的自然数-c即非负整数-并且由于这个手环是一个圆可以以任意的角度旋转它但是由于上面-装饰物的方向是固定的所以手环不能翻转-需要在经过亮度改造和旋转之后使得两个手环的差异值最小-在将两个手环旋转且装饰物对齐了之后从对齐的某个位置开始逆时针方向对装饰物编号-12n其中-n-为每个手环的装饰物个数第-1-个手环的-i-号位置装饰物亮度为x_i第-2-个手-环的-i-号位置装饰物亮度为y_i两个手环之间的差异值为参见输入输出样例和样例解释-sum_i1nx_i-y_i2麻烦你帮他计算一下进行调整亮度改造和旋转使得两个手环之间的差异值最小-这个最小值是多少呢"></a>     我的室友最近喜欢上了一个可爱的小女生。马上就要到她的生日了，他决定买一对情侣手环，一个留给自己，一个送给她。每个手环上各有 n 个装饰物，并且每个装饰物都有一定的亮度。但是在她生日的前一天，我的室友突然发现他好像拿错了一个手环，而且已经没时间去更换它了！他只能使用一种特殊的方法，将其中一个手环中所有装饰物的亮度增加一个相同的自然数 c（即非负整数）。并且由于这个手环是一个圆，可以以任意的角度旋转它，但是由于上面 装饰物的方向是固定的，所以手环不能翻转。需要在经过亮度改造和旋转之后，使得两个手环的差异值最小。在将两个手环旋转且装饰物对齐了之后，从对齐的某个位置开始逆时针方向对装饰物编号 1,2,…,n，其中 n 为每个手环的装饰物个数，第 1 个手环的 i 号位置装饰物亮度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，第 2 个手 环的 i 号位置装饰物亮度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">y_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，两个手环之间的差异值为(参见输入输出样例和样例解释)： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></msubsup><mo>(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><msup><mo>)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sum_{i=1}^{n}(x_i-y_i)^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.114118em;vertical-align:-0.30001em;"></span><span class="base textstyle uncramped"><span class="mop"><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>麻烦你帮他计算一下，进行调整（亮度改造和旋转），使得两个手环之间的差异值最小， 这个最小值是多少呢？</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="将x_i-y_i2乘开以后fft暴力就好了"><a class="markdownIt-Anchor" href="#将x_i-y_i2乘开以后fft暴力就好了"></a>     将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><msup><mo>)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(x_i-y_i)^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>乘开以后fft暴力就好了。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;complex&gt;
-#include&lt;math.h&gt;
-#define N 350000
-#define E complex&lt;double&gt;
-using namespace std;
-E a[N],b[N];
-double pi=acos(-1);
-int r[N],n,m,x,L;
-int s,A[N],B[N];
-int DFT(E *a,int f){
-    for(int i=0;i&lt;n;i++)if(r[i]&gt;i)swap(a[i],a[r[i]]);
-    for(int i=1;i&lt;n;i&lt;&lt;=1){
-        E wn(cos(pi/i),f*sin(pi/i));
-        for(int j=0;j&lt;n;j+=i&lt;&lt;1){
-            E w(1,0);
-            for(int k=0;k&lt;i;k++,w*=wn){
-                E tmp=w*a[j+k+i];
-                a[j+k+i]=a[j+k]-tmp;
-                a[j+k]+=tmp;
-            }
-        }
-    }
-} 
-long long bns;
-int pre(){
-    int type;
-    n=s+s+1,m=s+1;L=0;
-    memset(a,0,sizeof(a));
-    memset(b,0,sizeof(b));
-    memset(r,0,sizeof(r));
-    for(int i=0;i&lt;n;i++)a[i]=A[i];
-    for(int i=0;i&lt;m;i++)b[i]=B[i];
-    m=n+m;n=1;
-    while(n&lt;m)n&lt;&lt;=1,L++;
-    for(int i=0;i&lt;n;i++)r[i]=(r[i&gt;&gt;1]&gt;&gt;1)|((i&amp;1)&lt;&lt;(L-1));
-    DFT(a,1);
-    DFT(b,1);
-    for(int i=0;i&lt;n;i++)a[i]=a[i]*b[i];
-    DFT(a,-1);
-    bns=0;
-    for(int i=s+1;i&lt;=s+s+1;i++)bns=max(bns,(long long)floor(a[i].real()/n+0.5));
-//  for(int i=0;i&lt;=m;i++)printf(&quot;%d &quot;,(int)floor(a[i].real()/n+0.5));
-//  printf(&quot;\n&quot;);
-}
-long long sum;
-int main(){
-    int m;
-    scanf(&quot;%d%d&quot;,&amp;s,&amp;m);
-    long long cns=0,ans=1000000000000LL;
-    for(int i=1;i&lt;=s;i++)scanf(&quot;%d&quot;,&amp;B[i]);
-    for(int i=1;i&lt;=s;i++)scanf(&quot;%d&quot;,&amp;A[s-i+1]),A[s+s-i+1]=A[s-i+1];
-    for(int i=1;i&lt;=s;i++)sum+=A[i];
-    pre();
-    for(int i=1;i&lt;=m;i++){
-        cns=0;
-        for(int i=1;i&lt;=s;i++)cns+=A[i]*A[i]+B[i]*B[i];
-        cns-=bns*2;
-        if(cns&lt;ans)ans=cns;
-        else break;
-        for(int i=1;i&lt;=s;i++)B[i]++;
-        bns+=sum;
-    }
-    printf(&quot;%lld\n&quot;,ans);
-}
-</code></pre>
-<p>题目链接: <a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4827" target="_blank" rel="noopener">Hnoi2017 礼物</a></p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/24/礼物/">Read More</a>
-    </footer>
-</div>
-
 
 
 <ul class="cube-pagination cube-pagination-9">
@@ -1289,7 +1295,7 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>64</span>Article</a>
+        <a class="count articles"><span>65</span>Article</a>
         <a class="count tags"><span>58</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
@@ -1328,7 +1334,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
+                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
                 </p>
             </div>
             
@@ -1342,7 +1348,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
+                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
                 </p>
             </div>
         </li>
@@ -1355,7 +1361,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
+                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
                 </p>
             </div>
         </li>
@@ -1368,7 +1374,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
                 </p>
             </div>
         </li>
@@ -1381,7 +1387,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
+                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
                 </p>
             </div>
         </li>
@@ -1399,7 +1405,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -1421,11 +1427,21 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/BZOJ/">#BZOJ</a>
+            <a href="/tags/好题/">#好题</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/BZOJ/">#BZOJ</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/分数规划/">#分数规划</a>
         </div>
         
@@ -1441,16 +1457,16 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/好题/">#好题</a>
+            <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/博弈论/">#博弈论</a>
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
@@ -1461,42 +1477,42 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+            <a href="/tags/树形DP/">#树形DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/特征方程/">#特征方程</a>
+            <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/组合数学/">#组合数学</a>
+            <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/计数/">#计数</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
@@ -1510,37 +1526,27 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/NOI/">#NOI</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/状压DP/">#状压DP</a>
+            <a href="/tags/计数/">#计数</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
@@ -1556,12 +1562,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/贪心/">#贪心</a>
+            <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
@@ -1570,8 +1576,18 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/贪心/">#贪心</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
@@ -1586,7 +1602,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
@@ -1596,21 +1612,11 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/分块/">#分块</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/splay/">#splay</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/构造/">#构造</a>
         </div>
         
@@ -1621,12 +1627,12 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/数学/">#数学</a>
+            <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/dp优化/">#dp优化</a>
+            <a href="/tags/期望/">#期望</a>
         </div>
         
         
@@ -1640,18 +1646,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/哈希/">#哈希</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/期望/">#期望</a>
+            <a href="/tags/数学/">#数学</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
+            <a href="/tags/dp优化/">#dp优化</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
@@ -1661,17 +1667,17 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/计划表/">#计划表</a>
+            <a href="/tags/概率/">#概率</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/搜索/">#搜索</a>
+            <a href="/tags/上下界网络流/">#上下界网络流</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/上下界网络流/">#上下界网络流</a>
+            <a href="/tags/splay/">#splay</a>
         </div>
         
         
@@ -1681,12 +1687,17 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/FFT/">#FFT</a>
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/整体二分/">#整体二分</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
@@ -1695,18 +1706,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/整体二分/">#整体二分</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
         <div class="cube-box-bg ">
             <a href="/tags/积性函数/">#积性函数</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
     </div>

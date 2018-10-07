@@ -175,6 +175,60 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-zuma">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/15/消除回文串/">zuma</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-15
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/搜索/" class="cube-excerpt-tag-link">#搜索</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给出一串数列v1n一次可以消去其中的一段回文串例如1-2-3-2-1然后将这一段数字从v中移除-请问最少消多少次可以消除整个数列"><a class="markdownIt-Anchor" href="#给出一串数列v1n一次可以消去其中的一段回文串例如1-2-3-2-1然后将这一段数字从v中移除-请问最少消多少次可以消除整个数列"></a>     给出一串数列v[1…n],一次可以消去其中的一段回文串（例如1 2 3 2 1），然后将这一段数字从v中移除。请问最少消多少次可以消除整个数列。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="设flr为消去区间vlr的最少需要的次数-dfs即可"><a class="markdownIt-Anchor" href="#设flr为消去区间vlr的最少需要的次数-dfs即可"></a>     设f[l,r]为消去区间v[l,r]的最少需要的次数。 dfs即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 520
+using namespace std;
+int f[N][N],a[N],n;
+int dfs(int l,int r){
+    if(f[l][r])return f[l][r];
+    if(l&gt;r)return 0;
+    f[l][r]=1+dfs(l+1,r);
+    for(int i=l+1;i&lt;=r;i++)if(a[i]==a[l]){
+        if(i==l+1)f[l][r]=min(f[l][r],1+dfs(i+1,r));
+        else f[l][r]=min(f[l][r],dfs(l+1,i-1)+dfs(i+1,r));
+    }
+    return f[l][r];
+}
+int main(){
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]);
+    printf(&quot;%d&quot;,dfs(1,n));
+}
+</code></pre>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1200&amp;pid=1" target="_blank" rel="noopener">zuma</a></p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/15/消除回文串/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-聪聪可可">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/15/聪聪可可/">聪聪可可</a></h1>
@@ -955,111 +1009,6 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-JLOI2015 骗我呢">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/08/JLOI2015-骗我呢/">JLOI2015 骗我呢</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-08
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/好题/" class="cube-excerpt-tag-link">#好题</a>
-                
-                <a href="/tags/组合数学/" class="cube-excerpt-tag-link">#组合数学</a>
-                
-                <a href="/tags/计数/" class="cube-excerpt-tag-link">#计数</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="给出n和m求满足a_ija_i-1j1且a_ija_ij1且0leq-a_ijleq-m1leq-ileq-n1leq-jleq-m的方案数"><a class="markdownIt-Anchor" href="#给出n和m求满足a_ija_i-1j1且a_ija_ij1且0leq-a_ijleq-m1leq-ileq-n1leq-jleq-m的方案数"></a>     给出n和m，求满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i-1,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>≤</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>≤</mo><mi>m</mi><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">0\leq a_{i,j}\leq m,1\leq i\leq n,1\leq j\leq m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.9456279999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit">m</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">i</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mrel">≤</span><span class="mord mathit">m</span></span></span></span>的方案数。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="考虑每一行a_ija_ij1总共m个数而值只有m1个意味着每一行只有一个位置的差会为2其他都为1"><a class="markdownIt-Anchor" href="#考虑每一行a_ija_ij1总共m个数而值只有m1个意味着每一行只有一个位置的差会为2其他都为1"></a>     考虑每一行，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，总共m个数，而值只有m+1个，意味着每一行只有一个位置的差会为2，其他都为1。</h3>
-<h3 id="考虑对于每上面一行a_ija_i-1j1意味着对于第i行来说他突变的位置最前能够比第i-1行的突变位置前一格"><a class="markdownIt-Anchor" href="#考虑对于每上面一行a_ija_i-1j1意味着对于第i行来说他突变的位置最前能够比第i-1行的突变位置前一格"></a>     考虑对于每上面一行，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i-1,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，意味着对于第i行来说，他突变的位置最前能够比第i-1行的突变位置前一格。</h3>
-<h3 id="得到onm的方程设f_ij表示第i行的未突变位置小于等于j的方案数-f_ijf_i-1j1f_ij-1-j的范围为0到m-f_001因为小于等于相当于求前缀和所以可以只有一个点有值"><a class="markdownIt-Anchor" href="#得到onm的方程设f_ij表示第i行的未突变位置小于等于j的方案数-f_ijf_i-1j1f_ij-1-j的范围为0到m-f_001因为小于等于相当于求前缀和所以可以只有一个点有值"></a>     得到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nm)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mord mathit">m</span><span class="mclose">)</span></span></span></span>的方程，设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示第i行的未突变位置小于等于j的方案数。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}=f_{i-1,j+1}+f_{i,j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。j的范围为0到m。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mn>0</mn><mo separator="true">,</mo><mn>0</mn></mrow></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f_{0,0}=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span>(因为小于等于相当于求前缀和，所以可以只有一个点有值)。</h3>
-<h3 id="考虑将对于第i行将其第二维下标向右移i行得到方程f_ijf_i-1jf_ij-1-而j的范围是从i到im-那么原题就转化成了对一个n1行nm1列的网格图这里说的是格点有两条线不能越过yx1yx-m2从11走到n1nm1的方案数"><a class="markdownIt-Anchor" href="#考虑将对于第i行将其第二维下标向右移i行得到方程f_ijf_i-1jf_ij-1-而j的范围是从i到im-那么原题就转化成了对一个n1行nm1列的网格图这里说的是格点有两条线不能越过yx1yx-m2从11走到n1nm1的方案数"></a>     考虑将对于第i行，将其第二维下标向右移i行，得到方程<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}=f_{i-1,j}+f_{i,j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。而j的范围是从i到i+m。那么原题就转化成了对一个n+1行n+m+1列的网格图(这里说的是格点)，有两条线不能越过（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>y</mi><mo>=</mo><mi>x</mi><mo>−</mo><mo>(</mo><mi>m</mi><mo>+</mo><mn>2</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">y=x+1,y=x-(m+2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathit">x</span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mopen">(</span><span class="mord mathit">m</span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mclose">)</span></span></span></span>），从（1,1）走到（n+1,n+m+1）的方案数。</h3>
-<h3 id="答案等于全集-先越过a线的-先越过b线的"><a class="markdownIt-Anchor" href="#答案等于全集-先越过a线的-先越过b线的"></a>     答案等于=全集-先越过A线的-先越过B线的。</h3>
-<h3 id="将多次触碰同一条线视为一次触碰那么一条线触碰ab的方案要么是abababab要么是babababa-对于先触碰a的我们考虑先删掉以a结尾的方案加上以ba结尾的方案减掉以aba结尾的方案直到方案数为0就退出每次至少向前移动一次最多移动on次-那么就可以减掉所有第一次触碰禁忌线a的方案-同理可删除先触碰b的"><a class="markdownIt-Anchor" href="#将多次触碰同一条线视为一次触碰那么一条线触碰ab的方案要么是abababab要么是babababa-对于先触碰a的我们考虑先删掉以a结尾的方案加上以ba结尾的方案减掉以aba结尾的方案直到方案数为0就退出每次至少向前移动一次最多移动on次-那么就可以减掉所有第一次触碰禁忌线a的方案-同理可删除先触碰b的"></a> 将多次触碰同一条线视为一次触碰，那么一条线触碰AB的方案要么是ABABABAB……，要么是BABABABA……。对于先触碰A的，我们考虑先删掉以A结尾的方案，加上以BA结尾的方案，减掉以ABA结尾的方案……，直到方案数为０，就退出（每次至少向前移动一次，最多移动Ｏ（ｎ）次）。那么就可以减掉所有第一次触碰禁忌线A的方案。同理可删除先触碰B的。</h3>
-<h3 id="对于末尾为a的方案数计算将终点对a线对称翻转然后直接计算从11到对称点的方案因为将路径沿a翻转必定过a然后到终点-而计算ba为末尾就将点再沿b对称过去计算11到对称点的方案-以此类推"><a class="markdownIt-Anchor" href="#对于末尾为a的方案数计算将终点对a线对称翻转然后直接计算从11到对称点的方案因为将路径沿a翻转必定过a然后到终点-而计算ba为末尾就将点再沿b对称过去计算11到对称点的方案-以此类推"></a>     对于末尾为A的方案数计算，将终点对A线对称翻转，然后直接计算从(1,1)到对称点的方案（因为将路径沿A翻转，必定过A然后到终点。）而计算BA为末尾，就将点再沿B对称过去，计算(1,1)到对称点的方案。以此类推。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#define N 13000000
-#define P 1000000007
-using namespace std;
-long long fac[N],ifac[N];
-int n,m;
-long long power(long long x,int k){
-    long long ans=1;
-    while(k){
-        if(k&amp;1)(ans*=x)%=P;
-        (x*=x)%=P;
-        k&gt;&gt;=1;
-    }
-    return ans;
-}
-int pre(){
-    fac[0]=1;
-    for(int i=1;i&lt;=12000000;i++)fac[i]=fac[i-1]*i%P;
-    ifac[12000000]=power(fac[12000000],P-2);
-    for(int i=11999999;i&gt;=0;i--)ifac[i]=ifac[i+1]*(i+1)%P;
-}
-long long C(long long n,long long m){
-    return fac[n]*ifac[m]%P*ifac[n-m]%P;
-}
-long long calc(int x,int y){
-    if(x&lt;0||y&lt;0)return 0;
-    return C(x+y,x);
-}
-int flipA(int &amp;x,int &amp;y){
-    swap(x,y);
-    x--;y++;
-}
-int flipB(int &amp;x,int &amp;y){
-    swap(x,y);
-    x+=m+2;
-    y-=m+2;
-}
-int main(){
-    pre();
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    long long ans=calc(n+m+1,n);
-    int x=n+m+1,y=n;
-    while(x&gt;=0&amp;&amp;y&gt;=0){
-        flipA(x,y);
-        ans-=calc(x,y);
-        flipB(x,y);
-        ans+=calc(x,y);
-        ans%=P;
-    }
-    x=n+m+1,y=n;
-    while(x&gt;=0&amp;&amp;y&gt;=0){
-        flipB(x,y);
-        ans-=calc(x,y);
-        flipA(x,y);
-        ans+=calc(x,y);
-        ans%=P;
-    }
-    ans+=P;
-    ans%=P;
-    printf(&quot;%lld&quot;,ans); 
-}
-</code></pre>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/08/JLOI2015-骗我呢/">Read More</a>
-    </footer>
-</div>
-
 
 
 <ul class="cube-pagination cube-pagination-9">
@@ -1149,7 +1098,7 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>64</span>Article</a>
+        <a class="count articles"><span>65</span>Article</a>
         <a class="count tags"><span>58</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
@@ -1188,7 +1137,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
+                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
                 </p>
             </div>
             
@@ -1202,7 +1151,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
+                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
                 </p>
             </div>
         </li>
@@ -1215,7 +1164,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
+                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
                 </p>
             </div>
         </li>
@@ -1228,7 +1177,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
                 </p>
             </div>
         </li>
@@ -1241,7 +1190,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
+                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
                 </p>
             </div>
         </li>
@@ -1280,6 +1229,16 @@ int main(){
     <div class="cube-boxs">
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/好题/">#好题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/博弈论/">#博弈论</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
@@ -1290,23 +1249,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/好题/">#好题</a>
+            <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/博弈论/">#博弈论</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
@@ -1320,13 +1279,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/倍增/">#倍增</a>
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
@@ -1336,17 +1300,32 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+            <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/特征方程/">#特征方程</a>
+            <a href="/tags/NOI/">#NOI</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/hash/">#hash</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/二分/">#二分</a>
         </div>
         
         
@@ -1360,43 +1339,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/二分/">#二分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/NOI/">#NOI</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -1415,18 +1364,23 @@ int main(){
         </div>
         
         
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
             <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/贪心/">#贪心</a>
+            <a href="/tags/模拟/">#模拟</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/模拟/">#模拟</a>
+        <div class="cube-box ">
+            <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
@@ -1436,6 +1390,11 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
@@ -1446,7 +1405,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
@@ -1456,21 +1415,11 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/分块/">#分块</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/splay/">#splay</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/构造/">#构造</a>
         </div>
         
@@ -1481,12 +1430,12 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/数学/">#数学</a>
+            <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/dp优化/">#dp优化</a>
+            <a href="/tags/期望/">#期望</a>
         </div>
         
         
@@ -1501,22 +1450,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/哈希/">#哈希</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/期望/">#期望</a>
+            <a href="/tags/数学/">#数学</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/最小生成树/">#最小生成树</a>
+            <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
@@ -1526,7 +1465,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/搜索/">#搜索</a>
+            <a href="/tags/最小生成树/">#最小生成树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
         </div>
         
         
@@ -1536,17 +1480,27 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/splay/">#splay</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/FFT/">#FFT</a>
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+            <a href="/tags/整体二分/">#整体二分</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
@@ -1555,18 +1509,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/整体二分/">#整体二分</a>
+        <div class="cube-box ">
+            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
     </div>
