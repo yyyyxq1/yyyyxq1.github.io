@@ -197,17 +197,7 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="有一条链链上长度不超过k的点之间都会进行连边求生成树个数"><a class="markdownIt-Anchor" href="#有一条链链上长度不超过k的点之间都会进行连边求生成树个数"></a>     有一条链，链上长度不超过k的点之间都会进行连边，求生成树个数。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="60做法on3n-leq-100"><a class="markdownIt-Anchor" href="#60做法on3n-leq-100"></a>     60%做法：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">n \leq 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></h3>
-<h3 id="那么直接连边按照用矩阵树定理高斯消元解行列式即可"><a class="markdownIt-Anchor" href="#那么直接连边按照用矩阵树定理高斯消元解行列式即可"></a>     那么直接连边按照，用矩阵树定理高斯消元解行列式即可。</h3>
-<h3 id="因为nleq100那么直接连边按照用矩阵树定理n3高斯消元解行列式即可"><a class="markdownIt-Anchor" href="#因为nleq100那么直接连边按照用矩阵树定理n3高斯消元解行列式即可"></a>  因为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">n\leq100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>那么直接连边按照，用矩阵树定理<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">n^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>高斯消元解行列式即可。</h3>
-<h3 id="100做法ol3lognnleq-1015l为所有联通形式种类当k5时l52"><a class="markdownIt-Anchor" href="#100做法ol3lognnleq-1015l为所有联通形式种类当k5时l52"></a>     100%做法：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>l</mi><mn>3</mn></msup><mi>l</mi><mi>o</mi><mi>g</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">O(l^3log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mrow><mn>1</mn><mn>5</mn></mrow></msup></mrow><annotation encoding="application/x-tex">n\leq 10^{15}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">5</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>,l为所有联通形式种类，当k=5时l=52。</h3>
-<h3 id="考虑到对于第i-k号点如果最后会成为生成树他必定与i-k1到i号点中至少一个是一个联通快的-因此我们维护f_ij表示在当前第i个点前j个点的联通块是怎么样的每次转移则是用第i号点与前面的连边情况进行转移维护判断i-k号点在转移后是否与i-k1到i号点中的部分点联通-搜索我们可以得到转移矩阵"><a class="markdownIt-Anchor" href="#考虑到对于第i-k号点如果最后会成为生成树他必定与i-k1到i号点中至少一个是一个联通快的-因此我们维护f_ij表示在当前第i个点前j个点的联通块是怎么样的每次转移则是用第i号点与前面的连边情况进行转移维护判断i-k号点在转移后是否与i-k1到i号点中的部分点联通-搜索我们可以得到转移矩阵"></a>     考虑到对于第i-k号点，如果最后会成为生成树，他必定与i-k+1到i号点中至少一个是一个联通快的。因此，我们维护<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示，在当前第i个点，前j个点的联通块是怎么样的，每次转移则是用第i号点与前面的连边情况进行转移，维护判断i-k号点在转移后是否与i-k+1到i号点中的部分点联通。搜索我们可以得到转移矩阵。</h3>
-<h3 id="初始条件因为在前k个点中所有点之间都是两两相连的n个点的完全图的最小生成树是nn-2这个可用purfer序列简易证明"><a class="markdownIt-Anchor" href="#初始条件因为在前k个点中所有点之间都是两两相连的n个点的完全图的最小生成树是nn-2这个可用purfer序列简易证明"></a>      初始条件：因为在前k个点中，所有点之间都是两两相连的，n个点的完全图的最小生成树是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">n^{n-2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，这个可用purfer序列简易证明。</h3>
-<h3 id="关于最小表示法既联通情况2231与联通情况1123是相同的所有本质相同的情况我们用它的最小表示来识别它"><a class="markdownIt-Anchor" href="#关于最小表示法既联通情况2231与联通情况1123是相同的所有本质相同的情况我们用它的最小表示来识别它"></a>      关于最小表示法：既联通情况2,2,3,1与联通情况1,1,2,3是相同的，所有本质相同的情况我们用它的最小表示来识别它。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-有一条链，链上长度不超过k的点之间都会进行连边，求生成树个数。"><a href="#emsp-emsp-有一条链，链上长度不超过k的点之间都会进行连边，求生成树个数。" class="headerlink" title="&emsp; &emsp; 有一条链，链上长度不超过k的点之间都会进行连边，求生成树个数。"></a>&emsp; &emsp; 有一条链，链上长度不超过k的点之间都会进行连边，求生成树个数。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-60-做法：-O-n-3-n-leq-100"><a href="#emsp-emsp-60-做法：-O-n-3-n-leq-100" class="headerlink" title="&emsp; &emsp; 60%做法：$O(n^3)$,$n \leq 100$"></a>&emsp; &emsp; 60%做法：$O(n^3)$,$n \leq 100$</h3><h3 id="emsp-emsp-那么直接连边按照，用矩阵树定理高斯消元解行列式即可。"><a href="#emsp-emsp-那么直接连边按照，用矩阵树定理高斯消元解行列式即可。" class="headerlink" title="&emsp; &emsp; 那么直接连边按照，用矩阵树定理高斯消元解行列式即可。"></a>&emsp; &emsp; 那么直接连边按照，用矩阵树定理高斯消元解行列式即可。</h3><h3 id="emsp-因为-n-leq100-那么直接连边按照，用矩阵树定理-n-3-高斯消元解行列式即可。"><a href="#emsp-因为-n-leq100-那么直接连边按照，用矩阵树定理-n-3-高斯消元解行列式即可。" class="headerlink" title="&emsp;因为$n\leq100$那么直接连边按照，用矩阵树定理$n^3$高斯消元解行列式即可。"></a>&emsp;因为$n\leq100$那么直接连边按照，用矩阵树定理$n^3$高斯消元解行列式即可。</h3><h3 id="emsp-emsp-100-做法：-O-l-3log-n-n-leq-10-15-l为所有联通形式种类，当k-5时l-52。"><a href="#emsp-emsp-100-做法：-O-l-3log-n-n-leq-10-15-l为所有联通形式种类，当k-5时l-52。" class="headerlink" title="&emsp; &emsp; 100%做法：$O(l^3log(n))$,$n\leq 10^{15}$,l为所有联通形式种类，当k=5时l=52。"></a>&emsp; &emsp; 100%做法：$O(l^3log(n))$,$n\leq 10^{15}$,l为所有联通形式种类，当k=5时l=52。</h3><h3 id="emsp-emsp-考虑到对于第i-k号点，如果最后会成为生成树，他必定与i-k-1到i号点中至少一个是一个联通快的。因此，我们维护-f-i-j-表示，在当前第i个点，前j个点的联通块是怎么样的，每次转移则是用第i号点与前面的连边情况进行转移，维护判断i-k号点在转移后是否与i-k-1到i号点中的部分点联通。搜索我们可以得到转移矩阵。"><a href="#emsp-emsp-考虑到对于第i-k号点，如果最后会成为生成树，他必定与i-k-1到i号点中至少一个是一个联通快的。因此，我们维护-f-i-j-表示，在当前第i个点，前j个点的联通块是怎么样的，每次转移则是用第i号点与前面的连边情况进行转移，维护判断i-k号点在转移后是否与i-k-1到i号点中的部分点联通。搜索我们可以得到转移矩阵。" class="headerlink" title="&emsp; &emsp; 考虑到对于第i-k号点，如果最后会成为生成树，他必定与i-k+1到i号点中至少一个是一个联通快的。因此，我们维护$f_{i,j}$表示，在当前第i个点，前j个点的联通块是怎么样的，每次转移则是用第i号点与前面的连边情况进行转移，维护判断i-k号点在转移后是否与i-k+1到i号点中的部分点联通。搜索我们可以得到转移矩阵。"></a>&emsp; &emsp; 考虑到对于第i-k号点，如果最后会成为生成树，他必定与i-k+1到i号点中至少一个是一个联通快的。因此，我们维护$f_{i,j}$表示，在当前第i个点，前j个点的联通块是怎么样的，每次转移则是用第i号点与前面的连边情况进行转移，维护判断i-k号点在转移后是否与i-k+1到i号点中的部分点联通。搜索我们可以得到转移矩阵。</h3><h3 id="emsp-emsp-初始条件：因为在前k个点中，所有点之间都是两两相连的，n个点的完全图的最小生成树是-n-n-2-，这个可用purfer序列简易证明。"><a href="#emsp-emsp-初始条件：因为在前k个点中，所有点之间都是两两相连的，n个点的完全图的最小生成树是-n-n-2-，这个可用purfer序列简易证明。" class="headerlink" title="&emsp; &emsp;  初始条件：因为在前k个点中，所有点之间都是两两相连的，n个点的完全图的最小生成树是$n^{n-2}$，这个可用purfer序列简易证明。"></a>&emsp; &emsp;  初始条件：因为在前k个点中，所有点之间都是两两相连的，n个点的完全图的最小生成树是$n^{n-2}$，这个可用purfer序列简易证明。</h3><h3 id="emsp-emsp-关于最小表示法：既联通情况2-2-3-1与联通情况1-1-2-3是相同的，所有本质相同的情况我们用它的最小表示来识别它。"><a href="#emsp-emsp-关于最小表示法：既联通情况2-2-3-1与联通情况1-1-2-3是相同的，所有本质相同的情况我们用它的最小表示来识别它。" class="headerlink" title="&emsp; &emsp;  关于最小表示法：既联通情况2,2,3,1与联通情况1,1,2,3是相同的，所有本质相同的情况我们用它的最小表示来识别它。"></a>&emsp; &emsp;  关于最小表示法：既联通情况2,2,3,1与联通情况1,1,2,3是相同的，所有本质相同的情况我们用它的最小表示来识别它。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;map&gt;
@@ -336,7 +326,7 @@ int main(){
     for(int i=0;i&lt;(1&lt;&lt;k);i++)cal(i);
     f=f*power(g,n-k);
     printf(&quot;%d\n&quot;,f.a[1][1]);
-} 
+}
 </code></pre>
 
     </div>
@@ -520,7 +510,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -546,12 +536,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
@@ -561,18 +551,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
@@ -587,26 +572,16 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
@@ -617,11 +592,16 @@ int main(){
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/线性基/">#线性基</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/hash/">#hash</a>
         </div>
         
@@ -631,23 +611,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/状压DP/">#状压DP</a>
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
+            <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/SPFA/">#SPFA</a>
+            <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
@@ -661,7 +641,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
@@ -671,7 +651,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/卡常/">#卡常</a>
         </div>
         
@@ -691,12 +671,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/中国剩余定理/">#中国剩余定理</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
@@ -711,7 +691,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
@@ -726,12 +706,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/构造/">#构造</a>
         </div>
         
@@ -746,12 +726,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/哈希/">#哈希</a>
         </div>
         
@@ -776,7 +756,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
@@ -786,7 +766,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/最小生成树/">#最小生成树</a>
         </div>
         
@@ -801,7 +781,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
@@ -816,13 +796,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
         <div class="cube-box-bg ">
             <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
     </div>

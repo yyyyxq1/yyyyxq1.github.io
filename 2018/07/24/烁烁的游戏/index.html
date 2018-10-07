@@ -197,16 +197,7 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="背景烁烁很喜欢爬树这吓坏了树上的皮皮鼠"><a class="markdownIt-Anchor" href="#背景烁烁很喜欢爬树这吓坏了树上的皮皮鼠"></a>     背景：烁烁很喜欢爬树，这吓坏了树上的皮皮鼠。</h3>
-<h3 id="题意-给定一颗n个节点的树边权均为1初始树上没有皮皮鼠-烁烁他每次会跳到一个节点u把周围与他距离不超过d的节点各吸引出w只皮皮鼠-皮皮鼠会被烁烁吸引所以会一直待在节点上不动-烁烁很好奇在当前时刻节点u有多少个他的好朋友皮皮鼠"><a class="markdownIt-Anchor" href="#题意-给定一颗n个节点的树边权均为1初始树上没有皮皮鼠-烁烁他每次会跳到一个节点u把周围与他距离不超过d的节点各吸引出w只皮皮鼠-皮皮鼠会被烁烁吸引所以会一直待在节点上不动-烁烁很好奇在当前时刻节点u有多少个他的好朋友皮皮鼠"></a>     题意： 给定一颗n个节点的树，边权均为1，初始树上没有皮皮鼠。烁烁他每次会跳到一个节点u，把周围与他距离不超过d的节点各吸引出w只皮皮鼠。皮皮鼠会被烁烁吸引，所以会一直待在节点上不动。 烁烁很好奇，在当前时刻，节点u有多少个他的好朋友—皮皮鼠。</h3>
-<h3 id="大意"><a class="markdownIt-Anchor" href="#大意"></a>     大意：</h3>
-<h3 id="给一颗n个节点的树边权均为1初始点权均为0m次操作"><a class="markdownIt-Anchor" href="#给一颗n个节点的树边权均为1初始点权均为0m次操作"></a>      给一颗n个节点的树，边权均为1，初始点权均为0，m次操作：</h3>
-<h3 id="q-x询问x的点权"><a class="markdownIt-Anchor" href="#q-x询问x的点权"></a>     Q x：询问x的点权。</h3>
-<h3 id="m-x-d-w将树上与节点x距离不超过d的节点的点权均加上w"><a class="markdownIt-Anchor" href="#m-x-d-w将树上与节点x距离不超过d的节点的点权均加上w"></a>     M x d w：将树上与节点x距离不超过d的节点的点权均加上w。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="建出点分树以后容斥用线段树求后缀和即可-虽然每层都扫好暴力但好像复杂度就是对的"><a class="markdownIt-Anchor" href="#建出点分树以后容斥用线段树求后缀和即可-虽然每层都扫好暴力但好像复杂度就是对的"></a>     建出点分树以后容斥用线段树求后缀和即可。（虽然每层都扫好暴力但好像复杂度就是对的）</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-背景：烁烁很喜欢爬树，这吓坏了树上的皮皮鼠。"><a href="#emsp-emsp-背景：烁烁很喜欢爬树，这吓坏了树上的皮皮鼠。" class="headerlink" title="&emsp; &emsp; 背景：烁烁很喜欢爬树，这吓坏了树上的皮皮鼠。"></a>&emsp; &emsp; 背景：烁烁很喜欢爬树，这吓坏了树上的皮皮鼠。</h3><h3 id="emsp-emsp-题意：-给定一颗n个节点的树，边权均为1，初始树上没有皮皮鼠。烁烁他每次会跳到一个节点u，把周围与他距离不超过d的节点各吸引出w只皮皮鼠。皮皮鼠会被烁烁吸引，所以会一直待在节点上不动。-烁烁很好奇，在当前时刻，节点u有多少个他的好朋友—-皮皮鼠。"><a href="#emsp-emsp-题意：-给定一颗n个节点的树，边权均为1，初始树上没有皮皮鼠。烁烁他每次会跳到一个节点u，把周围与他距离不超过d的节点各吸引出w只皮皮鼠。皮皮鼠会被烁烁吸引，所以会一直待在节点上不动。-烁烁很好奇，在当前时刻，节点u有多少个他的好朋友—-皮皮鼠。" class="headerlink" title="&emsp; &emsp; 题意： 给定一颗n个节点的树，边权均为1，初始树上没有皮皮鼠。烁烁他每次会跳到一个节点u，把周围与他距离不超过d的节点各吸引出w只皮皮鼠。皮皮鼠会被烁烁吸引，所以会一直待在节点上不动。 烁烁很好奇，在当前时刻，节点u有多少个他的好朋友—-皮皮鼠。"></a>&emsp; &emsp; 题意： 给定一颗n个节点的树，边权均为1，初始树上没有皮皮鼠。烁烁他每次会跳到一个节点u，把周围与他距离不超过d的节点各吸引出w只皮皮鼠。皮皮鼠会被烁烁吸引，所以会一直待在节点上不动。 烁烁很好奇，在当前时刻，节点u有多少个他的好朋友—-皮皮鼠。</h3><h3 id="emsp-emsp-大意："><a href="#emsp-emsp-大意：" class="headerlink" title="&emsp; &emsp; 大意："></a>&emsp; &emsp; 大意：</h3><h3 id="emsp-emsp-给一颗n个节点的树，边权均为1，初始点权均为0，m次操作："><a href="#emsp-emsp-给一颗n个节点的树，边权均为1，初始点权均为0，m次操作：" class="headerlink" title="&emsp; &emsp;  给一颗n个节点的树，边权均为1，初始点权均为0，m次操作："></a>&emsp; &emsp;  给一颗n个节点的树，边权均为1，初始点权均为0，m次操作：</h3><h3 id="emsp-emsp-Q-x：询问x的点权。"><a href="#emsp-emsp-Q-x：询问x的点权。" class="headerlink" title="&emsp; &emsp; Q x：询问x的点权。"></a>&emsp; &emsp; Q x：询问x的点权。</h3><h3 id="emsp-emsp-M-x-d-w：将树上与节点x距离不超过d的节点的点权均加上w。"><a href="#emsp-emsp-M-x-d-w：将树上与节点x距离不超过d的节点的点权均加上w。" class="headerlink" title="&emsp; &emsp; M x d w：将树上与节点x距离不超过d的节点的点权均加上w。"></a>&emsp; &emsp; M x d w：将树上与节点x距离不超过d的节点的点权均加上w。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-建出点分树以后容斥用线段树求后缀和即可。（虽然每层都扫好暴力但好像复杂度就是对的）"><a href="#emsp-emsp-建出点分树以后容斥用线段树求后缀和即可。（虽然每层都扫好暴力但好像复杂度就是对的）" class="headerlink" title="&emsp; &emsp; 建出点分树以后容斥用线段树求后缀和即可。（虽然每层都扫好暴力但好像复杂度就是对的）"></a>&emsp; &emsp; 建出点分树以后容斥用线段树求后缀和即可。（虽然每层都扫好暴力但好像复杂度就是对的）</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;algorithm&gt;
@@ -380,7 +371,7 @@ int main(){
     dfs(1);
     for(int i=1;i&lt;=m;i++){
         scanf(&quot;%s&quot;,s+1);
-        if(s[1]=='Q'){
+        if(s[1]==&#39;Q&#39;){
             int x;
             scanf(&quot;%d&quot;,&amp;x);
             printf(&quot;%d\n&quot;,query(x));
@@ -393,7 +384,7 @@ int main(){
     }
 }
 </code></pre>
-<p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4372" target="_blank" rel="noopener"> 烁烁的游戏</a></p>
+<p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4372" target="_blank" rel="noopener"> 烁烁的游戏</a> </p>
 
     </div>
 </div>
@@ -402,9 +393,9 @@ int main(){
     <ul>
         
         <li class="prev">
-            <a href="/2018/07/25/TJOI2015-弦论/">
+            <a href="/2018/07/25/ZJOI2015-诸神眷顾的幻想乡/">
                 <i class="cube-icon cube-prev" aria-hidden="true"></i>
-                TJOI2015 弦论
+                ZJOI2015 诸神眷顾的幻想乡
             </a>
         </li>
         
@@ -571,7 +562,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -612,7 +603,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
@@ -627,38 +618,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
             <a href="/tags/好题/">#好题</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
@@ -667,8 +643,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/计数/">#计数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
@@ -692,6 +673,11 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/状压DP/">#状压DP</a>
         </div>
@@ -699,11 +685,6 @@ int main(){
         
         <div class="cube-box-bg ">
             <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -717,7 +698,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
@@ -737,7 +718,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
@@ -762,27 +743,27 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/分块/">#分块</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -802,7 +783,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
@@ -827,12 +808,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
@@ -847,7 +828,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
@@ -857,17 +838,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
@@ -879,6 +860,16 @@ int main(){
         
         <div class="cube-box ">
             <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
     </div>

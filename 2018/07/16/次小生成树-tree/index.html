@@ -195,12 +195,7 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="求一个严格的次小生成树"><a class="markdownIt-Anchor" href="#求一个严格的次小生成树"></a>    求一个严格的次小生成树。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="先求出最小生成树然后对于每一条非最小生成树上的边都求出将这条边加入最小生成树中增大的最小代价最后统计答案即可-求代价时可用倍增求出链上最大值和次大值次大值是为了保证是严格的最小生成树"><a class="markdownIt-Anchor" href="#先求出最小生成树然后对于每一条非最小生成树上的边都求出将这条边加入最小生成树中增大的最小代价最后统计答案即可-求代价时可用倍增求出链上最大值和次大值次大值是为了保证是严格的最小生成树"></a>     先求出最小生成树，然后对于每一条非最小生成树上的边都求出将这条边加入最小生成树中增大的最小代价，最后统计答案即可。（求代价时可用倍增求出链上最大值和次大值（次大值是为了保证是严格的最小生成树））</h3>
-<h3 id="不知道为什么sort来合并比o1合并快两倍"><a class="markdownIt-Anchor" href="#不知道为什么sort来合并比o1合并快两倍"></a>     不知道为什么sort来合并比O(1)合并快两倍……</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-求一个严格的次小生成树。"><a href="#emsp-emsp-求一个严格的次小生成树。" class="headerlink" title="&emsp; &emsp;求一个严格的次小生成树。"></a>&emsp; &emsp;求一个严格的次小生成树。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-先求出最小生成树，然后对于每一条非最小生成树上的边都求出将这条边加入最小生成树中增大的最小代价，最后统计答案即可。（求代价时可用倍增求出链上最大值和次大值（次大值是为了保证是严格的最小生成树））"><a href="#emsp-emsp-先求出最小生成树，然后对于每一条非最小生成树上的边都求出将这条边加入最小生成树中增大的最小代价，最后统计答案即可。（求代价时可用倍增求出链上最大值和次大值（次大值是为了保证是严格的最小生成树））" class="headerlink" title="&emsp; &emsp; 先求出最小生成树，然后对于每一条非最小生成树上的边都求出将这条边加入最小生成树中增大的最小代价，最后统计答案即可。（求代价时可用倍增求出链上最大值和次大值（次大值是为了保证是严格的最小生成树））"></a>&emsp; &emsp; 先求出最小生成树，然后对于每一条非最小生成树上的边都求出将这条边加入最小生成树中增大的最小代价，最后统计答案即可。（求代价时可用倍增求出链上最大值和次大值（次大值是为了保证是严格的最小生成树））</h3><h3 id="emsp-emsp-不知道为什么sort来合并比O-1-合并快两倍……"><a href="#emsp-emsp-不知道为什么sort来合并比O-1-合并快两倍……" class="headerlink" title="&emsp; &emsp; 不知道为什么sort来合并比O(1)合并快两倍……"></a>&emsp; &emsp; 不知道为什么sort来合并比O(1)合并快两倍……</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;algorithm&gt;
@@ -209,99 +204,99 @@ using namespace std;
 int fa[N],Next[N],v[N],h[N],w[N],tot,f[N/6][21],dep[N/6],c[N];
 int b[5],n,m;
 struct node{
-	int x,y,z;
+    int x,y,z;
 }a[N];
 struct illyasviel{
-	int x,y;
-	int clear(){x=0,y=0;}
+    int x,y;
+    int clear(){x=0,y=0;}
 }g[N/6][21];
 bool cmp(node x,node y){
-	return x.z&lt;y.z;
+    return x.z&lt;y.z;
 }
 int find(int x){
-	if(fa[x]==x)return x;
-	return fa[x]=find(fa[x]);
+    if(fa[x]==x)return x;
+    return fa[x]=find(fa[x]);
 }
 int add(int x,int y,int z){
-	tot++;
-	Next[tot]=h[x];
-	v[tot]=y;
-	w[tot]=z;
-	h[x]=tot;
+    tot++;
+    Next[tot]=h[x];
+    v[tot]=y;
+    w[tot]=z;
+    h[x]=tot;
 }
 illyasviel merge(illyasviel x,illyasviel y){
-	illyasviel ans;
-	ans.clear();
-	b[1]=x.x;
-	b[2]=x.y;
-	b[3]=y.x;
-	b[4]=y.y;
-	sort(b+1,b+1+4);
-	ans.x=b[4];
-	for(int i=1;i&lt;=3;i++)if(b[i]&lt;b[4])ans.y=b[i];
-	return ans;
+    illyasviel ans;
+    ans.clear();
+    b[1]=x.x;
+    b[2]=x.y;
+    b[3]=y.x;
+    b[4]=y.y;
+    sort(b+1,b+1+4);
+    ans.x=b[4];
+    for(int i=1;i&lt;=3;i++)if(b[i]&lt;b[4])ans.y=b[i];
+    return ans;
 }
 int dfs(int x,int fa){
-	dep[x]=dep[fa]+1;
-	f[x][0]=fa;
-	for(int i=1;i&lt;=20;i++)f[x][i]=f[f[x][i-1]][i-1];
-	for(int i=1;i&lt;=20;i++)g[x][i]=merge(g[x][i-1],g[f[x][i-1]][i-1]);
-	for(int i=h[x];i;i=Next[i]){
-    	if(v[i]==fa)continue;
-    	g[v[i]][0].x=w[i];
-    	dfs(v[i],x);
-        
+    dep[x]=dep[fa]+1;
+    f[x][0]=fa;
+    for(int i=1;i&lt;=20;i++)f[x][i]=f[f[x][i-1]][i-1];
+    for(int i=1;i&lt;=20;i++)g[x][i]=merge(g[x][i-1],g[f[x][i-1]][i-1]);
+    for(int i=h[x];i;i=Next[i]){
+        if(v[i]==fa)continue;
+        g[v[i]][0].x=w[i];
+        dfs(v[i],x);
+
     }
 }
 illyasviel lca(int x,int y){
-	illyasviel ans;
-	ans.clear();
-	if(dep[x]&lt;dep[y])swap(x,y);
-	for(int i=20;i&gt;=0;i--)if(dep[f[x][i]]&gt;=dep[y])ans=merge(g[x][i],ans),x=f[x][i];
-	if(x==y)return ans;
-	for(int i=20;i&gt;=0;i--){
-    	if(f[x][i]!=f[y][i]){
-        	ans=merge(ans,g[x][i]);
-        	ans=merge(ans,g[y][i]);
-        	x=f[x][i];y=f[y][i];
+    illyasviel ans;
+    ans.clear();
+    if(dep[x]&lt;dep[y])swap(x,y);
+    for(int i=20;i&gt;=0;i--)if(dep[f[x][i]]&gt;=dep[y])ans=merge(g[x][i],ans),x=f[x][i];
+    if(x==y)return ans;
+    for(int i=20;i&gt;=0;i--){
+        if(f[x][i]!=f[y][i]){
+            ans=merge(ans,g[x][i]);
+            ans=merge(ans,g[y][i]);
+            x=f[x][i];y=f[y][i];
         }
     }
-	ans=merge(ans,g[x][0]);
-	ans=merge(ans,g[y][0]);
-	return ans;
+    ans=merge(ans,g[x][0]);
+    ans=merge(ans,g[y][0]);
+    return ans;
 }
 int main(){
-	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-	for(int i=1;i&lt;=m;i++){
-    	scanf(&quot;%d%d%d&quot;,&amp;a[i].x,&amp;a[i].y,&amp;a[i].z);
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=m;i++){
+        scanf(&quot;%d%d%d&quot;,&amp;a[i].x,&amp;a[i].y,&amp;a[i].z);
     }
-	long long ans=0;
-	for(int i=1;i&lt;=n;i++)fa[i]=i;
-	sort(a+1,a+1+m,cmp);
-	int oo=0;
-	for(int i=1;i&lt;=m;i++){
-    	if(find(a[i].x)!=find(a[i].y)){
-        	c[i]=1;
-        	ans+=0LL+a[i].z;
-        	fa[find(a[i].x)]=find(a[i ].y);
-        	add(a[i].x,a[i].y,a[i].z);
-        	add(a[i].y,a[i].x,a[i].z);
-        	oo=max(a[i].z,oo);
+    long long ans=0;
+    for(int i=1;i&lt;=n;i++)fa[i]=i;
+    sort(a+1,a+1+m,cmp);
+    int oo=0;
+    for(int i=1;i&lt;=m;i++){
+        if(find(a[i].x)!=find(a[i].y)){
+            c[i]=1;
+            ans+=0LL+a[i].z;
+            fa[find(a[i].x)]=find(a[i ].y);
+            add(a[i].x,a[i].y,a[i].z);
+            add(a[i].y,a[i].x,a[i].z);
+            oo=max(a[i].z,oo);
         }
     }
-	dfs(1,0);
-	long long bns=0x7fffffff; 
-	for(int i=1;i&lt;=m;i++){
-    	if(a[i].z-oo&gt;=bns)continue;
-    	if(c[i]==0){
-        	illyasviel p=lca(a[i].x,a[i].y);
-        	bns=min(bns,(a[i].z-p.x&gt;0)?0LL+a[i].z-p.x:0LL+a[i].z-p.y);
+    dfs(1,0);
+    long long bns=0x7fffffff; 
+    for(int i=1;i&lt;=m;i++){
+        if(a[i].z-oo&gt;=bns)continue;
+        if(c[i]==0){
+            illyasviel p=lca(a[i].x,a[i].y);
+            bns=min(bns,(a[i].z-p.x&gt;0)?0LL+a[i].z-p.x:0LL+a[i].z-p.y);
         }
     }
-	printf(&quot;%lld\n&quot;,ans+bns);
+    printf(&quot;%lld\n&quot;,ans+bns);
 }
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1468&amp;pid=1" target="_blank" rel="noopener">次小生成树 Tree</a></p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1468&amp;pid=1" target="_blank" rel="noopener">次小生成树 Tree</a> </p>
 
     </div>
 </div>
@@ -484,7 +479,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -500,7 +495,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -510,37 +505,32 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/好题/">#好题</a>
         </div>
         
@@ -551,22 +541,12 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
@@ -577,6 +557,11 @@ int main(){
         
         <div class="cube-box ">
             <a href="/tags/计数/">#计数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
@@ -601,6 +586,11 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
@@ -610,17 +600,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
         <div class="cube-box ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
@@ -660,7 +645,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
@@ -675,7 +660,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
@@ -690,7 +675,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -700,7 +685,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/费用流/">#费用流</a>
         </div>
         
@@ -710,7 +695,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
@@ -720,12 +705,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/数学/">#数学</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
@@ -735,17 +720,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/概率/">#概率</a>
         </div>
         
@@ -785,8 +770,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
     </div>

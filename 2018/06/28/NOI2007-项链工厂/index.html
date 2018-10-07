@@ -195,19 +195,7 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="维护一个环和一个指针有以下几种操作该指针的下标为1其余为位置的下标顺时针递增"><a class="markdownIt-Anchor" href="#维护一个环和一个指针有以下几种操作该指针的下标为1其余为位置的下标顺时针递增"></a>    维护一个环，和一个指针，有以下几种操作（该指针的下标为1，其余为位置的下标顺时针递增）:</h3>
-<h3 id="1将指针逆时针移动k位"><a class="markdownIt-Anchor" href="#1将指针逆时针移动k位"></a>    1:将指针逆时针移动k位</h3>
-<h3 id="2将环以指针做对称轴翻转"><a class="markdownIt-Anchor" href="#2将环以指针做对称轴翻转"></a>    2:将环以指针做对称轴翻转</h3>
-<h3 id="3交换l位置和r位置上的颜色"><a class="markdownIt-Anchor" href="#3交换l位置和r位置上的颜色"></a>    3:交换l位置和r位置上的颜色</h3>
-<h3 id="4将l到r染成c颜色"><a class="markdownIt-Anchor" href="#4将l到r染成c颜色"></a>    4:将l到r染成c颜色</h3>
-<h3 id="5查询当前项链有多少段颜色首尾相同算一段"><a class="markdownIt-Anchor" href="#5查询当前项链有多少段颜色首尾相同算一段"></a>    5:查询当前项链有多少段颜色（首尾相同算一段）</h3>
-<h3 id="6-查询l到r有多少段颜色"><a class="markdownIt-Anchor" href="#6-查询l到r有多少段颜色"></a>    6: 查询l到r有多少段颜色</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="线段树"><a class="markdownIt-Anchor" href="#线段树"></a>    线段树</h3>
-<h3 id="对于翻转操作我们修改对应下标然后更新即可需要完成的模块有区间更新lazy标记区间查询单点更新单点查询"><a class="markdownIt-Anchor" href="#对于翻转操作我们修改对应下标然后更新即可需要完成的模块有区间更新lazy标记区间查询单点更新单点查询"></a>    对于翻转操作，我们修改对应下标，然后更新即可，需要完成的模块有区间更新（lazy标记），区间查询，单点更新，单点查询。</h3>
-<h3 id="由于代码是在拍宣传片时候写的思维极度混乱由于实现问题甚至需要开八倍空间这份代码极度丑陋qwq"><a class="markdownIt-Anchor" href="#由于代码是在拍宣传片时候写的思维极度混乱由于实现问题甚至需要开八倍空间这份代码极度丑陋qwq"></a>    （由于代码是在拍宣传片时候写的，思维极度混乱，由于实现问题甚至需要开八倍空间，这份代码极度丑陋qwq）。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-维护一个环，和一个指针，有以下几种操作（该指针的下标为1，其余为位置的下标顺时针递增）"><a href="#emsp-emsp-维护一个环，和一个指针，有以下几种操作（该指针的下标为1，其余为位置的下标顺时针递增）" class="headerlink" title="&emsp; &emsp;维护一个环，和一个指针，有以下几种操作（该指针的下标为1，其余为位置的下标顺时针递增）:"></a>&emsp; &emsp;维护一个环，和一个指针，有以下几种操作（该指针的下标为1，其余为位置的下标顺时针递增）:</h3><h3 id="emsp-emsp-1-将指针逆时针移动k位"><a href="#emsp-emsp-1-将指针逆时针移动k位" class="headerlink" title="&emsp;&emsp; 1:将指针逆时针移动k位"></a>&emsp;&emsp; 1:将指针逆时针移动k位</h3><h3 id="emsp-emsp-2-将环以指针做对称轴翻转"><a href="#emsp-emsp-2-将环以指针做对称轴翻转" class="headerlink" title="&emsp; &emsp;2:将环以指针做对称轴翻转"></a>&emsp; &emsp;2:将环以指针做对称轴翻转</h3><h3 id="emsp-emsp-3-交换l位置和r位置上的颜色"><a href="#emsp-emsp-3-交换l位置和r位置上的颜色" class="headerlink" title="&emsp; &emsp;3:交换l位置和r位置上的颜色"></a>&emsp; &emsp;3:交换l位置和r位置上的颜色</h3><h3 id="emsp-emsp-4-将l到r染成c颜色"><a href="#emsp-emsp-4-将l到r染成c颜色" class="headerlink" title="&emsp; &emsp;4:将l到r染成c颜色"></a>&emsp; &emsp;4:将l到r染成c颜色</h3><h3 id="emsp-emsp-5-查询当前项链有多少段颜色（首尾相同算一段）"><a href="#emsp-emsp-5-查询当前项链有多少段颜色（首尾相同算一段）" class="headerlink" title="&emsp; &emsp;5:查询当前项链有多少段颜色（首尾相同算一段）"></a>&emsp; &emsp;5:查询当前项链有多少段颜色（首尾相同算一段）</h3><h3 id="emsp-emsp-6-查询l到r有多少段颜色"><a href="#emsp-emsp-6-查询l到r有多少段颜色" class="headerlink" title="&emsp; &emsp;6: 查询l到r有多少段颜色"></a>&emsp; &emsp;6: 查询l到r有多少段颜色</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-线段树"><a href="#emsp-emsp-线段树" class="headerlink" title="&emsp; &emsp;线段树"></a>&emsp; &emsp;线段树</h3><h3 id="emsp-emsp-对于翻转操作，我们修改对应下标，然后更新即可，需要完成的模块有区间更新（lazy标记），区间查询，单点更新，单点查询。"><a href="#emsp-emsp-对于翻转操作，我们修改对应下标，然后更新即可，需要完成的模块有区间更新（lazy标记），区间查询，单点更新，单点查询。" class="headerlink" title="&emsp; &emsp;对于翻转操作，我们修改对应下标，然后更新即可，需要完成的模块有区间更新（lazy标记），区间查询，单点更新，单点查询。"></a>&emsp; &emsp;对于翻转操作，我们修改对应下标，然后更新即可，需要完成的模块有区间更新（lazy标记），区间查询，单点更新，单点查询。</h3><h3 id="emsp-emsp-（由于代码是在拍宣传片时候写的，思维极度混乱，由于实现问题甚至需要开八倍空间，这份代码极度丑陋qwq）。"><a href="#emsp-emsp-（由于代码是在拍宣传片时候写的，思维极度混乱，由于实现问题甚至需要开八倍空间，这份代码极度丑陋qwq）。" class="headerlink" title="&emsp; &emsp;（由于代码是在拍宣传片时候写的，思维极度混乱，由于实现问题甚至需要开八倍空间，这份代码极度丑陋qwq）。"></a>&emsp; &emsp;（由于代码是在拍宣传片时候写的，思维极度混乱，由于实现问题甚至需要开八倍空间，这份代码极度丑陋qwq）。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 2200000
@@ -322,15 +310,15 @@ int main(){
     int o=1;
     for(int i=1;i&lt;=q;i++){
         scanf(&quot;%s&quot;,ss+1);
-        if(ss[1]=='R'){
+        if(ss[1]==&#39;R&#39;){
             int k;
             scanf(&quot;%d&quot;,&amp;k);
             if(p==0)o-=k;
             else o+=k;
             get(o);
         }
-        if(ss[1]=='F'){p^=1;}
-        if(ss[1]=='S'){
+        if(ss[1]==&#39;F&#39;){p^=1;}
+        if(ss[1]==&#39;S&#39;){
             int l,r;
             scanf(&quot;%d%d&quot;,&amp;l,&amp;r);
             if(p==0)l+=o-1,r+=o-1;
@@ -342,7 +330,7 @@ int main(){
             s.insert(1,1,n,r,lx);
             s.insert(1,1,n,l,rx); 
         }
-        if(ss[1]=='P'){
+        if(ss[1]==&#39;P&#39;){
             int l,r,x;
             scanf(&quot;%d%d%d&quot;,&amp;l,&amp;r,&amp;x);
             if(p==0)l+=o-1,r+=o-1;
@@ -354,7 +342,7 @@ int main(){
             if(l&lt;=r)s.insert(1,1,n,l,r,x);
             else s.insert(1,1,n,1,r,x),s.insert(1,1,n,l,n,x);
         } 
-        if(ss[1]=='C'){
+        if(ss[1]==&#39;C&#39;){
             tot++;
 //          if(tot==11){
 //              printf(&quot;\n&quot;);
@@ -362,7 +350,7 @@ int main(){
 //              printf(&quot;\n&quot;);
 //          }
             int l=1,r=n,ooo=1;
-            if(ss[2]=='S'){
+            if(ss[2]==&#39;S&#39;){
                 scanf(&quot;%d%d&quot;,&amp;l,&amp;r);
                 if(p==0)l+=o-1,r+=o-1;
                 else{
@@ -560,7 +548,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -581,12 +569,12 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/分数规划/">#分数规划</a>
         </div>
         
@@ -617,11 +605,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/好题/">#好题</a>
         </div>
         
@@ -632,22 +615,12 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
@@ -656,12 +629,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
@@ -681,18 +659,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -706,12 +684,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
@@ -751,7 +729,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
@@ -766,12 +744,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/分块/">#分块</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -781,17 +759,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/概率与期望/">#概率与期望</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
@@ -836,7 +814,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
@@ -851,23 +829,33 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
     </div>

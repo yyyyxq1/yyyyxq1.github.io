@@ -193,15 +193,7 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="现在有一个括号序列不保证合法你能够进行以下两个操作"><a class="markdownIt-Anchor" href="#现在有一个括号序列不保证合法你能够进行以下两个操作"></a>     现在有一个括号序列（不保证合法），你能够进行以下两个操作:</h3>
-<h3 id="1在任意位置加入一个左括号或者右括号"><a class="markdownIt-Anchor" href="#1在任意位置加入一个左括号或者右括号"></a>     1：在任意位置加入一个左括号或者右括号</h3>
-<h3 id="2将序列最末的括号移到最前"><a class="markdownIt-Anchor" href="#2将序列最末的括号移到最前"></a>     2：将序列最末的括号移到最前</h3>
-<h3 id="现在想要知道经过若干次操作后得到的最短的字典序最小的括号序列是什么"><a class="markdownIt-Anchor" href="#现在想要知道经过若干次操作后得到的最短的字典序最小的括号序列是什么"></a>     现在想要知道，经过若干次操作后，得到的最短的字典序最小的括号序列是什么？</h3>
-<h3 id=""><a class="markdownIt-Anchor" href="#"></a>     （“（”&lt;“）”）</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="通过旋转变换得到最小字典序的序列再在前后补足括号即可"><a class="markdownIt-Anchor" href="#通过旋转变换得到最小字典序的序列再在前后补足括号即可"></a>     通过旋转变换得到最小字典序的序列再在前后补足括号即可。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-现在有一个括号序列（不保证合法），你能够进行以下两个操作"><a href="#emsp-emsp-现在有一个括号序列（不保证合法），你能够进行以下两个操作" class="headerlink" title="&emsp; &emsp; 现在有一个括号序列（不保证合法），你能够进行以下两个操作:"></a>&emsp; &emsp; 现在有一个括号序列（不保证合法），你能够进行以下两个操作:</h3><h3 id="emsp-emsp-1：在任意位置加入一个左括号或者右括号"><a href="#emsp-emsp-1：在任意位置加入一个左括号或者右括号" class="headerlink" title="&emsp; &emsp; 1：在任意位置加入一个左括号或者右括号"></a>&emsp; &emsp; 1：在任意位置加入一个左括号或者右括号</h3><h3 id="emsp-emsp-2：将序列最末的括号移到最前"><a href="#emsp-emsp-2：将序列最末的括号移到最前" class="headerlink" title="&emsp; &emsp; 2：将序列最末的括号移到最前"></a>&emsp; &emsp; 2：将序列最末的括号移到最前</h3><h3 id="emsp-emsp-现在想要知道，经过若干次操作后，得到的最短的字典序最小的括号序列是什么？"><a href="#emsp-emsp-现在想要知道，经过若干次操作后，得到的最短的字典序最小的括号序列是什么？" class="headerlink" title="&emsp; &emsp; 现在想要知道，经过若干次操作后，得到的最短的字典序最小的括号序列是什么？"></a>&emsp; &emsp; 现在想要知道，经过若干次操作后，得到的最短的字典序最小的括号序列是什么？</h3><h3 id="emsp-emsp-（“（”-lt-“）”）"><a href="#emsp-emsp-（“（”-lt-“）”）" class="headerlink" title="&emsp; &emsp; （“（”&lt;“）”）"></a>&emsp; &emsp; （“（”&lt;“）”）</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-通过旋转变换得到最小字典序的序列再在前后补足括号即可。"><a href="#emsp-emsp-通过旋转变换得到最小字典序的序列再在前后补足括号即可。" class="headerlink" title="&emsp; &emsp; 通过旋转变换得到最小字典序的序列再在前后补足括号即可。"></a>&emsp; &emsp; 通过旋转变换得到最小字典序的序列再在前后补足括号即可。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 1200000
@@ -212,15 +204,15 @@ int l,r,len,cl,cr,ans,minl,a[N];
 char s[N];
 int check(int l,int r,int ll,int rr){
     for(int i=l;i&lt;=r;i++)
-        if(s[i]=='('&amp;&amp;s[ll+i-l]==')')return 0;else
-        if(s[i]==')'&amp;&amp;s[ll+i-l]=='(')return 1;
+        if(s[i]==&#39;(&#39;&amp;&amp;s[ll+i-l]==&#39;)&#39;)return 0;else
+        if(s[i]==&#39;)&#39;&amp;&amp;s[ll+i-l]==&#39;(&#39;)return 1;
     return 0;
 }
 int main(){
     scanf(&quot;%s&quot;,s+1);
     len=strlen(s+1);
     for(int i=1;i&lt;=len;i++) 
-        if(s[i]=='(')a[i]=1;else a[i]=-1;
+        if(s[i]==&#39;(&#39;)a[i]=1;else a[i]=-1;
     for(int i=1;i&lt;=len;i++){
         s[i+len]=s[i];
         a[i+len]=a[i];
@@ -239,12 +231,12 @@ int main(){
     for(int i=1;i&lt;=len;i++)if(getl(i)==minl&amp;&amp;check(l,r,i,i+len-1))l=i,r=i+len-1;
     for(int i=1;i&lt;=minl;i++)printf(&quot;(&quot;);
     for(int i=l;i&lt;=r;i++)printf(&quot;%c&quot;,s[i]);
-    for(int i=l;i&lt;=r;i++)if(s[i]=='(')cl++;else cr++;
+    for(int i=l;i&lt;=r;i++)if(s[i]==&#39;(&#39;)cl++;else cr++;
     for(int i=cr;i&lt;cl;i++)printf(&quot;)&quot;);
     printf(&quot;\n&quot;);
 }
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1200&amp;pid=2" target="_blank" rel="noopener">Bracket</a></p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1200&amp;pid=2" target="_blank" rel="noopener">Bracket</a> </p>
 
     </div>
 </div>
@@ -422,7 +414,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -463,23 +455,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
@@ -494,26 +481,16 @@ int main(){
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
         <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
@@ -523,23 +500,33 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
+        <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/人类智慧/">#人类智慧</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/hash/">#hash</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/二分/">#二分</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -548,13 +535,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
         <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
+            <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
@@ -593,27 +575,27 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/模拟/">#模拟</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/中国剩余定理/">#中国剩余定理</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
@@ -628,7 +610,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/分块/">#分块</a>
         </div>
         
@@ -643,7 +625,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/费用流/">#费用流</a>
         </div>
         
@@ -673,7 +655,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/计划表/">#计划表</a>
         </div>
         
@@ -713,12 +695,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
@@ -730,6 +712,16 @@ int main(){
         
         <div class="cube-box ">
             <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
     </div>

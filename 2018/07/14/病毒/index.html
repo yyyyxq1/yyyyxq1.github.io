@@ -195,11 +195,7 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="给定一堆01串指定这些不能出现问是否能够构造出一个无限长度的字符串满足这些都没有出现过"><a class="markdownIt-Anchor" href="#给定一堆01串指定这些不能出现问是否能够构造出一个无限长度的字符串满足这些都没有出现过"></a>     给定一堆01串，指定这些不能出现，问是否能够构造出一个无限长度的字符串满足这些都没有出现过。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="直接建出trie图判断有没有环字符串末尾的点都不能经过"><a class="markdownIt-Anchor" href="#直接建出trie图判断有没有环字符串末尾的点都不能经过"></a>     直接建出trie图，判断有没有环（字符串末尾的点都不能经过）</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-给定一堆01串，指定这些不能出现，问是否能够构造出一个无限长度的字符串满足这些都没有出现过。"><a href="#emsp-emsp-给定一堆01串，指定这些不能出现，问是否能够构造出一个无限长度的字符串满足这些都没有出现过。" class="headerlink" title="&emsp; &emsp; 给定一堆01串，指定这些不能出现，问是否能够构造出一个无限长度的字符串满足这些都没有出现过。"></a>&emsp; &emsp; 给定一堆01串，指定这些不能出现，问是否能够构造出一个无限长度的字符串满足这些都没有出现过。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-直接建出trie图，判断有没有环（字符串末尾的点都不能经过）"><a href="#emsp-emsp-直接建出trie图，判断有没有环（字符串末尾的点都不能经过）" class="headerlink" title="&emsp; &emsp; 直接建出trie图，判断有没有环（字符串末尾的点都不能经过）"></a>&emsp; &emsp; 直接建出trie图，判断有没有环（字符串末尾的点都不能经过）</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 320000
@@ -211,8 +207,8 @@ int insert(){
     int l=strlen(s+1);
     int x=0;
     for(int i=1;i&lt;=l;i++){
-        if(ch[x][s[i]-'0']==0)ch[x][s[i]-'0']=++tot;
-        x=ch[x][s[i]-'0'];
+        if(ch[x][s[i]-&#39;0&#39;]==0)ch[x][s[i]-&#39;0&#39;]=++tot;
+        x=ch[x][s[i]-&#39;0&#39;];
     }
     tag[x]=1;
 }
@@ -469,7 +465,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
@@ -489,11 +485,6 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
         <div class="cube-box ">
             <a href="/tags/好题/">#好题</a>
         </div>
@@ -505,17 +496,22 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/计数/">#计数</a>
         </div>
         
         
@@ -525,21 +521,11 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/组合数学/">#组合数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计数/">#计数</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/hash/">#hash</a>
         </div>
         
@@ -555,6 +541,11 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
@@ -564,22 +555,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
@@ -639,17 +625,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/分块/">#分块</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/构造/">#构造</a>
         </div>
         
@@ -664,12 +650,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/哈希/">#哈希</a>
         </div>
         
@@ -684,7 +670,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/计划表/">#计划表</a>
         </div>
         
@@ -694,12 +680,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/概率/">#概率</a>
         </div>
         
@@ -709,7 +695,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
@@ -729,7 +715,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
@@ -741,6 +727,16 @@ int main(){
         
         <div class="cube-box ">
             <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
     </div>

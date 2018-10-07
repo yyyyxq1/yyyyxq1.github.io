@@ -193,14 +193,7 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="1-插入xx数"><a class="markdownIt-Anchor" href="#1-插入xx数"></a>     1、插入xx数</h3>
-<h3 id="2-删除xx数若有多个相同的数因只删除一个"><a class="markdownIt-Anchor" href="#2-删除xx数若有多个相同的数因只删除一个"></a>     2、删除xx数（若有多个相同的数，因只删除一个）</h3>
-<h3 id="3-查询xx数的排名若有多个相同的数因输出最小的排名"><a class="markdownIt-Anchor" href="#3-查询xx数的排名若有多个相同的数因输出最小的排名"></a>     3、查询xx数的排名（若有多个相同的数，因输出最小的排名）</h3>
-<h3 id="4-查询排名为xx的数"><a class="markdownIt-Anchor" href="#4-查询排名为xx的数"></a>     4、查询排名为xx的数</h3>
-<h3 id="5-求xx的前驱前驱定义为小于xx且最大的数"><a class="markdownIt-Anchor" href="#5-求xx的前驱前驱定义为小于xx且最大的数"></a>     5、求xx的前驱（前驱定义为小于xx，且最大的数）</h3>
-<h3 id="6-求xx的后继后继定义为大于xx且最小的数"><a class="markdownIt-Anchor" href="#6-求xx的后继后继定义为大于xx且最小的数"></a>     6、求xx的后继（后继定义为大于xx，且最小的数）</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-1、插入xx数"><a href="#emsp-emsp-1、插入xx数" class="headerlink" title="&emsp; &emsp; 1、插入xx数"></a>&emsp; &emsp; 1、插入xx数</h3><h3 id="emsp-emsp-2、删除xx数（若有多个相同的数，因只删除一个）"><a href="#emsp-emsp-2、删除xx数（若有多个相同的数，因只删除一个）" class="headerlink" title="&emsp; &emsp; 2、删除xx数（若有多个相同的数，因只删除一个）"></a>&emsp; &emsp; 2、删除xx数（若有多个相同的数，因只删除一个）</h3><h3 id="emsp-emsp-3、查询xx数的排名（若有多个相同的数，因输出最小的排名）"><a href="#emsp-emsp-3、查询xx数的排名（若有多个相同的数，因输出最小的排名）" class="headerlink" title="&emsp; &emsp; 3、查询xx数的排名（若有多个相同的数，因输出最小的排名）"></a>&emsp; &emsp; 3、查询xx数的排名（若有多个相同的数，因输出最小的排名）</h3><h3 id="emsp-emsp-4、查询排名为xx的数"><a href="#emsp-emsp-4、查询排名为xx的数" class="headerlink" title="&emsp; &emsp; 4、查询排名为xx的数"></a>&emsp; &emsp; 4、查询排名为xx的数</h3><h3 id="emsp-emsp-5、求xx的前驱（前驱定义为小于xx，且最大的数）"><a href="#emsp-emsp-5、求xx的前驱（前驱定义为小于xx，且最大的数）" class="headerlink" title="&emsp; &emsp; 5、求xx的前驱（前驱定义为小于xx，且最大的数）"></a>&emsp; &emsp; 5、求xx的前驱（前驱定义为小于xx，且最大的数）</h3><h3 id="emsp-emsp-6、求xx的后继（后继定义为大于xx，且最小的数）"><a href="#emsp-emsp-6、求xx的后继（后继定义为大于xx，且最小的数）" class="headerlink" title="&emsp; &emsp; 6、求xx的后继（后继定义为大于xx，且最小的数）"></a>&emsp; &emsp; 6、求xx的后继（后继定义为大于xx，且最小的数）</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define lc(x) (ch[x][0])
@@ -210,128 +203,128 @@ using namespace std;
 int sum[N],ch[N][2],fa[N],val[N],cnt[N],o;
 int n,root,tot;
 int update(int x){
-	sum[x]=sum[ch[x][0]]+sum[ch[x][1]]+cnt[x];
+    sum[x]=sum[ch[x][0]]+sum[ch[x][1]]+cnt[x];
 }
 int rotate(int x,int a){
-	int Fa=fa[x];
-	if(fa[Fa])ch[fa[Fa]][ch[fa[Fa]][1]==Fa]=x;
-	fa[x]=fa[Fa];
-	fa[Fa]=x;
-	if(ch[x][a])fa[ch[x][a]]=Fa;
-	ch[Fa][a^1]=ch[x][a];
-	ch[x][a]=Fa;
-	update(Fa);
-	update(x);
+    int Fa=fa[x];
+    if(fa[Fa])ch[fa[Fa]][ch[fa[Fa]][1]==Fa]=x;
+    fa[x]=fa[Fa];
+    fa[Fa]=x;
+    if(ch[x][a])fa[ch[x][a]]=Fa;
+    ch[Fa][a^1]=ch[x][a];
+    ch[x][a]=Fa;
+    update(Fa);
+    update(x);
 }
 int splay(int x,int y){
-	while(fa[x]!=y){
-    	int Fa=fa[x];
-    	if(ch[fa[x]][1]==x){
-        	if(fa[Fa]!=y&amp;&amp;ch[fa[Fa]][1]==Fa)rotate(Fa,0); 
-        	rotate(x,0);
+    while(fa[x]!=y){
+        int Fa=fa[x];
+        if(ch[fa[x]][1]==x){
+            if(fa[Fa]!=y&amp;&amp;ch[fa[Fa]][1]==Fa)rotate(Fa,0); 
+            rotate(x,0);
         }else{
-        	if(fa[Fa]!=y&amp;&amp;ch[fa[Fa]][0]==Fa)rotate(Fa,1); 
-        	rotate(x,1);
+            if(fa[Fa]!=y&amp;&amp;ch[fa[Fa]][0]==Fa)rotate(Fa,1); 
+            rotate(x,1);
         }
     }
-	if(y==0)root=x;
-	return root;
+    if(y==0)root=x;
+    return root;
 }int insert(int rt,int x,int Fa){
-	if(!rt){
-    	tot++;
-    	val[tot]=x;
-    	sum[tot]++;
-    	cnt[tot]++;
-    	fa[tot]=Fa;
-    	o=tot;
-    	return tot;
+    if(!rt){
+        tot++;
+        val[tot]=x;
+        sum[tot]++;
+        cnt[tot]++;
+        fa[tot]=Fa;
+        o=tot;
+        return tot;
     }
-	if(x&lt;val[rt])ch[rt][0]=insert(ch[rt][0],x,rt);
-	if(x&gt;val[rt])ch[rt][1]=insert(ch[rt][1],x,rt);
-	if(x==val[rt])cnt[rt]++,o=rt;
-	update(rt);
-	return rt;
+    if(x&lt;val[rt])ch[rt][0]=insert(ch[rt][0],x,rt);
+    if(x&gt;val[rt])ch[rt][1]=insert(ch[rt][1],x,rt);
+    if(x==val[rt])cnt[rt]++,o=rt;
+    update(rt);
+    return rt;
 }
 int ins(int x){
-	insert(root,x,0);
-	splay(o,0);
+    insert(root,x,0);
+    splay(o,0);
 }
 int delet(int rt,int x){
-	if(x&gt;val[rt])delet(rc(rt),x);
-	if(x&lt;val[rt])delet(lc(rt),x);
-	if(x==val[rt]){
-    	o=rt;
-    	if(cnt[rt])cnt[rt]--;
+    if(x&gt;val[rt])delet(rc(rt),x);
+    if(x&lt;val[rt])delet(lc(rt),x);
+    if(x==val[rt]){
+        o=rt;
+        if(cnt[rt])cnt[rt]--;
     }
-	update(rt);
+    update(rt);
 }
 int del(int x){
-	delet(root,x);
-	if(cnt[o])return 0;
-	splay(o,0);
-	int l=rc(o);
-	int k=lc(o);
-	while(lc(l))l=lc(l);
-	while(rc(k))k=rc(k);
-	splay(k,0);
-	splay(l,k);
-	l=rc(k);
-	while(lc(l))l=lc(l);
-	ch[fa[l]][rc(fa[l])==l]=0;
-	fa[l]=0;
+    delet(root,x);
+    if(cnt[o])return 0;
+    splay(o,0);
+    int l=rc(o);
+    int k=lc(o);
+    while(lc(l))l=lc(l);
+    while(rc(k))k=rc(k);
+    splay(k,0);
+    splay(l,k);
+    l=rc(k);
+    while(lc(l))l=lc(l);
+    ch[fa[l]][rc(fa[l])==l]=0;
+    fa[l]=0;
 }
 int find(int rt){
-	int x=ch[rt][0];
-	while(ch[x][1])x=ch[x][1];
-	return val[x];
+    int x=ch[rt][0];
+    while(ch[x][1])x=ch[x][1];
+    return val[x];
 }
 int kind(int rt){
-	int x=ch[rt][1];
-	while(ch[x][0])x=ch[x][0];
-	return val[x];
+    int x=ch[rt][1];
+    while(ch[x][0])x=ch[x][0];
+    return val[x];
 }
 int get(int rt,int x){
-	if(sum[ch[rt][0]]&lt;x-1&amp;&amp;sum[ch[rt][0]]+cnt[rt]&gt;x-1)return val[rt];
-	if(sum[ch[rt][0]]&gt;x-1)return get(ch[rt][0],x);
-	if(sum[ch[rt][0]]&lt;x-1)return get(ch[rt][1],x-sum[ch[rt][0]]-cnt[rt]);
-	return val[rt];
+    if(sum[ch[rt][0]]&lt;x-1&amp;&amp;sum[ch[rt][0]]+cnt[rt]&gt;x-1)return val[rt];
+    if(sum[ch[rt][0]]&gt;x-1)return get(ch[rt][0],x);
+    if(sum[ch[rt][0]]&lt;x-1)return get(ch[rt][1],x-sum[ch[rt][0]]-cnt[rt]);
+    return val[rt];
 }
 int want(int rt,int x){
-	if(x&lt;val[rt])return want(ch[rt][0],x);
-	if(x&gt;val[rt])return want(ch[rt][1],x);
-	return rt;
+    if(x&lt;val[rt])return want(ch[rt][0],x);
+    if(x&gt;val[rt])return want(ch[rt][1],x);
+    return rt;
 }
 int main(){
-	scanf(&quot;%d&quot;,&amp;n);
-	int inf=2147483647;
-	ins(inf);
-	ins(-inf);
-	for(int i=1;i&lt;=n;i++){
-    	int type,x;
-    	scanf(&quot;%d%d&quot;,&amp;type,&amp;x);
-    	if(type==1)ins(x); 
-    	if(type==2)del(x);
-    	if(type==3){
-        	splay(want(root,x),0);
-        	printf(&quot;%d\n&quot;,sum[ch[root][0]]);
+    scanf(&quot;%d&quot;,&amp;n);
+    int inf=2147483647;
+    ins(inf);
+    ins(-inf);
+    for(int i=1;i&lt;=n;i++){
+        int type,x;
+        scanf(&quot;%d%d&quot;,&amp;type,&amp;x);
+        if(type==1)ins(x); 
+        if(type==2)del(x);
+        if(type==3){
+            splay(want(root,x),0);
+            printf(&quot;%d\n&quot;,sum[ch[root][0]]);
         }
-    	if(type==4){
-        	printf(&quot;%d\n&quot;,get(root,x+1));
+        if(type==4){
+            printf(&quot;%d\n&quot;,get(root,x+1));
         }
-    	if(type==5){
-        	ins(x);
-        	printf(&quot;%d\n&quot;,find(root));
-        	del(x);
+        if(type==5){
+            ins(x);
+            printf(&quot;%d\n&quot;,find(root));
+            del(x);
         }
-    	if(type==6){
-        	ins(x);
-        	printf(&quot;%d\n&quot;,kind(root));
-        	del(x);
+        if(type==6){
+            ins(x);
+            printf(&quot;%d\n&quot;,kind(root));
+            del(x);
         }
     }
-} 
+}
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?id=1975" target="_blank" rel="noopener">【BZOJ3224】【TYVJ1728】普通平衡树</a></p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?id=1975" target="_blank" rel="noopener">【BZOJ3224】【TYVJ1728】普通平衡树</a> </p>
 
     </div>
 </div>
@@ -530,7 +523,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -545,28 +538,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
@@ -581,17 +569,22 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        <div class="cube-box ">
+            <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/特征方程/">#特征方程</a>
+            <a href="/tags/计数/">#计数</a>
         </div>
         
         
@@ -601,16 +594,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/组合数学/">#组合数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计数/">#计数</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
@@ -620,13 +603,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/二分/">#二分</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -641,11 +629,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
@@ -655,7 +638,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
@@ -700,7 +683,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
@@ -710,7 +693,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
@@ -725,7 +708,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/构造/">#构造</a>
         </div>
         
@@ -735,17 +718,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/概率与期望/">#概率与期望</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/哈希/">#哈希</a>
         </div>
         
@@ -760,17 +743,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
@@ -795,17 +778,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
@@ -817,6 +800,16 @@ int main(){
         
         <div class="cube-box ">
             <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
     </div>
