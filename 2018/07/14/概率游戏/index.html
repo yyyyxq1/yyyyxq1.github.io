@@ -195,7 +195,20 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-Alice和Bob在玩一个游戏。有n个石子在这里，Alice和Bob轮流投掷硬币，如果正面朝上，则从n个石子中取出一个石子，否则不做任何事。取到最后一颗石子的人胜利。Alice在投掷硬币时有p的概率投掷出他想投的一面，同样，Bob有q的概率投掷出他相投的一面。"><a href="#emsp-emsp-Alice和Bob在玩一个游戏。有n个石子在这里，Alice和Bob轮流投掷硬币，如果正面朝上，则从n个石子中取出一个石子，否则不做任何事。取到最后一颗石子的人胜利。Alice在投掷硬币时有p的概率投掷出他想投的一面，同样，Bob有q的概率投掷出他相投的一面。" class="headerlink" title="&emsp; &emsp; Alice和Bob在玩一个游戏。有n个石子在这里，Alice和Bob轮流投掷硬币，如果正面朝上，则从n个石子中取出一个石子，否则不做任何事。取到最后一颗石子的人胜利。Alice在投掷硬币时有p的概率投掷出他想投的一面，同样，Bob有q的概率投掷出他相投的一面。"></a>&emsp; &emsp; Alice和Bob在玩一个游戏。有n个石子在这里，Alice和Bob轮流投掷硬币，如果正面朝上，则从n个石子中取出一个石子，否则不做任何事。取到最后一颗石子的人胜利。Alice在投掷硬币时有p的概率投掷出他想投的一面，同样，Bob有q的概率投掷出他相投的一面。</h3><h3 id="emsp-emsp-现在Alice先手投掷硬币，假设他们都想赢得游戏，问你Alice胜利的概率为多少。"><a href="#emsp-emsp-现在Alice先手投掷硬币，假设他们都想赢得游戏，问你Alice胜利的概率为多少。" class="headerlink" title="&emsp; &emsp; 现在Alice先手投掷硬币，假设他们都想赢得游戏，问你Alice胜利的概率为多少。"></a>&emsp; &emsp; 现在Alice先手投掷硬币，假设他们都想赢得游戏，问你Alice胜利的概率为多少。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-考虑f-i-表示还剩下i个石子时，Alice先手，Alice必胜的概率"><a href="#emsp-emsp-考虑f-i-表示还剩下i个石子时，Alice先手，Alice必胜的概率" class="headerlink" title="&emsp; &emsp; 考虑f[i]表示还剩下i个石子时，Alice先手，Alice必胜的概率"></a>&emsp; &emsp; 考虑f[i]表示还剩下i个石子时，Alice先手，Alice必胜的概率</h3><h3 id="emsp-emsp-考虑g-i-表示还剩下i个石子时，Bob先手，Alice必胜的概率（Bob好可怜qwq）"><a href="#emsp-emsp-考虑g-i-表示还剩下i个石子时，Bob先手，Alice必胜的概率（Bob好可怜qwq）" class="headerlink" title="&emsp; &emsp; 考虑g[i]表示还剩下i个石子时，Bob先手，Alice必胜的概率（Bob好可怜qwq）"></a>&emsp; &emsp; 考虑g[i]表示还剩下i个石子时，Bob先手，Alice必胜的概率（Bob好可怜qwq）</h3><h3 id="emsp-emsp-假设每次都是的决策都是想取石子"><a href="#emsp-emsp-假设每次都是的决策都是想取石子" class="headerlink" title="&emsp; &emsp; 假设每次都是的决策都是想取石子"></a>&emsp; &emsp; 假设每次都是的决策都是想取石子</h3><h3 id="emsp-emsp-f-i-p-times-g-i-1-1-p-times-g-i"><a href="#emsp-emsp-f-i-p-times-g-i-1-1-p-times-g-i" class="headerlink" title="&emsp; &emsp; $f_i=p\times g_{i-1}+(1-p)\times g_i$"></a>&emsp; &emsp; $f_i=p\times g_{i-1}+(1-p)\times g_i$</h3><h3 id="emsp-emsp-g-i-q-times-f-i-1-1-q-times-f-i"><a href="#emsp-emsp-g-i-q-times-f-i-1-1-q-times-f-i" class="headerlink" title="&emsp; &emsp; $g_i=q\times f_{i-1}+(1-q)\times f_i $"></a>&emsp; &emsp; $g_i=q\times f_{i-1}+(1-q)\times f_i $</h3><h3 id="emsp-emsp-联立一下得："><a href="#emsp-emsp-联立一下得：" class="headerlink" title="&emsp; &emsp; 联立一下得："></a>&emsp; &emsp; 联立一下得：</h3><h3 id="emsp-emsp-f-i-frac-p-times-g-i-1-1-p-times-q-times-f-i-1-p-q-p-times-q"><a href="#emsp-emsp-f-i-frac-p-times-g-i-1-1-p-times-q-times-f-i-1-p-q-p-times-q" class="headerlink" title="&emsp; &emsp; $f_{i}=\frac{p\times g_{i-1}+(1-p)\times q\times f_{i-1}}{p+q-p\times q}$"></a>&emsp; &emsp; $f_{i}=\frac{p\times g_{i-1}+(1-p)\times q\times f_{i-1}}{p+q-p\times q}$</h3><h3 id="emsp-emsp-g-i-frac-q-times-f-i-1-1-q-times-p-times-g-i-1-p-q-p-times-q"><a href="#emsp-emsp-g-i-frac-q-times-f-i-1-1-q-times-p-times-g-i-1-p-q-p-times-q" class="headerlink" title="&emsp; &emsp; $g_{i}=\frac{q\times f_{i-1}+(1-q)\times p\times g_{i-1}}{p+q-p\times q}$"></a>&emsp; &emsp; $g_{i}=\frac{q\times f_{i-1}+(1-q)\times p\times g_{i-1}}{p+q-p\times q}$</h3><h3 id="emsp-emsp-考虑每次是否想取石子，如果-f-i-1-比-g-i-1-大，说明取完之后Alice先手的胜率高，也就是Alice要在这里先手会比较优，那Alice就不会想取第i个。而跟Alice的更优决策点，应该是一样的，所以Bob也不会想要。反而亦之。最后输出-f-n-也就是答案。总体复杂度是-O-n-的，但是n特别大，但我们可以打表发现这玩意是收敛的（不知道为什么收敛），于是最多求到十万项就可以不管了。就变成了-O-min-n-10000-好像有人只扫了一百次就过了qwq-。"><a href="#emsp-emsp-考虑每次是否想取石子，如果-f-i-1-比-g-i-1-大，说明取完之后Alice先手的胜率高，也就是Alice要在这里先手会比较优，那Alice就不会想取第i个。而跟Alice的更优决策点，应该是一样的，所以Bob也不会想要。反而亦之。最后输出-f-n-也就是答案。总体复杂度是-O-n-的，但是n特别大，但我们可以打表发现这玩意是收敛的（不知道为什么收敛），于是最多求到十万项就可以不管了。就变成了-O-min-n-10000-好像有人只扫了一百次就过了qwq-。" class="headerlink" title="&emsp; &emsp; 考虑每次是否想取石子，如果$f_{i-1}$比$g_{i-1}$大，说明取完之后Alice先手的胜率高，也就是Alice要在这里先手会比较优，那Alice就不会想取第i个。而跟Alice的更优决策点，应该是一样的，所以Bob也不会想要。反而亦之。最后输出$f_n$也就是答案。总体复杂度是$O(n)$的，但是n特别大，但我们可以打表发现这玩意是收敛的（不知道为什么收敛），于是最多求到十万项就可以不管了。就变成了$O(min(n,10000))$(好像有人只扫了一百次就过了qwq)。"></a>&emsp; &emsp; 考虑每次是否想取石子，如果$f_{i-1}$比$g_{i-1}$大，说明取完之后Alice先手的胜率高，也就是Alice要在这里先手会比较优，那Alice就不会想取第i个。而跟Alice的更优决策点，应该是一样的，所以Bob也不会想要。反而亦之。最后输出$f_n$也就是答案。总体复杂度是$O(n)$的，但是n特别大，但我们可以打表发现这玩意是收敛的（不知道为什么收敛），于是最多求到十万项就可以不管了。就变成了$O(min(n,10000))$(好像有人只扫了一百次就过了qwq)。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="alice和bob在玩一个游戏-有n个石子在这里alice和bob轮流投掷硬币如果正面朝上则从n个石子中取出一个石子否则不做任何事-取到最后一颗石子的人胜利-alice在投掷硬币时有p的概率投掷出他想投的一面同样bob有q的概率投掷出他相投的一面"><a class="markdownIt-Anchor" href="#alice和bob在玩一个游戏-有n个石子在这里alice和bob轮流投掷硬币如果正面朝上则从n个石子中取出一个石子否则不做任何事-取到最后一颗石子的人胜利-alice在投掷硬币时有p的概率投掷出他想投的一面同样bob有q的概率投掷出他相投的一面"></a>     Alice和Bob在玩一个游戏。有n个石子在这里，Alice和Bob轮流投掷硬币，如果正面朝上，则从n个石子中取出一个石子，否则不做任何事。取到最后一颗石子的人胜利。Alice在投掷硬币时有p的概率投掷出他想投的一面，同样，Bob有q的概率投掷出他相投的一面。</h3>
+<h3 id="现在alice先手投掷硬币假设他们都想赢得游戏问你alice胜利的概率为多少"><a class="markdownIt-Anchor" href="#现在alice先手投掷硬币假设他们都想赢得游戏问你alice胜利的概率为多少"></a>     现在Alice先手投掷硬币，假设他们都想赢得游戏，问你Alice胜利的概率为多少。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑fi表示还剩下i个石子时alice先手alice必胜的概率"><a class="markdownIt-Anchor" href="#考虑fi表示还剩下i个石子时alice先手alice必胜的概率"></a>     考虑f[i]表示还剩下i个石子时，Alice先手，Alice必胜的概率</h3>
+<h3 id="考虑gi表示还剩下i个石子时bob先手alice必胜的概率bob好可怜qwq"><a class="markdownIt-Anchor" href="#考虑gi表示还剩下i个石子时bob先手alice必胜的概率bob好可怜qwq"></a>     考虑g[i]表示还剩下i个石子时，Bob先手，Alice必胜的概率（Bob好可怜qwq）</h3>
+<h3 id="假设每次都是的决策都是想取石子"><a class="markdownIt-Anchor" href="#假设每次都是的决策都是想取石子"></a>     假设每次都是的决策都是想取石子</h3>
+<h3 id="f_iptimes-g_i-11-ptimes-g_i"><a class="markdownIt-Anchor" href="#f_iptimes-g_i-11-ptimes-g_i"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub><mo>=</mo><mi>p</mi><mo>×</mo><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo>)</mo><mo>×</mo><msub><mi>g</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i=p\times g_{i-1}+(1-p)\times g_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mclose">)</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></h3>
+<h3 id="g_iqtimes-f_i-11-qtimes-f_i"><a class="markdownIt-Anchor" href="#g_iqtimes-f_i-11-qtimes-f_i"></a>     $g_i=q\times f_{i-1}+(1-q)\times f_i $</h3>
+<h3 id="联立一下得"><a class="markdownIt-Anchor" href="#联立一下得"></a>     联立一下得：</h3>
+<h3 id="f_ifracptimes-g_i-11-ptimes-qtimes-f_i-1pq-ptimes-q"><a class="markdownIt-Anchor" href="#f_ifracptimes-g_i-11-ptimes-qtimes-f_i-1pq-ptimes-q"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>p</mi><mo>×</mo><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo>)</mo><mo>×</mo><mi>q</mi><mo>×</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><mrow><mi>p</mi><mo>+</mo><mi>q</mi><mo>−</mo><mi>p</mi><mo>×</mo><mi>q</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">f_{i}=\frac{p\times g_{i-1}+(1-p)\times q\times f_{i-1}}{p+q-p\times q}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.491108em;vertical-align:-0.481108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">p</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mclose">)</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></h3>
+<h3 id="g_ifracqtimes-f_i-11-qtimes-ptimes-g_i-1pq-ptimes-q"><a class="markdownIt-Anchor" href="#g_ifracqtimes-f_i-11-qtimes-ptimes-g_i-1pq-ptimes-q"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>g</mi><mrow><mi>i</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>q</mi><mo>×</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>q</mi><mo>)</mo><mo>×</mo><mi>p</mi><mo>×</mo><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><mrow><mi>p</mi><mo>+</mo><mi>q</mi><mo>−</mo><mi>p</mi><mo>×</mo><mi>q</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">g_{i}=\frac{q\times f_{i-1}+(1-q)\times p\times g_{i-1}}{p+q-p\times q}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.491108em;vertical-align:-0.481108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">p</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mclose">)</span><span class="mbin">×</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></h3>
+<h3 id="考虑每次是否想取石子如果f_i-1比g_i-1大说明取完之后alice先手的胜率高也就是alice要在这里先手会比较优那alice就不会想取第i个-而跟alice的更优决策点应该是一样的所以bob也不会想要-反而亦之-最后输出f_n也就是答案-总体复杂度是on的但是n特别大但我们可以打表发现这玩意是收敛的不知道为什么收敛于是最多求到十万项就可以不管了-就变成了ominn10000好像有人只扫了一百次就过了qwq"><a class="markdownIt-Anchor" href="#考虑每次是否想取石子如果f_i-1比g_i-1大说明取完之后alice先手的胜率高也就是alice要在这里先手会比较优那alice就不会想取第i个-而跟alice的更优决策点应该是一样的所以bob也不会想要-反而亦之-最后输出f_n也就是答案-总体复杂度是on的但是n特别大但我们可以打表发现这玩意是收敛的不知道为什么收敛于是最多求到十万项就可以不管了-就变成了ominn10000好像有人只扫了一百次就过了qwq"></a>     考虑每次是否想取石子，如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.902771em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>比<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">g_{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>大，说明取完之后Alice先手的胜率高，也就是Alice要在这里先手会比较优，那Alice就不会想取第i个。而跟Alice的更优决策点，应该是一样的，所以Bob也不会想要。反而亦之。最后输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">f_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>也就是答案。总体复杂度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>的，但是n特别大，但我们可以打表发现这玩意是收敛的（不知道为什么收敛），于是最多求到十万项就可以不管了。就变成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>n</mi><mo separator="true">,</mo><mn>1</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">O(min(n,10000))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">m</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>(好像有人只扫了一百次就过了qwq)。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 120000 
@@ -286,8 +299,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>63</span>Article</a>
-        <a class="count tags"><span>57</span>Tags</a>
+        <a class="count articles"><span>64</span>Article</a>
+        <a class="count tags"><span>58</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
 </div>
@@ -325,7 +338,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
+                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
                 </p>
             </div>
             
@@ -339,7 +352,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
+                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
                 </p>
             </div>
         </li>
@@ -352,7 +365,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
                 </p>
             </div>
         </li>
@@ -365,7 +378,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
+                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
                 </p>
             </div>
         </li>
@@ -378,7 +391,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/SCOI2015-选数/" title="CQOI2015 选数">CQOI2015 选数</a>
+                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
                 </p>
             </div>
         </li>
@@ -438,6 +451,26 @@ int main(){
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/好题/">#好题</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/博弈论/">#博弈论</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/高斯消元/">#高斯消元</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
@@ -448,27 +481,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/好题/">#好题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/博弈论/">#博弈论</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
@@ -478,11 +491,21 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/组合数学/">#组合数学</a>
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/组合数学/">#组合数学</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
@@ -497,23 +520,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
         
         <div class="cube-box-bg ">
             <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -528,11 +546,16 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
@@ -557,23 +580,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/中国剩余定理/">#中国剩余定理</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
@@ -584,11 +607,6 @@ int main(){
         
         <div class="cube-box ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
         
@@ -613,6 +631,16 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/数学/">#数学</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/dp优化/">#dp优化</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/概率与期望/">#概率与期望</a>
         </div>
         
@@ -628,27 +656,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/数学/">#数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/dp优化/">#dp优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/期望/">#期望</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
@@ -663,6 +671,11 @@ int main(){
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
@@ -677,18 +690,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/整体二分/">#整体二分</a>
-        </div>
-        
-        
         <div class="cube-box ">
             <a href="/tags/FFT/">#FFT</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
@@ -698,7 +706,17 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
+            <a href="/tags/整体二分/">#整体二分</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/积性函数/">#积性函数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
     </div>

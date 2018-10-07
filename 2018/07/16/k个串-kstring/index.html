@@ -186,16 +186,24 @@
         <div class="cube-article-tags">
     <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
     
-    <a href="/tags/可持久化线段树/">#可持久化线段树</a>
-    
     <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+    
+    <a href="/tags/可持久化线段树/">#可持久化线段树</a>
     
 </div>
     </div>
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-兔子们在玩k个串的游戏。首先，它们拿出了一个长度为n的数字序列，选出其中的一个连续子串，然后统计其子串中所有数字之和（注意这里重复出现的数字只被统计一次）。"><a href="#emsp-emsp-兔子们在玩k个串的游戏。首先，它们拿出了一个长度为n的数字序列，选出其中的一个连续子串，然后统计其子串中所有数字之和（注意这里重复出现的数字只被统计一次）。" class="headerlink" title="&emsp; &emsp; 兔子们在玩k个串的游戏。首先，它们拿出了一个长度为n的数字序列，选出其中的一个连续子串，然后统计其子串中所有数字之和（注意这里重复出现的数字只被统计一次）。"></a>&emsp; &emsp; 兔子们在玩k个串的游戏。首先，它们拿出了一个长度为n的数字序列，选出其中的一个连续子串，然后统计其子串中所有数字之和（注意这里重复出现的数字只被统计一次）。</h3><h3 id="emsp-emsp-兔子们想知道，在这个数字序列所有连续的子串中，按照以上方式统计其所有数字之和，第k大的和是多少。"><a href="#emsp-emsp-兔子们想知道，在这个数字序列所有连续的子串中，按照以上方式统计其所有数字之和，第k大的和是多少。" class="headerlink" title="&emsp; &emsp; 兔子们想知道，在这个数字序列所有连续的子串中，按照以上方式统计其所有数字之和，第k大的和是多少。"></a>&emsp; &emsp; 兔子们想知道，在这个数字序列所有连续的子串中，按照以上方式统计其所有数字之和，第k大的和是多少。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-考虑每次加入一个右端点，只有-pre-a-i-到i上的值会增加-a-i-，对于每个右端点维护一颗可持久化线段树，这样我们可以快速得到每个右端点的区间最大值。"><a href="#emsp-emsp-考虑每次加入一个右端点，只有-pre-a-i-到i上的值会增加-a-i-，对于每个右端点维护一颗可持久化线段树，这样我们可以快速得到每个右端点的区间最大值。" class="headerlink" title="&emsp; &emsp; 考虑每次加入一个右端点，只有$pre_{a_{i}}$到i上的值会增加$a_i$，对于每个右端点维护一颗可持久化线段树，这样我们可以快速得到每个右端点的区间最大值。"></a>&emsp; &emsp; 考虑每次加入一个右端点，只有$pre_{a_{i}}$到i上的值会增加$a_i$，对于每个右端点维护一颗可持久化线段树，这样我们可以快速得到每个右端点的区间最大值。</h3><h3 id="emsp-emsp-然后将每个右端点加入优先队列，-v-l-r-p-x-x表示当前树根（既哪个右端点），lr表示当前区间，p表示在l到r中的最大值是多少，v表示当前最大值-，每次拔出堆顶然后分裂区间后顶进去，重复k次后就能得到最大值。"><a href="#emsp-emsp-然后将每个右端点加入优先队列，-v-l-r-p-x-x表示当前树根（既哪个右端点），lr表示当前区间，p表示在l到r中的最大值是多少，v表示当前最大值-，每次拔出堆顶然后分裂区间后顶进去，重复k次后就能得到最大值。" class="headerlink" title="&emsp; &emsp; 然后将每个右端点加入优先队列，(v,l,r,p,x)(x表示当前树根（既哪个右端点），lr表示当前区间，p表示在l到r中的最大值是多少，v表示当前最大值)，每次拔出堆顶然后分裂区间后顶进去，重复k次后就能得到最大值。"></a>&emsp; &emsp; 然后将每个右端点加入优先队列，(v,l,r,p,x)(x表示当前树根（既哪个右端点），lr表示当前区间，p表示在l到r中的最大值是多少，v表示当前最大值)，每次拔出堆顶然后分裂区间后顶进去，重复k次后就能得到最大值。</h3><h2 id="失分原因："><a href="#失分原因：" class="headerlink" title="失分原因："></a>失分原因：</h2><h3 id="emsp-emsp-NM打反，导致线段树节点数不够。"><a href="#emsp-emsp-NM打反，导致线段树节点数不够。" class="headerlink" title="&emsp; &emsp; NM打反，导致线段树节点数不够。"></a>&emsp; &emsp; NM打反，导致线段树节点数不够。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="兔子们在玩k个串的游戏-首先它们拿出了一个长度为n的数字序列选出其中的一个连续子串然后统计其子串中所有数字之和注意这里重复出现的数字只被统计一次"><a class="markdownIt-Anchor" href="#兔子们在玩k个串的游戏-首先它们拿出了一个长度为n的数字序列选出其中的一个连续子串然后统计其子串中所有数字之和注意这里重复出现的数字只被统计一次"></a>     兔子们在玩k个串的游戏。首先，它们拿出了一个长度为n的数字序列，选出其中的一个连续子串，然后统计其子串中所有数字之和（注意这里重复出现的数字只被统计一次）。</h3>
+<h3 id="兔子们想知道在这个数字序列所有连续的子串中按照以上方式统计其所有数字之和第k大的和是多少"><a class="markdownIt-Anchor" href="#兔子们想知道在这个数字序列所有连续的子串中按照以上方式统计其所有数字之和第k大的和是多少"></a>     兔子们想知道，在这个数字序列所有连续的子串中，按照以上方式统计其所有数字之和，第k大的和是多少。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑每次加入一个右端点只有pre_a_i到i上的值会增加a_i对于每个右端点维护一颗可持久化线段树这样我们可以快速得到每个右端点的区间最大值"><a class="markdownIt-Anchor" href="#考虑每次加入一个右端点只有pre_a_i到i上的值会增加a_i对于每个右端点维护一颗可持久化线段树这样我们可以快速得到每个右端点的区间最大值"></a>     考虑每次加入一个右端点，只有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>r</mi><msub><mi>e</mi><mrow><msub><mi>a</mi><mrow><mi>i</mi></mrow></msub></mrow></msub></mrow><annotation encoding="application/x-tex">pre_{a_{i}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.68556em;vertical-align:-0.255em;"></span><span class="base textstyle uncramped"><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>到i上的值会增加<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，对于每个右端点维护一颗可持久化线段树，这样我们可以快速得到每个右端点的区间最大值。</h3>
+<h3 id="然后将每个右端点加入优先队列vlrpxx表示当前树根既哪个右端点lr表示当前区间p表示在l到r中的最大值是多少v表示当前最大值每次拔出堆顶然后分裂区间后顶进去重复k次后就能得到最大值"><a class="markdownIt-Anchor" href="#然后将每个右端点加入优先队列vlrpxx表示当前树根既哪个右端点lr表示当前区间p表示在l到r中的最大值是多少v表示当前最大值每次拔出堆顶然后分裂区间后顶进去重复k次后就能得到最大值"></a>     然后将每个右端点加入优先队列，(v,l,r,p,x)(x表示当前树根（既哪个右端点），lr表示当前区间，p表示在l到r中的最大值是多少，v表示当前最大值)，每次拔出堆顶然后分裂区间后顶进去，重复k次后就能得到最大值。</h3>
+<h2 id="失分原因"><a class="markdownIt-Anchor" href="#失分原因"></a> 失分原因：</h2>
+<h3 id="nm打反导致线段树节点数不够"><a class="markdownIt-Anchor" href="#nm打反导致线段树节点数不够"></a>     NM打反，导致线段树节点数不够。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;map&gt;
@@ -204,38 +212,38 @@
 #define M 7200000
 using namespace std;
 struct illyasviel{
-    long long x,y;
+	long long x,y;
 }v[N];
 illyasviel get(long long x,long long y){
-    illyasviel ans;
-    ans.x=x;
-    ans.y=y;
-    return ans;
+	illyasviel ans;
+	ans.x=x;
+	ans.y=y;
+	return ans;
 }
 illyasviel max(illyasviel x,illyasviel y){
-    if(x.x==y.x){
-        if(x.y&lt;y.y)return y;
-        return x; 
+	if(x.x==y.x){
+    	if(x.y&lt;y.y)return y;
+    	return x; 
     }
-    if(x.x&gt;y.x)return x;
-    return y;
+	if(x.x&gt;y.x)return x;
+	return y;
 }
 int n,m;
 int tot,rt[N],lc[M],rc[M];
 long long tag[M];
 map&lt;int,int&gt;pre;
 struct node{
-       long long v,x,l,r,now;
+   	long long v,x,l,r,now;
     friend bool operator &lt; (const node &amp;a,const node &amp;b){return a.v&lt;b.v;}
 };
 node get(long long v,int x,int l,int r,int now){
-    node ans;
-    ans.v=v;
-    ans.x=x;
-    ans.l=l;
-    ans.r=r;
-    ans.now=now;
-    return ans;
+	node ans;
+	ans.v=v;
+	ans.x=x;
+	ans.l=l;
+	ans.r=r;
+	ans.now=now;
+	return ans;
 }
 priority_queue&lt;node&gt;q;
 int build(int l,int r){
@@ -243,21 +251,21 @@ int build(int l,int r){
     if(l==r)return x;
     int mid=l+r&gt;&gt;1;
     lc[x]=build(l,mid);
-    rc[x]=build(mid+1,r);
+	rc[x]=build(mid+1,r);
     return x;
 }
 int add(int y,long long p){
     int x=++tot;
     lc[x]=lc[y];
-    rc[x]=rc[y];
-    v[x]=v[y];
-    v[x].x+=p;
-    tag[x]=tag[y]+p;
+	rc[x]=rc[y];
+	v[x]=v[y];
+	v[x].x+=p;
+	tag[x]=tag[y]+p;
     return x;
 }
 int pushdown(int x){
     lc[x]=add(lc[x],tag[x]);
-    rc[x]=add(rc[x],tag[x]);
+	rc[x]=add(rc[x],tag[x]);
     tag[x]=0;
 }
 int insert(int y,int l,int r,int ll,int rr,int p){
@@ -276,9 +284,9 @@ illyasviel query(int x,int l,int r,int ll,int rr){
     int mid=l+r&gt;&gt;1;
     illyasviel ans;
     ans.x=-1e15;ans.y=-1e15;
-     if(ll&lt;=mid)ans=max(ans,query(lc[x],l,mid,ll,rr));
-     if(rr&gt;mid)ans=max(ans,query(rc[x],mid+1,r,ll,rr));
-     return ans;
+ 	if(ll&lt;=mid)ans=max(ans,query(lc[x],l,mid,ll,rr));
+ 	if(rr&gt;mid)ans=max(ans,query(rc[x],mid+1,r,ll,rr));
+ 	return ans;
 }
 int add(int x,int l,int r){
     if(l&gt;r)return 0;
@@ -286,7 +294,7 @@ int add(int x,int l,int r){
     q.push(get(t.x,x,l,r,t.y));
 }
 int main(){
-    freopen(&quot;1.in&quot;,&quot;r&quot;,stdin);
+	freopen(&quot;1.in&quot;,&quot;r&quot;,stdin);
     scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
     rt[0]=build(1,n);
     for(int i=1;i&lt;=n;i++){
@@ -294,7 +302,7 @@ int main(){
         scanf(&quot;%d&quot;,&amp;x);
         rt[i]=insert(rt[i-1],1,n,pre[x]+1,i,x);
         pre[x]=i;
-        add(rt[i],1,i);
+    	add(rt[i],1,i);
     }
     node x;
     for(int i=1;i&lt;=m;i++){
@@ -304,8 +312,9 @@ int main(){
     }
     printf(&quot;%lld&quot;,x.v);
 }
+
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1468&amp;pid=2" target="_blank" rel="noopener">k个串 kstring</a> </p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1468&amp;pid=2" target="_blank" rel="noopener">k个串 kstring</a></p>
 
     </div>
 </div>
@@ -373,8 +382,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>63</span>Article</a>
-        <a class="count tags"><span>57</span>Tags</a>
+        <a class="count articles"><span>64</span>Article</a>
+        <a class="count tags"><span>58</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
 </div>
@@ -412,7 +421,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
+                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
                 </p>
             </div>
             
@@ -426,7 +435,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
+                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
                 </p>
             </div>
         </li>
@@ -439,7 +448,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
                 </p>
             </div>
         </li>
@@ -452,7 +461,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
+                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
                 </p>
             </div>
         </li>
@@ -465,7 +474,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/SCOI2015-选数/" title="CQOI2015 选数">CQOI2015 选数</a>
+                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
                 </p>
             </div>
         </li>
@@ -488,7 +497,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -504,7 +513,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -514,23 +523,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
         
         <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
@@ -545,17 +544,27 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+            <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
         
@@ -565,6 +574,16 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
@@ -589,7 +608,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
@@ -600,26 +619,26 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/斜率优化/">#斜率优化</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/CDQ分治/">#CDQ分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/斜率优化/">#斜率优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/CDQ分治/">#CDQ分治</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
@@ -650,11 +669,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
@@ -665,6 +679,11 @@ int main(){
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
@@ -675,16 +694,11 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/分块/">#分块</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -694,32 +708,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/概率与期望/">#概率与期望</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/哈希/">#哈希</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/数学/">#数学</a>
         </div>
         
@@ -730,12 +724,22 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/期望/">#期望</a>
+            <a href="/tags/概率与期望/">#概率与期望</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/积性函数/">#积性函数</a>
+            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/哈希/">#哈希</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/期望/">#期望</a>
         </div>
         
         
@@ -750,6 +754,11 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
@@ -759,13 +768,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/FFT/">#FFT</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/后缀数组/">#后缀数组</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
         
@@ -775,17 +794,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/FFT/">#FFT</a>
+            <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/树状数组/">#树状数组</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
+            <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
     </div>

@@ -186,16 +186,20 @@
         <div class="cube-article-tags">
     <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
     
-    <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
-    
     <a href="/tags/高斯消元/">#高斯消元</a>
+    
+    <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
     
 </div>
     </div>
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-Abacus教授刚刚完成了一个制作数表的计算引擎的设计。它被设计用于同时计算一个多项式在许多点的取值。例如对于多项式-f-x-x-2-2x-1-，一种可能的计算结果是-f-0-1-f-1-4-f-2-9-f-3-16-f-4-25-。不幸的是，引擎存在一个故障使得计算出的值总有一个是错的，例如对于上述多项式，它可能输出-1-4-12-16-25-而不是-1-4-9-16-25-。请你帮教授找出发生故障的是哪个点值。"><a href="#emsp-emsp-Abacus教授刚刚完成了一个制作数表的计算引擎的设计。它被设计用于同时计算一个多项式在许多点的取值。例如对于多项式-f-x-x-2-2x-1-，一种可能的计算结果是-f-0-1-f-1-4-f-2-9-f-3-16-f-4-25-。不幸的是，引擎存在一个故障使得计算出的值总有一个是错的，例如对于上述多项式，它可能输出-1-4-12-16-25-而不是-1-4-9-16-25-。请你帮教授找出发生故障的是哪个点值。" class="headerlink" title="&emsp; &emsp; Abacus教授刚刚完成了一个制作数表的计算引擎的设计。它被设计用于同时计算一个多项式在许多点的取值。例如对于多项式$f(x)=x^2+2x+1$，一种可能的计算结果是 $f(0)=1,f(1)=4,f(2)=9.f(3)=16,f(4)=25$ 。不幸的是，引擎存在一个故障使得计算出的值总有一个是错的，例如对于上述多项式，它可能输出 $1,4,12,16,25$ 而不是 $1,4,9,16,25$ 。请你帮教授找出发生故障的是哪个点值。"></a>&emsp; &emsp; Abacus教授刚刚完成了一个制作数表的计算引擎的设计。它被设计用于同时计算一个多项式在许多点的取值。例如对于多项式$f(x)=x^2+2x+1$，一种可能的计算结果是 $f(0)=1,f(1)=4,f(2)=9.f(3)=16,f(4)=25$ 。不幸的是，引擎存在一个故障使得计算出的值总有一个是错的，例如对于上述多项式，它可能输出 $1,4,12,16,25$ 而不是 $1,4,9,16,25$ 。请你帮教授找出发生故障的是哪个点值。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-暴力高斯消元检验即可。"><a href="#emsp-emsp-暴力高斯消元检验即可。" class="headerlink" title="&emsp; &emsp; 暴力高斯消元检验即可。"></a>&emsp; &emsp; 暴力高斯消元检验即可。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="abacus教授刚刚完成了一个制作数表的计算引擎的设计-它被设计用于同时计算一个多项式在许多点的取值-例如对于多项式fxx22x1一种可能的计算结果是-f01f14f29f316f425-不幸的是引擎存在一个故障使得计算出的值总有一个是错的例如对于上述多项式它可能输出-14121625-而不是-1491625-请你帮教授找出发生故障的是哪个点值"><a class="markdownIt-Anchor" href="#abacus教授刚刚完成了一个制作数表的计算引擎的设计-它被设计用于同时计算一个多项式在许多点的取值-例如对于多项式fxx22x1一种可能的计算结果是-f01f14f29f316f425-不幸的是引擎存在一个故障使得计算出的值总有一个是错的例如对于上述多项式它可能输出-14121625-而不是-1491625-请你帮教授找出发生故障的是哪个点值"></a>     Abacus教授刚刚完成了一个制作数表的计算引擎的设计。它被设计用于同时计算一个多项式在许多点的取值。例如对于多项式<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(x)=x^2+2x+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mord mathit">x</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>，一种可能的计算结果是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>4</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>2</mn><mo>)</mo><mo>=</mo><mn>9</mn><mi mathvariant="normal">.</mi><mi>f</mi><mo>(</mo><mn>3</mn><mo>)</mo><mo>=</mo><mn>1</mn><mn>6</mn><mo separator="true">,</mo><mi>f</mi><mo>(</mo><mn>4</mn><mo>)</mo><mo>=</mo><mn>2</mn><mn>5</mn></mrow><annotation encoding="application/x-tex">f(0)=1,f(1)=4,f(2)=9.f(3)=16,f(4)=25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">4</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">9</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">3</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mord mathrm">6</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathrm">4</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">5</span></span></span></span> 。不幸的是，引擎存在一个故障使得计算出的值总有一个是错的，例如对于上述多项式，它可能输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>1</mn><mn>2</mn><mo separator="true">,</mo><mn>1</mn><mn>6</mn><mo separator="true">,</mo><mn>2</mn><mn>5</mn></mrow><annotation encoding="application/x-tex">1,4,12,16,25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">4</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">6</span><span class="mpunct">,</span><span class="mord mathrm">2</span><span class="mord mathrm">5</span></span></span></span> 而不是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>9</mn><mo separator="true">,</mo><mn>1</mn><mn>6</mn><mo separator="true">,</mo><mn>2</mn><mn>5</mn></mrow><annotation encoding="application/x-tex">1,4,9,16,25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">4</span><span class="mpunct">,</span><span class="mord mathrm">9</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">6</span><span class="mpunct">,</span><span class="mord mathrm">2</span><span class="mord mathrm">5</span></span></span></span> 。请你帮教授找出发生故障的是哪个点值。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="暴力高斯消元检验即可"><a class="markdownIt-Anchor" href="#暴力高斯消元检验即可"></a>     暴力高斯消元检验即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;math.h&gt;
@@ -262,9 +266,9 @@ int main(){
             }
     //    return 0;
     }
-}
+} 
 </code></pre>
-<p>原题链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1469&amp;pid=0" target="_blank" rel="noopener">Find the outlier</a> </p>
+<p>原题链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1469&amp;pid=0" target="_blank" rel="noopener">Find the outlier</a></p>
 
     </div>
 </div>
@@ -332,8 +336,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>63</span>Article</a>
-        <a class="count tags"><span>57</span>Tags</a>
+        <a class="count articles"><span>64</span>Article</a>
+        <a class="count tags"><span>58</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
 </div>
@@ -371,7 +375,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
+                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
                 </p>
             </div>
             
@@ -385,7 +389,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
+                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
                 </p>
             </div>
         </li>
@@ -398,7 +402,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
                 </p>
             </div>
         </li>
@@ -411,7 +415,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
+                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
                 </p>
             </div>
         </li>
@@ -424,7 +428,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/SCOI2015-选数/" title="CQOI2015 选数">CQOI2015 选数</a>
+                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
                 </p>
             </div>
         </li>
@@ -483,17 +487,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/好题/">#好题</a>
         </div>
         
@@ -504,7 +498,32 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/高斯消元/">#高斯消元</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/树形DP/">#树形DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
@@ -519,11 +538,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
@@ -533,17 +547,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/hash/">#hash</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/二分/">#二分</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
@@ -559,11 +573,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
@@ -573,7 +582,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
@@ -588,7 +602,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/点分治/">#点分治</a>
         </div>
         
@@ -608,22 +622,22 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
@@ -633,17 +647,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/分块/">#分块</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -655,6 +664,16 @@ int main(){
         
         <div class="cube-box ">
             <a href="/tags/费用流/">#费用流</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/数学/">#数学</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
@@ -673,28 +692,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/数学/">#数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/dp优化/">#dp优化</a>
-        </div>
-        
-        
         <div class="cube-box ">
             <a href="/tags/期望/">#期望</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
@@ -703,12 +702,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/最小生成树/">#最小生成树</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
@@ -718,18 +722,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/AC自动机/">#AC自动机</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
         
@@ -739,12 +733,27 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/整体二分/">#整体二分</a>
+        </div>
+        
+        
         <div class="cube-box ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
+            <a href="/tags/积性函数/">#积性函数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
     </div>

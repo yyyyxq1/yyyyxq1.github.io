@@ -175,6 +175,88 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-聪聪可可">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/15/聪聪可可/">聪聪可可</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-15
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/树形DP/" class="cube-excerpt-tag-link">#树形DP</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给出一棵树询问树上有多少路径长度是3的倍数"><a class="markdownIt-Anchor" href="#给出一棵树询问树上有多少路径长度是3的倍数"></a>     给出一棵树，询问树上有多少路径长度是3的倍数。</h3>
+<h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h3>
+<h3 id="对于每个点维护从这个点到其子树模3为012的路径数然后随意统计一下答案即可"><a class="markdownIt-Anchor" href="#对于每个点维护从这个点到其子树模3为012的路径数然后随意统计一下答案即可"></a>     对于每个点维护从这个点到其子树模3为0,1,2的路径数然后随意统计一下答案即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 120000
+using namespace std;
+int tot,Next[N],v[N],w[N],h[N],ans,n;
+int f[N][3],b[3];
+int add(int x,int y,int z){
+    tot++;
+    Next[tot]=h[x];
+    v[tot]=y;
+    w[tot]=z;
+    h[x]=tot;
+}
+int dfs(int x,int fa){
+    //xx
+    f[x][0]++;
+    for(int i=h[x];i;i=Next[i]){
+        if(v[i]==fa)continue;
+        b[0]=0,b[1]=0,b[2]=0;
+        dfs(v[i],x);
+        b[(0+w[i])%3]=f[v[i]][0];
+        b[(1+w[i])%3]=f[v[i]][1];
+        b[(2+w[i])%3]=f[v[i]][2];
+        ans+=(b[0]*f[x][0])+(b[1]*f[x][2])+(b[2]*f[x][1]);
+         f[x][0]+=b[0];
+        f[x][1]+=b[1];
+        f[x][2]+=b[2];
+    }
+}
+int gcd(int x,int y){
+    if(x%y==0)return y;
+    return gcd(y,x%y);
+}
+int main(){
+    freopen(&quot;1.in&quot;,&quot;r&quot;,stdin);
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;n;i++){
+        int x,y,z;
+        scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;z);
+        add(x,y,z);
+        add(y,x,z);
+    }
+    dfs(1,0); 
+    int l=gcd(ans*2+n,n*n);
+    printf(&quot;%d/%d\n&quot;,(ans*2+n)/l,(n*n)/l);
+}
+</code></pre>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1467&amp;pid=2" target="_blank" rel="noopener">聪聪可可</a></p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/15/聪聪可可/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-矩阵乘法">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/15/矩阵第k大/">矩阵乘法</a></h1>
@@ -196,7 +278,11 @@
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-有一个-n-times-n-的矩阵，有q个询问，每次询问-x-1-y-1-为左上角-x-2-y-2-为右下角的矩阵中第k小的数是多少。"><a href="#emsp-emsp-有一个-n-times-n-的矩阵，有q个询问，每次询问-x-1-y-1-为左上角-x-2-y-2-为右下角的矩阵中第k小的数是多少。" class="headerlink" title="&emsp; &emsp; 有一个$n\times n$的矩阵，有q个询问，每次询问$(x_1,y_1)$为左上角$(x_2,y_2)$为右下角的矩阵中第k小的数是多少。"></a>&emsp; &emsp; 有一个$n\times n$的矩阵，有q个询问，每次询问$(x_1,y_1)$为左上角$(x_2,y_2)$为右下角的矩阵中第k小的数是多少。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-考虑离线，整体二分答案，用树状数组判断是否可行，然后将询问往两边推即可。"><a href="#emsp-emsp-考虑离线，整体二分答案，用树状数组判断是否可行，然后将询问往两边推即可。" class="headerlink" title="&emsp; &emsp; 考虑离线，整体二分答案，用树状数组判断是否可行，然后将询问往两边推即可。"></a>&emsp; &emsp; 考虑离线，整体二分答案，用树状数组判断是否可行，然后将询问往两边推即可。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="有一个ntimes-n的矩阵有q个询问每次询问x_1y_1为左上角x_2y_2为右下角的矩阵中第k小的数是多少"><a class="markdownIt-Anchor" href="#有一个ntimes-n的矩阵有q个询问每次询问x_1y_1为左上角x_2y_2为右下角的矩阵中第k小的数是多少"></a>     有一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">×</span><span class="mord mathit">n</span></span></span></span>的矩阵，有q个询问，每次询问<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(x_1,y_1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>为左上角<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(x_2,y_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>为右下角的矩阵中第k小的数是多少。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑离线整体二分答案用树状数组判断是否可行然后将询问往两边推即可"><a class="markdownIt-Anchor" href="#考虑离线整体二分答案用树状数组判断是否可行然后将询问往两边推即可"></a>     考虑离线，整体二分答案，用树状数组判断是否可行，然后将询问往两边推即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;algorithm&gt;
@@ -264,7 +350,7 @@ int main(){
     for(int i=1;i&lt;=m;i++)printf(&quot;%d\n&quot;,ans[i]);
 }
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1467&amp;pid=1" target="_blank" rel="noopener">矩阵乘法</a> </p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1467&amp;pid=1" target="_blank" rel="noopener">矩阵乘法</a></p>
 
         
     </article>
@@ -284,9 +370,9 @@ int main(){
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
-                <a href="/tags/贪心/" class="cube-excerpt-tag-link">#贪心</a>
-                
                 <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/贪心/" class="cube-excerpt-tag-link">#贪心</a>
                 
             </div>
         </div>
@@ -294,7 +380,15 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-很久很久之前，森林里住着一群兔子。有一天，兔子们突然决定要去看樱花。兔子们所在森林里的樱花树很特殊。樱花树由n个树枝分叉点组成，编号从0到n-1，这n个分叉点由n-1个树枝连接，我们可以把它看成一个有根树结构，其中0号节点是根节点。这个树的每个节点上都会有一些樱花，其中第i个节点有-c-i-朵樱花。樱花树的每一个节点都有最大的载重m，对于每一个节点i，它的儿子节点的个数和i节点上樱花个数之和不能超过m，即-son-i-c-i-leq-m-，其中-son-i-表示i的儿子的个数，如果i为叶子节点，则-son-i-0-。"><a href="#emsp-emsp-很久很久之前，森林里住着一群兔子。有一天，兔子们突然决定要去看樱花。兔子们所在森林里的樱花树很特殊。樱花树由n个树枝分叉点组成，编号从0到n-1，这n个分叉点由n-1个树枝连接，我们可以把它看成一个有根树结构，其中0号节点是根节点。这个树的每个节点上都会有一些樱花，其中第i个节点有-c-i-朵樱花。樱花树的每一个节点都有最大的载重m，对于每一个节点i，它的儿子节点的个数和i节点上樱花个数之和不能超过m，即-son-i-c-i-leq-m-，其中-son-i-表示i的儿子的个数，如果i为叶子节点，则-son-i-0-。" class="headerlink" title="&emsp; &emsp; 很久很久之前，森林里住着一群兔子。有一天，兔子们突然决定要去看樱花。兔子们所在森林里的樱花树很特殊。樱花树由n个树枝分叉点组成，编号从0到n-1，这n个分叉点由n-1个树枝连接，我们可以把它看成一个有根树结构，其中0号节点是根节点。这个树的每个节点上都会有一些樱花，其中第i个节点有$c_i$朵樱花。樱花树的每一个节点都有最大的载重m，对于每一个节点i，它的儿子节点的个数和i节点上樱花个数之和不能超过m，即$son_i+c_i\leq m$，其中$son_i$表示i的儿子的个数，如果i为叶子节点，则$son_i=0$。"></a>&emsp; &emsp; 很久很久之前，森林里住着一群兔子。有一天，兔子们突然决定要去看樱花。兔子们所在森林里的樱花树很特殊。樱花树由n个树枝分叉点组成，编号从0到n-1，这n个分叉点由n-1个树枝连接，我们可以把它看成一个有根树结构，其中0号节点是根节点。这个树的每个节点上都会有一些樱花，其中第i个节点有$c_i$朵樱花。樱花树的每一个节点都有最大的载重m，对于每一个节点i，它的儿子节点的个数和i节点上樱花个数之和不能超过m，即$son_i+c_i\leq m$，其中$son_i$表示i的儿子的个数，如果i为叶子节点，则$son_i=0$。</h3><h3 id="emsp-emsp-现在兔子们觉得樱花树上节点太多，希望去掉一些节点。当一个节点被去掉之后，这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上。如果父节点也被删除，那么就会继续向上连接，直到第一个没有被删除的节点为止。"><a href="#emsp-emsp-现在兔子们觉得樱花树上节点太多，希望去掉一些节点。当一个节点被去掉之后，这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上。如果父节点也被删除，那么就会继续向上连接，直到第一个没有被删除的节点为止。" class="headerlink" title="&emsp; &emsp; 现在兔子们觉得樱花树上节点太多，希望去掉一些节点。当一个节点被去掉之后，这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上。如果父节点也被删除，那么就会继续向上连接，直到第一个没有被删除的节点为止。"></a>&emsp; &emsp; 现在兔子们觉得樱花树上节点太多，希望去掉一些节点。当一个节点被去掉之后，这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上。如果父节点也被删除，那么就会继续向上连接，直到第一个没有被删除的节点为止。</h3><h3 id="emsp-emsp-现在兔子们希望计算在不违背最大载重的情况下，最多能删除多少节点。"><a href="#emsp-emsp-现在兔子们希望计算在不违背最大载重的情况下，最多能删除多少节点。" class="headerlink" title="&emsp; &emsp; 现在兔子们希望计算在不违背最大载重的情况下，最多能删除多少节点。"></a>&emsp; &emsp; 现在兔子们希望计算在不违背最大载重的情况下，最多能删除多少节点。</h3><h3 id="emsp-emsp-注意根节点不能被删除，被删除的节点不被计入载重。"><a href="#emsp-emsp-注意根节点不能被删除，被删除的节点不被计入载重。" class="headerlink" title="&emsp; &emsp; 注意根节点不能被删除，被删除的节点不被计入载重。"></a>&emsp; &emsp; 注意根节点不能被删除，被删除的节点不被计入载重。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-对于最终删完之后的树来说，先删上层的点还是先删下层的点的顺序没有影响。而如果一个第i层的点删到i-2层的点上，则意味着第i-1层的点往上删了，那么，也就相当于先把第i层删到第i-1层再往上删到第i-2层。意味着，每个点往父亲删就可以了。对于每个节点往儿子贪心即可。"><a href="#emsp-emsp-对于最终删完之后的树来说，先删上层的点还是先删下层的点的顺序没有影响。而如果一个第i层的点删到i-2层的点上，则意味着第i-1层的点往上删了，那么，也就相当于先把第i层删到第i-1层再往上删到第i-2层。意味着，每个点往父亲删就可以了。对于每个节点往儿子贪心即可。" class="headerlink" title="&emsp; &emsp; 对于最终删完之后的树来说，先删上层的点还是先删下层的点的顺序没有影响。而如果一个第i层的点删到i-2层的点上，则意味着第i-1层的点往上删了，那么，也就相当于先把第i层删到第i-1层再往上删到第i-2层。意味着，每个点往父亲删就可以了。对于每个节点往儿子贪心即可。"></a>&emsp; &emsp; 对于最终删完之后的树来说，先删上层的点还是先删下层的点的顺序没有影响。而如果一个第i层的点删到i-2层的点上，则意味着第i-1层的点往上删了，那么，也就相当于先把第i层删到第i-1层再往上删到第i-2层。意味着，每个点往父亲删就可以了。对于每个节点往儿子贪心即可。</h3><h3 id="emsp-emsp-场上随手写的一个贪心居然A掉了qwq"><a href="#emsp-emsp-场上随手写的一个贪心居然A掉了qwq" class="headerlink" title="&emsp; &emsp; (场上随手写的一个贪心居然A掉了qwq)"></a>&emsp; &emsp; (场上随手写的一个贪心居然A掉了qwq)</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="很久很久之前森林里住着一群兔子-有一天兔子们突然决定要去看樱花-兔子们所在森林里的樱花树很特殊-樱花树由n个树枝分叉点组成编号从0到n-1这n个分叉点由n-1个树枝连接我们可以把它看成一个有根树结构其中0号节点是根节点-这个树的每个节点上都会有一些樱花其中第i个节点有c_i朵樱花-樱花树的每一个节点都有最大的载重m对于每一个节点i它的儿子节点的个数和i节点上樱花个数之和不能超过m即son_ic_ileq-m其中son_i表示i的儿子的个数如果i为叶子节点则son_i0"><a class="markdownIt-Anchor" href="#很久很久之前森林里住着一群兔子-有一天兔子们突然决定要去看樱花-兔子们所在森林里的樱花树很特殊-樱花树由n个树枝分叉点组成编号从0到n-1这n个分叉点由n-1个树枝连接我们可以把它看成一个有根树结构其中0号节点是根节点-这个树的每个节点上都会有一些樱花其中第i个节点有c_i朵樱花-樱花树的每一个节点都有最大的载重m对于每一个节点i它的儿子节点的个数和i节点上樱花个数之和不能超过m即son_ic_ileq-m其中son_i表示i的儿子的个数如果i为叶子节点则son_i0"></a>     很久很久之前，森林里住着一群兔子。有一天，兔子们突然决定要去看樱花。兔子们所在森林里的樱花树很特殊。樱花树由n个树枝分叉点组成，编号从0到n-1，这n个分叉点由n-1个树枝连接，我们可以把它看成一个有根树结构，其中0号节点是根节点。这个树的每个节点上都会有一些樱花，其中第i个节点有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">c_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>朵樱花。樱花树的每一个节点都有最大的载重m，对于每一个节点i，它的儿子节点的个数和i节点上樱花个数之和不能超过m，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub><mo>+</mo><msub><mi>c</mi><mi>i</mi></msub><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">son_i+c_i\leq m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.63597em;"></span><span class="strut bottom" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit">m</span></span></span></span>，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">son_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示i的儿子的个数，如果i为叶子节点，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">son_i=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span>。</h3>
+<h3 id="现在兔子们觉得樱花树上节点太多希望去掉一些节点-当一个节点被去掉之后这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上-如果父节点也被删除那么就会继续向上连接直到第一个没有被删除的节点为止"><a class="markdownIt-Anchor" href="#现在兔子们觉得樱花树上节点太多希望去掉一些节点-当一个节点被去掉之后这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上-如果父节点也被删除那么就会继续向上连接直到第一个没有被删除的节点为止"></a>     现在兔子们觉得樱花树上节点太多，希望去掉一些节点。当一个节点被去掉之后，这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上。如果父节点也被删除，那么就会继续向上连接，直到第一个没有被删除的节点为止。</h3>
+<h3 id="现在兔子们希望计算在不违背最大载重的情况下最多能删除多少节点"><a class="markdownIt-Anchor" href="#现在兔子们希望计算在不违背最大载重的情况下最多能删除多少节点"></a>     现在兔子们希望计算在不违背最大载重的情况下，最多能删除多少节点。</h3>
+<h3 id="注意根节点不能被删除被删除的节点不被计入载重"><a class="markdownIt-Anchor" href="#注意根节点不能被删除被删除的节点不被计入载重"></a>     注意根节点不能被删除，被删除的节点不被计入载重。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="对于最终删完之后的树来说先删上层的点还是先删下层的点的顺序没有影响-而如果一个第i层的点删到i-2层的点上则意味着第i-1层的点往上删了那么也就相当于先把第i层删到第i-1层再往上删到第i-2层-意味着每个点往父亲删就可以了-对于每个节点往儿子贪心即可"><a class="markdownIt-Anchor" href="#对于最终删完之后的树来说先删上层的点还是先删下层的点的顺序没有影响-而如果一个第i层的点删到i-2层的点上则意味着第i-1层的点往上删了那么也就相当于先把第i层删到第i-1层再往上删到第i-2层-意味着每个点往父亲删就可以了-对于每个节点往儿子贪心即可"></a>     对于最终删完之后的树来说，先删上层的点还是先删下层的点的顺序没有影响。而如果一个第i层的点删到i-2层的点上，则意味着第i-1层的点往上删了，那么，也就相当于先把第i层删到第i-1层再往上删到第i-2层。意味着，每个点往父亲删就可以了。对于每个节点往儿子贪心即可。</h3>
+<h3 id="场上随手写的一个贪心居然a掉了qwq"><a class="markdownIt-Anchor" href="#场上随手写的一个贪心居然a掉了qwq"></a>     (场上随手写的一个贪心居然A掉了qwq)</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;algorithm&gt;
@@ -339,7 +433,7 @@ int main(){
     printf(&quot;%d\n&quot;,ans);
 }
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1467&amp;pid=0" target="_blank" rel="noopener">兔子与樱花</a> </p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1467&amp;pid=0" target="_blank" rel="noopener">兔子与樱花</a></p>
 
         
     </article>
@@ -367,7 +461,11 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-大M正与其他m只怪兽一起参加一次吃人比赛。这场比赛总共有n轮，在每轮中吃的人越多，排名越靠前（任意一轮中不会出现任意两只怪兽吃人数相等）。最终的排名取决于各轮排名数值之和：排名数值之和越小，最终的排名越靠前。大M找到了你，想知道它在这次比赛中的期望排名。"><a href="#emsp-emsp-大M正与其他m只怪兽一起参加一次吃人比赛。这场比赛总共有n轮，在每轮中吃的人越多，排名越靠前（任意一轮中不会出现任意两只怪兽吃人数相等）。最终的排名取决于各轮排名数值之和：排名数值之和越小，最终的排名越靠前。大M找到了你，想知道它在这次比赛中的期望排名。" class="headerlink" title="&emsp; &emsp; 大M正与其他m只怪兽一起参加一次吃人比赛。这场比赛总共有n轮，在每轮中吃的人越多，排名越靠前（任意一轮中不会出现任意两只怪兽吃人数相等）。最终的排名取决于各轮排名数值之和：排名数值之和越小，最终的排名越靠前。大M找到了你，想知道它在这次比赛中的期望排名。"></a>&emsp; &emsp; 大M正与其他m只怪兽一起参加一次吃人比赛。这场比赛总共有n轮，在每轮中吃的人越多，排名越靠前（任意一轮中不会出现任意两只怪兽吃人数相等）。最终的排名取决于各轮排名数值之和：排名数值之和越小，最终的排名越靠前。大M找到了你，想知道它在这次比赛中的期望排名。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-设f-i-j-为除大M外经过第i轮后排名总和为j的期望人数-然后利用前缀和快速转移，时间复杂度-O-n-times-m-2-。"><a href="#emsp-emsp-设f-i-j-为除大M外经过第i轮后排名总和为j的期望人数-然后利用前缀和快速转移，时间复杂度-O-n-times-m-2-。" class="headerlink" title="&emsp; &emsp; 设f[i,j]为除大M外经过第i轮后排名总和为j的期望人数,然后利用前缀和快速转移，时间复杂度$O(n\times m^2)$。"></a>&emsp; &emsp; 设f[i,j]为除大M外经过第i轮后排名总和为j的期望人数,然后利用前缀和快速转移，时间复杂度$O(n\times m^2)$。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="大m正与其他m只怪兽一起参加一次吃人比赛-这场比赛总共有n轮在每轮中吃的人越多排名越靠前任意一轮中不会出现任意两只怪兽吃人数相等-最终的排名取决于各轮排名数值之和排名数值之和越小最终的排名越靠前-大m找到了你想知道它在这次比赛中的期望排名"><a class="markdownIt-Anchor" href="#大m正与其他m只怪兽一起参加一次吃人比赛-这场比赛总共有n轮在每轮中吃的人越多排名越靠前任意一轮中不会出现任意两只怪兽吃人数相等-最终的排名取决于各轮排名数值之和排名数值之和越小最终的排名越靠前-大m找到了你想知道它在这次比赛中的期望排名"></a>     大M正与其他m只怪兽一起参加一次吃人比赛。这场比赛总共有n轮，在每轮中吃的人越多，排名越靠前（任意一轮中不会出现任意两只怪兽吃人数相等）。最终的排名取决于各轮排名数值之和：排名数值之和越小，最终的排名越靠前。大M找到了你，想知道它在这次比赛中的期望排名。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="设fij为除大m外经过第i轮后排名总和为j的期望人数然后利用前缀和快速转移时间复杂度ontimes-m2"><a class="markdownIt-Anchor" href="#设fij为除大m外经过第i轮后排名总和为j的期望人数然后利用前缀和快速转移时间复杂度ontimes-m2"></a>     设f[i,j]为除大M外经过第i轮后排名总和为j的期望人数,然后利用前缀和快速转移，时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>×</mo><msup><mi>m</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\times m^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">×</span><span class="mord"><span class="mord mathit">m</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 1200
@@ -375,25 +473,25 @@ using namespace std;
 int a[N],n,m,sum;
 double ans,f[2][N*N];
 int main(){
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]),sum+=a[i];
-    f[0][0]=m-1;
-    int o=0;
-    for(int i=1;i&lt;=n;i++){
-        o^=1;
-        memset(f[o],0,sizeof(f[o]));
-        double l=0;
-        for(int j=1;j&lt;=sum;j++){
-            l+=f[o^1][j-1];
-            if(j&gt;m)l-=f[o^1][j-m-1];
-            f[o][j]+=(l-(j-a[i]&gt;=0?f[o^1][j-a[i]]:0))/(m-1);
-        }
-    }
-    for(int i=1;i&lt;sum;i++)ans+=f[o][i];
-    printf(&quot;%.15lf&quot;,ans+1);
-}
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+	for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]),sum+=a[i];
+	f[0][0]=m-1;
+	int o=0;
+	for(int i=1;i&lt;=n;i++){
+		o^=1;
+		memset(f[o],0,sizeof(f[o]));
+		double l=0;
+		for(int j=1;j&lt;=sum;j++){
+			l+=f[o^1][j-1];
+			if(j&gt;m)l-=f[o^1][j-m-1];
+			f[o][j]+=(l-(j-a[i]&gt;=0?f[o^1][j-a[i]]:0))/(m-1);
+		}
+	}
+	for(int i=1;i&lt;sum;i++)ans+=f[o][i];
+	printf(&quot;%.15lf&quot;,ans+1);
+} 
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1197&amp;pid=0" target="_blank" rel="noopener">rank</a> </p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1197&amp;pid=0" target="_blank" rel="noopener">rank</a></p>
 
         
     </article>
@@ -421,7 +519,11 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-给定一个数字串，求划分为上升子串的（这里子串的大小为转成数字的大小）方案数。"><a href="#emsp-emsp-给定一个数字串，求划分为上升子串的（这里子串的大小为转成数字的大小）方案数。" class="headerlink" title="&emsp; &emsp;给定一个数字串，求划分为上升子串的（这里子串的大小为转成数字的大小）方案数。"></a>&emsp; &emsp;给定一个数字串，求划分为上升子串的（这里子串的大小为转成数字的大小）方案数。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-考虑-f-i-j-为当前划分段从i到k（k-gt-j）的方案数（从后往前划分）。然后预处理O（1）判断串之间的大小即可。"><a href="#emsp-emsp-考虑-f-i-j-为当前划分段从i到k（k-gt-j）的方案数（从后往前划分）。然后预处理O（1）判断串之间的大小即可。" class="headerlink" title="&emsp; &emsp; 考虑$f_{i,j}$为当前划分段从i到k（k&gt;=j）的方案数（从后往前划分）。然后预处理O（1）判断串之间的大小即可。"></a>&emsp; &emsp; 考虑$f_{i,j}$为当前划分段从i到k（k&gt;=j）的方案数（从后往前划分）。然后预处理O（1）判断串之间的大小即可。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给定一个数字串求划分为上升子串的这里子串的大小为转成数字的大小方案数"><a class="markdownIt-Anchor" href="#给定一个数字串求划分为上升子串的这里子串的大小为转成数字的大小方案数"></a>    给定一个数字串，求划分为上升子串的（这里子串的大小为转成数字的大小）方案数。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑f_ij为当前划分段从i到kkj的方案数从后往前划分-然后预处理o1判断串之间的大小即可"><a class="markdownIt-Anchor" href="#考虑f_ij为当前划分段从i到kkj的方案数从后往前划分-然后预处理o1判断串之间的大小即可"></a>     考虑<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>为当前划分段从i到k（k&gt;=j）的方案数（从后往前划分）。然后预处理O（1）判断串之间的大小即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 5200
@@ -440,17 +542,17 @@ int main(){
         for(int j=i+1;j&lt;=n;j++)
             if(s[i]==s[j])c[i][j]=c[i+1][j+1]+1;
     for(int i=n;i;i--)
-    if(s[i]!=&#39;0&#39;){
+    if(s[i]!='0'){
         f[i][n-i+1]=1;
         for(int j=1;j&lt;=n-i;j++)
             if(check(i,i+j))f[i][j]=f[i+j][j];
-            else f[i][j]=f[i+j][j+1];
+			else f[i][j]=f[i+j][j+1];
         for(int j=n-i;j;j--)f[i][j]=(f[i][j]+f[i][j+1])%P;
     }
     printf(&quot;%d\n&quot;,f[1][1]);
 }
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1199&amp;pid=0" target="_blank" rel="noopener">sequence</a> </p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1199&amp;pid=0" target="_blank" rel="noopener">sequence</a></p>
 
         
     </article>
@@ -478,7 +580,18 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h2><h3 id="emsp-emsp-给出一个长度为n的字符串s（由前p个小写字母组成），若给出由前p个小写字母组成的排列ts-并且将其首尾相连至少K次之后得到最终串ss-例如ts-abc-k-3，ts重复k次之后得到abcabcabc-使得原串s是ss的一个子序列，则我们称s是关于ts的“K-repeat”。"><a href="#emsp-emsp-给出一个长度为n的字符串s（由前p个小写字母组成），若给出由前p个小写字母组成的排列ts-并且将其首尾相连至少K次之后得到最终串ss-例如ts-abc-k-3，ts重复k次之后得到abcabcabc-使得原串s是ss的一个子序列，则我们称s是关于ts的“K-repeat”。" class="headerlink" title="&emsp; &emsp;给出一个长度为n的字符串s（由前p个小写字母组成），若给出由前p个小写字母组成的排列ts,并且将其首尾相连至少K次之后得到最终串ss(例如ts=abc,k=3，ts重复k次之后得到abcabcabc)使得原串s是ss的一个子序列，则我们称s是关于ts的“K-repeat”。"></a>&emsp; &emsp;给出一个长度为n的字符串s（由前p个小写字母组成），若给出由前p个小写字母组成的排列ts,并且将其首尾相连至少K次之后得到最终串ss(例如ts=abc,k=3，ts重复k次之后得到abcabcabc)使得原串s是ss的一个子序列，则我们称s是关于ts的“K-repeat”。</h3><h3 id="emsp-emsp-现在给出m个操作："><a href="#emsp-emsp-现在给出m个操作：" class="headerlink" title="&emsp; &emsp;现在给出m个操作："></a>&emsp; &emsp;现在给出m个操作：</h3><h3 id="emsp-emsp-emsp-emsp-1：将字符串s的第L到R个字符全部替换为ch；"><a href="#emsp-emsp-emsp-emsp-1：将字符串s的第L到R个字符全部替换为ch；" class="headerlink" title="&emsp; &emsp; &emsp; &emsp; 1：将字符串s的第L到R个字符全部替换为ch；"></a>&emsp; &emsp; &emsp; &emsp; 1：将字符串s的第L到R个字符全部替换为ch；</h3><h3 id="emsp-emsp-emsp-emsp-2：给出一个字符串ts，询问s是否为关于ts的“K-repeat”，输出K。"><a href="#emsp-emsp-emsp-emsp-2：给出一个字符串ts，询问s是否为关于ts的“K-repeat”，输出K。" class="headerlink" title="&emsp; &emsp; &emsp; &emsp; 2：给出一个字符串ts，询问s是否为关于ts的“K-repeat”，输出K。"></a>&emsp; &emsp; &emsp; &emsp; 2：给出一个字符串ts，询问s是否为关于ts的“K-repeat”，输出K。</h3><h3 id="emsp-emsp-emsp-emsp-注意：读入所给出的s-ch全部都由前p个小写字母组成。"><a href="#emsp-emsp-emsp-emsp-注意：读入所给出的s-ch全部都由前p个小写字母组成。" class="headerlink" title="&emsp; &emsp; &emsp; &emsp; 注意：读入所给出的s,ch全部都由前p个小写字母组成。"></a>&emsp; &emsp; &emsp; &emsp; 注意：读入所给出的s,ch全部都由前p个小写字母组成。</h3><h3 id="emsp-emsp-注意：读入所给出的s-ch全部都由前p个小写字母组成。"><a href="#emsp-emsp-注意：读入所给出的s-ch全部都由前p个小写字母组成。" class="headerlink" title="&emsp;&emsp;注意：读入所给出的s,ch全部都由前p个小写字母组成。"></a>&emsp;&emsp;注意：读入所给出的s,ch全部都由前p个小写字母组成。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-考虑答案为（n-多余次数）"><a href="#emsp-emsp-考虑答案为（n-多余次数）" class="headerlink" title="&emsp; &emsp; 考虑答案为（n-多余次数）"></a>&emsp; &emsp; 考虑答案为（n-多余次数）</h3><h3 id="emsp-emsp-多余次数为ts在s中出现了一段长度为o的，多余次数就是o-1。"><a href="#emsp-emsp-多余次数为ts在s中出现了一段长度为o的，多余次数就是o-1。" class="headerlink" title="&emsp; &emsp; 多余次数为ts在s中出现了一段长度为o的，多余次数就是o-1。"></a>&emsp; &emsp; 多余次数为ts在s中出现了一段长度为o的，多余次数就是o-1。</h3><h3 id="emsp-emsp-那么维护s中相邻字符的点对，减掉这样的点对即可。"><a href="#emsp-emsp-那么维护s中相邻字符的点对，减掉这样的点对即可。" class="headerlink" title="&emsp; &emsp; 那么维护s中相邻字符的点对，减掉这样的点对即可。"></a>&emsp; &emsp; 那么维护s中相邻字符的点对，减掉这样的点对即可。</h3><pre><code class="lang-cpp">#include&lt;cstdio&gt;
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意:</h2>
+<h3 id="给出一个长度为n的字符串s由前p个小写字母组成若给出由前p个小写字母组成的排列ts并且将其首尾相连至少k次之后得到最终串ss例如tsabck3ts重复k次之后得到abcabcabc使得原串s是ss的一个子序列则我们称s是关于ts的k-repeat"><a class="markdownIt-Anchor" href="#给出一个长度为n的字符串s由前p个小写字母组成若给出由前p个小写字母组成的排列ts并且将其首尾相连至少k次之后得到最终串ss例如tsabck3ts重复k次之后得到abcabcabc使得原串s是ss的一个子序列则我们称s是关于ts的k-repeat"></a>    给出一个长度为n的字符串s（由前p个小写字母组成），若给出由前p个小写字母组成的排列ts,并且将其首尾相连至少K次之后得到最终串ss(例如ts=abc,k=3，ts重复k次之后得到abcabcabc)使得原串s是ss的一个子序列，则我们称s是关于ts的“K-repeat”。</h3>
+<h3 id="现在给出m个操作"><a class="markdownIt-Anchor" href="#现在给出m个操作"></a>    现在给出m个操作：</h3>
+<h3 id="1将字符串s的第l到r个字符全部替换为ch"><a class="markdownIt-Anchor" href="#1将字符串s的第l到r个字符全部替换为ch"></a>         1：将字符串s的第L到R个字符全部替换为ch；</h3>
+<h3 id="2给出一个字符串ts询问s是否为关于ts的k-repeat输出k"><a class="markdownIt-Anchor" href="#2给出一个字符串ts询问s是否为关于ts的k-repeat输出k"></a>         2：给出一个字符串ts，询问s是否为关于ts的“K-repeat”，输出K。</h3>
+<h3 id="注意读入所给出的sch全部都由前p个小写字母组成"><a class="markdownIt-Anchor" href="#注意读入所给出的sch全部都由前p个小写字母组成"></a>         注意：读入所给出的s,ch全部都由前p个小写字母组成。</h3>
+<h3 id="注意读入所给出的sch全部都由前p个小写字母组成-2"><a class="markdownIt-Anchor" href="#注意读入所给出的sch全部都由前p个小写字母组成-2"></a>   注意：读入所给出的s,ch全部都由前p个小写字母组成。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑答案为n-多余次数"><a class="markdownIt-Anchor" href="#考虑答案为n-多余次数"></a>     考虑答案为（n-多余次数）</h3>
+<h3 id="多余次数为ts在s中出现了一段长度为o的多余次数就是o-1"><a class="markdownIt-Anchor" href="#多余次数为ts在s中出现了一段长度为o的多余次数就是o-1"></a>     多余次数为ts在s中出现了一段长度为o的，多余次数就是o-1。</h3>
+<h3 id="那么维护s中相邻字符的点对减掉这样的点对即可"><a class="markdownIt-Anchor" href="#那么维护s中相邻字符的点对减掉这样的点对即可"></a>     那么维护s中相邻字符的点对，减掉这样的点对即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;cstdio&gt;
 #include&lt;cstring&gt;
 #include&lt;algorithm&gt;
 #define N 820000
@@ -507,7 +620,7 @@ int pushup(int x){
 }
 int build(int i,int l,int r){
     if(l==r){
-        ls[i]=rs[i]=s[l]-&#39;a&#39;+1;
+        ls[i]=rs[i]=s[l]-'a'+1;
         return 0;
     }
     int mid=(l+r)/2;
@@ -538,19 +651,19 @@ int main(){
             char ch;
             scanf(&quot;%d%d&quot;,&amp;l,&amp;r);
             scanf(&quot;%c%c&quot;,&amp;ch,&amp;ch);
-            change(1,1,n,l,r,ch-&#39;a&#39;+1);
+            change(1,1,n,l,r,ch-'a'+1);
         }else{
             scanf(&quot;%s&quot;,s+1);
             ans=n;
             for(int j=1;j&lt;=p;j++)
                 for(int i=1;i&lt;j;i++)
-                    ans-=v[1][s[i]-&#39;a&#39;+1][s[j]-&#39;a&#39;+1];
+                    ans-=v[1][s[i]-'a'+1][s[j]-'a'+1];
             printf(&quot;%d\n&quot;,ans);
         }
     }
 }
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1199&amp;pid=1" target="_blank" rel="noopener">string</a> </p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1199&amp;pid=1" target="_blank" rel="noopener">string</a></p>
 
         
     </article>
@@ -570,9 +683,9 @@ int main(){
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
-                <a href="/tags/可持久化线段树/" class="cube-excerpt-tag-link">#可持久化线段树</a>
-                
                 <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
+                
+                <a href="/tags/可持久化线段树/" class="cube-excerpt-tag-link">#可持久化线段树</a>
                 
             </div>
         </div>
@@ -580,7 +693,11 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h3 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h3><h3 id="emsp-emsp-询问树上链第k小的点值，强制在线。"><a href="#emsp-emsp-询问树上链第k小的点值，强制在线。" class="headerlink" title="&emsp; &emsp; 询问树上链第k小的点值，强制在线。"></a>&emsp; &emsp; 询问树上链第k小的点值，强制在线。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-树上可持久化线段树，时间复杂度-O-n-log-n-。"><a href="#emsp-emsp-树上可持久化线段树，时间复杂度-O-n-log-n-。" class="headerlink" title="&emsp; &emsp; 树上可持久化线段树，时间复杂度$O(n\log n)$。"></a>&emsp; &emsp; 树上可持久化线段树，时间复杂度$O(n\log n)$。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+           <h3 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h3>
+<h3 id="询问树上链第k小的点值强制在线"><a class="markdownIt-Anchor" href="#询问树上链第k小的点值强制在线"></a>     询问树上链第k小的点值，强制在线。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="树上可持久化线段树时间复杂度onlog-n"><a class="markdownIt-Anchor" href="#树上可持久化线段树时间复杂度onlog-n"></a>     树上可持久化线段树，时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;algorithm&gt;
@@ -703,7 +820,11 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-给定一堆01串，指定这些不能出现，问是否能够构造出一个无限长度的字符串满足这些都没有出现过。"><a href="#emsp-emsp-给定一堆01串，指定这些不能出现，问是否能够构造出一个无限长度的字符串满足这些都没有出现过。" class="headerlink" title="&emsp; &emsp; 给定一堆01串，指定这些不能出现，问是否能够构造出一个无限长度的字符串满足这些都没有出现过。"></a>&emsp; &emsp; 给定一堆01串，指定这些不能出现，问是否能够构造出一个无限长度的字符串满足这些都没有出现过。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-直接建出trie图，判断有没有环（字符串末尾的点都不能经过）"><a href="#emsp-emsp-直接建出trie图，判断有没有环（字符串末尾的点都不能经过）" class="headerlink" title="&emsp; &emsp; 直接建出trie图，判断有没有环（字符串末尾的点都不能经过）"></a>&emsp; &emsp; 直接建出trie图，判断有没有环（字符串末尾的点都不能经过）</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给定一堆01串指定这些不能出现问是否能够构造出一个无限长度的字符串满足这些都没有出现过"><a class="markdownIt-Anchor" href="#给定一堆01串指定这些不能出现问是否能够构造出一个无限长度的字符串满足这些都没有出现过"></a>     给定一堆01串，指定这些不能出现，问是否能够构造出一个无限长度的字符串满足这些都没有出现过。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="直接建出trie图判断有没有环字符串末尾的点都不能经过"><a class="markdownIt-Anchor" href="#直接建出trie图判断有没有环字符串末尾的点都不能经过"></a>     直接建出trie图，判断有没有环（字符串末尾的点都不能经过）</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 320000
@@ -715,8 +836,8 @@ int insert(){
     int l=strlen(s+1);
     int x=0;
     for(int i=1;i&lt;=l;i++){
-        if(ch[x][s[i]-&#39;0&#39;]==0)ch[x][s[i]-&#39;0&#39;]=++tot;
-        x=ch[x][s[i]-&#39;0&#39;];
+        if(ch[x][s[i]-'0']==0)ch[x][s[i]-'0']=++tot;
+        x=ch[x][s[i]-'0'];
     }
     tag[x]=1;
 }
@@ -789,7 +910,20 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-Alice和Bob在玩一个游戏。有n个石子在这里，Alice和Bob轮流投掷硬币，如果正面朝上，则从n个石子中取出一个石子，否则不做任何事。取到最后一颗石子的人胜利。Alice在投掷硬币时有p的概率投掷出他想投的一面，同样，Bob有q的概率投掷出他相投的一面。"><a href="#emsp-emsp-Alice和Bob在玩一个游戏。有n个石子在这里，Alice和Bob轮流投掷硬币，如果正面朝上，则从n个石子中取出一个石子，否则不做任何事。取到最后一颗石子的人胜利。Alice在投掷硬币时有p的概率投掷出他想投的一面，同样，Bob有q的概率投掷出他相投的一面。" class="headerlink" title="&emsp; &emsp; Alice和Bob在玩一个游戏。有n个石子在这里，Alice和Bob轮流投掷硬币，如果正面朝上，则从n个石子中取出一个石子，否则不做任何事。取到最后一颗石子的人胜利。Alice在投掷硬币时有p的概率投掷出他想投的一面，同样，Bob有q的概率投掷出他相投的一面。"></a>&emsp; &emsp; Alice和Bob在玩一个游戏。有n个石子在这里，Alice和Bob轮流投掷硬币，如果正面朝上，则从n个石子中取出一个石子，否则不做任何事。取到最后一颗石子的人胜利。Alice在投掷硬币时有p的概率投掷出他想投的一面，同样，Bob有q的概率投掷出他相投的一面。</h3><h3 id="emsp-emsp-现在Alice先手投掷硬币，假设他们都想赢得游戏，问你Alice胜利的概率为多少。"><a href="#emsp-emsp-现在Alice先手投掷硬币，假设他们都想赢得游戏，问你Alice胜利的概率为多少。" class="headerlink" title="&emsp; &emsp; 现在Alice先手投掷硬币，假设他们都想赢得游戏，问你Alice胜利的概率为多少。"></a>&emsp; &emsp; 现在Alice先手投掷硬币，假设他们都想赢得游戏，问你Alice胜利的概率为多少。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-考虑f-i-表示还剩下i个石子时，Alice先手，Alice必胜的概率"><a href="#emsp-emsp-考虑f-i-表示还剩下i个石子时，Alice先手，Alice必胜的概率" class="headerlink" title="&emsp; &emsp; 考虑f[i]表示还剩下i个石子时，Alice先手，Alice必胜的概率"></a>&emsp; &emsp; 考虑f[i]表示还剩下i个石子时，Alice先手，Alice必胜的概率</h3><h3 id="emsp-emsp-考虑g-i-表示还剩下i个石子时，Bob先手，Alice必胜的概率（Bob好可怜qwq）"><a href="#emsp-emsp-考虑g-i-表示还剩下i个石子时，Bob先手，Alice必胜的概率（Bob好可怜qwq）" class="headerlink" title="&emsp; &emsp; 考虑g[i]表示还剩下i个石子时，Bob先手，Alice必胜的概率（Bob好可怜qwq）"></a>&emsp; &emsp; 考虑g[i]表示还剩下i个石子时，Bob先手，Alice必胜的概率（Bob好可怜qwq）</h3><h3 id="emsp-emsp-假设每次都是的决策都是想取石子"><a href="#emsp-emsp-假设每次都是的决策都是想取石子" class="headerlink" title="&emsp; &emsp; 假设每次都是的决策都是想取石子"></a>&emsp; &emsp; 假设每次都是的决策都是想取石子</h3><h3 id="emsp-emsp-f-i-p-times-g-i-1-1-p-times-g-i"><a href="#emsp-emsp-f-i-p-times-g-i-1-1-p-times-g-i" class="headerlink" title="&emsp; &emsp; $f_i=p\times g_{i-1}+(1-p)\times g_i$"></a>&emsp; &emsp; $f_i=p\times g_{i-1}+(1-p)\times g_i$</h3><h3 id="emsp-emsp-g-i-q-times-f-i-1-1-q-times-f-i"><a href="#emsp-emsp-g-i-q-times-f-i-1-1-q-times-f-i" class="headerlink" title="&emsp; &emsp; $g_i=q\times f_{i-1}+(1-q)\times f_i $"></a>&emsp; &emsp; $g_i=q\times f_{i-1}+(1-q)\times f_i $</h3><h3 id="emsp-emsp-联立一下得："><a href="#emsp-emsp-联立一下得：" class="headerlink" title="&emsp; &emsp; 联立一下得："></a>&emsp; &emsp; 联立一下得：</h3><h3 id="emsp-emsp-f-i-frac-p-times-g-i-1-1-p-times-q-times-f-i-1-p-q-p-times-q"><a href="#emsp-emsp-f-i-frac-p-times-g-i-1-1-p-times-q-times-f-i-1-p-q-p-times-q" class="headerlink" title="&emsp; &emsp; $f_{i}=\frac{p\times g_{i-1}+(1-p)\times q\times f_{i-1}}{p+q-p\times q}$"></a>&emsp; &emsp; $f_{i}=\frac{p\times g_{i-1}+(1-p)\times q\times f_{i-1}}{p+q-p\times q}$</h3><h3 id="emsp-emsp-g-i-frac-q-times-f-i-1-1-q-times-p-times-g-i-1-p-q-p-times-q"><a href="#emsp-emsp-g-i-frac-q-times-f-i-1-1-q-times-p-times-g-i-1-p-q-p-times-q" class="headerlink" title="&emsp; &emsp; $g_{i}=\frac{q\times f_{i-1}+(1-q)\times p\times g_{i-1}}{p+q-p\times q}$"></a>&emsp; &emsp; $g_{i}=\frac{q\times f_{i-1}+(1-q)\times p\times g_{i-1}}{p+q-p\times q}$</h3><h3 id="emsp-emsp-考虑每次是否想取石子，如果-f-i-1-比-g-i-1-大，说明取完之后Alice先手的胜率高，也就是Alice要在这里先手会比较优，那Alice就不会想取第i个。而跟Alice的更优决策点，应该是一样的，所以Bob也不会想要。反而亦之。最后输出-f-n-也就是答案。总体复杂度是-O-n-的，但是n特别大，但我们可以打表发现这玩意是收敛的（不知道为什么收敛），于是最多求到十万项就可以不管了。就变成了-O-min-n-10000-好像有人只扫了一百次就过了qwq-。"><a href="#emsp-emsp-考虑每次是否想取石子，如果-f-i-1-比-g-i-1-大，说明取完之后Alice先手的胜率高，也就是Alice要在这里先手会比较优，那Alice就不会想取第i个。而跟Alice的更优决策点，应该是一样的，所以Bob也不会想要。反而亦之。最后输出-f-n-也就是答案。总体复杂度是-O-n-的，但是n特别大，但我们可以打表发现这玩意是收敛的（不知道为什么收敛），于是最多求到十万项就可以不管了。就变成了-O-min-n-10000-好像有人只扫了一百次就过了qwq-。" class="headerlink" title="&emsp; &emsp; 考虑每次是否想取石子，如果$f_{i-1}$比$g_{i-1}$大，说明取完之后Alice先手的胜率高，也就是Alice要在这里先手会比较优，那Alice就不会想取第i个。而跟Alice的更优决策点，应该是一样的，所以Bob也不会想要。反而亦之。最后输出$f_n$也就是答案。总体复杂度是$O(n)$的，但是n特别大，但我们可以打表发现这玩意是收敛的（不知道为什么收敛），于是最多求到十万项就可以不管了。就变成了$O(min(n,10000))$(好像有人只扫了一百次就过了qwq)。"></a>&emsp; &emsp; 考虑每次是否想取石子，如果$f_{i-1}$比$g_{i-1}$大，说明取完之后Alice先手的胜率高，也就是Alice要在这里先手会比较优，那Alice就不会想取第i个。而跟Alice的更优决策点，应该是一样的，所以Bob也不会想要。反而亦之。最后输出$f_n$也就是答案。总体复杂度是$O(n)$的，但是n特别大，但我们可以打表发现这玩意是收敛的（不知道为什么收敛），于是最多求到十万项就可以不管了。就变成了$O(min(n,10000))$(好像有人只扫了一百次就过了qwq)。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="alice和bob在玩一个游戏-有n个石子在这里alice和bob轮流投掷硬币如果正面朝上则从n个石子中取出一个石子否则不做任何事-取到最后一颗石子的人胜利-alice在投掷硬币时有p的概率投掷出他想投的一面同样bob有q的概率投掷出他相投的一面"><a class="markdownIt-Anchor" href="#alice和bob在玩一个游戏-有n个石子在这里alice和bob轮流投掷硬币如果正面朝上则从n个石子中取出一个石子否则不做任何事-取到最后一颗石子的人胜利-alice在投掷硬币时有p的概率投掷出他想投的一面同样bob有q的概率投掷出他相投的一面"></a>     Alice和Bob在玩一个游戏。有n个石子在这里，Alice和Bob轮流投掷硬币，如果正面朝上，则从n个石子中取出一个石子，否则不做任何事。取到最后一颗石子的人胜利。Alice在投掷硬币时有p的概率投掷出他想投的一面，同样，Bob有q的概率投掷出他相投的一面。</h3>
+<h3 id="现在alice先手投掷硬币假设他们都想赢得游戏问你alice胜利的概率为多少"><a class="markdownIt-Anchor" href="#现在alice先手投掷硬币假设他们都想赢得游戏问你alice胜利的概率为多少"></a>     现在Alice先手投掷硬币，假设他们都想赢得游戏，问你Alice胜利的概率为多少。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑fi表示还剩下i个石子时alice先手alice必胜的概率"><a class="markdownIt-Anchor" href="#考虑fi表示还剩下i个石子时alice先手alice必胜的概率"></a>     考虑f[i]表示还剩下i个石子时，Alice先手，Alice必胜的概率</h3>
+<h3 id="考虑gi表示还剩下i个石子时bob先手alice必胜的概率bob好可怜qwq"><a class="markdownIt-Anchor" href="#考虑gi表示还剩下i个石子时bob先手alice必胜的概率bob好可怜qwq"></a>     考虑g[i]表示还剩下i个石子时，Bob先手，Alice必胜的概率（Bob好可怜qwq）</h3>
+<h3 id="假设每次都是的决策都是想取石子"><a class="markdownIt-Anchor" href="#假设每次都是的决策都是想取石子"></a>     假设每次都是的决策都是想取石子</h3>
+<h3 id="f_iptimes-g_i-11-ptimes-g_i"><a class="markdownIt-Anchor" href="#f_iptimes-g_i-11-ptimes-g_i"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub><mo>=</mo><mi>p</mi><mo>×</mo><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo>)</mo><mo>×</mo><msub><mi>g</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i=p\times g_{i-1}+(1-p)\times g_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mclose">)</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></h3>
+<h3 id="g_iqtimes-f_i-11-qtimes-f_i"><a class="markdownIt-Anchor" href="#g_iqtimes-f_i-11-qtimes-f_i"></a>     $g_i=q\times f_{i-1}+(1-q)\times f_i $</h3>
+<h3 id="联立一下得"><a class="markdownIt-Anchor" href="#联立一下得"></a>     联立一下得：</h3>
+<h3 id="f_ifracptimes-g_i-11-ptimes-qtimes-f_i-1pq-ptimes-q"><a class="markdownIt-Anchor" href="#f_ifracptimes-g_i-11-ptimes-qtimes-f_i-1pq-ptimes-q"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>p</mi><mo>×</mo><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo>)</mo><mo>×</mo><mi>q</mi><mo>×</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><mrow><mi>p</mi><mo>+</mo><mi>q</mi><mo>−</mo><mi>p</mi><mo>×</mo><mi>q</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">f_{i}=\frac{p\times g_{i-1}+(1-p)\times q\times f_{i-1}}{p+q-p\times q}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.491108em;vertical-align:-0.481108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">p</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mclose">)</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></h3>
+<h3 id="g_ifracqtimes-f_i-11-qtimes-ptimes-g_i-1pq-ptimes-q"><a class="markdownIt-Anchor" href="#g_ifracqtimes-f_i-11-qtimes-ptimes-g_i-1pq-ptimes-q"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>g</mi><mrow><mi>i</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>q</mi><mo>×</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>q</mi><mo>)</mo><mo>×</mo><mi>p</mi><mo>×</mo><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><mrow><mi>p</mi><mo>+</mo><mi>q</mi><mo>−</mo><mi>p</mi><mo>×</mo><mi>q</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">g_{i}=\frac{q\times f_{i-1}+(1-q)\times p\times g_{i-1}}{p+q-p\times q}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.491108em;vertical-align:-0.481108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">p</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">−</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mclose">)</span><span class="mbin">×</span><span class="mord mathit">p</span><span class="mbin">×</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></h3>
+<h3 id="考虑每次是否想取石子如果f_i-1比g_i-1大说明取完之后alice先手的胜率高也就是alice要在这里先手会比较优那alice就不会想取第i个-而跟alice的更优决策点应该是一样的所以bob也不会想要-反而亦之-最后输出f_n也就是答案-总体复杂度是on的但是n特别大但我们可以打表发现这玩意是收敛的不知道为什么收敛于是最多求到十万项就可以不管了-就变成了ominn10000好像有人只扫了一百次就过了qwq"><a class="markdownIt-Anchor" href="#考虑每次是否想取石子如果f_i-1比g_i-1大说明取完之后alice先手的胜率高也就是alice要在这里先手会比较优那alice就不会想取第i个-而跟alice的更优决策点应该是一样的所以bob也不会想要-反而亦之-最后输出f_n也就是答案-总体复杂度是on的但是n特别大但我们可以打表发现这玩意是收敛的不知道为什么收敛于是最多求到十万项就可以不管了-就变成了ominn10000好像有人只扫了一百次就过了qwq"></a>     考虑每次是否想取石子，如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.902771em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>比<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>g</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">g_{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>大，说明取完之后Alice先手的胜率高，也就是Alice要在这里先手会比较优，那Alice就不会想取第i个。而跟Alice的更优决策点，应该是一样的，所以Bob也不会想要。反而亦之。最后输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">f_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>也就是答案。总体复杂度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>的，但是n特别大，但我们可以打表发现这玩意是收敛的（不知道为什么收敛），于是最多求到十万项就可以不管了。就变成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>n</mi><mo separator="true">,</mo><mn>1</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">O(min(n,10000))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">m</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>(好像有人只扫了一百次就过了qwq)。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 120000 
@@ -844,7 +978,17 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-给出n和m，求满足-a-i-j-lt-a-i-1-j-1-且-a-i-j-lt-a-i-j-1-且-0-leq-a-i-j-leq-m-1-leq-i-leq-n-1-leq-j-leq-m-的方案数。"><a href="#emsp-emsp-给出n和m，求满足-a-i-j-lt-a-i-1-j-1-且-a-i-j-lt-a-i-j-1-且-0-leq-a-i-j-leq-m-1-leq-i-leq-n-1-leq-j-leq-m-的方案数。" class="headerlink" title="&emsp; &emsp; 给出n和m，求满足$a_{i,j}&lt;a_{i-1,j+1}$且$a_{i,j}&lt;a_{i,j+1}$且$0\leq a_{i,j}\leq m,1\leq i\leq n,1\leq j\leq m$的方案数。"></a>&emsp; &emsp; 给出n和m，求满足$a_{i,j}&lt;a_{i-1,j+1}$且$a_{i,j}&lt;a_{i,j+1}$且$0\leq a_{i,j}\leq m,1\leq i\leq n,1\leq j\leq m$的方案数。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-考虑每一行，-a-i-j-lt-a-i-j-1-，总共m个数，而值只有m-1个，意味着每一行只有一个位置的差会为2，其他都为1。"><a href="#emsp-emsp-考虑每一行，-a-i-j-lt-a-i-j-1-，总共m个数，而值只有m-1个，意味着每一行只有一个位置的差会为2，其他都为1。" class="headerlink" title="&emsp; &emsp; 考虑每一行，$a_{i,j}&lt;a_{i,j+1}$，总共m个数，而值只有m+1个，意味着每一行只有一个位置的差会为2，其他都为1。"></a>&emsp; &emsp; 考虑每一行，$a_{i,j}&lt;a_{i,j+1}$，总共m个数，而值只有m+1个，意味着每一行只有一个位置的差会为2，其他都为1。</h3><h3 id="emsp-emsp-考虑对于每上面一行，-a-i-j-lt-a-i-1-j-1-，意味着对于第i行来说，他突变的位置最前能够比第i-1行的突变位置前一格。"><a href="#emsp-emsp-考虑对于每上面一行，-a-i-j-lt-a-i-1-j-1-，意味着对于第i行来说，他突变的位置最前能够比第i-1行的突变位置前一格。" class="headerlink" title="&emsp; &emsp; 考虑对于每上面一行，$a_{i,j}&lt;a_{i-1,j+1}$，意味着对于第i行来说，他突变的位置最前能够比第i-1行的突变位置前一格。"></a>&emsp; &emsp; 考虑对于每上面一行，$a_{i,j}&lt;a_{i-1,j+1}$，意味着对于第i行来说，他突变的位置最前能够比第i-1行的突变位置前一格。</h3><h3 id="emsp-emsp-得到-O-nm-的方程，设-f-i-j-表示第i行的未突变位置小于等于j的方案数。-f-i-j-f-i-1-j-1-f-i-j-1-。j的范围为0到m。-f-0-0-1-因为小于等于相当于求前缀和，所以可以只有一个点有值-。"><a href="#emsp-emsp-得到-O-nm-的方程，设-f-i-j-表示第i行的未突变位置小于等于j的方案数。-f-i-j-f-i-1-j-1-f-i-j-1-。j的范围为0到m。-f-0-0-1-因为小于等于相当于求前缀和，所以可以只有一个点有值-。" class="headerlink" title="&emsp; &emsp; 得到$O(nm)$的方程，设$f_{i,j}$表示第i行的未突变位置小于等于j的方案数。$f_{i,j}=f_{i-1,j+1}+f_{i,j-1}$。j的范围为0到m。$f_{0,0}=1$(因为小于等于相当于求前缀和，所以可以只有一个点有值)。"></a>&emsp; &emsp; 得到$O(nm)$的方程，设$f_{i,j}$表示第i行的未突变位置小于等于j的方案数。$f_{i,j}=f_{i-1,j+1}+f_{i,j-1}$。j的范围为0到m。$f_{0,0}=1$(因为小于等于相当于求前缀和，所以可以只有一个点有值)。</h3><h3 id="emsp-emsp-考虑将对于第i行，将其第二维下标向右移i行，得到方程-f-i-j-f-i-1-j-f-i-j-1-。而j的范围是从i到i-m。那么原题就转化成了对一个n-1行n-m-1列的网格图-这里说的是格点-，有两条线不能越过（-y-x-1-y-x-m-2-），从（1-1）走到（n-1-n-m-1）的方案数。"><a href="#emsp-emsp-考虑将对于第i行，将其第二维下标向右移i行，得到方程-f-i-j-f-i-1-j-f-i-j-1-。而j的范围是从i到i-m。那么原题就转化成了对一个n-1行n-m-1列的网格图-这里说的是格点-，有两条线不能越过（-y-x-1-y-x-m-2-），从（1-1）走到（n-1-n-m-1）的方案数。" class="headerlink" title="&emsp; &emsp; 考虑将对于第i行，将其第二维下标向右移i行，得到方程$f_{i,j}=f_{i-1,j}+f_{i,j-1}$。而j的范围是从i到i+m。那么原题就转化成了对一个n+1行n+m+1列的网格图(这里说的是格点)，有两条线不能越过（$y=x+1,y=x-(m+2)$），从（1,1）走到（n+1,n+m+1）的方案数。"></a>&emsp; &emsp; 考虑将对于第i行，将其第二维下标向右移i行，得到方程$f_{i,j}=f_{i-1,j}+f_{i,j-1}$。而j的范围是从i到i+m。那么原题就转化成了对一个n+1行n+m+1列的网格图(这里说的是格点)，有两条线不能越过（$y=x+1,y=x-(m+2)$），从（1,1）走到（n+1,n+m+1）的方案数。</h3><h3 id="emsp-emsp-答案等于-全集-先越过A线的-先越过B线的。"><a href="#emsp-emsp-答案等于-全集-先越过A线的-先越过B线的。" class="headerlink" title="&emsp; &emsp; 答案等于=全集-先越过A线的-先越过B线的。"></a>&emsp; &emsp; 答案等于=全集-先越过A线的-先越过B线的。</h3><h3 id="将多次触碰同一条线视为一次触碰，那么一条线触碰AB的方案要么是ABABABAB……，要么是BABABABA……。对于先触碰A的，我们考虑先删掉以A结尾的方案，加上以BA结尾的方案，减掉以ABA结尾的方案……，直到方案数为０，就退出（每次至少向前移动一次，最多移动O（n）次）。那么就可以减掉所有第一次触碰禁忌线A的方案。同理可删除先触碰B的。"><a href="#将多次触碰同一条线视为一次触碰，那么一条线触碰AB的方案要么是ABABABAB……，要么是BABABABA……。对于先触碰A的，我们考虑先删掉以A结尾的方案，加上以BA结尾的方案，减掉以ABA结尾的方案……，直到方案数为０，就退出（每次至少向前移动一次，最多移动O（n）次）。那么就可以减掉所有第一次触碰禁忌线A的方案。同理可删除先触碰B的。" class="headerlink" title="将多次触碰同一条线视为一次触碰，那么一条线触碰AB的方案要么是ABABABAB……，要么是BABABABA……。对于先触碰A的，我们考虑先删掉以A结尾的方案，加上以BA结尾的方案，减掉以ABA结尾的方案……，直到方案数为０，就退出（每次至少向前移动一次，最多移动Ｏ（ｎ）次）。那么就可以减掉所有第一次触碰禁忌线A的方案。同理可删除先触碰B的。"></a>将多次触碰同一条线视为一次触碰，那么一条线触碰AB的方案要么是ABABABAB……，要么是BABABABA……。对于先触碰A的，我们考虑先删掉以A结尾的方案，加上以BA结尾的方案，减掉以ABA结尾的方案……，直到方案数为０，就退出（每次至少向前移动一次，最多移动Ｏ（ｎ）次）。那么就可以减掉所有第一次触碰禁忌线A的方案。同理可删除先触碰B的。</h3><h3 id="emsp-emsp-对于末尾为A的方案数计算，将终点对A线对称翻转，然后直接计算从-1-1-到对称点的方案（因为将路径沿A翻转，必定过A然后到终点。）而计算BA为末尾，就将点再沿B对称过去，计算-1-1-到对称点的方案。以此类推。"><a href="#emsp-emsp-对于末尾为A的方案数计算，将终点对A线对称翻转，然后直接计算从-1-1-到对称点的方案（因为将路径沿A翻转，必定过A然后到终点。）而计算BA为末尾，就将点再沿B对称过去，计算-1-1-到对称点的方案。以此类推。" class="headerlink" title="&emsp; &emsp; 对于末尾为A的方案数计算，将终点对A线对称翻转，然后直接计算从(1,1)到对称点的方案（因为将路径沿A翻转，必定过A然后到终点。）而计算BA为末尾，就将点再沿B对称过去，计算(1,1)到对称点的方案。以此类推。"></a>&emsp; &emsp; 对于末尾为A的方案数计算，将终点对A线对称翻转，然后直接计算从(1,1)到对称点的方案（因为将路径沿A翻转，必定过A然后到终点。）而计算BA为末尾，就将点再沿B对称过去，计算(1,1)到对称点的方案。以此类推。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给出n和m求满足a_ija_i-1j1且a_ija_ij1且0leq-a_ijleq-m1leq-ileq-n1leq-jleq-m的方案数"><a class="markdownIt-Anchor" href="#给出n和m求满足a_ija_i-1j1且a_ija_ij1且0leq-a_ijleq-m1leq-ileq-n1leq-jleq-m的方案数"></a>     给出n和m，求满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i-1,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>≤</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>≤</mo><mi>m</mi><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi><mo separator="true">,</mo><mn>1</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">0\leq a_{i,j}\leq m,1\leq i\leq n,1\leq j\leq m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.9456279999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit">m</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">i</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mrel">≤</span><span class="mord mathit">m</span></span></span></span>的方案数。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑每一行a_ija_ij1总共m个数而值只有m1个意味着每一行只有一个位置的差会为2其他都为1"><a class="markdownIt-Anchor" href="#考虑每一行a_ija_ij1总共m个数而值只有m1个意味着每一行只有一个位置的差会为2其他都为1"></a>     考虑每一行，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，总共m个数，而值只有m+1个，意味着每一行只有一个位置的差会为2，其他都为1。</h3>
+<h3 id="考虑对于每上面一行a_ija_i-1j1意味着对于第i行来说他突变的位置最前能够比第i-1行的突变位置前一格"><a class="markdownIt-Anchor" href="#考虑对于每上面一行a_ija_i-1j1意味着对于第i行来说他突变的位置最前能够比第i-1行的突变位置前一格"></a>     考虑对于每上面一行，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>&lt;</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{i,j}&lt;a_{i-1,j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，意味着对于第i行来说，他突变的位置最前能够比第i-1行的突变位置前一格。</h3>
+<h3 id="得到onm的方程设f_ij表示第i行的未突变位置小于等于j的方案数-f_ijf_i-1j1f_ij-1-j的范围为0到m-f_001因为小于等于相当于求前缀和所以可以只有一个点有值"><a class="markdownIt-Anchor" href="#得到onm的方程设f_ij表示第i行的未突变位置小于等于j的方案数-f_ijf_i-1j1f_ij-1-j的范围为0到m-f_001因为小于等于相当于求前缀和所以可以只有一个点有值"></a>     得到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nm)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mord mathit">m</span><span class="mclose">)</span></span></span></span>的方程，设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示第i行的未突变位置小于等于j的方案数。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}=f_{i-1,j+1}+f_{i,j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。j的范围为0到m。<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mn>0</mn><mo separator="true">,</mo><mn>0</mn></mrow></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f_{0,0}=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span>(因为小于等于相当于求前缀和，所以可以只有一个点有值)。</h3>
+<h3 id="考虑将对于第i行将其第二维下标向右移i行得到方程f_ijf_i-1jf_ij-1-而j的范围是从i到im-那么原题就转化成了对一个n1行nm1列的网格图这里说的是格点有两条线不能越过yx1yx-m2从11走到n1nm1的方案数"><a class="markdownIt-Anchor" href="#考虑将对于第i行将其第二维下标向右移i行得到方程f_ijf_i-1jf_ij-1-而j的范围是从i到im-那么原题就转化成了对一个n1行nm1列的网格图这里说的是格点有两条线不能越过yx1yx-m2从11走到n1nm1的方案数"></a>     考虑将对于第i行，将其第二维下标向右移i行，得到方程<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}=f_{i-1,j}+f_{i,j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。而j的范围是从i到i+m。那么原题就转化成了对一个n+1行n+m+1列的网格图(这里说的是格点)，有两条线不能越过（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>y</mi><mo>=</mo><mi>x</mi><mo>−</mo><mo>(</mo><mi>m</mi><mo>+</mo><mn>2</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">y=x+1,y=x-(m+2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathit">x</span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mrel">=</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mopen">(</span><span class="mord mathit">m</span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mclose">)</span></span></span></span>），从（1,1）走到（n+1,n+m+1）的方案数。</h3>
+<h3 id="答案等于全集-先越过a线的-先越过b线的"><a class="markdownIt-Anchor" href="#答案等于全集-先越过a线的-先越过b线的"></a>     答案等于=全集-先越过A线的-先越过B线的。</h3>
+<h3 id="将多次触碰同一条线视为一次触碰那么一条线触碰ab的方案要么是abababab要么是babababa-对于先触碰a的我们考虑先删掉以a结尾的方案加上以ba结尾的方案减掉以aba结尾的方案直到方案数为0就退出每次至少向前移动一次最多移动on次-那么就可以减掉所有第一次触碰禁忌线a的方案-同理可删除先触碰b的"><a class="markdownIt-Anchor" href="#将多次触碰同一条线视为一次触碰那么一条线触碰ab的方案要么是abababab要么是babababa-对于先触碰a的我们考虑先删掉以a结尾的方案加上以ba结尾的方案减掉以aba结尾的方案直到方案数为0就退出每次至少向前移动一次最多移动on次-那么就可以减掉所有第一次触碰禁忌线a的方案-同理可删除先触碰b的"></a> 将多次触碰同一条线视为一次触碰，那么一条线触碰AB的方案要么是ABABABAB……，要么是BABABABA……。对于先触碰A的，我们考虑先删掉以A结尾的方案，加上以BA结尾的方案，减掉以ABA结尾的方案……，直到方案数为０，就退出（每次至少向前移动一次，最多移动Ｏ（ｎ）次）。那么就可以减掉所有第一次触碰禁忌线A的方案。同理可删除先触碰B的。</h3>
+<h3 id="对于末尾为a的方案数计算将终点对a线对称翻转然后直接计算从11到对称点的方案因为将路径沿a翻转必定过a然后到终点-而计算ba为末尾就将点再沿b对称过去计算11到对称点的方案-以此类推"><a class="markdownIt-Anchor" href="#对于末尾为a的方案数计算将终点对a线对称翻转然后直接计算从11到对称点的方案因为将路径沿a翻转必定过a然后到终点-而计算ba为末尾就将点再沿b对称过去计算11到对称点的方案-以此类推"></a>     对于末尾为A的方案数计算，将终点对A线对称翻转，然后直接计算从(1,1)到对称点的方案（因为将路径沿A翻转，必定过A然后到终点。）而计算BA为末尾，就将点再沿B对称过去，计算(1,1)到对称点的方案。以此类推。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 13000000
@@ -913,68 +1057,6 @@ int main(){
     </article>
     <footer class="cube-excerpt-footer">
         <a class="cube-excerpt-more" href="/2018/07/08/JLOI2015-骗我呢/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-JLOI2015 装备购买">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/08/JLOI2015-装备购买/">JLOI2015 装备购买</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-08
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/线性基/" class="cube-excerpt-tag-link">#线性基</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-给n个装备，每个装备有m个属性，求花费最小的基底。"><a href="#emsp-emsp-给n个装备，每个装备有m个属性，求花费最小的基底。" class="headerlink" title="&emsp; &emsp;给n个装备，每个装备有m个属性，求花费最小的基底。"></a>&emsp; &emsp;给n个装备，每个装备有m个属性，求花费最小的基底。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-排序，贪心，然后用线性基维护即可。"><a href="#emsp-emsp-排序，贪心，然后用线性基维护即可。" class="headerlink" title="&emsp; &emsp; 排序，贪心，然后用线性基维护即可。"></a>&emsp; &emsp; 排序，贪心，然后用线性基维护即可。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;algorithm&gt;
-#include&lt;cmath&gt;
-using namespace std;
-#define eps 1e-8
-const int N=505;
-int n,m;
-long double lb[N][N];
-struct node{
-    long double a[N];
-    int w;
-}s[N];
-int tot,ans;
-bool cmp(node x,node y){return x.w&lt;y.w;}
-int main(){
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i=1;i&lt;=n;i++)
-        for(int j=1,x;j&lt;=m;j++)scanf(&quot;%llf&quot;,&amp;s[i].a[j]);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;s[i].w);
-    sort(s+1,s+1+n,cmp);
-    for(int x=1;x&lt;=n;x++)
-        for(int i=1;i&lt;=m;i++)
-            if(fabs(s[x].a[i])&gt;=eps){
-                if(fabs(lb[i][i])&lt;eps){
-                    for(int j=i;j&lt;=m;j++)lb[i][j]=s[x].a[j];
-                    tot++;
-                    ans+=s[x].w;
-                    break;
-                }
-                for(int j=m;j&gt;=i;j--)s[x].a[j]-=lb[i][j]*(s[x].a[i]/lb[i][i]);
-            }
-    printf(&quot;%d %d\n&quot;,tot,ans);
-}
-</code></pre>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/08/JLOI2015-装备购买/">Read More</a>
     </footer>
 </div>
 
@@ -1067,8 +1149,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>63</span>Article</a>
-        <a class="count tags"><span>57</span>Tags</a>
+        <a class="count articles"><span>64</span>Article</a>
+        <a class="count tags"><span>58</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
 </div>
@@ -1106,7 +1188,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
+                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
                 </p>
             </div>
             
@@ -1120,7 +1202,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
+                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
                 </p>
             </div>
         </li>
@@ -1133,7 +1215,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
                 </p>
             </div>
         </li>
@@ -1146,7 +1228,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
+                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
                 </p>
             </div>
         </li>
@@ -1159,7 +1241,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/SCOI2015-选数/" title="CQOI2015 选数">CQOI2015 选数</a>
+                    <a href="/2018/08/01/YNOI2017-由乃的OJ/" title="YNOI2017 由乃的OJ">YNOI2017 由乃的OJ</a>
                 </p>
             </div>
         </li>
@@ -1177,7 +1259,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -1203,7 +1285,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/分数规划/">#分数规划</a>
         </div>
         
@@ -1218,16 +1300,6 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
         <div class="cube-box ">
             <a href="/tags/好题/">#好题</a>
         </div>
@@ -1239,17 +1311,27 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+            <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
         
@@ -1259,11 +1341,21 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/组合数学/">#组合数学</a>
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/组合数学/">#组合数学</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
@@ -1288,23 +1380,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/斜率优化/">#斜率优化</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
         <div class="cube-box-bg ">
             <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/斜率优化/">#斜率优化</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
@@ -1323,17 +1415,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/模拟/">#模拟</a>
         </div>
         
@@ -1343,12 +1435,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
@@ -1359,17 +1446,17 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+            <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
@@ -1393,6 +1480,16 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/数学/">#数学</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/dp优化/">#dp优化</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/概率与期望/">#概率与期望</a>
         </div>
@@ -1409,27 +1506,7 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/数学/">#数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/dp优化/">#dp优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/期望/">#期望</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
@@ -1444,11 +1521,16 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/上下界网络流/">#上下界网络流</a>
         </div>
         
@@ -1458,18 +1540,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/整体二分/">#整体二分</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
             <a href="/tags/FFT/">#FFT</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
@@ -1478,8 +1555,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/整体二分/">#整体二分</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/积性函数/">#积性函数</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
     </div>
