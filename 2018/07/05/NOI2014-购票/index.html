@@ -186,20 +186,36 @@
         <div class="cube-article-tags">
     <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
     
+    <a href="/tags/点分治/">#点分治</a>
+    
     <a href="/tags/NOI/">#NOI</a>
     
     <a href="/tags/斜率优化/">#斜率优化</a>
     
     <a href="/tags/CDQ分治/">#CDQ分治</a>
     
-    <a href="/tags/点分治/">#点分治</a>
-    
 </div>
     </div>
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-有一棵树，对于每个点v有四个参数-s-v-p-v-q-v-l-v-。"><a href="#emsp-emsp-有一棵树，对于每个点v有四个参数-s-v-p-v-q-v-l-v-。" class="headerlink" title="&emsp; &emsp; 有一棵树，对于每个点v有四个参数,$s_v$,$p_v$,$q_v$,$l_v$。"></a>&emsp; &emsp; 有一棵树，对于每个点v有四个参数,$s_v$,$p_v$,$q_v$,$l_v$。</h3><h3 id="emsp-emsp-s-v-表示当前点到父亲节点的距离。如果d为每次跳跃的距离，那么每次跳跃的费用为-dp-v-q-v-。现在所有点都要去到1号点，并且他们每次往上跳不能超过距离-l-v-。对于每个点求最小花费。"><a href="#emsp-emsp-s-v-表示当前点到父亲节点的距离。如果d为每次跳跃的距离，那么每次跳跃的费用为-dp-v-q-v-。现在所有点都要去到1号点，并且他们每次往上跳不能超过距离-l-v-。对于每个点求最小花费。" class="headerlink" title="&emsp; &emsp; $s_v$表示当前点到父亲节点的距离。如果d为每次跳跃的距离，那么每次跳跃的费用为$dp_v+q_v$。现在所有点都要去到1号点，并且他们每次往上跳不能超过距离$l_v$。对于每个点求最小花费。"></a>&emsp; &emsp; $s_v$表示当前点到父亲节点的距离。如果d为每次跳跃的距离，那么每次跳跃的费用为$dp_v+q_v$。现在所有点都要去到1号点，并且他们每次往上跳不能超过距离$l_v$。对于每个点求最小花费。</h3><h3 id="emsp-emsp-n-leq2-10-5-其余所有运算不超过longlong。"><a href="#emsp-emsp-n-leq2-10-5-其余所有运算不超过longlong。" class="headerlink" title="&emsp; &emsp; $n\leq2*10^5$,其余所有运算不超过longlong。"></a>&emsp; &emsp; $n\leq2*10^5$,其余所有运算不超过longlong。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-链上做法：斜率优化"><a href="#emsp-emsp-链上做法：斜率优化" class="headerlink" title="&emsp; &emsp; 链上做法：斜率优化"></a>&emsp; &emsp; 链上做法：斜率优化</h3><h3 id="emsp-emsp-设-d-i-为1号点到i号点的距离"><a href="#emsp-emsp-设-d-i-为1号点到i号点的距离" class="headerlink" title="&emsp; &emsp; 设$d_i$为1号点到i号点的距离"></a>&emsp; &emsp; 设$d_i$为1号点到i号点的距离</h3><h3 id="emsp-emsp-f-i-min-f-j-d-i-d-j-p-i-q-i"><a href="#emsp-emsp-f-i-min-f-j-d-i-d-j-p-i-q-i" class="headerlink" title="&emsp; &emsp; $f_i=min(f_j+(d_i-d_j)p_i+q_i)$"></a>&emsp; &emsp; $f_i=min(f_j+(d_i-d_j)p_i+q_i)$</h3><h3 id="emsp-emsp-设选k由于j且-d-k-gt-d-j-："><a href="#emsp-emsp-设选k由于j且-d-k-gt-d-j-：" class="headerlink" title="&emsp; &emsp; 设选k由于j且$d_k&gt;d_j$："></a>&emsp; &emsp; 设选k由于j且$d_k&gt;d_j$：</h3><h3 id="emsp-emsp-f-k-d-i-d-k-p-i-q-i-lt-f-j-d-i-d-j-p-i-q-i"><a href="#emsp-emsp-f-k-d-i-d-k-p-i-q-i-lt-f-j-d-i-d-j-p-i-q-i" class="headerlink" title="&emsp; &emsp; $f_k+(d_i-d_k)p_i+q_i&lt;f_j+(d_i-d_j)p_i+q_i$"></a>&emsp; &emsp; $f_k+(d_i-d_k)p_i+q_i&lt;f_j+(d_i-d_j)p_i+q_i$</h3><h3 id="emsp-emsp-整理得："><a href="#emsp-emsp-整理得：" class="headerlink" title="&emsp; &emsp; 整理得："></a>&emsp; &emsp; 整理得：</h3><h3 id="emsp-emsp-frac-f-k-f-j-d-k-d-j-lt-p-i"><a href="#emsp-emsp-frac-f-k-f-j-d-k-d-j-lt-p-i" class="headerlink" title="&emsp; &emsp; $\frac{f_k-f_j}{d_k-d_j}&lt;p_i$"></a>&emsp; &emsp; $\frac{f_k-f_j}{d_k-d_j}&lt;p_i$</h3><h3 id="emsp-emsp-树链剖分-凸包合并-O-n-log-3-n-："><a href="#emsp-emsp-树链剖分-凸包合并-O-n-log-3-n-：" class="headerlink" title="&emsp; &emsp; 树链剖分+凸包合并$O(n\log^3 n)$："></a>&emsp; &emsp; 树链剖分+凸包合并$O(n\log^3 n)$：</h3><h3 id="emsp-emsp-对于一条链来说，直接斜率优化即可，那么对于树上，我们可以按照dfs的顺序，一次加入点，并将树树剖，依次求出f值，在插入线段树的时候，只有左右儿子都是满时才合并，因为没加入的都不会被查询，所以可在-n-log-3n-的时间里求出答案（树剖一条链会有log段，限制-l-i-在线段树上取区间总共有log个，每个区间二分得到答案又一个log）（因为树剖常数小所以能过qwq）（然而懒惰的我写了下面的方法。）"><a href="#emsp-emsp-对于一条链来说，直接斜率优化即可，那么对于树上，我们可以按照dfs的顺序，一次加入点，并将树树剖，依次求出f值，在插入线段树的时候，只有左右儿子都是满时才合并，因为没加入的都不会被查询，所以可在-n-log-3n-的时间里求出答案（树剖一条链会有log段，限制-l-i-在线段树上取区间总共有log个，每个区间二分得到答案又一个log）（因为树剖常数小所以能过qwq）（然而懒惰的我写了下面的方法。）" class="headerlink" title="&emsp; &emsp; 对于一条链来说，直接斜率优化即可，那么对于树上，我们可以按照dfs的顺序，一次加入点，并将树树剖，依次求出f值，在插入线段树的时候，只有左右儿子都是满时才合并，因为没加入的都不会被查询，所以可在$(n\log^3n)$的时间里求出答案（树剖一条链会有log段，限制$l_i$在线段树上取区间总共有log个，每个区间二分得到答案又一个log）（因为树剖常数小所以能过qwq）（然而懒惰的我写了下面的方法。）"></a>&emsp; &emsp; 对于一条链来说，直接斜率优化即可，那么对于树上，我们可以按照dfs的顺序，一次加入点，并将树树剖，依次求出f值，在插入线段树的时候，只有左右儿子都是满时才合并，因为没加入的都不会被查询，所以可在$(n\log^3n)$的时间里求出答案（树剖一条链会有log段，限制$l_i$在线段树上取区间总共有log个，每个区间二分得到答案又一个log）（因为树剖常数小所以能过qwq）（然而懒惰的我写了下面的方法。）</h3><h3 id="emsp-emsp-CDQ-树分治-凸包合并-O-n-log-2n-："><a href="#emsp-emsp-CDQ-树分治-凸包合并-O-n-log-2n-：" class="headerlink" title="&emsp; &emsp; CDQ+树分治+凸包合并$O(n\log^2n)$："></a>&emsp; &emsp; CDQ+树分治+凸包合并$O(n\log^2n)$：</h3><h3 id="emsp-emsp-对于每次分治，把重心堵住，不停地堵住，然后利用当前节点到重心的链去更新重心答案，再递归计算。（看代码应该极好理解）"><a href="#emsp-emsp-对于每次分治，把重心堵住，不停地堵住，然后利用当前节点到重心的链去更新重心答案，再递归计算。（看代码应该极好理解）" class="headerlink" title="&emsp; &emsp; 对于每次分治，把重心堵住，不停地堵住，然后利用当前节点到重心的链去更新重心答案，再递归计算。（看代码应该极好理解）"></a>&emsp; &emsp; 对于每次分治，把重心堵住，不停地堵住，然后利用当前节点到重心的链去更新重心答案，再递归计算。（看代码应该极好理解）</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="有一棵树对于每个点v有四个参数s_vp_vq_vl_v"><a class="markdownIt-Anchor" href="#有一棵树对于每个点v有四个参数s_vp_vq_vl_v"></a>     有一棵树，对于每个点v有四个参数,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">s_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">p_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>q</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">q_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>l</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">l_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.01968em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</h3>
+<h3 id="s_v表示当前点到父亲节点的距离-如果d为每次跳跃的距离那么每次跳跃的费用为dp_vq_v-现在所有点都要去到1号点并且他们每次往上跳不能超过距离l_v-对于每个点求最小花费"><a class="markdownIt-Anchor" href="#s_v表示当前点到父亲节点的距离-如果d为每次跳跃的距离那么每次跳跃的费用为dp_vq_v-现在所有点都要去到1号点并且他们每次往上跳不能超过距离l_v-对于每个点求最小花费"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">s_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示当前点到父亲节点的距离。如果d为每次跳跃的距离，那么每次跳跃的费用为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><msub><mi>p</mi><mi>v</mi></msub><mo>+</mo><msub><mi>q</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">dp_v+q_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">d</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。现在所有点都要去到1号点，并且他们每次往上跳不能超过距离<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>l</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">l_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.01968em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。对于每个点求最小花费。</h3>
+<h3 id="nleq2105其余所有运算不超过longlong"><a class="markdownIt-Anchor" href="#nleq2105其余所有运算不超过longlong"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>2</mn><mo>∗</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n\leq2*10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">2</span><span class="mbin">∗</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>,其余所有运算不超过longlong。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="链上做法斜率优化"><a class="markdownIt-Anchor" href="#链上做法斜率优化"></a>     链上做法：斜率优化</h3>
+<h3 id="设d_i为1号点到i号点的距离"><a class="markdownIt-Anchor" href="#设d_i为1号点到i号点的距离"></a>     设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>为1号点到i号点的距离</h3>
+<h3 id="f_iminf_jd_i-d_jp_iq_i"><a class="markdownIt-Anchor" href="#f_iminf_jd_i-d_jp_iq_i"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub><mo>=</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo>(</mo><msub><mi>f</mi><mi>j</mi></msub><mo>+</mo><mo>(</mo><msub><mi>d</mi><mi>i</mi></msub><mo>−</mo><msub><mi>d</mi><mi>j</mi></msub><mo>)</mo><msub><mi>p</mi><mi>i</mi></msub><mo>+</mo><msub><mi>q</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">f_i=min(f_j+(d_i-d_j)p_i+q_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathit">m</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span></h3>
+<h3 id="设选k由于j且d_kd_j"><a class="markdownIt-Anchor" href="#设选k由于j且d_kd_j"></a>     设选k由于j且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>d</mi><mi>k</mi></msub><mo>&gt;</mo><msub><mi>d</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">d_k&gt;d_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&gt;</span><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>：</h3>
+<h3 id="f_kd_i-d_kp_iq_if_jd_i-d_jp_iq_i"><a class="markdownIt-Anchor" href="#f_kd_i-d_kp_iq_if_jd_i-d_jp_iq_i"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>k</mi></msub><mo>+</mo><mo>(</mo><msub><mi>d</mi><mi>i</mi></msub><mo>−</mo><msub><mi>d</mi><mi>k</mi></msub><mo>)</mo><msub><mi>p</mi><mi>i</mi></msub><mo>+</mo><msub><mi>q</mi><mi>i</mi></msub><mo>&lt;</mo><msub><mi>f</mi><mi>j</mi></msub><mo>+</mo><mo>(</mo><msub><mi>d</mi><mi>i</mi></msub><mo>−</mo><msub><mi>d</mi><mi>j</mi></msub><mo>)</mo><msub><mi>p</mi><mi>i</mi></msub><mo>+</mo><msub><mi>q</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_k+(d_i-d_k)p_i+q_i&lt;f_j+(d_i-d_j)p_i+q_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></h3>
+<h3 id="整理得"><a class="markdownIt-Anchor" href="#整理得"></a>     整理得：</h3>
+<h3 id="fracf_k-f_jd_k-d_jp_i"><a class="markdownIt-Anchor" href="#fracf_k-f_jd_k-d_jp_i"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><msub><mi>f</mi><mi>k</mi></msub><mo>−</mo><msub><mi>f</mi><mi>j</mi></msub></mrow><mrow><msub><mi>d</mi><mi>k</mi></msub><mo>−</mo><msub><mi>d</mi><mi>j</mi></msub></mrow></mfrac><mo>&lt;</mo><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\frac{f_k-f_j}{d_k-d_j}&lt;p_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9983279999999999em;"></span><span class="strut bottom" style="height:1.545548em;vertical-align:-0.54722em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15122857142857138em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit">d</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.51222em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15122857142857138em;margin-right:0.07142857142857144em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></h3>
+<h3 id="树链剖分凸包合并onlog3-n"><a class="markdownIt-Anchor" href="#树链剖分凸包合并onlog3-n"></a>     树链剖分+凸包合并<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msup><mi>log</mi><mn>3</mn></msup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log^3 n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>：</h3>
+<h3 id="对于一条链来说直接斜率优化即可那么对于树上我们可以按照dfs的顺序一次加入点并将树树剖依次求出f值在插入线段树的时候只有左右儿子都是满时才合并因为没加入的都不会被查询所以可在nlog3n的时间里求出答案树剖一条链会有log段限制l_i在线段树上取区间总共有log个每个区间二分得到答案又一个log因为树剖常数小所以能过qwq然而懒惰的我写了下面的方法"><a class="markdownIt-Anchor" href="#对于一条链来说直接斜率优化即可那么对于树上我们可以按照dfs的顺序一次加入点并将树树剖依次求出f值在插入线段树的时候只有左右儿子都是满时才合并因为没加入的都不会被查询所以可在nlog3n的时间里求出答案树剖一条链会有log段限制l_i在线段树上取区间总共有log个每个区间二分得到答案又一个log因为树剖常数小所以能过qwq然而懒惰的我写了下面的方法"></a>     对于一条链来说，直接斜率优化即可，那么对于树上，我们可以按照dfs的顺序，一次加入点，并将树树剖，依次求出f值，在插入线段树的时候，只有左右儿子都是满时才合并，因为没加入的都不会被查询，所以可在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>n</mi><msup><mi>log</mi><mn>3</mn></msup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(n\log^3n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">n</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>的时间里求出答案（树剖一条链会有log段，限制<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>l</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">l_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.01968em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>在线段树上取区间总共有log个，每个区间二分得到答案又一个log）（因为树剖常数小所以能过qwq）（然而懒惰的我写了下面的方法。）</h3>
+<h3 id="cdq树分治凸包合并onlog2n"><a class="markdownIt-Anchor" href="#cdq树分治凸包合并onlog2n"></a>     CDQ+树分治+凸包合并<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msup><mi>log</mi><mn>2</mn></msup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log^2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>：</h3>
+<h3 id="对于每次分治把重心堵住不停地堵住然后利用当前节点到重心的链去更新重心答案再递归计算-看代码应该极好理解"><a class="markdownIt-Anchor" href="#对于每次分治把重心堵住不停地堵住然后利用当前节点到重心的链去更新重心答案再递归计算-看代码应该极好理解"></a>     对于每次分治，把重心堵住，不停地堵住，然后利用当前节点到重心的链去更新重心答案，再递归计算。（看代码应该极好理解）</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;algorithm&gt;
@@ -356,8 +372,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>65</span>Article</a>
-        <a class="count tags"><span>58</span>Tags</a>
+        <a class="count articles"><span>68</span>Article</a>
+        <a class="count tags"><span>59</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
 </div>
@@ -395,7 +411,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
+                    <a href="/2018/10/09/BZOJ4676-Xor-Mul棋盘/" title="BZOJ4676 Xor-Mul棋盘">BZOJ4676 Xor-Mul棋盘</a>
                 </p>
             </div>
             
@@ -409,7 +425,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
+                    <a href="/2018/10/09/BZOJ4675-点对游戏/" title="BZOJ4675 点对游戏">BZOJ4675 点对游戏</a>
                 </p>
             </div>
         </li>
@@ -422,7 +438,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
+                    <a href="/2018/10/09/BZOJ4695-最假女选手/" title="BZOJ4695 最假女选手">BZOJ4695 最假女选手</a>
                 </p>
             </div>
         </li>
@@ -435,7 +451,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
+                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
                 </p>
             </div>
         </li>
@@ -448,7 +464,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
                 </p>
             </div>
         </li>
@@ -488,6 +504,11 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -507,6 +528,16 @@ int main(){
         </div>
         
         
+        <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
             <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
@@ -517,7 +548,17 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
         <div class="cube-box ">
+            <a href="/tags/吉利线段树/">#吉利线段树</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
@@ -532,13 +573,28 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树形DP/">#树形DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
@@ -547,13 +603,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/计数/">#计数</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/线性基/">#线性基</a>
+            <a href="/tags/计数/">#计数</a>
         </div>
         
         
@@ -562,7 +613,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/hash/">#hash</a>
         </div>
         
@@ -577,18 +628,13 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
@@ -597,13 +643,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
@@ -612,17 +653,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/卡常/">#卡常</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
@@ -637,7 +673,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
@@ -652,17 +688,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/分块/">#分块</a>
         </div>
         
@@ -677,18 +713,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/费用流/">#费用流</a>
-        </div>
-        
-        
         <div class="cube-box ">
             <a href="/tags/概率与期望/">#概率与期望</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
@@ -698,16 +734,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/数学/">#数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/dp优化/">#dp优化</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/计划表/">#计划表</a>
         </div>
         
@@ -718,22 +744,22 @@ int main(){
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/数学/">#数学</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/dp优化/">#dp优化</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/最小生成树/">#最小生成树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
@@ -743,11 +769,16 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
+            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/AC自动机/">#AC自动机</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
@@ -762,18 +793,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树状数组/">#树状数组</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
     </div>

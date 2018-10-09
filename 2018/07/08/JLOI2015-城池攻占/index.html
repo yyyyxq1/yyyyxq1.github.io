@@ -193,7 +193,15 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><h3 id="emsp-emsp-小铭铭最近获得了一副新的桌游，游戏中需要用m个骑士攻占n个城池。"><a href="#emsp-emsp-小铭铭最近获得了一副新的桌游，游戏中需要用m个骑士攻占n个城池。" class="headerlink" title="&emsp; &emsp; 小铭铭最近获得了一副新的桌游，游戏中需要用m个骑士攻占n个城池。"></a>&emsp; &emsp; 小铭铭最近获得了一副新的桌游，游戏中需要用m个骑士攻占n个城池。</h3><h3 id="emsp-emsp-这n个城池用1到n的整数表示。除1号城池外，城池i会受到另一座城池-f-i-的管辖，其中-f-i-lt-i-。也就是说，所有城池构成了一棵有根树。这m个骑士用1到m的整数表示，其中第i个骑士的初始战斗力为-s-i-，第一个攻击的城池为-c-i-。"><a href="#emsp-emsp-这n个城池用1到n的整数表示。除1号城池外，城池i会受到另一座城池-f-i-的管辖，其中-f-i-lt-i-。也就是说，所有城池构成了一棵有根树。这m个骑士用1到m的整数表示，其中第i个骑士的初始战斗力为-s-i-，第一个攻击的城池为-c-i-。" class="headerlink" title="&emsp; &emsp; 这n个城池用1到n的整数表示。除1号城池外，城池i会受到另一座城池$f_i$的管辖，其中$f_i &lt;i$。也就是说，所有城池构成了一棵有根树。这m个骑士用1到m的整数表示，其中第i个骑士的初始战斗力为$s_i$，第一个攻击的城池为$c_i$。"></a>&emsp; &emsp; 这n个城池用1到n的整数表示。除1号城池外，城池i会受到另一座城池$f_i$的管辖，其中$f_i &lt;i$。也就是说，所有城池构成了一棵有根树。这m个骑士用1到m的整数表示，其中第i个骑士的初始战斗力为$s_i$，第一个攻击的城池为$c_i$。</h3><h3 id="emsp-emsp-每个城池有一个防御值-h-i-，如果一个骑士的战斗力大于等于城池的生命值，那么骑士就可以占领这座城池；否则占领失败，骑士将在这座城池牺牲。占领一个城池以后，骑士的战斗力将发生变化，然后继续攻击管辖这座城池的城池，直到占领1号城池，或牺牲为止。"><a href="#emsp-emsp-每个城池有一个防御值-h-i-，如果一个骑士的战斗力大于等于城池的生命值，那么骑士就可以占领这座城池；否则占领失败，骑士将在这座城池牺牲。占领一个城池以后，骑士的战斗力将发生变化，然后继续攻击管辖这座城池的城池，直到占领1号城池，或牺牲为止。" class="headerlink" title="&emsp; &emsp; 每个城池有一个防御值$h_i$，如果一个骑士的战斗力大于等于城池的生命值，那么骑士就可以占领这座城池；否则占领失败，骑士将在这座城池牺牲。占领一个城池以后，骑士的战斗力将发生变化，然后继续攻击管辖这座城池的城池，直到占领1号城池，或牺牲为止。"></a>&emsp; &emsp; 每个城池有一个防御值$h_i$，如果一个骑士的战斗力大于等于城池的生命值，那么骑士就可以占领这座城池；否则占领失败，骑士将在这座城池牺牲。占领一个城池以后，骑士的战斗力将发生变化，然后继续攻击管辖这座城池的城池，直到占领1号城池，或牺牲为止。</h3><h3 id="emsp-emsp-除1号城池外，每个城池i会给出两个战斗力变化参数-a-i-v-i-。若-a-i-0-，攻占城池i以后骑士战斗力会增加-v-i-；若-a-i-1-，攻占城池i以后，战斗力会乘以-v-i-。注意每个骑士是单独计算的。也就是说一个骑士攻击一座城池，不管结果如何，均不会影响其他骑士攻击这座城池的结果。"><a href="#emsp-emsp-除1号城池外，每个城池i会给出两个战斗力变化参数-a-i-v-i-。若-a-i-0-，攻占城池i以后骑士战斗力会增加-v-i-；若-a-i-1-，攻占城池i以后，战斗力会乘以-v-i-。注意每个骑士是单独计算的。也就是说一个骑士攻击一座城池，不管结果如何，均不会影响其他骑士攻击这座城池的结果。" class="headerlink" title="&emsp; &emsp; 除1号城池外，每个城池i会给出两个战斗力变化参数$a_i$, $v_i$。若$a_i=0$，攻占城池i以后骑士战斗力会增加$v_i$；若$a_i =1$，攻占城池i以后，战斗力会乘以$v_i$。注意每个骑士是单独计算的。也就是说一个骑士攻击一座城池，不管结果如何，均不会影响其他骑士攻击这座城池的结果。"></a>&emsp; &emsp; 除1号城池外，每个城池i会给出两个战斗力变化参数$a_i$, $v_i$。若$a_i=0$，攻占城池i以后骑士战斗力会增加$v_i$；若$a_i =1$，攻占城池i以后，战斗力会乘以$v_i$。注意每个骑士是单独计算的。也就是说一个骑士攻击一座城池，不管结果如何，均不会影响其他骑士攻击这座城池的结果。</h3><h3 id="emsp-emsp-现在的问题是，对于每个城池，输出有多少个骑士在这里牺牲；对于每个骑士，输出他攻占的城池数量。"><a href="#emsp-emsp-现在的问题是，对于每个城池，输出有多少个骑士在这里牺牲；对于每个骑士，输出他攻占的城池数量。" class="headerlink" title="&emsp; &emsp; 现在的问题是，对于每个城池，输出有多少个骑士在这里牺牲；对于每个骑士，输出他攻占的城池数量。"></a>&emsp; &emsp; 现在的问题是，对于每个城池，输出有多少个骑士在这里牺牲；对于每个骑士，输出他攻占的城池数量。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-考虑对于一个点来说，初始值越大，最后能到达的高度也就越高。那么直接倍增维护跳2-i所需的初始值，并将函数复合即可。"><a href="#emsp-emsp-考虑对于一个点来说，初始值越大，最后能到达的高度也就越高。那么直接倍增维护跳2-i所需的初始值，并将函数复合即可。" class="headerlink" title="&emsp; &emsp; 考虑对于一个点来说，初始值越大，最后能到达的高度也就越高。那么直接倍增维护跳2^i所需的初始值，并将函数复合即可。"></a>&emsp; &emsp; 考虑对于一个点来说，初始值越大，最后能到达的高度也就越高。那么直接倍增维护跳2^i所需的初始值，并将函数复合即可。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+        <h2 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述：</h2>
+<h3 id="小铭铭最近获得了一副新的桌游游戏中需要用m个骑士攻占n个城池"><a class="markdownIt-Anchor" href="#小铭铭最近获得了一副新的桌游游戏中需要用m个骑士攻占n个城池"></a>     小铭铭最近获得了一副新的桌游，游戏中需要用m个骑士攻占n个城池。</h3>
+<h3 id="这n个城池用1到n的整数表示-除1号城池外城池i会受到另一座城池f_i的管辖其中f_i-i-也就是说所有城池构成了一棵有根树-这m个骑士用1到m的整数表示其中第i个骑士的初始战斗力为s_i第一个攻击的城池为c_i"><a class="markdownIt-Anchor" href="#这n个城池用1到n的整数表示-除1号城池外城池i会受到另一座城池f_i的管辖其中f_i-i-也就是说所有城池构成了一棵有根树-这m个骑士用1到m的整数表示其中第i个骑士的初始战斗力为s_i第一个攻击的城池为c_i"></a>     这n个城池用1到n的整数表示。除1号城池外，城池i会受到另一座城池<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>的管辖，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub><mo>&lt;</mo><mi>i</mi></mrow><annotation encoding="application/x-tex">f_i &lt;i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord mathit">i</span></span></span></span>。也就是说，所有城池构成了一棵有根树。这m个骑士用1到m的整数表示，其中第i个骑士的初始战斗力为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">s_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，第一个攻击的城池为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">c_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</h3>
+<h3 id="每个城池有一个防御值h_i如果一个骑士的战斗力大于等于城池的生命值那么骑士就可以占领这座城池否则占领失败骑士将在这座城池牺牲-占领一个城池以后骑士的战斗力将发生变化然后继续攻击管辖这座城池的城池直到占领1号城池或牺牲为止"><a class="markdownIt-Anchor" href="#每个城池有一个防御值h_i如果一个骑士的战斗力大于等于城池的生命值那么骑士就可以占领这座城池否则占领失败骑士将在这座城池牺牲-占领一个城池以后骑士的战斗力将发生变化然后继续攻击管辖这座城池的城池直到占领1号城池或牺牲为止"></a>     每个城池有一个防御值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">h_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">h</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，如果一个骑士的战斗力大于等于城池的生命值，那么骑士就可以占领这座城池；否则占领失败，骑士将在这座城池牺牲。占领一个城池以后，骑士的战斗力将发生变化，然后继续攻击管辖这座城池的城池，直到占领1号城池，或牺牲为止。</h3>
+<h3 id="除1号城池外每个城池i会给出两个战斗力变化参数a_i-v_i-若a_i0攻占城池i以后骑士战斗力会增加v_i若a_i-1攻占城池i以后战斗力会乘以v_i-注意每个骑士是单独计算的-也就是说一个骑士攻击一座城池不管结果如何均不会影响其他骑士攻击这座城池的结果"><a class="markdownIt-Anchor" href="#除1号城池外每个城池i会给出两个战斗力变化参数a_i-v_i-若a_i0攻占城池i以后骑士战斗力会增加v_i若a_i-1攻占城池i以后战斗力会乘以v_i-注意每个骑士是单独计算的-也就是说一个骑士攻击一座城池不管结果如何均不会影响其他骑士攻击这座城池的结果"></a>     除1号城池外，每个城池i会给出两个战斗力变化参数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a_i=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span>，攻占城池i以后骑士战斗力会增加<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>；若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a_i =1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span>，攻占城池i以后，战斗力会乘以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。注意每个骑士是单独计算的。也就是说一个骑士攻击一座城池，不管结果如何，均不会影响其他骑士攻击这座城池的结果。</h3>
+<h3 id="现在的问题是对于每个城池输出有多少个骑士在这里牺牲对于每个骑士输出他攻占的城池数量"><a class="markdownIt-Anchor" href="#现在的问题是对于每个城池输出有多少个骑士在这里牺牲对于每个骑士输出他攻占的城池数量"></a>     现在的问题是，对于每个城池，输出有多少个骑士在这里牺牲；对于每个骑士，输出他攻占的城池数量。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑对于一个点来说初始值越大最后能到达的高度也就越高-那么直接倍增维护跳2i所需的初始值并将函数复合即可"><a class="markdownIt-Anchor" href="#考虑对于一个点来说初始值越大最后能到达的高度也就越高-那么直接倍增维护跳2i所需的初始值并将函数复合即可"></a>     考虑对于一个点来说，初始值越大，最后能到达的高度也就越高。那么直接倍增维护跳2^i所需的初始值，并将函数复合即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 320000
@@ -305,8 +313,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>65</span>Article</a>
-        <a class="count tags"><span>58</span>Tags</a>
+        <a class="count articles"><span>68</span>Article</a>
+        <a class="count tags"><span>59</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
 </div>
@@ -344,7 +352,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
+                    <a href="/2018/10/09/BZOJ4676-Xor-Mul棋盘/" title="BZOJ4676 Xor-Mul棋盘">BZOJ4676 Xor-Mul棋盘</a>
                 </p>
             </div>
             
@@ -358,7 +366,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
+                    <a href="/2018/10/09/BZOJ4675-点对游戏/" title="BZOJ4675 点对游戏">BZOJ4675 点对游戏</a>
                 </p>
             </div>
         </li>
@@ -371,7 +379,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
+                    <a href="/2018/10/09/BZOJ4695-最假女选手/" title="BZOJ4695 最假女选手">BZOJ4695 最假女选手</a>
                 </p>
             </div>
         </li>
@@ -384,7 +392,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
+                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
                 </p>
             </div>
         </li>
@@ -397,7 +405,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
                 </p>
             </div>
         </li>
@@ -415,12 +423,12 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -436,12 +444,17 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/分数规划/">#分数规划</a>
         </div>
         
@@ -451,8 +464,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
         </div>
         
         
@@ -466,12 +489,22 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/吉利线段树/">#吉利线段树</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/好题/">#好题</a>
         </div>
         
@@ -481,7 +514,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/倍增/">#倍增</a>
         </div>
         
@@ -491,7 +524,22 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
         <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
@@ -502,11 +550,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
@@ -527,17 +570,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -546,17 +584,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
@@ -567,21 +600,16 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/模拟/">#模拟</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/中国剩余定理/">#中国剩余定理</a>
         </div>
         
@@ -601,12 +629,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
@@ -621,8 +649,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/构造/">#构造</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率与期望/">#概率与期望</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
         
@@ -632,27 +670,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/概率与期望/">#概率与期望</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/哈希/">#哈希</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/数学/">#数学</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
@@ -667,12 +685,17 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/积性函数/">#积性函数</a>
+            <a href="/tags/数学/">#数学</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
+            <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
@@ -681,13 +704,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/搜索/">#搜索</a>
+        <div class="cube-box ">
+            <a href="/tags/上下界网络流/">#上下界网络流</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/上下界网络流/">#上下界网络流</a>
+            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
@@ -701,7 +724,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
@@ -711,18 +734,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树状数组/">#树状数组</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
     </div>

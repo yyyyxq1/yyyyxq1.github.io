@@ -195,7 +195,11 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-给定一系列位运算操作，在1到m里选一个数，使这个数在经历一系列操作后值最大。"><a href="#emsp-emsp-给定一系列位运算操作，在1到m里选一个数，使这个数在经历一系列操作后值最大。" class="headerlink" title="&emsp; &emsp; 给定一系列位运算操作，在1到m里选一个数，使这个数在经历一系列操作后值最大。"></a>&emsp; &emsp; 给定一系列位运算操作，在1到m里选一个数，使这个数在经历一系列操作后值最大。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-对于每一位分别求出输入时是0和1为多少，从高位往低位贪心选择较大值，如果在相同满足要求的结果下选择输入较小的。"><a href="#emsp-emsp-对于每一位分别求出输入时是0和1为多少，从高位往低位贪心选择较大值，如果在相同满足要求的结果下选择输入较小的。" class="headerlink" title="&emsp; &emsp; 对于每一位分别求出输入时是0和1为多少，从高位往低位贪心选择较大值，如果在相同满足要求的结果下选择输入较小的。"></a>&emsp; &emsp; 对于每一位分别求出输入时是0和1为多少，从高位往低位贪心选择较大值，如果在相同满足要求的结果下选择输入较小的。</h3><pre><code>#include&lt;iostream&gt;
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给定一系列位运算操作在1到m里选一个数使这个数在经历一系列操作后值最大"><a class="markdownIt-Anchor" href="#给定一系列位运算操作在1到m里选一个数使这个数在经历一系列操作后值最大"></a>     给定一系列位运算操作，在1到m里选一个数，使这个数在经历一系列操作后值最大。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="对于每一位分别求出输入时是0和1为多少从高位往低位贪心选择较大值如果在相同满足要求的结果下选择输入较小的"><a class="markdownIt-Anchor" href="#对于每一位分别求出输入时是0和1为多少从高位往低位贪心选择较大值如果在相同满足要求的结果下选择输入较小的"></a>     对于每一位分别求出输入时是0和1为多少，从高位往低位贪心选择较大值，如果在相同满足要求的结果下选择输入较小的。</h3>
+<pre class="highlight"><code class="">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt; 
 using namespace std;
@@ -207,9 +211,9 @@ int main(){
     for(int i=1;i&lt;=n;i++){
         scanf(&quot;%s&quot;,s+1);
         scanf(&quot;%lld&quot;,&amp;d);
-        if(s[1]==&#39;O&#39;)x=x|d,y=y|d;
-        if(s[1]==&#39;A&#39;)x=x&amp;d,y=y&amp;d;
-        if(s[1]==&#39;X&#39;)x=x^d,y=y^d;
+        if(s[1]=='O')x=x|d,y=y|d;
+        if(s[1]=='A')x=x&amp;d,y=y&amp;d;
+        if(s[1]=='X')x=x^d,y=y^d;
     }
     for(int i=32;i&gt;=0;i--){
         if(x&amp;(1LL&lt;&lt;(i))){
@@ -226,6 +230,7 @@ int main(){
     printf(&quot;%lld&quot;,ans);
 }
 </code></pre>
+
     </div>
 </div>
 
@@ -292,8 +297,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>65</span>Article</a>
-        <a class="count tags"><span>58</span>Tags</a>
+        <a class="count articles"><span>68</span>Article</a>
+        <a class="count tags"><span>59</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
 </div>
@@ -331,7 +336,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
+                    <a href="/2018/10/09/BZOJ4676-Xor-Mul棋盘/" title="BZOJ4676 Xor-Mul棋盘">BZOJ4676 Xor-Mul棋盘</a>
                 </p>
             </div>
             
@@ -345,7 +350,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
+                    <a href="/2018/10/09/BZOJ4675-点对游戏/" title="BZOJ4675 点对游戏">BZOJ4675 点对游戏</a>
                 </p>
             </div>
         </li>
@@ -358,7 +363,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
+                    <a href="/2018/10/09/BZOJ4695-最假女选手/" title="BZOJ4695 最假女选手">BZOJ4695 最假女选手</a>
                 </p>
             </div>
         </li>
@@ -371,7 +376,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
+                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
                 </p>
             </div>
         </li>
@@ -384,7 +389,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
                 </p>
             </div>
         </li>
@@ -407,7 +412,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -421,6 +426,11 @@ int main(){
         <a href="/tags">Tagcloud</a>
     </div>
     <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
         
         
         <div class="cube-box-bg ">
@@ -438,8 +448,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
         </div>
         
         
@@ -448,8 +468,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/吉利线段树/">#吉利线段树</a>
         </div>
         
         
@@ -458,7 +488,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/好题/">#好题</a>
         </div>
         
@@ -468,7 +498,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/倍增/">#倍增</a>
         </div>
         
@@ -478,18 +508,28 @@ int main(){
         </div>
         
         
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
+            <a href="/tags/特征方程/">#特征方程</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/计数/">#计数</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
@@ -514,17 +554,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -539,11 +574,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
@@ -554,16 +584,11 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/模拟/">#模拟</a>
         </div>
         
@@ -578,17 +603,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
@@ -608,8 +633,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/构造/">#构造</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率与期望/">#概率与期望</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
         </div>
         
         
@@ -619,27 +654,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/概率与期望/">#概率与期望</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/哈希/">#哈希</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/数学/">#数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
@@ -648,8 +663,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/期望/">#期望</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/数学/">#数学</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
@@ -658,18 +683,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/最小生成树/">#最小生成树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
@@ -678,7 +693,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
+            <a href="/tags/搜索/">#搜索</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
@@ -693,23 +713,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/树状数组/">#树状数组</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
     </div>

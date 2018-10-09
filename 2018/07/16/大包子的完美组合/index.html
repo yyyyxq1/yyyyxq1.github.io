@@ -193,7 +193,15 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-大包子的公司有n个人，编号分别为1至n。年底，大包子将要举办一场舞会，大包子要从中选出一些人参加这个舞会。-如果选出的这些人中，编号两两互质，我们就认为这是一个完美组合。比如-5-个人的公司中，3-4-5这三个人可以组成完美组合。请计算n个人可以选出的完美组合的方案数。-由于答案很大，你需要把答案对-10-9-7-取模。"><a href="#emsp-emsp-大包子的公司有n个人，编号分别为1至n。年底，大包子将要举办一场舞会，大包子要从中选出一些人参加这个舞会。-如果选出的这些人中，编号两两互质，我们就认为这是一个完美组合。比如-5-个人的公司中，3-4-5这三个人可以组成完美组合。请计算n个人可以选出的完美组合的方案数。-由于答案很大，你需要把答案对-10-9-7-取模。" class="headerlink" title="&emsp; &emsp;大包子的公司有n个人，编号分别为1至n。年底，大包子将要举办一场舞会，大包子要从中选出一些人参加这个舞会。 如果选出的这些人中，编号两两互质，我们就认为这是一个完美组合。比如 5 个人的公司中，3, 4, 5这三个人可以组成完美组合。请计算n个人可以选出的完美组合的方案数。 由于答案很大，你需要把答案对$10^9+7$取模。"></a>&emsp; &emsp;大包子的公司有n个人，编号分别为1至n。年底，大包子将要举办一场舞会，大包子要从中选出一些人参加这个舞会。 如果选出的这些人中，编号两两互质，我们就认为这是一个完美组合。比如 5 个人的公司中，3, 4, 5这三个人可以组成完美组合。请计算n个人可以选出的完美组合的方案数。 由于答案很大，你需要把答案对$10^9+7$取模。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-首先，我们先把-sqrt-n-的素数筛出来，只有16个。"><a href="#emsp-emsp-首先，我们先把-sqrt-n-的素数筛出来，只有16个。" class="headerlink" title="&emsp; &emsp; 首先，我们先把$\sqrt{n}$的素数筛出来，只有16个。"></a>&emsp; &emsp; 首先，我们先把$\sqrt{n}$的素数筛出来，只有16个。</h3><h3 id="emsp-emsp-首先我们把1到3000根据该数的最大质因子排序。"><a href="#emsp-emsp-首先我们把1到3000根据该数的最大质因子排序。" class="headerlink" title="&emsp; &emsp; 首先我们把1到3000根据该数的最大质因子排序。"></a>&emsp; &emsp; 首先我们把1到3000根据该数的最大质因子排序。</h3><h3 id="emsp-emsp-我们对小于-sqrt-n-的素数做状压-DP-，每一位存当前该素数是否被取用过。"><a href="#emsp-emsp-我们对小于-sqrt-n-的素数做状压-DP-，每一位存当前该素数是否被取用过。" class="headerlink" title="&emsp; &emsp; 我们对小于$\sqrt{n}$ 的素数做状压 DP ，每一位存当前该素数是否被取用过。"></a>&emsp; &emsp; 我们对小于$\sqrt{n}$ 的素数做状压 DP ，每一位存当前该素数是否被取用过。</h3><h3 id="emsp-emsp-对于大于-sqrt-n-的素数，我们发现同一个数中不可能存在两个大于-sqrt-n-的因子，因此我们枚举每个素数，枚举最大质因子是这个素数的数，做一次状压-DP-，再记录一维表示这个大素数是否被取用。"><a href="#emsp-emsp-对于大于-sqrt-n-的素数，我们发现同一个数中不可能存在两个大于-sqrt-n-的因子，因此我们枚举每个素数，枚举最大质因子是这个素数的数，做一次状压-DP-，再记录一维表示这个大素数是否被取用。" class="headerlink" title="&emsp; &emsp; 对于大于 $\sqrt{n}$的素数，我们发现同一个数中不可能存在两个大于$\sqrt{n}$的因子，因此我们枚举每个素数，枚举最大质因子是这个素数的数，做一次状压 DP ，再记录一维表示这个大素数是否被取用。"></a>&emsp; &emsp; 对于大于 $\sqrt{n}$的素数，我们发现同一个数中不可能存在两个大于$\sqrt{n}$的因子，因此我们枚举每个素数，枚举最大质因子是这个素数的数，做一次状压 DP ，再记录一维表示这个大素数是否被取用。</h3><h3 id="emsp-emsp-将最终答案减去空集。"><a href="#emsp-emsp-将最终答案减去空集。" class="headerlink" title="&emsp; &emsp; 将最终答案减去空集。"></a>&emsp; &emsp; 将最终答案减去空集。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="大包子的公司有n个人编号分别为1至n-年底大包子将要举办一场舞会大包子要从中选出一些人参加这个舞会-如果选出的这些人中编号两两互质我们就认为这是一个完美组合-比如-5-个人的公司中3-4-5这三个人可以组成完美组合-请计算n个人可以选出的完美组合的方案数-由于答案很大你需要把答案对1097取模"><a class="markdownIt-Anchor" href="#大包子的公司有n个人编号分别为1至n-年底大包子将要举办一场舞会大包子要从中选出一些人参加这个舞会-如果选出的这些人中编号两两互质我们就认为这是一个完美组合-比如-5-个人的公司中3-4-5这三个人可以组成完美组合-请计算n个人可以选出的完美组合的方案数-由于答案很大你需要把答案对1097取模"></a>    大包子的公司有n个人，编号分别为1至n。年底，大包子将要举办一场舞会，大包子要从中选出一些人参加这个舞会。 如果选出的这些人中，编号两两互质，我们就认为这是一个完美组合。比如 5 个人的公司中，3, 4, 5这三个人可以组成完美组合。请计算n个人可以选出的完美组合的方案数。 由于答案很大，你需要把答案对<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup><mo>+</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">10^9+7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">9</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">7</span></span></span></span>取模。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="首先我们先把sqrtn的素数筛出来只有16个"><a class="markdownIt-Anchor" href="#首先我们先把sqrtn的素数筛出来只有16个"></a>     首先，我们先把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mrow><mi>n</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8002800000000001em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="base textstyle uncramped"><span class="sqrt mord"><span class="sqrt-sign" style="top:0.03971999999999998em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit">n</span></span></span><span style="top:-0.72028em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span>的素数筛出来，只有16个。</h3>
+<h3 id="首先我们把1到3000根据该数的最大质因子排序"><a class="markdownIt-Anchor" href="#首先我们把1到3000根据该数的最大质因子排序"></a>     首先我们把1到3000根据该数的最大质因子排序。</h3>
+<h3 id="我们对小于sqrtn-的素数做状压-dp-每一位存当前该素数是否被取用过"><a class="markdownIt-Anchor" href="#我们对小于sqrtn-的素数做状压-dp-每一位存当前该素数是否被取用过"></a>     我们对小于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mrow><mi>n</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8002800000000001em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="base textstyle uncramped"><span class="sqrt mord"><span class="sqrt-sign" style="top:0.03971999999999998em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit">n</span></span></span><span style="top:-0.72028em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span> 的素数做状压 DP ，每一位存当前该素数是否被取用过。</h3>
+<h3 id="对于大于-sqrtn的素数我们发现同一个数中不可能存在两个大于sqrtn的因子因此我们枚举每个素数枚举最大质因子是这个素数的数做一次状压-dp-再记录一维表示这个大素数是否被取用"><a class="markdownIt-Anchor" href="#对于大于-sqrtn的素数我们发现同一个数中不可能存在两个大于sqrtn的因子因此我们枚举每个素数枚举最大质因子是这个素数的数做一次状压-dp-再记录一维表示这个大素数是否被取用"></a>     对于大于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mrow><mi>n</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8002800000000001em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="base textstyle uncramped"><span class="sqrt mord"><span class="sqrt-sign" style="top:0.03971999999999998em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit">n</span></span></span><span style="top:-0.72028em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span>的素数，我们发现同一个数中不可能存在两个大于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mrow><mi>n</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8002800000000001em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="base textstyle uncramped"><span class="sqrt mord"><span class="sqrt-sign" style="top:0.03971999999999998em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit">n</span></span></span><span style="top:-0.72028em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span>的因子，因此我们枚举每个素数，枚举最大质因子是这个素数的数，做一次状压 DP ，再记录一维表示这个大素数是否被取用。</h3>
+<h3 id="将最终答案减去空集"><a class="markdownIt-Anchor" href="#将最终答案减去空集"></a>     将最终答案减去空集。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;algorithm&gt; 
@@ -248,7 +256,7 @@ int main(void){
     printf(&quot;%d\n&quot;,ans);
 }
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1013&amp;pid=1" target="_blank" rel="noopener">大包子的完美组合</a> </p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1013&amp;pid=1" target="_blank" rel="noopener">大包子的完美组合</a></p>
 
     </div>
 </div>
@@ -316,8 +324,8 @@ int main(void){
     
     
     <div class="count">
-        <a class="count articles"><span>65</span>Article</a>
-        <a class="count tags"><span>58</span>Tags</a>
+        <a class="count articles"><span>68</span>Article</a>
+        <a class="count tags"><span>59</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
 </div>
@@ -355,7 +363,7 @@ int main(void){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
+                    <a href="/2018/10/09/BZOJ4676-Xor-Mul棋盘/" title="BZOJ4676 Xor-Mul棋盘">BZOJ4676 Xor-Mul棋盘</a>
                 </p>
             </div>
             
@@ -369,7 +377,7 @@ int main(void){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
+                    <a href="/2018/10/09/BZOJ4675-点对游戏/" title="BZOJ4675 点对游戏">BZOJ4675 点对游戏</a>
                 </p>
             </div>
         </li>
@@ -382,7 +390,7 @@ int main(void){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/Illyasviel的图游戏/" title="Illyasviel的图游戏">Illyasviel的图游戏</a>
+                    <a href="/2018/10/09/BZOJ4695-最假女选手/" title="BZOJ4695 最假女选手">BZOJ4695 最假女选手</a>
                 </p>
             </div>
         </li>
@@ -395,7 +403,7 @@ int main(void){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/05/复活-1/" title="复活">复活</a>
+                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
                 </p>
             </div>
         </li>
@@ -408,7 +416,7 @@ int main(void){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/08/01/暑假计划/" title="2018暑假计划">2018暑假计划</a>
+                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
                 </p>
             </div>
         </li>
@@ -448,6 +456,11 @@ int main(void){
         
         
         <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -457,7 +470,7 @@ int main(void){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
@@ -467,7 +480,17 @@ int main(void){
         </div>
         
         
+        <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
@@ -477,7 +500,17 @@ int main(void){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/吉利线段树/">#吉利线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
@@ -492,7 +525,7 @@ int main(void){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/倍增/">#倍增</a>
         </div>
         
@@ -502,7 +535,22 @@ int main(void){
         </div>
         
         
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
+            <a href="/tags/线性基/">#线性基</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
@@ -513,11 +561,6 @@ int main(void){
         
         
         <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
@@ -538,17 +581,12 @@ int main(void){
         
         
         <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -563,31 +601,21 @@ int main(void){
         
         
         <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/卡常/">#卡常</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/模拟/">#模拟</a>
         </div>
         
@@ -622,7 +650,7 @@ int main(void){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/分块/">#分块</a>
         </div>
         
@@ -638,22 +666,32 @@ int main(void){
         
         
         <div class="cube-box ">
+            <a href="/tags/概率与期望/">#概率与期望</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/概率与期望/">#概率与期望</a>
+            <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
+            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/哈希/">#哈希</a>
+            <a href="/tags/期望/">#期望</a>
         </div>
         
         
@@ -668,22 +706,7 @@ int main(void){
         
         
         <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/期望/">#期望</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/概率/">#概率</a>
         </div>
         
         
@@ -693,12 +716,12 @@ int main(void){
         
         
         <div class="cube-box ">
-            <a href="/tags/搜索/">#搜索</a>
+            <a href="/tags/上下界网络流/">#上下界网络流</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/上下界网络流/">#上下界网络流</a>
+            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
@@ -707,33 +730,23 @@ int main(void){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树状数组/">#树状数组</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
     </div>
