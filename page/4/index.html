@@ -175,9 +175,9 @@
     <div class="cube-content">
         <div class="cube-left">
             
-<div class="cube-excerpt" id="cube-excerpt-Race">
+<div class="cube-excerpt" id="cube-excerpt-PRZ">
     <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/19/点分x/">Race</a></h1>
+        <h1><a href="/2018/07/19/雪崩/">PRZ</a></h1>
         <div class="cube-excerpt-header-msg">
             <div class="cube-excerpt-date">
                 <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
@@ -186,7 +186,7 @@
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
-                <a href="/tags/点分治/" class="cube-excerpt-tag-link">#点分治</a>
+                <a href="/tags/状压DP/" class="cube-excerpt-tag-link">#状压DP</a>
                 
                 <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
                 
@@ -199,103 +199,36 @@
            <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
-#define N 420000
 using namespace std;
-int h[N],v[N],w[N],Next[N],q[N],p[N],siz[N],son[N],s[N*10];
-int dep[N],l[N],tot,k,n,ans,head,tail;
-int add(int x,int y,int z){
-    tot++;
-    Next[tot]=h[x];
-    v[tot]=y;
-    w[tot]=z;
-    h[x]=tot;
-}
-int solve(int x,int fa){
-    if(l[x]&gt;k){
-        l[x]=0;
-        return 0;
-    }
-    if(l[x]==k)ans=min(ans,dep[x]-1);
-    q[++tail]=x;
-    for(int i=h[x];i;i=Next[i]){
-        if(p[v[i]]==1)continue;
-        if(v[i]==fa)continue;
-        l[v[i]]=l[x]+w[i];
-        solve(v[i],x);
-    }
-    return ans;
-}
-int pre(int x,int fa){
-    siz[x]=1;
-    dep[x]=dep[fa]+1;
-    for(int i=h[x];i;i=Next[i]){
-        if(p[v[i]]==1)continue;
-        if(v[i]==fa)continue;
-        pre(v[i],x);
-        siz[x]=siz[x]+siz[v[i]];
-    }
-}
-int get_son(int x,int fa,int ooo){
-    son[x]=ooo-siz[x];
-    int ans=0,bns;
-    for(int i=h[x];i;i=Next[i]){
-        if(p[v[i]]==1)continue;
-        if(v[i]==fa)continue;
-        bns=get_son(v[i],x,ooo);
-        son[x]=max(son[x],siz[v[i]]);
-        if(ans==0)ans=bns;
-        else{
-            if(son[bns]&lt;son[ans])ans=bns;
-        }
-    }
-    if(son[x]&lt;son[ans])ans=x;
-    if(ans==0)ans=x;
-    return ans;
-}
-int dfs(int x){
-    p[x]=1;
-    pre(x,0);
-    head=0,tail=0;
-    for(int i=h[x];i;i=Next[i]){
-        if(p[v[i]]==1)continue;
-        l[v[i]]=l[x]+w[i];
-        solve(v[i],x);
-        for(int j=head+1;j&lt;=tail;j++)if(s[k-l[q[j]]]){
-            ans=min(ans,s[k-l[q[j]]]+dep[q[j]]-2);
-        }
-        for(int j=head+1;j&lt;=tail;j++){
-            if(s[l[q[j]]])s[l[q[j]]]=min(s[l[q[j]]],dep[q[j]]);
-            else s[l[q[j]]]=dep[q[j]];
-        }
-        head=tail; 
-    }
-    for(int i=1;i&lt;=tail;i++)s[l[q[i]]]=0,l[q[i]]=0,dep[q[i]]=0;
-    for(int i=h[x];i;i=Next[i]){
-        if(p[v[i]]==1)continue;
-        dfs(get_son(v[i],0,siz[v[i]]));
-    }
-}
+int n,W;
+int w[18],t[18];
+int f[1&lt;&lt;16],sum[1&lt;&lt;16],l[1&lt;&lt;16];
 int main(){
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
-    for(int i=1;i&lt;n;i++){
-        int x,y,z;
-        scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;z);
-        x++;y++;
-        add(x,y,z);
-        add(y,x,z);
+    scanf(&quot;%d%d&quot;,&amp;W,&amp;n);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%d%d&quot;,&amp;t[i],&amp;w[i]);
+    for(int i=1;i&lt;(1&lt;&lt;n);i++){
+        for(int j=1;j&lt;=n;j++){
+            if(i&gt;&gt;(j-1)&amp;1){
+                sum[i]+=w[j];
+                l[i]=max(l[i],t[j]);
+            }
+        }   
     }
-    ans=0x7fffffff;
-    dfs(1);
-    if(ans&gt;n)printf(&quot;-1\n&quot;);
-    else printf(&quot;%d\n&quot;,ans);
+    memset(f,0x7f,sizeof(f));
+    f[0]=0;
+    for(int i=1;i&lt;(1&lt;&lt;n);i++){
+        for(int j=i;j;j=i&amp;(j-1))
+        if(sum[j]&lt;=W)f[i]=min(f[i],l[j]+f[i^j]);
+    }
+    printf(&quot;%d\n&quot;,f[(1&lt;&lt;n)-1]);
 }
 </code></pre>
-<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1470&amp;pid=1" target="_blank" rel="noopener">Race</a></p>
+<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1470&amp;pid=0" target="_blank" rel="noopener">PRZ</a></p>
 
         
     </article>
     <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/19/点分x/">Read More</a>
+        <a class="cube-excerpt-more" href="/2018/07/19/雪崩/">Read More</a>
     </footer>
 </div>
 
@@ -1617,7 +1550,7 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>68</span>Article</a>
+        <a class="count articles"><span>69</span>Article</a>
         <a class="count tags"><span>59</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
@@ -1727,12 +1660,12 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -1748,12 +1681,22 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
         <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -1768,47 +1711,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/吉利线段树/">#吉利线段树</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/好题/">#好题</a>
         </div>
         
@@ -1819,22 +1727,22 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/吉利线段树/">#吉利线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
@@ -1843,18 +1751,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/组合数学/">#组合数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计数/">#计数</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
         
@@ -1878,8 +1776,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/SPFA/">#SPFA</a>
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
@@ -1893,7 +1796,32 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/组合数学/">#组合数学</a>
+        </div>
+        
+        
         <div class="cube-box ">
+            <a href="/tags/计数/">#计数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/人类智慧/">#人类智慧</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/高斯消元/">#高斯消元</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
@@ -1904,17 +1832,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/贪心/">#贪心</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/模拟/">#模拟</a>
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+            <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
@@ -1923,17 +1846,27 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/模拟/">#模拟</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
@@ -1944,17 +1877,22 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/分块/">#分块</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/分块/">#分块</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/构造/">#构造</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
@@ -1969,26 +1907,11 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/期望/">#期望</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/数学/">#数学</a>
         </div>
         
@@ -1999,12 +1922,27 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/期望/">#期望</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/最小生成树/">#最小生成树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/最小生成树/">#最小生成树</a>
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
@@ -2013,8 +1951,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/搜索/">#搜索</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
         
@@ -2024,22 +1962,17 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/整体二分/">#整体二分</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/FFT/">#FFT</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
     </div>
