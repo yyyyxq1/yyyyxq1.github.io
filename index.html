@@ -175,6 +175,159 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-「雅礼集训 2018 Day10」贪玩蓝月">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/10/25/「雅礼集训-2018-Day10」贪玩蓝月/">「雅礼集训 2018 Day10」贪玩蓝月</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-10-25
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/好题/" class="cube-excerpt-tag-link">#好题</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目雅礼集训-2018-day10贪玩蓝月"><a class="markdownIt-Anchor" href="#题目雅礼集训-2018-day10贪玩蓝月"></a> 题目:<a href="https://loj.ac/problem/6515" target="_blank" rel="noopener">「雅礼集训 2018 Day10」贪玩蓝月</a></h2>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解:</h2>
+<h3 id="维护两个栈插入就直接插入删除就出栈如果其中一个栈清空了那么就直接从另外那个栈暴力取一半来重构"><a class="markdownIt-Anchor" href="#维护两个栈插入就直接插入删除就出栈如果其中一个栈清空了那么就直接从另外那个栈暴力取一半来重构"></a>     维护两个栈，插入就直接插入，删除就出栈，如果其中一个栈清空了，那么就直接从另外那个栈暴力取一半来重构。</h3>
+<h3 id="统计答案就用线段树来暴力求最大值-不知道为什么输入数据里有点的编号qwq"><a class="markdownIt-Anchor" href="#统计答案就用线段树来暴力求最大值-不知道为什么输入数据里有点的编号qwq"></a>     统计答案就用线段树来暴力求最大值。(不知道为什么输入数据里有点的编号qwq)。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 120000
+using namespace std;
+int P;
+long long h[520],n,A,B,c[520];
+struct illyasviel{
+    int w,v;
+    illyasviel(int _w=0,int _v=0){w=_w,v=_v;}
+}a[N],b[N],d[N];
+struct node{
+    long long f[520];
+    int clear(){
+        memset(f,-1,sizeof(f));
+        f[0]=0;
+    }
+    int add(int v,int w){
+        memset(h,-1,sizeof(h));
+        h[0]=0;
+        for(int i=0;i&lt;P;i++)if(f[i]!=-1)h[(i+v)%P]=max(h[(i+v)%P],f[i]+w);
+        for(int i=0;i&lt;P;i++)f[i]=max(f[i],h[i]);
+    }
+}g[N],f[N];
+char s[10];
+int add1(int v,int w){
+    A++;
+    a[A].v=v;
+    a[A].w=w; 
+    f[A]=f[A-1];
+    f[A].add(v,w);
+}
+int add2(int v,int w){
+    B++;
+    b[B].v=v;
+    b[B].w=w;
+    g[B]=g[B-1];
+    g[B].add(v,w);
+}
+int rebuild(){
+    int cnt=0;
+    for(int i=A;i&gt;=1;i--)d[++cnt]=a[i];
+    for(int i=1;i&lt;=B;i++)d[++cnt]=b[i];
+    A=cnt/2;
+    B=cnt-A;
+    int o=0;
+    for(int i=A;i&gt;=1;i--)a[i]=d[++o];
+    for(int i=1;i&lt;=A;i++)f[i]=f[i-1],f[i].add(a[i].v,a[i].w);
+    for(int i=1;i&lt;=B;i++)b[i]=d[++o];
+    for(int i=1;i&lt;=B;i++)g[i]=g[i-1],g[i].add(b[i].v,b[i].w);
+}
+int del1(){
+    if(A==0)rebuild();
+    if(A==0)B--;
+    else A--;
+}
+int del2(){
+    if(B==0)rebuild();
+    if(B==0)A--;
+    else B--;
+}
+namespace seg{
+    long long t[5000];
+    int build(int i,int l,int r){
+        if(l==r)return t[i]=c[l];
+        int mid=(l+r)/2;
+        build(i*2,l,mid);
+        build(i*2+1,mid+1,r);
+        t[i]=max(t[i*2],t[i*2+1]); 
+    }
+    long long query(int i,int l,int r,int x,int y){
+        if(x&lt;=l&amp;&amp;y&gt;=r)return t[i];
+        int mid=(l+r)/2;
+        long long ans=-100000000000LL;
+        if(x&lt;=mid)ans=max(ans,query(i*2,l,mid,x,y));
+        if(y&gt;mid)ans=max(ans,query(i*2+1,mid+1,r,x,y));
+        return ans;
+    }
+}
+long long cal(int x,int y){
+    for(int i=0;i&lt;P;i++)c[i+1]=f[A].f[i];
+    for(int i=1;i&lt;=P;i++)if(c[i]==-1)c[i]=-10000000000000LL; 
+    long long ans=-1;
+    seg::build(1,1,P);
+    for(int i=0;i&lt;P;i++){
+        if(g[B].f[i]==-1)continue;
+        int l=x-i,r=y-i;
+        if(l&lt;0)l+=P;
+        if(r&lt;0)r+=P;
+        if(l&lt;=r)ans=max(ans,g[B].f[i]+seg::query(1,1,P,l+1,r+1));
+        else ans=max(ans,g[B].f[i]+max(seg::query(1,1,P,1,r+1),seg::query(1,1,P,l+1,P)));
+    }
+    return max(ans,-1LL);
+}
+int main(){
+    int T;
+    scanf(&quot;%d&quot;,&amp;T);
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;P);
+    int tot=1,cnt=0;
+    f[0].clear();
+    g[0].clear();
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%s&quot;,s+1);
+        if(s[1]=='I'){
+            int v,w;
+            scanf(&quot;%d%d&quot;,&amp;v,&amp;w);
+            v%=P;
+            if(s[2]=='F')add1(v,w);
+            if(s[2]=='G')add2(v,w);
+        }
+        if(s[1]=='D'){
+            if(s[2]=='F')del1(); 
+            if(s[2]=='G')del2();
+        }
+        if(s[1]=='Q'){
+            int x,y;
+            scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+            printf(&quot;%lld\n&quot;,cal(x,y));
+        }
+    }
+}
+</code></pre>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/10/25/「雅礼集训-2018-Day10」贪玩蓝月/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-BZOJ4676 Xor-Mul棋盘">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/10/09/BZOJ4676-Xor-Mul棋盘/">BZOJ4676 Xor-Mul棋盘</a></h1>
@@ -1432,111 +1585,6 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-CQOI2015 选数">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/08/01/SCOI2015-选数/">CQOI2015 选数</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-08-01
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/莫比乌斯反演/" class="cube-excerpt-tag-link">#莫比乌斯反演</a>
-                
-                <a href="/tags/杜教筛/" class="cube-excerpt-tag-link">#杜教筛</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述:</h2>
-<h3 id="我们知道从区间lhl和h为整数中选取n个整数总共有h-l1n种方案-小z很好奇这样选出的数的最大公约数的规律他决定对每种方案选出的n个整数都求一次最大公约数以便进一步研究-然而他很快发现工作量太大了于是向你寻求帮助-你的任务很简单小z会告诉你一个整数k你需要回答他最大公约数刚好为k的选取方案有多少个-由于方案数较大你只需要输出其除以1000000007的余数即可"><a class="markdownIt-Anchor" href="#我们知道从区间lhl和h为整数中选取n个整数总共有h-l1n种方案-小z很好奇这样选出的数的最大公约数的规律他决定对每种方案选出的n个整数都求一次最大公约数以便进一步研究-然而他很快发现工作量太大了于是向你寻求帮助-你的任务很简单小z会告诉你一个整数k你需要回答他最大公约数刚好为k的选取方案有多少个-由于方案数较大你只需要输出其除以1000000007的余数即可"></a>     我们知道，从区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>L</mi><mo separator="true">,</mo><mi>H</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[L,H]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit">L</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mclose">]</span></span></span></span>(L和H为整数)中选取<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>个整数，总共有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>H</mi><mo>−</mo><mi>L</mi><mo>+</mo><mn>1</mn><msup><mo>)</mo><mi>N</mi></msup></mrow><annotation encoding="application/x-tex">(H-L+1)^N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8413309999999999em;"></span><span class="strut bottom" style="height:1.0913309999999998em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mbin">−</span><span class="mord mathit">L</span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>种方案。小z很好奇这样选出的数的最大公约数的规律，他决定对每种方案选出的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>个整数都求一次最大公约数，以便进一步研究。然而他很快发现工作量太大了，于是向你寻求帮助。你的任务很简单，小z会告诉你一个整数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>，你需要回答他最大公约数刚好为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>的选取方案有多少个。由于方案数较大，你只需要输出其除以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn><mn>7</mn></mrow><annotation encoding="application/x-tex">1000000007</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">7</span></span></span></span>的余数即可。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解:</h2>
-<h3 id="直接推反演式子然后杜教筛暴力堆上去即可-好像还有一种容斥做法会快一点不过限制也多一点杜教筛不用h-l的数量限制还是很优秀的"><a class="markdownIt-Anchor" href="#直接推反演式子然后杜教筛暴力堆上去即可-好像还有一种容斥做法会快一点不过限制也多一点杜教筛不用h-l的数量限制还是很优秀的"></a>     直接推反演式子然后杜教筛暴力堆上去即可。（好像还有一种容斥做法会快一点，不过限制也多一点，杜教筛不用H-L的数量限制，还是很优秀的。）</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;math.h&gt;
-#include&lt;map&gt;
-#define N 3000000
-#define P 1000000007
-using namespace std;
-int mu[N],p[N],tot,prime[N],f[N];
-map&lt;long long,int&gt;g;
-long long power(long long x,int k){
-    long long ans=1; 
-    while(k){
-        if(k&amp;1)(ans*=x)%=P;
-        (x*=x)%=P;
-        k&gt;&gt;=1; 
-    }
-    return ans;
-}
-int pre(){
-    mu[1]=1;
-    f[1]=1;
-    for(int i=2;i&lt;=N-10;i++){
-        if(p[i]==0)prime[++tot]=i,mu[i]=-1;
-        for(int j=1;j&lt;=tot&amp;&amp;i*prime[j]&lt;=N-10;j++){
-            p[i*prime[j]]=1;
-            mu[i*prime[j]]=-mu[i];
-            if(i%prime[j]==0){
-                mu[i*prime[j]]=0;
-                break;
-            }
-        }
-        f[i]=f[i-1]+mu[i];
-    }
-}
-long long cal(int x){
-    if(x==0)return 0;
-    if(x&lt;N-10)return f[x];
-    if(g[x])return g[x];
-    long long ans=1;
-    for(long long i=2;i&lt;=x;i++){
-        int j=x/(x/i);
-        ans-=(j-i+1)*cal(x/i);
-        i=j;
-    }
-    g[x]=ans;
-    return ans;
-}
-int main(){
-    pre();
-    long long ans=0;
-    int n,k,l,r;
-    scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;k,&amp;l,&amp;r);
-    l=(l-1)/k;
-    r=r/k;
-    int m=(r-l)+1;
-    cal(l);
-    cal(r);
-    int j;
-    for(int i=1;i&lt;=r;i++){
-        if(l/i&gt;0)j=min(l/(l/i),r/(r/i));
-        else j=r/(r/i); 
-        (ans+=1LL*(cal(j)-cal(i-1))*power(r/i-l/i,n))%=P;
-        i=j;
-    }
-    ans%=P;
-    ans+=P;
-    ans%=P;
-    printf(&quot;%lld\n&quot;,ans);
-}
-</code></pre>
-<p>题目链接:<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=3930" target="_blank" rel="noopener">CQOI2015 选数</a></p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/08/01/SCOI2015-选数/">Read More</a>
-    </footer>
-</div>
-
 
 
 <ul class="cube-pagination cube-pagination-9">
@@ -1626,7 +1674,7 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>69</span>Article</a>
+        <a class="count articles"><span>70</span>Article</a>
         <a class="count tags"><span>59</span>Tags</a>
         <a class="count categories"><span>2</span>Categories</a>
     </div>
@@ -1665,7 +1713,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/09/BZOJ4676-Xor-Mul棋盘/" title="BZOJ4676 Xor-Mul棋盘">BZOJ4676 Xor-Mul棋盘</a>
+                    <a href="/2018/10/25/「雅礼集训-2018-Day10」贪玩蓝月/" title="「雅礼集训 2018 Day10」贪玩蓝月">「雅礼集训 2018 Day10」贪玩蓝月</a>
                 </p>
             </div>
             
@@ -1679,7 +1727,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/09/BZOJ4675-点对游戏/" title="BZOJ4675 点对游戏">BZOJ4675 点对游戏</a>
+                    <a href="/2018/10/09/BZOJ4676-Xor-Mul棋盘/" title="BZOJ4676 Xor-Mul棋盘">BZOJ4676 Xor-Mul棋盘</a>
                 </p>
             </div>
         </li>
@@ -1692,7 +1740,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/09/BZOJ4695-最假女选手/" title="BZOJ4695 最假女选手">BZOJ4695 最假女选手</a>
+                    <a href="/2018/10/09/BZOJ4675-点对游戏/" title="BZOJ4675 点对游戏">BZOJ4675 点对游戏</a>
                 </p>
             </div>
         </li>
@@ -1705,7 +1753,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
+                    <a href="/2018/10/09/BZOJ4695-最假女选手/" title="BZOJ4695 最假女选手">BZOJ4695 最假女选手</a>
                 </p>
             </div>
         </li>
@@ -1718,7 +1766,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/07/K相等/" title="K相等">K相等</a>
+                    <a href="/2018/10/07/「雅礼集训-2017-Day2」线段游戏/" title="「雅礼集训 2017 Day2」线段游戏">「雅礼集训 2017 Day2」线段游戏</a>
                 </p>
             </div>
         </li>
@@ -1763,26 +1811,16 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/分数规划/">#分数规划</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/树链剖分/">#树链剖分</a>
         </div>
         
@@ -1792,13 +1830,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/好题/">#好题</a>
+        <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/博弈论/">#博弈论</a>
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
         </div>
         
         
@@ -1807,7 +1845,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/吉利线段树/">#吉利线段树</a>
         </div>
         
@@ -1823,22 +1861,57 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/树形DP/">#树形DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/好题/">#好题</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/博弈论/">#博弈论</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/线性基/">#线性基</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/树形DP/">#树形DP</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/hash/">#hash</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/二分/">#二分</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/人类智慧/">#人类智慧</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/高斯消元/">#高斯消元</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
         </div>
         
         
@@ -1852,23 +1925,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/特征方程/">#特征方程</a>
-        </div>
-        
-        
         <div class="cube-box ">
-            <a href="/tags/斜率优化/">#斜率优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/CDQ分治/">#CDQ分治</a>
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
@@ -1883,17 +1941,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
+            <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+            <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
@@ -1902,13 +1955,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/卡常/">#卡常</a>
-        </div>
-        
-        
         <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
+            <a href="/tags/卡常/">#卡常</a>
         </div>
         
         
@@ -1918,12 +1966,17 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+            <a href="/tags/模拟/">#模拟</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/模拟/">#模拟</a>
+        <div class="cube-box ">
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
@@ -1938,11 +1991,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
@@ -1952,13 +2000,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/splay/">#splay</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/分块/">#分块</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/分块/">#分块</a>
+        <div class="cube-box ">
+            <a href="/tags/splay/">#splay</a>
         </div>
         
         
@@ -1967,12 +2015,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/概率与期望/">#概率与期望</a>
         </div>
         
@@ -2002,18 +2045,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/最小生成树/">#最小生成树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/积性函数/">#积性函数</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
@@ -2027,18 +2060,28 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/整体二分/">#整体二分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/AC自动机/">#AC自动机</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/FFT/">#FFT</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
         
@@ -2048,7 +2091,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+            <a href="/tags/费用流/">#费用流</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/积性函数/">#积性函数</a>
         </div>
         
     </div>
