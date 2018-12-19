@@ -193,12 +193,9 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目:</h2>
-<p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20180108/20180108095829_80862.png" alt="img"></p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h2><p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20180108/20180108095829_80862.png" alt="img"></p>
 <p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20180108/20180108095836_95278.png" alt="img"></p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="考虑每个二进制位是相对独立的那么就可以枚举每一行的状态然后暴力转移预处理一些东西后复杂度大概是o22nmlog_2106-差不多是两亿-之前有道题六亿longlong带取模23s能过就没去思考进一步的复杂度了还能通过类似插头dp的转移方式将其中2n变为n"><a class="markdownIt-Anchor" href="#考虑每个二进制位是相对独立的那么就可以枚举每一行的状态然后暴力转移预处理一些东西后复杂度大概是o22nmlog_2106-差不多是两亿-之前有道题六亿longlong带取模23s能过就没去思考进一步的复杂度了还能通过类似插头dp的转移方式将其中2n变为n"></a>     考虑每个二进制位是相对独立的，那么就可以枚举每一行的状态然后暴力转移，预处理一些东西后，复杂度大概是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mn>2</mn><mrow><mn>2</mn><mi>n</mi></mrow></msup><mi>m</mi><msub><mi>log</mi><mrow><mn>2</mn></mrow></msub><mrow><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><mo>)</mo></mrow><annotation encoding="application/x-tex">O(2^{2n}m\log_{2}{10^6})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">m</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="vlist"><span style="top:0.24444em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord textstyle uncramped"><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="mclose">)</span></span></span></span>。差不多是两亿。（之前有道题六亿longlong带取模2.3s能过，就没去思考进一步的复杂度了（还能通过类似插头DP的转移方式将其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.664392em;"></span><span class="strut bottom" style="height:0.664392em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>变为n）</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+<h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-考虑每个二进制位是相对独立的，那么就可以枚举每一行的状态然后暴力转移，预处理一些东西后，复杂度大概是-O-2-2n-m-log-2-10-6-。差不多是两亿。（之前有道题六亿longlong带取模2-3s能过，就没去思考进一步的复杂度了（还能通过类似插头DP的转移方式将其中-2-n-变为n）"><a href="#emsp-emsp-考虑每个二进制位是相对独立的，那么就可以枚举每一行的状态然后暴力转移，预处理一些东西后，复杂度大概是-O-2-2n-m-log-2-10-6-。差不多是两亿。（之前有道题六亿longlong带取模2-3s能过，就没去思考进一步的复杂度了（还能通过类似插头DP的转移方式将其中-2-n-变为n）" class="headerlink" title="&emsp; &emsp; 考虑每个二进制位是相对独立的，那么就可以枚举每一行的状态然后暴力转移，预处理一些东西后，复杂度大概是$O(2^{2n}m\log_{2}{10^6})$。差不多是两亿。（之前有道题六亿longlong带取模2.3s能过，就没去思考进一步的复杂度了（还能通过类似插头DP的转移方式将其中$2^n$变为n）"></a>&emsp; &emsp; 考虑每个二进制位是相对独立的，那么就可以枚举每一行的状态然后暴力转移，预处理一些东西后，复杂度大概是$O(2^{2n}m\log_{2}{10^6})$。差不多是两亿。（之前有道题六亿longlong带取模2.3s能过，就没去思考进一步的复杂度了（还能通过类似插头DP的转移方式将其中$2^n$变为n）</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 12000
@@ -462,6 +459,21 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -476,48 +488,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/线段树/">#线段树</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/吉利线段树/">#吉利线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/高斯消元/">#高斯消元</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
@@ -531,8 +503,43 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/线段树/">#线段树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/吉利线段树/">#吉利线段树</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/高斯消元/">#高斯消元</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
@@ -541,13 +548,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        <div class="cube-box ">
+            <a href="/tags/hash/">#hash</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
+            <a href="/tags/二分/">#二分</a>
         </div>
         
         
@@ -567,42 +574,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/二分/">#二分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/斜率优化/">#斜率优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
@@ -616,8 +588,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/人类智慧/">#人类智慧</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
         </div>
         
         
@@ -626,8 +613,18 @@ int main(){
         </div>
         
         
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/斜率优化/">#斜率优化</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+            <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
@@ -636,13 +633,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/杜教筛/">#杜教筛</a>
-        </div>
-        
-        
         <div class="cube-box ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+            <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
@@ -656,12 +648,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/分块/">#分块</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -672,7 +659,27 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
+            <a href="/tags/分块/">#分块</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率与期望/">#概率与期望</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
@@ -692,11 +699,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
@@ -706,12 +708,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/最小生成树/">#最小生成树</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
@@ -721,8 +723,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
@@ -736,23 +738,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/树状数组/">#树状数组</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/概率与期望/">#概率与期望</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
+        <div class="cube-box ">
+            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
+            <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
     </div>
@@ -848,6 +845,12 @@ int main(){
             <!-- TODO change avatar.png to friend.png-->
             <img src="https://raw.githubusercontent.com/yyxxqq/yyxxqq.github.io/master/picture/xzy.jpg">
             <a href="https://www.cnblogs.com/Cmd2001" target="_blank">邢泽宇</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="https://yyxxqq.github.io/picture/xd.jpg">
+            <a href="http://tgotp.science/" target="_blank">向东</a>
         </li>
         
     </ul>

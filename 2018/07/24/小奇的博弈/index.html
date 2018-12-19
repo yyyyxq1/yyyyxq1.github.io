@@ -186,27 +186,17 @@
         <div class="cube-article-tags">
     <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
     
-    <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
-    
     <a href="/tags/博弈论/">#博弈论</a>
+    
+    <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
     
 </div>
     </div>
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="这个游戏是在一个1n的棋盘上进行的棋盘上有k个棋子一半是黑色一半是白色-最左边是白色棋子最右边"><a class="markdownIt-Anchor" href="#这个游戏是在一个1n的棋盘上进行的棋盘上有k个棋子一半是黑色一半是白色-最左边是白色棋子最右边"></a>     这个游戏是在一个1*n的棋盘上进行的，棋盘上有k个棋子，一半是黑色，一半是白色。最左边是白色棋子，最右边</h3>
-<h3 id="是黑色棋子相邻的棋子颜色不同"><a class="markdownIt-Anchor" href="#是黑色棋子相邻的棋子颜色不同"></a>     是黑色棋子，相邻的棋子颜色不同。</h3>
-<p><img src="https://www.lydsy.com/JudgeOnline/upload/201604/dd(6).png" alt="img"></p>
-<h3 id="小奇可以移动白色棋子提比可以移动黑色的棋子它们每次操作可以移动1到d个棋子-每当移动某一个棋子时"><a class="markdownIt-Anchor" href="#小奇可以移动白色棋子提比可以移动黑色的棋子它们每次操作可以移动1到d个棋子-每当移动某一个棋子时"></a>     小奇可以移动白色棋子，提比可以移动黑色的棋子，它们每次操作可以移动1到d个棋子。每当移动某一个棋子时，</h3>
-<h3 id="这个棋子不能跨越两边的棋子当然也不可以出界-当谁不可以操作时谁就失败了-小奇和提比轮流操作现在"><a class="markdownIt-Anchor" href="#这个棋子不能跨越两边的棋子当然也不可以出界-当谁不可以操作时谁就失败了-小奇和提比轮流操作现在"></a>    这个棋子不能跨越两边的棋子，当然也不可以出界。当谁不可以操作时，谁就失败了。小奇和提比轮流操作，现在</h3>
-<h3 id="小奇先移动有多少种初始棋子的布局会使它有必胜策略"><a class="markdownIt-Anchor" href="#小奇先移动有多少种初始棋子的布局会使它有必胜策略"></a>     小奇先移动，有多少种初始棋子的布局会使它有必胜策略？</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="网上已经有诸多题解了其中有一些说这题缺了限制条件但我分析了一下可能不太需要"><a class="markdownIt-Anchor" href="#网上已经有诸多题解了其中有一些说这题缺了限制条件但我分析了一下可能不太需要"></a>     网上已经有诸多题解了，其中有一些说这题缺了限制条件，但我分析了一下，可能不太需要。</h3>
-<h3 id="缺限制条件的原因是当白棋进入必败点后他可以通过加石子的方式来使得黑棋进入必败点"><a class="markdownIt-Anchor" href="#缺限制条件的原因是当白棋进入必败点后他可以通过加石子的方式来使得黑棋进入必败点"></a>     缺限制条件的原因是当白棋进入必败点后，他可以通过加石子的方式来使得黑棋进入必败点。</h3>
-<h3 id="但是白棋能加的棋子是有限的而只要白棋加石子黑旗就能跟进那么就可以还原成之前的局面并且白棋能加的棋子变少了这里是谁先进入必败点谁就输-就是如果一种状态进入到必败点虽然可以继续转移到必败点这里的必败点是与到终点时输的在某种意义上相同的状态但是会消耗一些东西可增加的空间而另一方跟进是无消耗的最后是谁先进入必败点谁就输了"><a class="markdownIt-Anchor" href="#但是白棋能加的棋子是有限的而只要白棋加石子黑旗就能跟进那么就可以还原成之前的局面并且白棋能加的棋子变少了这里是谁先进入必败点谁就输-就是如果一种状态进入到必败点虽然可以继续转移到必败点这里的必败点是与到终点时输的在某种意义上相同的状态但是会消耗一些东西可增加的空间而另一方跟进是无消耗的最后是谁先进入必败点谁就输了"></a>     但是，白棋能加的棋子是有限的，而只要白棋加石子，黑旗就能跟进，那么就可以还原成之前的局面，并且白棋能加的棋子变少了，这里是谁先进入必败点谁就输。就是，如果一种状态进入到必败点，虽然可以继续转移到必败点（这里的必败点是与到终点时输的在某种意义上相同的状态），但是会消耗一些东西（可增加的空间），而另一方跟进是无消耗的，最后是谁先进入必败点谁就输了。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+        <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-这个游戏是在一个1-n的棋盘上进行的，棋盘上有k个棋子，一半是黑色，一半是白色。最左边是白色棋子，最右边"><a href="#emsp-emsp-这个游戏是在一个1-n的棋盘上进行的，棋盘上有k个棋子，一半是黑色，一半是白色。最左边是白色棋子，最右边" class="headerlink" title="&emsp; &emsp; 这个游戏是在一个1*n的棋盘上进行的，棋盘上有k个棋子，一半是黑色，一半是白色。最左边是白色棋子，最右边"></a>&emsp; &emsp; 这个游戏是在一个1*n的棋盘上进行的，棋盘上有k个棋子，一半是黑色，一半是白色。最左边是白色棋子，最右边</h3><h3 id="emsp-emsp-是黑色棋子，相邻的棋子颜色不同。"><a href="#emsp-emsp-是黑色棋子，相邻的棋子颜色不同。" class="headerlink" title="&emsp; &emsp; 是黑色棋子，相邻的棋子颜色不同。"></a>&emsp; &emsp; 是黑色棋子，相邻的棋子颜色不同。</h3><p> <img src="https://www.lydsy.com/JudgeOnline/upload/201604/dd(6" alt="img">.png)</p>
+<h3 id="emsp-emsp-小奇可以移动白色棋子，提比可以移动黑色的棋子，它们每次操作可以移动1到d个棋子。每当移动某一个棋子时，"><a href="#emsp-emsp-小奇可以移动白色棋子，提比可以移动黑色的棋子，它们每次操作可以移动1到d个棋子。每当移动某一个棋子时，" class="headerlink" title="&emsp; &emsp; 小奇可以移动白色棋子，提比可以移动黑色的棋子，它们每次操作可以移动1到d个棋子。每当移动某一个棋子时，"></a>&emsp; &emsp; 小奇可以移动白色棋子，提比可以移动黑色的棋子，它们每次操作可以移动1到d个棋子。每当移动某一个棋子时，</h3><h3 id="emsp-emsp-这个棋子不能跨越两边的棋子，当然也不可以出界。当谁不可以操作时，谁就失败了。小奇和提比轮流操作，现在"><a href="#emsp-emsp-这个棋子不能跨越两边的棋子，当然也不可以出界。当谁不可以操作时，谁就失败了。小奇和提比轮流操作，现在" class="headerlink" title="&emsp; &emsp;这个棋子不能跨越两边的棋子，当然也不可以出界。当谁不可以操作时，谁就失败了。小奇和提比轮流操作，现在"></a>&emsp; &emsp;这个棋子不能跨越两边的棋子，当然也不可以出界。当谁不可以操作时，谁就失败了。小奇和提比轮流操作，现在</h3><h3 id="emsp-emsp-小奇先移动，有多少种初始棋子的布局会使它有必胜策略？"><a href="#emsp-emsp-小奇先移动，有多少种初始棋子的布局会使它有必胜策略？" class="headerlink" title="&emsp; &emsp; 小奇先移动，有多少种初始棋子的布局会使它有必胜策略？"></a>&emsp; &emsp; 小奇先移动，有多少种初始棋子的布局会使它有必胜策略？</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-网上已经有诸多题解了，其中有一些说这题缺了限制条件，但我分析了一下，可能不太需要。"><a href="#emsp-emsp-网上已经有诸多题解了，其中有一些说这题缺了限制条件，但我分析了一下，可能不太需要。" class="headerlink" title="&emsp; &emsp; 网上已经有诸多题解了，其中有一些说这题缺了限制条件，但我分析了一下，可能不太需要。"></a>&emsp; &emsp; 网上已经有诸多题解了，其中有一些说这题缺了限制条件，但我分析了一下，可能不太需要。</h3><h3 id="emsp-emsp-缺限制条件的原因是当白棋进入必败点后，他可以通过加石子的方式来使得黑棋进入必败点。"><a href="#emsp-emsp-缺限制条件的原因是当白棋进入必败点后，他可以通过加石子的方式来使得黑棋进入必败点。" class="headerlink" title="&emsp; &emsp; 缺限制条件的原因是当白棋进入必败点后，他可以通过加石子的方式来使得黑棋进入必败点。"></a>&emsp; &emsp; 缺限制条件的原因是当白棋进入必败点后，他可以通过加石子的方式来使得黑棋进入必败点。</h3><h3 id="emsp-emsp-但是，白棋能加的棋子是有限的，而只要白棋加石子，黑旗就能跟进，那么就可以还原成之前的局面，并且白棋能加的棋子变少了，这里是谁先进入必败点谁就输。就是，如果一种状态进入到必败点，虽然可以继续转移到必败点（这里的必败点是与到终点时输的在某种意义上相同的状态），但是会消耗一些东西（可增加的空间），而另一方跟进是无消耗的，最后是谁先进入必败点谁就输了。"><a href="#emsp-emsp-但是，白棋能加的棋子是有限的，而只要白棋加石子，黑旗就能跟进，那么就可以还原成之前的局面，并且白棋能加的棋子变少了，这里是谁先进入必败点谁就输。就是，如果一种状态进入到必败点，虽然可以继续转移到必败点（这里的必败点是与到终点时输的在某种意义上相同的状态），但是会消耗一些东西（可增加的空间），而另一方跟进是无消耗的，最后是谁先进入必败点谁就输了。" class="headerlink" title="&emsp; &emsp; 但是，白棋能加的棋子是有限的，而只要白棋加石子，黑旗就能跟进，那么就可以还原成之前的局面，并且白棋能加的棋子变少了，这里是谁先进入必败点谁就输。就是，如果一种状态进入到必败点，虽然可以继续转移到必败点（这里的必败点是与到终点时输的在某种意义上相同的状态），但是会消耗一些东西（可增加的空间），而另一方跟进是无消耗的，最后是谁先进入必败点谁就输了。"></a>&emsp; &emsp; 但是，白棋能加的棋子是有限的，而只要白棋加石子，黑旗就能跟进，那么就可以还原成之前的局面，并且白棋能加的棋子变少了，这里是谁先进入必败点谁就输。就是，如果一种状态进入到必败点，虽然可以继续转移到必败点（这里的必败点是与到终点时输的在某种意义上相同的状态），但是会消耗一些东西（可增加的空间），而另一方跟进是无消耗的，最后是谁先进入必败点谁就输了。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define P 1000000007 
@@ -234,7 +224,7 @@ int main(){
     printf(&quot;%lld\n&quot;,ans);
 }
 </code></pre>
-<p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4550" target="_blank" rel="noopener"> 小奇的博弈</a></p>
+<p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4550" target="_blank" rel="noopener"> 小奇的博弈</a> </p>
 
     </div>
 </div>
@@ -417,7 +407,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -433,7 +423,22 @@ int main(){
     <div class="cube-boxs">
         
         
+        <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -448,27 +453,22 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
+            <a href="/tags/好题/">#好题</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
+            <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/线段树/">#线段树</a>
         </div>
         
@@ -483,8 +483,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
@@ -493,18 +498,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/好题/">#好题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/博弈论/">#博弈论</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/倍增/">#倍增</a>
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
@@ -513,13 +513,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/hash/">#hash</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/特征方程/">#特征方程</a>
+        <div class="cube-box ">
+            <a href="/tags/二分/">#二分</a>
         </div>
         
         
@@ -533,48 +533,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/二分/">#二分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/斜率优化/">#斜率优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
@@ -588,13 +553,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/模拟/">#模拟</a>
+            <a href="/tags/人类智慧/">#人类智慧</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
@@ -603,37 +573,47 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/模拟/">#模拟</a>
+        </div>
+        
+        
         <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/斜率优化/">#斜率优化</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/CDQ分治/">#CDQ分治</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/分块/">#分块</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -644,7 +624,27 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
+            <a href="/tags/分块/">#分块</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/概率与期望/">#概率与期望</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
@@ -660,11 +660,6 @@ int main(){
         
         <div class="cube-box ">
             <a href="/tags/dp优化/">#dp优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
@@ -694,7 +689,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+            <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
@@ -708,23 +703,18 @@ int main(){
         </div>
         
         
+        <div class="cube-box ">
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
             <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/概率与期望/">#概率与期望</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
-        </div>
-        
-        
         <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
     </div>
@@ -820,6 +810,12 @@ int main(){
             <!-- TODO change avatar.png to friend.png-->
             <img src="https://raw.githubusercontent.com/yyxxqq/yyxxqq.github.io/master/picture/xzy.jpg">
             <a href="https://www.cnblogs.com/Cmd2001" target="_blank">邢泽宇</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="https://yyxxqq.github.io/picture/xd.jpg">
+            <a href="http://tgotp.science/" target="_blank">向东</a>
         </li>
         
     </ul>

@@ -196,11 +196,8 @@
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目:</h2>
-<p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20171227/20171227075528_34040.png" alt="img"></p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解:</h2>
-<h3 id="用排除法一个sabt我们枚举abt查找有多少个s能接上a-即abt与failabt之间的差就是能接上的最短距离-而sab-t这种分段方式则会在枚举到bt的时候枚举到因此每个只需与fail取差的那段即可"><a class="markdownIt-Anchor" href="#用排除法一个sabt我们枚举abt查找有多少个s能接上a-即abt与failabt之间的差就是能接上的最短距离-而sab-t这种分段方式则会在枚举到bt的时候枚举到因此每个只需与fail取差的那段即可"></a>     用排除法，一个SabT，我们枚举abT，查找有多少个S能接上a。即abT与fail[abT]之间的差就是能接上的最短距离。而Sab T这种分段方式则会在枚举到bT的时候枚举到，因此每个只需与fail取差的那段即可。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h2 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h2><p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20171227/20171227075528_34040.png" alt="img"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解:"></a>题解:</h2><h3 id="emsp-emsp-用排除法，一个SabT，我们枚举abT，查找有多少个S能接上a。即abT与fail-abT-之间的差就是能接上的最短距离。而Sab-T这种分段方式则会在枚举到bT的时候枚举到，因此每个只需与fail取差的那段即可。"><a href="#emsp-emsp-用排除法，一个SabT，我们枚举abT，查找有多少个S能接上a。即abT与fail-abT-之间的差就是能接上的最短距离。而Sab-T这种分段方式则会在枚举到bT的时候枚举到，因此每个只需与fail取差的那段即可。" class="headerlink" title="&emsp; &emsp; 用排除法，一个SabT，我们枚举abT，查找有多少个S能接上a。即abT与fail[abT]之间的差就是能接上的最短距离。而Sab T这种分段方式则会在枚举到bT的时候枚举到，因此每个只需与fail取差的那段即可。"></a>&emsp; &emsp; 用排除法，一个SabT，我们枚举abT，查找有多少个S能接上a。即abT与fail[abT]之间的差就是能接上的最短距离。而Sab T这种分段方式则会在枚举到bT的时候枚举到，因此每个只需与fail取差的那段即可。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 1200000
@@ -215,9 +212,9 @@ int build_trie(){
         int m=strlen(s+1);
         int now=0;
         for(int i=1;i&lt;=m;i++){
-            if(ch[now][s[i]-'a'+1]==0)ch[now][s[i]-'a'+1]=++tot;
-            d[ch[now][s[i]-'a'+1]]=d[now]+1;
-            now=ch[now][s[i]-'a'+1];
+            if(ch[now][s[i]-&#39;a&#39;+1]==0)ch[now][s[i]-&#39;a&#39;+1]=++tot;
+            d[ch[now][s[i]-&#39;a&#39;+1]]=d[now]+1;
+            now=ch[now][s[i]-&#39;a&#39;+1];
         }
     }
 }
@@ -285,11 +282,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目雅礼集训-2018-day10贪玩蓝月"><a class="markdownIt-Anchor" href="#题目雅礼集训-2018-day10贪玩蓝月"></a> 题目:<a href="https://loj.ac/problem/6515" target="_blank" rel="noopener">「雅礼集训 2018 Day10」贪玩蓝月</a></h2>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解:</h2>
-<h3 id="维护两个栈插入就直接插入删除就出栈如果其中一个栈清空了那么就直接从另外那个栈暴力取一半来重构"><a class="markdownIt-Anchor" href="#维护两个栈插入就直接插入删除就出栈如果其中一个栈清空了那么就直接从另外那个栈暴力取一半来重构"></a>     维护两个栈，插入就直接插入，删除就出栈，如果其中一个栈清空了，那么就直接从另外那个栈暴力取一半来重构。</h3>
-<h3 id="统计答案就用线段树来暴力求最大值-不知道为什么输入数据里有点的编号qwq"><a class="markdownIt-Anchor" href="#统计答案就用线段树来暴力求最大值-不知道为什么输入数据里有点的编号qwq"></a>     统计答案就用线段树来暴力求最大值。(不知道为什么输入数据里有点的编号qwq)。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h2 id="题目-「雅礼集训-2018-Day10」贪玩蓝月"><a href="#题目-「雅礼集训-2018-Day10」贪玩蓝月" class="headerlink" title="题目:「雅礼集训 2018 Day10」贪玩蓝月"></a>题目:<a href="https://loj.ac/problem/6515" target="_blank" rel="noopener">「雅礼集训 2018 Day10」贪玩蓝月</a></h2><h2 id="题解"><a href="#题解" class="headerlink" title="题解:"></a>题解:</h2><h3 id="emsp-emsp-维护两个栈，插入就直接插入，删除就出栈，如果其中一个栈清空了，那么就直接从另外那个栈暴力取一半来重构。"><a href="#emsp-emsp-维护两个栈，插入就直接插入，删除就出栈，如果其中一个栈清空了，那么就直接从另外那个栈暴力取一半来重构。" class="headerlink" title="&emsp; &emsp; 维护两个栈，插入就直接插入，删除就出栈，如果其中一个栈清空了，那么就直接从另外那个栈暴力取一半来重构。"></a>&emsp; &emsp; 维护两个栈，插入就直接插入，删除就出栈，如果其中一个栈清空了，那么就直接从另外那个栈暴力取一半来重构。</h3><h3 id="emsp-emsp-统计答案就用线段树来暴力求最大值。-不知道为什么输入数据里有点的编号qwq-。"><a href="#emsp-emsp-统计答案就用线段树来暴力求最大值。-不知道为什么输入数据里有点的编号qwq-。" class="headerlink" title="&emsp; &emsp; 统计答案就用线段树来暴力求最大值。(不知道为什么输入数据里有点的编号qwq)。"></a>&emsp; &emsp; 统计答案就用线段树来暴力求最大值。(不知道为什么输入数据里有点的编号qwq)。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 120000
@@ -392,18 +385,18 @@ int main(){
     g[0].clear();
     for(int i=1;i&lt;=n;i++){
         scanf(&quot;%s&quot;,s+1);
-        if(s[1]=='I'){
+        if(s[1]==&#39;I&#39;){
             int v,w;
             scanf(&quot;%d%d&quot;,&amp;v,&amp;w);
             v%=P;
-            if(s[2]=='F')add1(v,w);
-            if(s[2]=='G')add2(v,w);
+            if(s[2]==&#39;F&#39;)add1(v,w);
+            if(s[2]==&#39;G&#39;)add2(v,w);
         }
-        if(s[1]=='D'){
-            if(s[2]=='F')del1(); 
-            if(s[2]=='G')del2();
+        if(s[1]==&#39;D&#39;){
+            if(s[2]==&#39;F&#39;)del1(); 
+            if(s[2]==&#39;G&#39;)del2();
         }
-        if(s[1]=='Q'){
+        if(s[1]==&#39;Q&#39;){
             int x,y;
             scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
             printf(&quot;%lld\n&quot;,cal(x,y));
@@ -438,12 +431,9 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目:</h2>
-<p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20180108/20180108095829_80862.png" alt="img"></p>
+           <h2 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h2><p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20180108/20180108095829_80862.png" alt="img"></p>
 <p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20180108/20180108095836_95278.png" alt="img"></p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="考虑每个二进制位是相对独立的那么就可以枚举每一行的状态然后暴力转移预处理一些东西后复杂度大概是o22nmlog_2106-差不多是两亿-之前有道题六亿longlong带取模23s能过就没去思考进一步的复杂度了还能通过类似插头dp的转移方式将其中2n变为n"><a class="markdownIt-Anchor" href="#考虑每个二进制位是相对独立的那么就可以枚举每一行的状态然后暴力转移预处理一些东西后复杂度大概是o22nmlog_2106-差不多是两亿-之前有道题六亿longlong带取模23s能过就没去思考进一步的复杂度了还能通过类似插头dp的转移方式将其中2n变为n"></a>     考虑每个二进制位是相对独立的，那么就可以枚举每一行的状态然后暴力转移，预处理一些东西后，复杂度大概是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mn>2</mn><mrow><mn>2</mn><mi>n</mi></mrow></msup><mi>m</mi><msub><mi>log</mi><mrow><mn>2</mn></mrow></msub><mrow><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><mo>)</mo></mrow><annotation encoding="application/x-tex">O(2^{2n}m\log_{2}{10^6})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">m</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="vlist"><span style="top:0.24444em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord textstyle uncramped"><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="mclose">)</span></span></span></span>。差不多是两亿。（之前有道题六亿longlong带取模2.3s能过，就没去思考进一步的复杂度了（还能通过类似插头DP的转移方式将其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.664392em;"></span><span class="strut bottom" style="height:0.664392em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>变为n）</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+<h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-考虑每个二进制位是相对独立的，那么就可以枚举每一行的状态然后暴力转移，预处理一些东西后，复杂度大概是-O-2-2n-m-log-2-10-6-。差不多是两亿。（之前有道题六亿longlong带取模2-3s能过，就没去思考进一步的复杂度了（还能通过类似插头DP的转移方式将其中-2-n-变为n）"><a href="#emsp-emsp-考虑每个二进制位是相对独立的，那么就可以枚举每一行的状态然后暴力转移，预处理一些东西后，复杂度大概是-O-2-2n-m-log-2-10-6-。差不多是两亿。（之前有道题六亿longlong带取模2-3s能过，就没去思考进一步的复杂度了（还能通过类似插头DP的转移方式将其中-2-n-变为n）" class="headerlink" title="&emsp; &emsp; 考虑每个二进制位是相对独立的，那么就可以枚举每一行的状态然后暴力转移，预处理一些东西后，复杂度大概是$O(2^{2n}m\log_{2}{10^6})$。差不多是两亿。（之前有道题六亿longlong带取模2.3s能过，就没去思考进一步的复杂度了（还能通过类似插头DP的转移方式将其中$2^n$变为n）"></a>&emsp; &emsp; 考虑每个二进制位是相对独立的，那么就可以枚举每一行的状态然后暴力转移，预处理一些东西后，复杂度大概是$O(2^{2n}m\log_{2}{10^6})$。差不多是两亿。（之前有道题六亿longlong带取模2.3s能过，就没去思考进一步的复杂度了（还能通过类似插头DP的转移方式将其中$2^n$变为n）</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 12000
@@ -537,29 +527,8 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目:</h2>
-<p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20180108/20180108095719_59335.png" alt="img"></p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解:</h2>
-<h3 id="考虑每个幸运点对都是相对独立的就可以通过计算每个点对的概率来得到答案"><a class="markdownIt-Anchor" href="#考虑每个幸运点对都是相对独立的就可以通过计算每个点对的概率来得到答案"></a>     考虑每个幸运点对都是相对独立的，就可以通过计算每个点对的概率来得到答案。</h3>
-<h3 id="统计幸运点对个数并乘上概率就是答案了"><a class="markdownIt-Anchor" href="#统计幸运点对个数并乘上概率就是答案了"></a>     统计幸运点对个数并乘上概率就是答案了。</h3>
-<h2 id="官方题解"><a class="markdownIt-Anchor" href="#官方题解"></a> 官方题解:</h2>
-<h3 id="题目来源原创"><a class="markdownIt-Anchor" href="#题目来源原创"></a> 题目来源：原创</h3>
-<h3 id="考察要点树的基于点边的分治-概率与期望"><a class="markdownIt-Anchor" href="#考察要点树的基于点边的分治-概率与期望"></a> 考察要点：树的基于点/边的分治、概率与期望</h3>
-<h3 id="涉及要点动态规划-广度优先搜索"><a class="markdownIt-Anchor" href="#涉及要点动态规划-广度优先搜索"></a> 涉及要点：动态规划、广度优先搜索</h3>
-<h3 id="解题报告"><a class="markdownIt-Anchor" href="#解题报告"></a> 解题报告：</h3>
-<h3 id="对于某位玩家其占据每个点的概率是相同的因为点与点之间没有区别-同样其占据某对点对的概率也是固定的-不妨设这位玩家最终占据了n个点中的x个点因为三人轮流选取的顺序固定所以x可以简单求得-则该玩家占据某对点对的概率可以这么计算"><a class="markdownIt-Anchor" href="#对于某位玩家其占据每个点的概率是相同的因为点与点之间没有区别-同样其占据某对点对的概率也是固定的-不妨设这位玩家最终占据了n个点中的x个点因为三人轮流选取的顺序固定所以x可以简单求得-则该玩家占据某对点对的概率可以这么计算"></a>     对于某位玩家，其占据每个点的概率是相同的（因为点与点之间没有区别）。同样，其占据某对点对的概率也是固定的。不妨设这位玩家最终占据了n个点中的x个点，因为三人轮流选取的顺序固定，所以x可以简单求得。则该玩家占据某对点对的概率可以这么计算：</h3>
-<h3 id="该玩家从n个点中选取x个点的方案数为cnx"><a class="markdownIt-Anchor" href="#该玩家从n个点中选取x个点的方案数为cnx"></a>     该玩家从n个点中选取x个点的方案数为C(n,x)。</h3>
-<h3 id="在这些方案中选取了某对点对的方案数为cn-2x-2"><a class="markdownIt-Anchor" href="#在这些方案中选取了某对点对的方案数为cn-2x-2"></a>     在这些方案中，选取了某对点对的方案数为C(n-2,x-2)。</h3>
-<h3 id="与前面分析类似易得每个方案的概率是相等的故该玩家占据某对点对的概率为fraccn-2x-2cnx-fracxx-1nn-1"><a class="markdownIt-Anchor" href="#与前面分析类似易得每个方案的概率是相等的故该玩家占据某对点对的概率为fraccn-2x-2cnx-fracxx-1nn-1"></a>     与前面分析类似，易得每个方案的概率是相等的，故该玩家占据某对点对的概率为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>C</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo separator="true">,</mo><mi>x</mi><mo>−</mo><mn>2</mn><mo>)</mo></mrow><mrow><mi>C</mi><mo>(</mo><mi>n</mi><mo separator="true">,</mo><mi>x</mi><mo>)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>x</mi><mo>(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><mrow><mi>n</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{C(n-2,x-2)}{C(n,x)}= \frac{x(x-1)}{n(n-1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.53em;vertical-align:-0.52em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mpunct">,</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">x</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>。</h3>
-<h3 id="故问题转换为求距离为某个幸运数的点对对数将其乘以fracxx-1nn-1即为答案"><a class="markdownIt-Anchor" href="#故问题转换为求距离为某个幸运数的点对对数将其乘以fracxx-1nn-1即为答案"></a>     故问题转换为求距离为某个幸运数的点对对数，将其乘以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>x</mi><mo>(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><mrow><mi>n</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{x(x-1)}{n(n-1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.53em;vertical-align:-0.52em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">x</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>即为答案。</h3>
-<h3 id="对于数据点1n-1000bfs即可"><a class="markdownIt-Anchor" href="#对于数据点1n-1000bfs即可"></a>     对于数据点1，n &lt;= 1000，bfs即可。</h3>
-<h3 id="对于数据点2-3-4第i个幸运数为i因为幸运数10故可以使用树形动态规划求解-fx110表示子树x中与节点x距离为110的点数转移略"><a class="markdownIt-Anchor" href="#对于数据点2-3-4第i个幸运数为i因为幸运数10故可以使用树形动态规划求解-fx110表示子树x中与节点x距离为110的点数转移略"></a>     对于数据点2、3、4，第i个幸运数为i，因为幸运数&lt;=10，故可以使用树形动态规划求解。F[x][1…10]表示子树x中与节点x距离为1…10的点数，转移略。</h3>
-<h3 id="如果在bfs中加入剪枝优化距离超过最大的幸运数后就不再搜索亦可通过这三个数据点"><a class="markdownIt-Anchor" href="#如果在bfs中加入剪枝优化距离超过最大的幸运数后就不再搜索亦可通过这三个数据点"></a>     如果在bfs中加入剪枝优化（距离超过最大的幸运数后就不再搜索），亦可通过这三个数据点。</h3>
-<h3 id="对于数据点5-6-7n为3的倍数三人答案相同方便选手计算"><a class="markdownIt-Anchor" href="#对于数据点5-6-7n为3的倍数三人答案相同方便选手计算"></a>     对于数据点5、6、7，n为3的倍数，三人答案相同，方便选手计算。</h3>
-<h3 id="对于所有数据点3-n-50000m-10幸运数大小-n使用树的基于点边的分治求解-其中树的基于边的分治需要重建树以防止星形图数据点7和数据点10时复杂度退化-另外在不开编译优化的情况下使用vector等stl存图的程序也容易在这两个数据点超时"><a class="markdownIt-Anchor" href="#对于所有数据点3-n-50000m-10幸运数大小-n使用树的基于点边的分治求解-其中树的基于边的分治需要重建树以防止星形图数据点7和数据点10时复杂度退化-另外在不开编译优化的情况下使用vector等stl存图的程序也容易在这两个数据点超时"></a>     对于所有数据点，3 &lt;= n &lt;= 50000，m &lt;= 10，幸运数大小 &lt;= n，使用树的基于点/边的分治求解。其中树的基于边的分治需要重建树以防止星形图（数据点7和数据点10）时复杂度退化。另外在不开编译优化的情况下，使用vector等STL存图的程序也容易在这两个数据点超时。</h3>
-<h3 id="出题思路"><a class="markdownIt-Anchor" href="#出题思路"></a> 出题思路：</h3>
-<h3 id="本题要求选手对期望与概率的独立性有最基本的认识分析出藏在轮流选取背后的是每个点对相同的概率-之后本题的题目模型考察选手的硬编程实力在所有树分治题目中本题属于最简单的一类熟练掌握的选手应可以在半小时至一小时内关于这个表示赞同解决"><a class="markdownIt-Anchor" href="#本题要求选手对期望与概率的独立性有最基本的认识分析出藏在轮流选取背后的是每个点对相同的概率-之后本题的题目模型考察选手的硬编程实力在所有树分治题目中本题属于最简单的一类熟练掌握的选手应可以在半小时至一小时内关于这个表示赞同解决"></a>     本题要求选手对期望与概率的独立性有最基本的认识，分析出藏在轮流选取背后的是每个点对相同的概率。之后本题的题目模型考察选手的硬编程实力，在所有树分治题目中，本题属于最简单的一类，熟练掌握的选手应可以在半小时至一小时内（关于这个表示赞同）解决。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h2 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h2><p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20180108/20180108095719_59335.png" alt="img"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解:"></a>题解:</h2><h3 id="emsp-emsp-考虑每个幸运点对都是相对独立的，就可以通过计算每个点对的概率来得到答案。"><a href="#emsp-emsp-考虑每个幸运点对都是相对独立的，就可以通过计算每个点对的概率来得到答案。" class="headerlink" title="&emsp; &emsp; 考虑每个幸运点对都是相对独立的，就可以通过计算每个点对的概率来得到答案。"></a>&emsp; &emsp; 考虑每个幸运点对都是相对独立的，就可以通过计算每个点对的概率来得到答案。</h3><h3 id="emsp-emsp-统计幸运点对个数并乘上概率就是答案了。"><a href="#emsp-emsp-统计幸运点对个数并乘上概率就是答案了。" class="headerlink" title="&emsp; &emsp; 统计幸运点对个数并乘上概率就是答案了。"></a>&emsp; &emsp; 统计幸运点对个数并乘上概率就是答案了。</h3><h2 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a>官方题解:</h2><h3 id="题目来源：原创"><a href="#题目来源：原创" class="headerlink" title="题目来源：原创"></a>题目来源：原创</h3><h3 id="考察要点：树的基于点-边的分治、概率与期望"><a href="#考察要点：树的基于点-边的分治、概率与期望" class="headerlink" title="考察要点：树的基于点/边的分治、概率与期望"></a>考察要点：树的基于点/边的分治、概率与期望</h3><h3 id="涉及要点：动态规划、广度优先搜索"><a href="#涉及要点：动态规划、广度优先搜索" class="headerlink" title="涉及要点：动态规划、广度优先搜索"></a>涉及要点：动态规划、广度优先搜索</h3><h3 id="解题报告："><a href="#解题报告：" class="headerlink" title="解题报告："></a>解题报告：</h3><h3 id="emsp-emsp-对于某位玩家，其占据每个点的概率是相同的（因为点与点之间没有区别）。同样，其占据某对点对的概率也是固定的。不妨设这位玩家最终占据了n个点中的x个点，因为三人轮流选取的顺序固定，所以x可以简单求得。则该玩家占据某对点对的概率可以这么计算："><a href="#emsp-emsp-对于某位玩家，其占据每个点的概率是相同的（因为点与点之间没有区别）。同样，其占据某对点对的概率也是固定的。不妨设这位玩家最终占据了n个点中的x个点，因为三人轮流选取的顺序固定，所以x可以简单求得。则该玩家占据某对点对的概率可以这么计算：" class="headerlink" title="&emsp; &emsp; 对于某位玩家，其占据每个点的概率是相同的（因为点与点之间没有区别）。同样，其占据某对点对的概率也是固定的。不妨设这位玩家最终占据了n个点中的x个点，因为三人轮流选取的顺序固定，所以x可以简单求得。则该玩家占据某对点对的概率可以这么计算："></a>&emsp; &emsp; 对于某位玩家，其占据每个点的概率是相同的（因为点与点之间没有区别）。同样，其占据某对点对的概率也是固定的。不妨设这位玩家最终占据了n个点中的x个点，因为三人轮流选取的顺序固定，所以x可以简单求得。则该玩家占据某对点对的概率可以这么计算：</h3><h3 id="emsp-emsp-该玩家从n个点中选取x个点的方案数为C-n-x-。"><a href="#emsp-emsp-该玩家从n个点中选取x个点的方案数为C-n-x-。" class="headerlink" title="&emsp; &emsp; 该玩家从n个点中选取x个点的方案数为C(n,x)。"></a>&emsp; &emsp; 该玩家从n个点中选取x个点的方案数为C(n,x)。</h3><h3 id="emsp-emsp-在这些方案中，选取了某对点对的方案数为C-n-2-x-2-。"><a href="#emsp-emsp-在这些方案中，选取了某对点对的方案数为C-n-2-x-2-。" class="headerlink" title="&emsp; &emsp; 在这些方案中，选取了某对点对的方案数为C(n-2,x-2)。"></a>&emsp; &emsp; 在这些方案中，选取了某对点对的方案数为C(n-2,x-2)。</h3><h3 id="emsp-emsp-与前面分析类似，易得每个方案的概率是相等的，故该玩家占据某对点对的概率为-frac-C-n-2-x-2-C-n-x-frac-x-x-1-n-n-1-。"><a href="#emsp-emsp-与前面分析类似，易得每个方案的概率是相等的，故该玩家占据某对点对的概率为-frac-C-n-2-x-2-C-n-x-frac-x-x-1-n-n-1-。" class="headerlink" title="&emsp; &emsp; 与前面分析类似，易得每个方案的概率是相等的，故该玩家占据某对点对的概率为$\frac{C(n-2,x-2)}{C(n,x)}= \frac{x(x-1)}{n(n-1)}$。"></a>&emsp; &emsp; 与前面分析类似，易得每个方案的概率是相等的，故该玩家占据某对点对的概率为$\frac{C(n-2,x-2)}{C(n,x)}= \frac{x(x-1)}{n(n-1)}$。</h3><h3 id="emsp-emsp-故问题转换为求距离为某个幸运数的点对对数，将其乘以-frac-x-x-1-n-n-1-即为答案。"><a href="#emsp-emsp-故问题转换为求距离为某个幸运数的点对对数，将其乘以-frac-x-x-1-n-n-1-即为答案。" class="headerlink" title="&emsp; &emsp; 故问题转换为求距离为某个幸运数的点对对数，将其乘以$\frac{x(x-1)}{n(n-1)}$即为答案。"></a>&emsp; &emsp; 故问题转换为求距离为某个幸运数的点对对数，将其乘以$\frac{x(x-1)}{n(n-1)}$即为答案。</h3><h3 id="emsp-emsp-对于数据点1，n-lt-1000，bfs即可。"><a href="#emsp-emsp-对于数据点1，n-lt-1000，bfs即可。" class="headerlink" title="&emsp; &emsp; 对于数据点1，n &lt;= 1000，bfs即可。"></a>&emsp; &emsp; 对于数据点1，n &lt;= 1000，bfs即可。</h3><h3 id="emsp-emsp-对于数据点2、3、4，第i个幸运数为i，因为幸运数-lt-10，故可以使用树形动态规划求解。F-x-1-10-表示子树x中与节点x距离为1-10的点数，转移略。"><a href="#emsp-emsp-对于数据点2、3、4，第i个幸运数为i，因为幸运数-lt-10，故可以使用树形动态规划求解。F-x-1-10-表示子树x中与节点x距离为1-10的点数，转移略。" class="headerlink" title="&emsp; &emsp; 对于数据点2、3、4，第i个幸运数为i，因为幸运数&lt;=10，故可以使用树形动态规划求解。F[x][1..10]表示子树x中与节点x距离为1..10的点数，转移略。"></a>&emsp; &emsp; 对于数据点2、3、4，第i个幸运数为i，因为幸运数&lt;=10，故可以使用树形动态规划求解。F[x][1..10]表示子树x中与节点x距离为1..10的点数，转移略。</h3><h3 id="emsp-emsp-如果在bfs中加入剪枝优化（距离超过最大的幸运数后就不再搜索），亦可通过这三个数据点。"><a href="#emsp-emsp-如果在bfs中加入剪枝优化（距离超过最大的幸运数后就不再搜索），亦可通过这三个数据点。" class="headerlink" title="&emsp; &emsp; 如果在bfs中加入剪枝优化（距离超过最大的幸运数后就不再搜索），亦可通过这三个数据点。"></a>&emsp; &emsp; 如果在bfs中加入剪枝优化（距离超过最大的幸运数后就不再搜索），亦可通过这三个数据点。</h3><h3 id="emsp-emsp-对于数据点5、6、7，n为3的倍数，三人答案相同，方便选手计算。"><a href="#emsp-emsp-对于数据点5、6、7，n为3的倍数，三人答案相同，方便选手计算。" class="headerlink" title="&emsp; &emsp; 对于数据点5、6、7，n为3的倍数，三人答案相同，方便选手计算。"></a>&emsp; &emsp; 对于数据点5、6、7，n为3的倍数，三人答案相同，方便选手计算。</h3><h3 id="emsp-emsp-对于所有数据点，3-lt-n-lt-50000，m-lt-10，幸运数大小-lt-n，使用树的基于点-边的分治求解。其中树的基于边的分治需要重建树以防止星形图（数据点7和数据点10）时复杂度退化。另外在不开编译优化的情况下，使用vector等STL存图的程序也容易在这两个数据点超时。"><a href="#emsp-emsp-对于所有数据点，3-lt-n-lt-50000，m-lt-10，幸运数大小-lt-n，使用树的基于点-边的分治求解。其中树的基于边的分治需要重建树以防止星形图（数据点7和数据点10）时复杂度退化。另外在不开编译优化的情况下，使用vector等STL存图的程序也容易在这两个数据点超时。" class="headerlink" title="&emsp; &emsp; 对于所有数据点，3 &lt;= n &lt;= 50000，m &lt;= 10，幸运数大小 &lt;= n，使用树的基于点/边的分治求解。其中树的基于边的分治需要重建树以防止星形图（数据点7和数据点10）时复杂度退化。另外在不开编译优化的情况下，使用vector等STL存图的程序也容易在这两个数据点超时。"></a>&emsp; &emsp; 对于所有数据点，3 &lt;= n &lt;= 50000，m &lt;= 10，幸运数大小 &lt;= n，使用树的基于点/边的分治求解。其中树的基于边的分治需要重建树以防止星形图（数据点7和数据点10）时复杂度退化。另外在不开编译优化的情况下，使用vector等STL存图的程序也容易在这两个数据点超时。</h3><h3 id="出题思路："><a href="#出题思路：" class="headerlink" title="出题思路："></a>出题思路：</h3><h3 id="emsp-emsp-本题要求选手对期望与概率的独立性有最基本的认识，分析出藏在轮流选取背后的是每个点对相同的概率。之后本题的题目模型考察选手的硬编程实力，在所有树分治题目中，本题属于最简单的一类，熟练掌握的选手应可以在半小时至一小时内（关于这个表示赞同）解决。"><a href="#emsp-emsp-本题要求选手对期望与概率的独立性有最基本的认识，分析出藏在轮流选取背后的是每个点对相同的概率。之后本题的题目模型考察选手的硬编程实力，在所有树分治题目中，本题属于最简单的一类，熟练掌握的选手应可以在半小时至一小时内（关于这个表示赞同）解决。" class="headerlink" title="&emsp; &emsp; 本题要求选手对期望与概率的独立性有最基本的认识，分析出藏在轮流选取背后的是每个点对相同的概率。之后本题的题目模型考察选手的硬编程实力，在所有树分治题目中，本题属于最简单的一类，熟练掌握的选手应可以在半小时至一小时内（关于这个表示赞同）解决。"></a>&emsp; &emsp; 本题要求选手对期望与概率的独立性有最基本的认识，分析出藏在轮流选取背后的是每个点对相同的概率。之后本题的题目模型考察选手的硬编程实力，在所有树分治题目中，本题属于最简单的一类，熟练掌握的选手应可以在半小时至一小时内（关于这个表示赞同）解决。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 120000
@@ -626,7 +595,7 @@ int solve(int x){
                 if(luck[k]&gt;j&amp;&amp;luck[k]-j&lt;=cnt)ans+=1LL*q[luck[k]-j]*l[j];
         for(int j=1;j&lt;=ill;j++)q[j]+=l[j];
     }
-     
+
     for(int i=h[x];i;i=Next[i]){
         if(p[v[i]]==1)continue;
         int o=get_son(v[i]);
@@ -651,7 +620,6 @@ int main(){
     cal(n/3+(n%3&gt;=2));
     cal(n/3+(n%3&gt;=3));
 }
-
 </code></pre>
 
         
@@ -682,14 +650,9 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目：</h2>
-<p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20160111/20160111105406_20322.jpg" alt="img"></p>
+           <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20160111/20160111105406_20322.jpg" alt="img"></p>
 <p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20160111/20160111105406_55763.jpg" alt="img"></p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解:</h2>
-<h3 id="吉利线段树板子题利用父亲信息每次更新子节点然后利用势能分析能证明其时间复杂度是onlog_22n的全靠脑补的我就写出了7k的代码我无法用更短的代码表示我对这题的喜爱x"><a class="markdownIt-Anchor" href="#吉利线段树板子题利用父亲信息每次更新子节点然后利用势能分析能证明其时间复杂度是onlog_22n的全靠脑补的我就写出了7k的代码我无法用更短的代码表示我对这题的喜爱x"></a>     吉利线段树板子题，利用父亲信息每次更新子节点，然后利用势能分析能证明其时间复杂度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><msubsup><mi>g</mi><mn>2</mn><mn>2</mn></msubsup><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlog_2^2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.24810799999999997em;margin-left:-0.03588em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>的（全靠脑补的我就写出了7k的代码（我无法用更短的代码表示我对这题的喜爱x。</h3>
-<h3 id="明明不是第一次写吉利线段树但我怎么一点印象都没有qwq"><a class="markdownIt-Anchor" href="#明明不是第一次写吉利线段树但我怎么一点印象都没有qwq"></a>     明明不是第一次写吉利线段树但我怎么一点印象都没有qwq。</h3>
-<h3 id="复制一时爽调试火葬场因为连着把一个错误复制了好多次导致重构代码"><a class="markdownIt-Anchor" href="#复制一时爽调试火葬场因为连着把一个错误复制了好多次导致重构代码"></a>     复制一时爽，调试火葬场（因为连着把一个错误复制了好多次导致重构代码。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解:"></a>题解:</h2><h3 id="emsp-emsp-吉利线段树板子题，利用父亲信息每次更新子节点，然后利用势能分析能证明其时间复杂度是-O-nlog-2-2n-的（全靠脑补的我就写出了7k的代码（我无法用更短的代码表示我对这题的喜爱x。"><a href="#emsp-emsp-吉利线段树板子题，利用父亲信息每次更新子节点，然后利用势能分析能证明其时间复杂度是-O-nlog-2-2n-的（全靠脑补的我就写出了7k的代码（我无法用更短的代码表示我对这题的喜爱x。" class="headerlink" title="&emsp; &emsp; 吉利线段树板子题，利用父亲信息每次更新子节点，然后利用势能分析能证明其时间复杂度是$O(nlog_2^2n)$的（全靠脑补的我就写出了7k的代码（我无法用更短的代码表示我对这题的喜爱x。"></a>&emsp; &emsp; 吉利线段树板子题，利用父亲信息每次更新子节点，然后利用势能分析能证明其时间复杂度是$O(nlog_2^2n)$的（全靠脑补的我就写出了7k的代码（我无法用更短的代码表示我对这题的喜爱x。</h3><h3 id="emsp-emsp-明明不是第一次写吉利线段树但我怎么一点印象都没有qwq。"><a href="#emsp-emsp-明明不是第一次写吉利线段树但我怎么一点印象都没有qwq。" class="headerlink" title="&emsp; &emsp; 明明不是第一次写吉利线段树但我怎么一点印象都没有qwq。"></a>&emsp; &emsp; 明明不是第一次写吉利线段树但我怎么一点印象都没有qwq。</h3><h3 id="emsp-emsp-复制一时爽，调试火葬场（因为连着把一个错误复制了好多次导致重构代码。"><a href="#emsp-emsp-复制一时爽，调试火葬场（因为连着把一个错误复制了好多次导致重构代码。" class="headerlink" title="&emsp; &emsp; 复制一时爽，调试火葬场（因为连着把一个错误复制了好多次导致重构代码。"></a>&emsp; &emsp; 复制一时爽，调试火葬场（因为连着把一个错误复制了好多次导致重构代码。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;algorithm&gt;
@@ -991,13 +954,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题意"><a class="markdownIt-Anchor" href="#题意"></a> 题意:</h2>
-<h3 id="给出若干条线段用-x_1y_2-x_2y_2表示其两端点坐标现在要求支持两种操作"><a class="markdownIt-Anchor" href="#给出若干条线段用-x_1y_2-x_2y_2表示其两端点坐标现在要求支持两种操作"></a>     给出若干条线段，用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(x_1,y_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span> , <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(x_2,y_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>表示其两端点坐标，现在要求支持两种操作：</h3>
-<h3 id="0x_1y_1x_2y_2-表示加入一条新的线段-x_1y_2-x_2y_2"><a class="markdownIt-Anchor" href="#0x_1y_1x_2y_2-表示加入一条新的线段-x_1y_2-x_2y_2"></a>      <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo separator="true">,</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">0,x_1,y_1,x_2,y_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 表示加入一条新的线段 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(x_1,y_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span> , <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(x_2,y_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>；</h3>
-<h3 id="1-x_0-询问所有线段中x坐标在-x_0-处的最高点的y坐标是什么如果对应位置没有线段则输出-0"><a class="markdownIt-Anchor" href="#1-x_0-询问所有线段中x坐标在-x_0-处的最高点的y坐标是什么如果对应位置没有线段则输出-0"></a>     <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> , <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">x_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 询问所有线段中，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>坐标在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">x_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 处的最高点的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span>坐标是什么，如果对应位置没有线段，则输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span>。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解:</h2>
-<h3 id="线段树维护区间中位数值最大可易证最终答案一定是线段树上某个区间的最大值-注意数据中有竖线"><a class="markdownIt-Anchor" href="#线段树维护区间中位数值最大可易证最终答案一定是线段树上某个区间的最大值-注意数据中有竖线"></a>     线段树维护区间中位数值最大，可易证最终答案一定是线段树上某个区间的最大值。（注意数据中有竖线</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h2 id="题意"><a href="#题意" class="headerlink" title="题意:"></a>题意:</h2><h3 id="emsp-emsp-给出若干条线段，用-x-1-y-2-x-2-y-2-表示其两端点坐标，现在要求支持两种操作："><a href="#emsp-emsp-给出若干条线段，用-x-1-y-2-x-2-y-2-表示其两端点坐标，现在要求支持两种操作：" class="headerlink" title="&emsp; &emsp; 给出若干条线段，用 $(x_1,y_2)$ , $(x_2,y_2)$表示其两端点坐标，现在要求支持两种操作："></a>&emsp; &emsp; 给出若干条线段，用 $(x_1,y_2)$ , $(x_2,y_2)$表示其两端点坐标，现在要求支持两种操作：</h3><h3 id="emsp-emsp-0-x-1-y-1-x-2-y-2-表示加入一条新的线段-x-1-y-2-x-2-y-2-；"><a href="#emsp-emsp-0-x-1-y-1-x-2-y-2-表示加入一条新的线段-x-1-y-2-x-2-y-2-；" class="headerlink" title="&emsp; &emsp;  $0,x_1,y_1,x_2,y_2$ 表示加入一条新的线段 $(x_1,y_2)$ , $(x_2,y_2)$；"></a>&emsp; &emsp;  $0,x_1,y_1,x_2,y_2$ 表示加入一条新的线段 $(x_1,y_2)$ , $(x_2,y_2)$；</h3><h3 id="emsp-emsp-1-x-0-询问所有线段中，-x-坐标在-x-0-处的最高点的-y-坐标是什么，如果对应位置没有线段，则输出-0-。"><a href="#emsp-emsp-1-x-0-询问所有线段中，-x-坐标在-x-0-处的最高点的-y-坐标是什么，如果对应位置没有线段，则输出-0-。" class="headerlink" title="&emsp; &emsp; $1$ , $x_0$ 询问所有线段中，$x$坐标在 $x_0$ 处的最高点的$y$坐标是什么，如果对应位置没有线段，则输出 $0$。"></a>&emsp; &emsp; $1$ , $x_0$ 询问所有线段中，$x$坐标在 $x_0$ 处的最高点的$y$坐标是什么，如果对应位置没有线段，则输出 $0$。</h3><h2 id="题解"><a href="#题解" class="headerlink" title="题解:"></a>题解:</h2><h3 id="emsp-emsp-线段树维护区间中位数值最大，可易证最终答案一定是线段树上某个区间的最大值。（注意数据中有竖线"><a href="#emsp-emsp-线段树维护区间中位数值最大，可易证最终答案一定是线段树上某个区间的最大值。（注意数据中有竖线" class="headerlink" title="&emsp; &emsp; 线段树维护区间中位数值最大，可易证最终答案一定是线段树上某个区间的最大值。（注意数据中有竖线"></a>&emsp; &emsp; 线段树维护区间中位数值最大，可易证最终答案一定是线段树上某个区间的最大值。（注意数据中有竖线</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 1200000
@@ -1007,92 +964,92 @@ int main(){
 using namespace std;
 int n,m;
 namespace seg{
-	long double tk[N],tb[N],ans;
-	int build(int i,int l,int r){
-		tb[i]=-inf;
-		if(l==r)return 0;
-		int mid=(l+r)/2;
-		build(i*2,l,mid);
-		build(i*2+1,mid+1,r);
-	}
-	int insert(int i,int l,int r,long double k,long double b,int x,int y){
-		if(x&lt;=l&amp;&amp;y&gt;=r){
-			int mid=(l+r)/2;
-			if(get(l,tk[i],tb[i])&lt;get(l,k,b)&amp;&amp;get(r,tk[i],tb[i])&lt;get(r,k,b)){
-				tk[i]=k;
-				tb[i]=b;
-				return 0;
-			}
-			if(get(l,tk[i],tb[i])&gt;get(l,k,b)&amp;&amp;get(r,tk[i],tb[i])&gt;get(r,k,b))return 0;
-			long double ll=get(mid,k,b);
-			long double rr=get(mid,tk[i],tb[i]);
-			if(ll&gt;rr){
-				if(l==r)return 0;
-				if(k&gt;tk[i])insert(i*2,l,mid,tk[i],tb[i],x,y);
-				else insert(i*2+1,mid+1,r,tk[i],tb[i],x,y);
-				tk[i]=k;
-				tb[i]=b;
-				return 0;
-			}else{
-				if(l==r)return 0;
-				if(k&gt;tk[i])insert(i*2+1,mid+1,r,k,b,x,y);
-				else insert(i*2,l,mid,k,b,x,y);
-				return 0;
-			}
-			return 0;
-		}
-		int mid=(l+r)/2;
-		if(x&lt;=mid)insert(i*2,l,mid,k,b,x,y);
-		if(y&gt;mid)insert(i*2+1,mid+1,r,k,b,x,y);
-	}
-	int query(int i,int l,int r,int x){
-		if(i==1)ans=-inf;
-		ans=max(ans,get(x,tk[i],tb[i]));
-		if(l==r)return 0;
-		int mid=(l+r)/2;
-		if(x&lt;=mid)query(i*2,l,mid,x);
-		else query(i*2+1,mid+1,r,x);
-	}
+    long double tk[N],tb[N],ans;
+    int build(int i,int l,int r){
+        tb[i]=-inf;
+        if(l==r)return 0;
+        int mid=(l+r)/2;
+        build(i*2,l,mid);
+        build(i*2+1,mid+1,r);
+    }
+    int insert(int i,int l,int r,long double k,long double b,int x,int y){
+        if(x&lt;=l&amp;&amp;y&gt;=r){
+            int mid=(l+r)/2;
+            if(get(l,tk[i],tb[i])&lt;get(l,k,b)&amp;&amp;get(r,tk[i],tb[i])&lt;get(r,k,b)){
+                tk[i]=k;
+                tb[i]=b;
+                return 0;
+            }
+            if(get(l,tk[i],tb[i])&gt;get(l,k,b)&amp;&amp;get(r,tk[i],tb[i])&gt;get(r,k,b))return 0;
+            long double ll=get(mid,k,b);
+            long double rr=get(mid,tk[i],tb[i]);
+            if(ll&gt;rr){
+                if(l==r)return 0;
+                if(k&gt;tk[i])insert(i*2,l,mid,tk[i],tb[i],x,y);
+                else insert(i*2+1,mid+1,r,tk[i],tb[i],x,y);
+                tk[i]=k;
+                tb[i]=b;
+                return 0;
+            }else{
+                if(l==r)return 0;
+                if(k&gt;tk[i])insert(i*2+1,mid+1,r,k,b,x,y);
+                else insert(i*2,l,mid,k,b,x,y);
+                return 0;
+            }
+            return 0;
+        }
+        int mid=(l+r)/2;
+        if(x&lt;=mid)insert(i*2,l,mid,k,b,x,y);
+        if(y&gt;mid)insert(i*2+1,mid+1,r,k,b,x,y);
+    }
+    int query(int i,int l,int r,int x){
+        if(i==1)ans=-inf;
+        ans=max(ans,get(x,tk[i],tb[i]));
+        if(l==r)return 0;
+        int mid=(l+r)/2;
+        if(x&lt;=mid)query(i*2,l,mid,x);
+        else query(i*2+1,mid+1,r,x);
+    }
 }
 int insert(){
-	int xa,ya,xb,yb;
-	scanf(&quot;%d%d%d%d&quot;,&amp;xa,&amp;ya,&amp;xb,&amp;yb);
-	xa++;
-	xb++;
-	if(xa&gt;xb){
-		swap(xa,xb);
-		swap(ya,yb);
-	}
-	long double k=(long double)(yb-ya+0.0)/(xb-xa);
-	long double b=ya-k*xa;
-	if(xa==xb)k=0,b=max(ya,yb);
-	xa=max(1,xa);
-	xa=min(xa,O);
-	xb=max(1,xb);
-	xb=min(xb,O);
-	seg::insert(1,1,O,k,b,xa,xb);
+    int xa,ya,xb,yb;
+    scanf(&quot;%d%d%d%d&quot;,&amp;xa,&amp;ya,&amp;xb,&amp;yb);
+    xa++;
+    xb++;
+    if(xa&gt;xb){
+        swap(xa,xb);
+        swap(ya,yb);
+    }
+    long double k=(long double)(yb-ya+0.0)/(xb-xa);
+    long double b=ya-k*xa;
+    if(xa==xb)k=0,b=max(ya,yb);
+    xa=max(1,xa);
+    xa=min(xa,O);
+    xb=max(1,xb);
+    xb=min(xb,O);
+    seg::insert(1,1,O,k,b,xa,xb);
 }
 int main(){
-	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-	seg::build(1,1,O);
-	for(int i=1;i&lt;=n;i++)insert();
-	for(int i=1;i&lt;=m;i++){
-		int type;
-		scanf(&quot;%d&quot;,&amp;type);
-		if(type==0)insert();
-		if(type==1){
-			int x;
-			scanf(&quot;%d&quot;,&amp;x);
-			x++;
-			seg::query(1,1,O,x);
-			if(seg::ans&lt;=-inf+1){
-				printf(&quot;0.0000000\n&quot;);
-				continue;
-			}
-			printf(&quot;%5Lf\n&quot;,seg::ans);
-		}
-	}
-} 
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    seg::build(1,1,O);
+    for(int i=1;i&lt;=n;i++)insert();
+    for(int i=1;i&lt;=m;i++){
+        int type;
+        scanf(&quot;%d&quot;,&amp;type);
+        if(type==0)insert();
+        if(type==1){
+            int x;
+            scanf(&quot;%d&quot;,&amp;x);
+            x++;
+            seg::query(1,1,O,x);
+            if(seg::ans&lt;=-inf+1){
+                printf(&quot;0.0000000\n&quot;);
+                continue;
+            }
+            printf(&quot;%5Lf\n&quot;,seg::ans);
+        }
+    }
+}
 </code></pre>
 
         
@@ -1123,10 +1080,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目img"><a class="markdownIt-Anchor" href="#题目img"></a> 题目:<img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20160113/20160113162044_49275.jpg" alt="img"></h2>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解:</h2>
-<h3 id="大分类讨论加上大人类智慧大概就是用人类智慧锁定哪k位不变再用人类智慧来找后继最后再上下波动搜索一下就能解决"><a class="markdownIt-Anchor" href="#大分类讨论加上大人类智慧大概就是用人类智慧锁定哪k位不变再用人类智慧来找后继最后再上下波动搜索一下就能解决"></a>     大分类讨论加上大人类智慧（大概就是用人类智慧锁定哪k位不变，再用人类智慧来找后继，最后再上下波动搜索一下就能解决。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h2 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:<img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20160113/20160113162044_49275.jpg" alt="img"></h2><h2 id="题解"><a href="#题解" class="headerlink" title="题解:"></a>题解:</h2><h3 id="emsp-emsp-大分类讨论加上大人类智慧（大概就是用人类智慧锁定哪k位不变，再用人类智慧来找后继，最后再上下波动搜索一下就能解决。"><a href="#emsp-emsp-大分类讨论加上大人类智慧（大概就是用人类智慧锁定哪k位不变，再用人类智慧来找后继，最后再上下波动搜索一下就能解决。" class="headerlink" title="&emsp; &emsp; 大分类讨论加上大人类智慧（大概就是用人类智慧锁定哪k位不变，再用人类智慧来找后继，最后再上下波动搜索一下就能解决。"></a>&emsp; &emsp; 大分类讨论加上大人类智慧（大概就是用人类智慧锁定哪k位不变，再用人类智慧来找后继，最后再上下波动搜索一下就能解决。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 using namespace std;
@@ -1256,15 +1210,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题意"><a class="markdownIt-Anchor" href="#题意"></a> 题意：</h2>
-<h3 id="alice和bob在玩游戏"><a class="markdownIt-Anchor" href="#alice和bob在玩游戏"></a>     Alice和Bob在玩游戏。</h3>
-<h3 id="他们有一张n个点m条边的带正权的简单无向图其中除了1号点和n号点每个点度数小于等于2"><a class="markdownIt-Anchor" href="#他们有一张n个点m条边的带正权的简单无向图其中除了1号点和n号点每个点度数小于等于2"></a>     他们有一张n个点m条边的带正权的简单无向图，其中除了1号点和n号点每个点度数小于等于2。</h3>
-<h3 id="alice和bob轮流操作alice先手每次操作的人可以选择一条仍然存在的边并且使得边权减一-如果有一条边边权减为了零它会立即消失"><a class="markdownIt-Anchor" href="#alice和bob轮流操作alice先手每次操作的人可以选择一条仍然存在的边并且使得边权减一-如果有一条边边权减为了零它会立即消失"></a>     Alice和Bob轮流操作，Alice先手，每次操作的人可以选择一条仍然存在的边，并且使得边权减一。如果有一条边边权减为了零，它会立即消失。</h3>
-<h3 id="在这张图上有一只illyasviel想要从1号点走到n号点如果在某个时刻illyasviel不能从1号点走到n号点他会十分生气并且判定上一个操作的玩家输"><a class="markdownIt-Anchor" href="#在这张图上有一只illyasviel想要从1号点走到n号点如果在某个时刻illyasviel不能从1号点走到n号点他会十分生气并且判定上一个操作的玩家输"></a>     在这张图上有一只Illyasviel想要从1号点走到n号点，如果在某个时刻Illyasviel不能从1号点走到n号点，他会十分生气并且判定上一个操作的玩家输。</h3>
-<h3 id="假设alice和bob都采取最优策略请输出alice是否可以获胜是输出yes-否则输出no"><a class="markdownIt-Anchor" href="#假设alice和bob都采取最优策略请输出alice是否可以获胜是输出yes-否则输出no"></a>     假设Alice和Bob都采取最优策略，请输出Alice是否可以获胜，是输出“Yes”， 否则输出“No”</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="题目中对于图的限制可以看做-1-到-n-的所有简单路径互不相交-在结束游戏前的最后一步一定是剩下一条-1-到-n-的路径并且路径上的权值全都是一-如果剩下的最后一条路径确定了游戏的总步数也确定了那么先后手的胜负也确定了-那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径即尽可能切断使对方必胜的路径-切断一条路径需要的步数是这条路径上的权值的最小值-我们只需要比较双方切断对方必胜的路径所需要的步数即可-此处是官方题解"><a class="markdownIt-Anchor" href="#题目中对于图的限制可以看做-1-到-n-的所有简单路径互不相交-在结束游戏前的最后一步一定是剩下一条-1-到-n-的路径并且路径上的权值全都是一-如果剩下的最后一条路径确定了游戏的总步数也确定了那么先后手的胜负也确定了-那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径即尽可能切断使对方必胜的路径-切断一条路径需要的步数是这条路径上的权值的最小值-我们只需要比较双方切断对方必胜的路径所需要的步数即可-此处是官方题解"></a>     题目中对于图的限制可以看做 1 到 n 的所有简单路径互不相交。在结束游戏前的最后一步一定是剩下一条 1 到 n 的路径，并且路径上的权值全都是一。如果剩下的最后一条路径确定了，游戏的总步数也确定了，那么先后手的胜负也确定了。那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径，即尽可能切断使对方必胜的路径。切断一条路径需要的步数是这条路径上的权值的最小值。我们只需要比较双方切断对方必胜的路径所需要的步数即可。(此处是官方题解)</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h2 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h2><h3 id="emsp-emsp-Alice和Bob在玩游戏。"><a href="#emsp-emsp-Alice和Bob在玩游戏。" class="headerlink" title="&emsp; &emsp; Alice和Bob在玩游戏。"></a>&emsp; &emsp; Alice和Bob在玩游戏。</h3><h3 id="emsp-emsp-他们有一张n个点m条边的带正权的简单无向图，其中除了1号点和n号点每个点度数小于等于2。"><a href="#emsp-emsp-他们有一张n个点m条边的带正权的简单无向图，其中除了1号点和n号点每个点度数小于等于2。" class="headerlink" title="&emsp; &emsp; 他们有一张n个点m条边的带正权的简单无向图，其中除了1号点和n号点每个点度数小于等于2。"></a>&emsp; &emsp; 他们有一张n个点m条边的带正权的简单无向图，其中除了1号点和n号点每个点度数小于等于2。</h3><h3 id="emsp-emsp-Alice和Bob轮流操作，Alice先手，每次操作的人可以选择一条仍然存在的边，并且使得边权减一。如果有一条边边权减为了零，它会立即消失。"><a href="#emsp-emsp-Alice和Bob轮流操作，Alice先手，每次操作的人可以选择一条仍然存在的边，并且使得边权减一。如果有一条边边权减为了零，它会立即消失。" class="headerlink" title="&emsp; &emsp; Alice和Bob轮流操作，Alice先手，每次操作的人可以选择一条仍然存在的边，并且使得边权减一。如果有一条边边权减为了零，它会立即消失。"></a>&emsp; &emsp; Alice和Bob轮流操作，Alice先手，每次操作的人可以选择一条仍然存在的边，并且使得边权减一。如果有一条边边权减为了零，它会立即消失。</h3><h3 id="emsp-emsp-在这张图上有一只Illyasviel想要从1号点走到n号点，如果在某个时刻Illyasviel不能从1号点走到n号点，他会十分生气并且判定上一个操作的玩家输。"><a href="#emsp-emsp-在这张图上有一只Illyasviel想要从1号点走到n号点，如果在某个时刻Illyasviel不能从1号点走到n号点，他会十分生气并且判定上一个操作的玩家输。" class="headerlink" title="&emsp; &emsp; 在这张图上有一只Illyasviel想要从1号点走到n号点，如果在某个时刻Illyasviel不能从1号点走到n号点，他会十分生气并且判定上一个操作的玩家输。"></a>&emsp; &emsp; 在这张图上有一只Illyasviel想要从1号点走到n号点，如果在某个时刻Illyasviel不能从1号点走到n号点，他会十分生气并且判定上一个操作的玩家输。</h3><h3 id="emsp-emsp-假设Alice和Bob都采取最优策略，请输出Alice是否可以获胜，是输出“Yes”，-否则输出“No”"><a href="#emsp-emsp-假设Alice和Bob都采取最优策略，请输出Alice是否可以获胜，是输出“Yes”，-否则输出“No”" class="headerlink" title="&emsp; &emsp; 假设Alice和Bob都采取最优策略，请输出Alice是否可以获胜，是输出“Yes”， 否则输出“No”"></a>&emsp; &emsp; 假设Alice和Bob都采取最优策略，请输出Alice是否可以获胜，是输出“Yes”， 否则输出“No”</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-题目中对于图的限制可以看做-1-到-n-的所有简单路径互不相交。在结束游戏前的最后一步一定是剩下一条-1-到-n-的路径，并且路径上的权值全都是一。如果剩下的最后一条路径确定了，游戏的总步数也确定了，那么先后手的胜负也确定了。那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径，即尽可能切断使对方必胜的路径。切断一条路径需要的步数是这条路径上的权值的最小值。我们只需要比较双方切断对方必胜的路径所需要的步数即可。-此处是官方题解"><a href="#emsp-emsp-题目中对于图的限制可以看做-1-到-n-的所有简单路径互不相交。在结束游戏前的最后一步一定是剩下一条-1-到-n-的路径，并且路径上的权值全都是一。如果剩下的最后一条路径确定了，游戏的总步数也确定了，那么先后手的胜负也确定了。那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径，即尽可能切断使对方必胜的路径。切断一条路径需要的步数是这条路径上的权值的最小值。我们只需要比较双方切断对方必胜的路径所需要的步数即可。-此处是官方题解" class="headerlink" title="&emsp; &emsp; 题目中对于图的限制可以看做 1 到 n 的所有简单路径互不相交。在结束游戏前的最后一步一定是剩下一条 1 到 n 的路径，并且路径上的权值全都是一。如果剩下的最后一条路径确定了，游戏的总步数也确定了，那么先后手的胜负也确定了。那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径，即尽可能切断使对方必胜的路径。切断一条路径需要的步数是这条路径上的权值的最小值。我们只需要比较双方切断对方必胜的路径所需要的步数即可。(此处是官方题解)"></a>&emsp; &emsp; 题目中对于图的限制可以看做 1 到 n 的所有简单路径互不相交。在结束游戏前的最后一步一定是剩下一条 1 到 n 的路径，并且路径上的权值全都是一。如果剩下的最后一条路径确定了，游戏的总步数也确定了，那么先后手的胜负也确定了。那么双方的策略就使尽可能使最后留下的路径是使自己必胜的路径，即尽可能切断使对方必胜的路径。切断一条路径需要的步数是这条路径上的权值的最小值。我们只需要比较双方切断对方必胜的路径所需要的步数即可。(此处是官方题解)</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 720000
@@ -1336,8 +1282,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="中间因为一些奇奇怪怪的系统和奇奇怪怪的事情停更了今天又重新修好了-从今天开始复更"><a class="markdownIt-Anchor" href="#中间因为一些奇奇怪怪的系统和奇奇怪怪的事情停更了今天又重新修好了-从今天开始复更"></a>     中间因为一些奇奇怪怪的系统和奇奇怪怪的事情停更了，今天又重新修好了√。从今天开始复更。</h2>
-
+           <h2 id="emsp-emsp-中间因为一些奇奇怪怪的系统和奇奇怪怪的事情停更了，今天又重新修好了√。从今天开始复更。"><a href="#emsp-emsp-中间因为一些奇奇怪怪的系统和奇奇怪怪的事情停更了，今天又重新修好了√。从今天开始复更。" class="headerlink" title="&emsp; &emsp; 中间因为一些奇奇怪怪的系统和奇奇怪怪的事情停更了，今天又重新修好了√。从今天开始复更。"></a>&emsp; &emsp; 中间因为一些奇奇怪怪的系统和奇奇怪怪的事情停更了，今天又重新修好了√。从今天开始复更。</h2>
         
     </article>
     <footer class="cube-excerpt-footer">
@@ -1364,103 +1309,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="总进度300300"><a class="markdownIt-Anchor" href="#总进度300300"></a> 总进度：（300/300）</h2>
-<h2 id="总错误"><a class="markdownIt-Anchor" href="#总错误"></a> 总错误：</h2>
-<h3 id="mle1"><a class="markdownIt-Anchor" href="#mle1"></a>     MLE:1</h3>
-<h3 id="re1"><a class="markdownIt-Anchor" href="#re1"></a>     RE:1</h3>
-<h3 id="精度1"><a class="markdownIt-Anchor" href="#精度1"></a>     精度：1</h3>
-<h3 id="细节错误2"><a class="markdownIt-Anchor" href="#细节错误2"></a>     细节错误：2</h3>
-<h3 id="struct数组大会不稳定namespace比较稳定1"><a class="markdownIt-Anchor" href="#struct数组大会不稳定namespace比较稳定1"></a>     struct数组大会不稳定，namespace比较稳定：1</h3>
-<h3 id="树的重心1"><a class="markdownIt-Anchor" href="#树的重心1"></a>     树的重心：1</h3>
-<h3 id="可持久化的继承状态1"><a class="markdownIt-Anchor" href="#可持久化的继承状态1"></a>     可持久化的继承状态：1</h3>
-<h2 id="2018-8-7"><a class="markdownIt-Anchor" href="#2018-8-7"></a> 2018-8-7</h2>
-<h3 id="ss0100构造kmp"><a class="markdownIt-Anchor" href="#ss0100构造kmp"></a>     SS（0/100）(构造+KMP)</h3>
-<h3 id="tree-game100100-博弈论"><a class="markdownIt-Anchor" href="#tree-game100100-博弈论"></a>     Tree Game（100/100） (博弈论)</h3>
-<h3 id="二元运算100100分治fft"><a class="markdownIt-Anchor" href="#二元运算100100分治fft"></a>     二元运算(100/100)(分治+FFT)</h3>
-<h2 id="2018-8-6"><a class="markdownIt-Anchor" href="#2018-8-6"></a> 2018-8-6</h2>
-<h3 id="tree100100树形dp"><a class="markdownIt-Anchor" href="#tree100100树形dp"></a>     Tree（100/100）(树形DP)</h3>
-<h3 id="异或运算100100-可持久化trie"><a class="markdownIt-Anchor" href="#异或运算100100-可持久化trie"></a>     异或运算（100/100） (可持久化trie)</h3>
-<h3 id="tree-restoring10100构造"><a class="markdownIt-Anchor" href="#tree-restoring10100构造"></a>     Tree Restoring(10/100)(构造)</h3>
-<h2 id="tree-restoring10100构造-2"><a class="markdownIt-Anchor" href="#tree-restoring10100构造-2"></a>     Tree Restoring(10/100)(构造)</h2>
-<h2 id="2018-7-31"><a class="markdownIt-Anchor" href="#2018-7-31"></a> 2018-7-31</h2>
-<h3 id="jloi2015-战争调度100100树形dp"><a class="markdownIt-Anchor" href="#jloi2015-战争调度100100树形dp"></a>     <a href="http://www.illyasviel.top/2018/08/01/JLOI2015-%E6%88%98%E4%BA%89%E8%B0%83%E5%BA%A6/" target="_blank" rel="noopener">JLOI2015 战争调度</a>(100/100)（树形DP）</h3>
-<h3 id="cqoi2015-选数100100莫比乌斯反演杜教筛"><a class="markdownIt-Anchor" href="#cqoi2015-选数100100莫比乌斯反演杜教筛"></a>     <a href="http://www.illyasviel.top/2018/08/01/SCOI2015-%E9%80%89%E6%95%B0/" target="_blank" rel="noopener">CQOI2015 选数</a>(100/100)（莫比乌斯反演+杜教筛）</h3>
-<h3 id="ynoi2017-由乃的oj30100树链剖分贪心场上没写完"><a class="markdownIt-Anchor" href="#ynoi2017-由乃的oj30100树链剖分贪心场上没写完"></a>     <a href="http://www.illyasviel.top/2018/08/01/YNOI2017-%E7%94%B1%E4%B9%83%E7%9A%84OJ/" target="_blank" rel="noopener">YNOI2017 由乃的OJ</a>(30/100)（树链剖分+贪心）场上没写完。</h3>
-<h3 id="总体而言没有大的失误但c题没写完还是有点可惜场后不到二十分钟就a掉了"><a class="markdownIt-Anchor" href="#总体而言没有大的失误但c题没写完还是有点可惜场后不到二十分钟就a掉了"></a>     总体而言没有大的失误，但C题没写完还是有点可惜，场后不到二十分钟就A掉了。</h3>
-<h2 id="2018-7-31-2"><a class="markdownIt-Anchor" href="#2018-7-31-2"></a> 2018-7-31</h2>
-<h3 id="mushroom-追妹纸100100二分加hash"><a class="markdownIt-Anchor" href="#mushroom-追妹纸100100二分加hash"></a>     <a href="http://www.illyasviel.top/2018/07/31/Mushroom%E8%BF%BD%E5%A6%B9%E7%BA%B8/" target="_blank" rel="noopener">Mushroom 追妹纸</a>(100/100)（二分加hash）</h3>
-<h3 id="抵制克苏恩100100概率与期望"><a class="markdownIt-Anchor" href="#抵制克苏恩100100概率与期望"></a>     <a href="http://www.illyasviel.top/2018/07/31/%E6%8A%B5%E5%88%B6%E5%85%8B%E8%8B%8F%E6%81%A9/" target="_blank" rel="noopener">抵制克苏恩</a>(100/100)（概率与期望）</h3>
-<h3 id="烁烁的游戏30100可持久化线段树一开始以为是n2暴力乱搞题后面发现不对然后写可持久化线段树最后场上没写出来的原因是新增的一条链没继承之前的状态-没调出来就没敢交幸亏没交"><a class="markdownIt-Anchor" href="#烁烁的游戏30100可持久化线段树一开始以为是n2暴力乱搞题后面发现不对然后写可持久化线段树最后场上没写出来的原因是新增的一条链没继承之前的状态-没调出来就没敢交幸亏没交"></a>     <a href="http://www.illyasviel.top/2018/07/24/%E7%83%81%E7%83%81%E7%9A%84%E6%B8%B8%E6%88%8F/" target="_blank" rel="noopener">烁烁的游戏</a>(30/100)（可持久化线段树）一开始以为是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>暴力乱搞题，后面发现不对，然后写可持久化线段树（最后场上没写出来的原因是新增的一条链没继承之前的状态）。没调出来就没敢交（幸亏没交）。</h3>
-<h3 id="终于又有训练赛打了"><a class="markdownIt-Anchor" href="#终于又有训练赛打了"></a>     终于又有训练赛打了。</h3>
-<h2 id="2018-7-23"><a class="markdownIt-Anchor" href="#2018-7-23"></a> 2018-7-23</h2>
-<h3 id="礼物100100"><a class="markdownIt-Anchor" href="#礼物100100"></a>     <a href="http://localhost:4000/2018/07/24/%E7%A4%BC%E7%89%A9/" target="_blank" rel="noopener">礼物</a>(100/100)</h3>
-<h3 id="小奇的博弈20100逻辑语句写错"><a class="markdownIt-Anchor" href="#小奇的博弈20100逻辑语句写错"></a>     <a href="http://localhost:4000/2018/07/24/%E5%B0%8F%E5%A5%87%E7%9A%84%E5%8D%9A%E5%BC%88/" target="_blank" rel="noopener">小奇的博弈</a>(20/100)（逻辑语句写错）</h3>
-<h3 id="烁烁的游戏10100打的就是暴力然后学了动态树分治觉得这题蛮ok"><a class="markdownIt-Anchor" href="#烁烁的游戏10100打的就是暴力然后学了动态树分治觉得这题蛮ok"></a>     <a href="http://localhost:4000/2018/07/24/%E7%83%81%E7%83%81%E7%9A%84%E6%B8%B8%E6%88%8F/" target="_blank" rel="noopener">烁烁的游戏</a>(10/100)打的就是暴力，然后学了动态树分治，觉得这题蛮ok。</h3>
-<h2 id="2018-7-22"><a class="markdownIt-Anchor" href="#2018-7-22"></a> 2018-7-22</h2>
-<h3 id="这场训练赛太水了全部人都ak了就不写了"><a class="markdownIt-Anchor" href="#这场训练赛太水了全部人都ak了就不写了"></a> (这场训练赛太水了，全部人都ak了，就不写了)</h3>
-<h2 id="2018-7-21"><a class="markdownIt-Anchor" href="#2018-7-21"></a> 2018-7-21</h2>
-<h3 id="训练赛"><a class="markdownIt-Anchor" href="#训练赛"></a> 训练赛：</h3>
-<h3 id="division-expression100100"><a class="markdownIt-Anchor" href="#division-expression100100"></a>     <a href="http://www.illyasviel.top/2018/07/21/%E9%99%A4%E6%B3%95%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank" rel="noopener">Division expression</a>(100/100)</h3>
-<h3 id="清理雪道100100"><a class="markdownIt-Anchor" href="#清理雪道100100"></a>     <a href="http:/www.illyasviel.top/2018/07/21/%E6%B8%85%E7%90%86%E9%9B%AA%E9%81%93/" target="_blank" rel="noopener">清理雪道</a>(100/100)</h3>
-<h3 id="奇数国50100发现struct开大数组会不稳定以后改用namespace"><a class="markdownIt-Anchor" href="#奇数国50100发现struct开大数组会不稳定以后改用namespace"></a>     <a href="http://www.illyasviel.top/2018/07/21/%E5%A5%87%E6%95%B0%E5%9B%BD/" target="_blank" rel="noopener">奇数国</a>(50/100)发现struct开大数组会不稳定，以后改用namespace</h3>
-<h3 id="场上得分250300"><a class="markdownIt-Anchor" href="#场上得分250300"></a>     场上得分(250/300)</h3>
-<h3 id="今天还去看了看前两天被卡技能树的拓展crt我还是更喜欢抽出质因子直接crt写了道模板题"><a class="markdownIt-Anchor" href="#今天还去看了看前两天被卡技能树的拓展crt我还是更喜欢抽出质因子直接crt写了道模板题"></a>     今天还去看了看前两天被卡技能树的拓展crt（我还是更喜欢抽出质因子直接crt），写了道模板题。</h3>
-<h2 id="2018-7-20"><a class="markdownIt-Anchor" href="#2018-7-20"></a> 2018-7-20</h2>
-<h3 id="noi网络同步赛"><a class="markdownIt-Anchor" href="#noi网络同步赛"></a> NOI网络同步赛：</h3>
-<h3 id="第一题写了很久才过了大样例但因为用了set以及crt合并时三个数直接乘在一起再加上用的是lower_bound从一百崩成五十第二题没交上去-ccf的服务器是真的垃圾"><a class="markdownIt-Anchor" href="#第一题写了很久才过了大样例但因为用了set以及crt合并时三个数直接乘在一起再加上用的是lower_bound从一百崩成五十第二题没交上去-ccf的服务器是真的垃圾"></a>     第一题写了很久才过了大样例，但因为用了set以及crt合并时三个数直接乘在一起，再加上用的是lower_bound，从一百崩成五十，第二题没交上去。（CCF的服务器是真的垃圾。）</h3>
-<h3 id="总观这次同步赛现在最大的问题不是我想不到而是我眼高手低手速跟不上自己的思维并且没有完全理顺就开始写以及注释加的不够导致写的过程中较为混乱场上大家都会进水只是进多少的问题了-还有就是受环境干扰太大-接下来的训练中还得加强对代码复杂度较高的题的训练并且还得再了解多一些编译原理避免系统之间的误差出错"><a class="markdownIt-Anchor" href="#总观这次同步赛现在最大的问题不是我想不到而是我眼高手低手速跟不上自己的思维并且没有完全理顺就开始写以及注释加的不够导致写的过程中较为混乱场上大家都会进水只是进多少的问题了-还有就是受环境干扰太大-接下来的训练中还得加强对代码复杂度较高的题的训练并且还得再了解多一些编译原理避免系统之间的误差出错"></a>     总观这次同步赛，现在最大的问题不是我想不到，而是我眼高手低，手速跟不上自己的思维，并且没有完全理顺就开始写，以及注释加的不够，导致写的过程中较为混乱（场上大家都会进水，只是进多少的问题了。）。还有就是受环境干扰太大。接下来的训练中还得加强对代码复杂度较高的题的训练，并且还得再了解多一些编译原理，避免系统之间的误差出错。</h3>
-<h3 id="心中想到的做法是能进集训队的分打出来的是却是铜牌靠前得分-从前路一直看过来我的问题一直都不是思维不严谨也不是粗心什么的更不是运气-而是一个眼高手低的问题学东西过于偏向于理论而轻视实践-接下来的训练就是要排掉自己写的不熟的东西加快自己的写码速度"><a class="markdownIt-Anchor" href="#心中想到的做法是能进集训队的分打出来的是却是铜牌靠前得分-从前路一直看过来我的问题一直都不是思维不严谨也不是粗心什么的更不是运气-而是一个眼高手低的问题学东西过于偏向于理论而轻视实践-接下来的训练就是要排掉自己写的不熟的东西加快自己的写码速度"></a>     心中想到的做法是能进集训队的分，打出来的是却是铜牌靠前得分。从前路一直看过来，我的问题一直都不是思维不严谨，也不是粗心什么的，更不是运气。而是一个眼高手低的问题，学东西过于偏向于理论，而轻视实践。接下来的训练就是要排掉自己写的不熟的东西，加快自己的写码速度。</h3>
-<h3 id="noi2018-屠龙勇士"><a class="markdownIt-Anchor" href="#noi2018-屠龙勇士"></a> <a href="http://www.illyasviel.top/2018/07/20/NOI2018-%E5%B1%A0%E9%BE%99%E5%8B%87%E5%A3%AB/" target="_blank" rel="noopener">NOI2018 屠龙勇士</a></h3>
-<h2 id="2018-7-19"><a class="markdownIt-Anchor" href="#2018-7-19"></a> 2018-7-19</h2>
-<h3 id="训练赛-2"><a class="markdownIt-Anchor" href="#训练赛-2"></a> 训练赛：</h3>
-<h3 id="prz100100"><a class="markdownIt-Anchor" href="#prz100100"></a>     <a href="http://www.illyasviel.top/2018/07/19/%E9%9B%AA%E5%B4%A9/" target="_blank" rel="noopener">PRZ</a>(100/100)</h3>
-<h3 id="race37100错因求重心时返回值出错"><a class="markdownIt-Anchor" href="#race37100错因求重心时返回值出错"></a>     <a href="http://www.illyasviel.top/2018/07/19/%E7%82%B9%E5%88%86x/" target="_blank" rel="noopener">Race</a>(37/100)错因：求重心时返回值出错</h3>
-<h3 id="milk-patterns100100"><a class="markdownIt-Anchor" href="#milk-patterns100100"></a>     <a href="http://www.illyasviel.top/2018/07/19/%E5%A5%B6%E7%89%9B%E8%B4%A8%E9%87%8F/" target="_blank" rel="noopener">Milk Patterns</a>(100/100)</h3>
-<h3 id="场上得分237300"><a class="markdownIt-Anchor" href="#场上得分237300"></a>     场上得分(237/300)</h3>
-<h2 id="2018-7-18"><a class="markdownIt-Anchor" href="#2018-7-18"></a> 2018-7-18</h2>
-<h3 id="noi网络同步赛-2"><a class="markdownIt-Anchor" href="#noi网络同步赛-2"></a> NOI网络同步赛：</h3>
-<h3 id="a了一题剩下的暴力一分没拿算上送的笔试140350不过比较不擅长的字符串考完了68分送的然而最后一小时自闭了没写出来-希望后天能翻盘吧"><a class="markdownIt-Anchor" href="#a了一题剩下的暴力一分没拿算上送的笔试140350不过比较不擅长的字符串考完了68分送的然而最后一小时自闭了没写出来-希望后天能翻盘吧"></a>     A了一题，剩下的暴力一分没拿，算上送的笔试（140/350），不过比较不擅长的字符串考完了（68分送的，然而最后一小时自闭了，没写出来。）希望后天能翻盘吧。</h3>
-<h3 id="noi-2018归程"><a class="markdownIt-Anchor" href="#noi-2018归程"></a> <a href="http://www.illyasviel.top/2018/07/17/NOI2018-%E5%BD%92%E7%A8%8B/" target="_blank" rel="noopener">NOI 2018归程</a></h3>
-<h2 id="2018-7-17"><a class="markdownIt-Anchor" href="#2018-7-17"></a> 2018-7-17</h2>
-<h3 id="训练赛-3"><a class="markdownIt-Anchor" href="#训练赛-3"></a> 训练赛：</h3>
-<h3 id="find-the-outlier0100eps精度出错"><a class="markdownIt-Anchor" href="#find-the-outlier0100eps精度出错"></a>     <a href="http://www.illyasviel.top/2018/07/17/Find-the-outlier%E5%BC%82%E5%B8%B8/" target="_blank" rel="noopener">Find the outlier</a>(0/100)eps精度出错</h3>
-<h3 id="征服王0100想当然地写然后思路错误"><a class="markdownIt-Anchor" href="#征服王0100想当然地写然后思路错误"></a>     <a href="http://www.illyasviel.top/2018/07/17/%E5%BE%81%E6%9C%8D%E7%8E%8B/" target="_blank" rel="noopener">征服王</a>(0/100)想当然地写然后思路错误</h3>
-<h3 id="相似字串0100模板打错"><a class="markdownIt-Anchor" href="#相似字串0100模板打错"></a>     <a href="http://www.illyasviel.top/2018/07/17/%E7%9B%B8%E4%BC%BC%E5%AD%97%E4%B8%B2/" target="_blank" rel="noopener">相似字串</a>(0/100)模板打错</h3>
-<h3 id="场上得分0300"><a class="markdownIt-Anchor" href="#场上得分0300"></a>     场上得分(0/300)</h3>
-<h3 id="今天的情绪不是很高文化课炸了虽然早就有预计但这样下去不太行-接下来的日子里不仅是oi得搞文化课也得补了计划暑假得把理综的知识点和英语的单词语法给搞定了"><a class="markdownIt-Anchor" href="#今天的情绪不是很高文化课炸了虽然早就有预计但这样下去不太行-接下来的日子里不仅是oi得搞文化课也得补了计划暑假得把理综的知识点和英语的单词语法给搞定了"></a>     今天的情绪不是很高，文化课炸了，虽然早就有预计，但这样下去不太行。接下来的日子里不仅是OI得搞，文化课也得补了，计划暑假得把理综的知识点和英语的单词语法给搞定了。</h3>
-<h3 id="在课堂上觉得十分没有效率所以索性就放弃了或许是不适应课堂的那种节奏吧-接下来全都是自学也没有什么借口能给自己找了-总之按照之前布置的作业把本该做的做了吧"><a class="markdownIt-Anchor" href="#在课堂上觉得十分没有效率所以索性就放弃了或许是不适应课堂的那种节奏吧-接下来全都是自学也没有什么借口能给自己找了-总之按照之前布置的作业把本该做的做了吧"></a>     在课堂上觉得十分没有效率，所以索性就放弃了，或许是不适应课堂的那种节奏吧。接下来全都是自学，也没有什么借口能给自己找了。总之按照之前布置的作业，把本该做的做了吧。</h3>
-<h3 id="今天还爆了0真是充满负能量的一天一晚上啥也没做满脑子都是挥之不去的负面想法后路是自己断的现在想要重新准备后路的也是自己相当于是把前段时间的工作都推到了暑假策略上有点失误了-现在自己满脑子都是自己彻底失败的后果也不是太清醒明天就是网络同步赛愿能给自己前段时间的一点交代吧-我不想否定我考前一个月逃各种课写码的时间所以明天这种错误一定不能犯了啊"><a class="markdownIt-Anchor" href="#今天还爆了0真是充满负能量的一天一晚上啥也没做满脑子都是挥之不去的负面想法后路是自己断的现在想要重新准备后路的也是自己相当于是把前段时间的工作都推到了暑假策略上有点失误了-现在自己满脑子都是自己彻底失败的后果也不是太清醒明天就是网络同步赛愿能给自己前段时间的一点交代吧-我不想否定我考前一个月逃各种课写码的时间所以明天这种错误一定不能犯了啊"></a>     今天还爆了0，真是充满负能量的一天，一晚上啥也没做，满脑子都是挥之不去的负面想法，后路是自己断的，现在想要重新准备后路的也是自己，相当于是把前段时间的工作都推到了暑假，策略上有点失误了。现在自己满脑子都是自己彻底失败的后果，也不是太清醒，明天就是网络同步赛，愿能给自己前段时间的一点交代吧。我不想否定我考前一个月逃各种课写码的时间，所以明天这种错误一定不能犯了啊。</h3>
-<h3 id="文化课炸了我找的借口是去搞oi了而今天oi暴零了我又想给自己找去文化课状态没回过来的借口-但这样应该是不行的啊-找再多借口也不能改变暴零的事情找再多借口也挽回不了文化课已经远远落下愿自己不再找借口别人也不再帮我找借口以后考砸了只有一个原因就是实力太垃圾"><a class="markdownIt-Anchor" href="#文化课炸了我找的借口是去搞oi了而今天oi暴零了我又想给自己找去文化课状态没回过来的借口-但这样应该是不行的啊-找再多借口也不能改变暴零的事情找再多借口也挽回不了文化课已经远远落下愿自己不再找借口别人也不再帮我找借口以后考砸了只有一个原因就是实力太垃圾"></a>     文化课炸了我找的借口是去搞OI了，而今天OI暴零了，我又想给自己找去文化课状态没回过来的借口。但这样应该是不行的啊。找再多借口也不能改变暴零的事情，找再多借口也挽回不了文化课已经远远落下，愿自己不再找借口，别人也不再帮我找借口，以后考砸了，只有一个原因，就是实力太垃圾。</h3>
-<h3 id="在qq里跟父母讲了近况得到了理解和支持虽然眼前是一片迷茫但摸着黑也要走下去-我相信我的智商和付出"><a class="markdownIt-Anchor" href="#在qq里跟父母讲了近况得到了理解和支持虽然眼前是一片迷茫但摸着黑也要走下去-我相信我的智商和付出"></a>     在qq里跟父母讲了近况，得到了理解和支持，虽然眼前是一片迷茫，但摸着黑也要走下去。我相信我的智商和付出。</h3>
-<h3 id="今天还刷了几题水题但都觉得没有写题解的意义不加入做题数"><a class="markdownIt-Anchor" href="#今天还刷了几题水题但都觉得没有写题解的意义不加入做题数"></a>     今天还刷了几题水题，但都觉得没有写题解的意义，不加入做题数。</h3>
-<h2 id="2018-7-16"><a class="markdownIt-Anchor" href="#2018-7-16"></a> 2018-7-16</h2>
-<h3 id="大包子的完美组合"><a class="markdownIt-Anchor" href="#大包子的完美组合"></a>     <a href="http://www.illyasviel.top/2018/07/16/%E5%A4%A7%E5%8C%85%E5%AD%90%E7%9A%84%E5%AE%8C%E7%BE%8E%E7%BB%84%E5%90%88/" target="_blank" rel="noopener">大包子的完美组合</a></h3>
-<h3 id="等差子序列"><a class="markdownIt-Anchor" href="#等差子序列"></a>     <a href="http://www.illyasviel.top/2018/07/16/%E7%AD%89%E5%B7%AE%E5%AD%90%E5%BA%8F%E5%88%97/" target="_blank" rel="noopener">等差子序列</a></h3>
-<h3 id="普通平衡树"><a class="markdownIt-Anchor" href="#普通平衡树"></a>     <a href="http://www.illyasviel.top/2018/07/16/splay%E6%9D%BF%E5%AD%90/" target="_blank" rel="noopener">普通平衡树</a></h3>
-<h3 id="训练赛-4"><a class="markdownIt-Anchor" href="#训练赛-4"></a> 训练赛：</h3>
-<h3 id="gcd100100"><a class="markdownIt-Anchor" href="#gcd100100"></a>     <a href="http://www.illyasviel.top/2018/07/16/%E5%BC%B1%E6%99%BA%E5%8F%8D%E6%BC%94/" target="_blank" rel="noopener">gcd</a>(100/100)</h3>
-<h3 id="次小生成树-tree100100"><a class="markdownIt-Anchor" href="#次小生成树-tree100100"></a>     <a href="http://www.illyasviel.top/2018/07/16/%E6%AC%A1%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91-tree/" target="_blank" rel="noopener">次小生成树 tree</a>(100/100)</h3>
-<h3 id="k个串-kstring10100失分原因nm打反导致线段树节点不够"><a class="markdownIt-Anchor" href="#k个串-kstring10100失分原因nm打反导致线段树节点不够"></a>     <a href="http://www.illyasviel.top/2018/07/16/k%E4%B8%AA%E4%B8%B2-kstring/" target="_blank" rel="noopener">k个串 kstring</a>(10/100)失分原因：NM打反导致线段树节点不够。</h3>
-<h3 id="场上得分210300"><a class="markdownIt-Anchor" href="#场上得分210300"></a>     场上得分：(210/300)</h3>
-<h2 id="2018-7-15"><a class="markdownIt-Anchor" href="#2018-7-15"></a> 2018-7-15</h2>
-<h3 id="jsoi2008-火星人prefix"><a class="markdownIt-Anchor" href="#jsoi2008-火星人prefix"></a>     <a href="http://www.illyasviel.top/2018/07/15/%E7%81%AB%E6%98%9F%E4%BA%BA/" target="_blank" rel="noopener">JSOI2008 火星人prefix</a></h3>
-<h3 id="bracket"><a class="markdownIt-Anchor" href="#bracket"></a>     <a href="http://www.illyasviel.top/2018/07/15/%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D/" target="_blank" rel="noopener">Bracket</a></h3>
-<h3 id="zuma"><a class="markdownIt-Anchor" href="#zuma"></a>     <a href="http://www.illyasviel.top/2018/07/15/%E6%B6%88%E9%99%A4%E5%9B%9E%E6%96%87%E4%B8%B2/" target="_blank" rel="noopener">zuma</a></h3>
-<h3 id="训练赛-5"><a class="markdownIt-Anchor" href="#训练赛-5"></a> 训练赛：</h3>
-<h3 id="兔子与樱花100100"><a class="markdownIt-Anchor" href="#兔子与樱花100100"></a>     <a href="http://www.illyasviel.top/2018/07/15/%E5%85%94%E5%AD%90%E4%B8%8E%E6%A8%B1%E8%8A%B1/" target="_blank" rel="noopener">兔子与樱花</a>(100/100)</h3>
-<h3 id="矩阵乘法100100"><a class="markdownIt-Anchor" href="#矩阵乘法100100"></a>     <a href="http://www.illyasviel.top/2018/07/15/%E7%9F%A9%E9%98%B5%E7%AC%ACk%E5%A4%A7/" target="_blank" rel="noopener">矩阵乘法</a>(100/100)</h3>
-<h3 id="聪聪可可100100"><a class="markdownIt-Anchor" href="#聪聪可可100100"></a>     <a href="http://www.illyasviel.top/2018/07/15/%E8%81%AA%E8%81%AA%E5%8F%AF%E5%8F%AF/" target="_blank" rel="noopener">聪聪可可</a>(100/100)</h3>
-<h3 id="场上得分300300"><a class="markdownIt-Anchor" href="#场上得分300300"></a>     场上得分(300/300)</h3>
-<h2 id="2018-7-14"><a class="markdownIt-Anchor" href="#2018-7-14"></a> 2018-7-14</h2>
-<h3 id="rank"><a class="markdownIt-Anchor" href="#rank"></a>     <a href="http://www.illyasviel.top/2018/07/14/%E6%9C%9F%E6%9C%9B%E6%8E%92%E5%90%8D/" target="_blank" rel="noopener">rank</a></h3>
-<h3 id="sequence"><a class="markdownIt-Anchor" href="#sequence"></a>     <a href="http://www.illyasviel.top/2018/07/14/%E4%B8%8A%E5%8D%87%E5%AD%90%E4%B8%B2/" target="_blank" rel="noopener">sequence</a></h3>
-<h3 id="string"><a class="markdownIt-Anchor" href="#string"></a>     <a href="http://www.illyasviel.top/2018/07/14/k%E9%87%8D%E5%A4%8D/" target="_blank" rel="noopener">string</a></h3>
-<h3 id="训练赛-6"><a class="markdownIt-Anchor" href="#训练赛-6"></a> 训练赛：</h3>
-<h3 id="game-with-probability100100"><a class="markdownIt-Anchor" href="#game-with-probability100100"></a>     <a href="http://www.illyasviel.top/2018/07/14/%E6%A6%82%E7%8E%87%E6%B8%B8%E6%88%8F/" target="_blank" rel="noopener">game with probability</a>(100/100)</h3>
-<h3 id="病毒100100"><a class="markdownIt-Anchor" href="#病毒100100"></a>     <a href="http://www.illyasviel.top/2018/07/14/%E7%97%85%E6%AF%92/" target="_blank" rel="noopener">病毒</a>(100/100)</h3>
-<h3 id="count-on-a-tree0100失分原因mle"><a class="markdownIt-Anchor" href="#count-on-a-tree0100失分原因mle"></a>     <a href="http://www.illyasviel.top/2018/07/14/%E6%A0%91%E4%B8%8A%E8%AE%A1%E6%95%B0/" target="_blank" rel="noopener">Count on a tree</a>(0/100)失分原因:MLE</h3>
-<h3 id="场上得分200300"><a class="markdownIt-Anchor" href="#场上得分200300"></a>     场上得分(200/300)</h3>
-
+           <h2 id="总进度：（300-300）"><a href="#总进度：（300-300）" class="headerlink" title="总进度：（300/300）"></a>总进度：（300/300）</h2><h2 id="总错误："><a href="#总错误：" class="headerlink" title="总错误："></a>总错误：</h2><h3 id="emsp-emsp-MLE-1"><a href="#emsp-emsp-MLE-1" class="headerlink" title="&emsp; &emsp; MLE:1"></a>&emsp; &emsp; MLE:1</h3><h3 id="emsp-emsp-RE-1"><a href="#emsp-emsp-RE-1" class="headerlink" title="&emsp; &emsp; RE:1"></a>&emsp; &emsp; RE:1</h3><h3 id="emsp-emsp-精度：1"><a href="#emsp-emsp-精度：1" class="headerlink" title="&emsp; &emsp; 精度：1"></a>&emsp; &emsp; 精度：1</h3><h3 id="emsp-emsp-细节错误：2"><a href="#emsp-emsp-细节错误：2" class="headerlink" title="&emsp; &emsp; 细节错误：2"></a>&emsp; &emsp; 细节错误：2</h3><h3 id="emsp-emsp-struct数组大会不稳定，namespace比较稳定：1"><a href="#emsp-emsp-struct数组大会不稳定，namespace比较稳定：1" class="headerlink" title="&emsp; &emsp; struct数组大会不稳定，namespace比较稳定：1"></a>&emsp; &emsp; struct数组大会不稳定，namespace比较稳定：1</h3><h3 id="emsp-emsp-树的重心：1"><a href="#emsp-emsp-树的重心：1" class="headerlink" title="&emsp; &emsp; 树的重心：1"></a>&emsp; &emsp; 树的重心：1</h3><h3 id="emsp-emsp-可持久化的继承状态：1"><a href="#emsp-emsp-可持久化的继承状态：1" class="headerlink" title="&emsp; &emsp; 可持久化的继承状态：1"></a>&emsp; &emsp; 可持久化的继承状态：1</h3><h2 id="2018-8-7"><a href="#2018-8-7" class="headerlink" title="2018-8-7"></a>2018-8-7</h2><h3 id="emsp-emsp-SS（0-100）-构造-KMP"><a href="#emsp-emsp-SS（0-100）-构造-KMP" class="headerlink" title="&emsp; &emsp; SS（0/100）(构造+KMP)"></a>&emsp; &emsp; SS（0/100）(构造+KMP)</h3><h3 id="emsp-emsp-Tree-Game（100-100）-博弈论"><a href="#emsp-emsp-Tree-Game（100-100）-博弈论" class="headerlink" title="&emsp; &emsp; Tree Game（100/100） (博弈论)"></a>&emsp; &emsp; Tree Game（100/100） (博弈论)</h3><h3 id="emsp-emsp-二元运算-100-100-分治-FFT"><a href="#emsp-emsp-二元运算-100-100-分治-FFT" class="headerlink" title="&emsp; &emsp; 二元运算(100/100)(分治+FFT)"></a>&emsp; &emsp; 二元运算(100/100)(分治+FFT)</h3><h2 id="2018-8-6"><a href="#2018-8-6" class="headerlink" title="2018-8-6"></a>2018-8-6</h2><h3 id="emsp-emsp-Tree（100-100）-树形DP"><a href="#emsp-emsp-Tree（100-100）-树形DP" class="headerlink" title="&emsp; &emsp; Tree（100/100）(树形DP)"></a>&emsp; &emsp; Tree（100/100）(树形DP)</h3><h3 id="emsp-emsp-异或运算（100-100）-可持久化trie"><a href="#emsp-emsp-异或运算（100-100）-可持久化trie" class="headerlink" title="&emsp; &emsp; 异或运算（100/100） (可持久化trie)"></a>&emsp; &emsp; 异或运算（100/100） (可持久化trie)</h3><h3 id="emsp-emsp-Tree-Restoring-10-100-构造"><a href="#emsp-emsp-Tree-Restoring-10-100-构造" class="headerlink" title="&emsp; &emsp; Tree Restoring(10/100)(构造)"></a>&emsp; &emsp; Tree Restoring(10/100)(构造)</h3><h2 id="emsp-emsp-Tree-Restoring-10-100-构造-1"><a href="#emsp-emsp-Tree-Restoring-10-100-构造-1" class="headerlink" title="&emsp; &emsp; Tree Restoring(10/100)(构造)"></a>&emsp; &emsp; Tree Restoring(10/100)(构造)</h2><h2 id="2018-7-31"><a href="#2018-7-31" class="headerlink" title="2018-7-31"></a>2018-7-31</h2><h3 id="emsp-emsp-JLOI2015-战争调度-100-100-（树形DP）"><a href="#emsp-emsp-JLOI2015-战争调度-100-100-（树形DP）" class="headerlink" title="&emsp; &emsp; JLOI2015 战争调度(100/100)（树形DP）"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/08/01/JLOI2015-%E6%88%98%E4%BA%89%E8%B0%83%E5%BA%A6/" target="_blank" rel="noopener">JLOI2015 战争调度</a>(100/100)（树形DP）</h3><h3 id="emsp-emsp-CQOI2015-选数-100-100-（莫比乌斯反演-杜教筛）"><a href="#emsp-emsp-CQOI2015-选数-100-100-（莫比乌斯反演-杜教筛）" class="headerlink" title="&emsp; &emsp; CQOI2015 选数(100/100)（莫比乌斯反演+杜教筛）"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/08/01/SCOI2015-%E9%80%89%E6%95%B0/" target="_blank" rel="noopener">CQOI2015 选数</a>(100/100)（莫比乌斯反演+杜教筛）</h3><h3 id="emsp-emsp-YNOI2017-由乃的OJ-30-100-（树链剖分-贪心）场上没写完。"><a href="#emsp-emsp-YNOI2017-由乃的OJ-30-100-（树链剖分-贪心）场上没写完。" class="headerlink" title="&emsp; &emsp; YNOI2017 由乃的OJ(30/100)（树链剖分+贪心）场上没写完。"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/08/01/YNOI2017-%E7%94%B1%E4%B9%83%E7%9A%84OJ/" target="_blank" rel="noopener">YNOI2017 由乃的OJ</a>(30/100)（树链剖分+贪心）场上没写完。</h3><h3 id="emsp-emsp-总体而言没有大的失误，但C题没写完还是有点可惜，场后不到二十分钟就A掉了。"><a href="#emsp-emsp-总体而言没有大的失误，但C题没写完还是有点可惜，场后不到二十分钟就A掉了。" class="headerlink" title="&emsp; &emsp; 总体而言没有大的失误，但C题没写完还是有点可惜，场后不到二十分钟就A掉了。"></a>&emsp; &emsp; 总体而言没有大的失误，但C题没写完还是有点可惜，场后不到二十分钟就A掉了。</h3><h2 id="2018-7-31-1"><a href="#2018-7-31-1" class="headerlink" title="2018-7-31"></a>2018-7-31</h2><h3 id="emsp-emsp-Mushroom-追妹纸-100-100-（二分加hash）"><a href="#emsp-emsp-Mushroom-追妹纸-100-100-（二分加hash）" class="headerlink" title="&emsp; &emsp; Mushroom 追妹纸(100/100)（二分加hash）"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/31/Mushroom%E8%BF%BD%E5%A6%B9%E7%BA%B8/" target="_blank" rel="noopener">Mushroom 追妹纸</a>(100/100)（二分加hash）</h3><h3 id="emsp-emsp-抵制克苏恩-100-100-（概率与期望）"><a href="#emsp-emsp-抵制克苏恩-100-100-（概率与期望）" class="headerlink" title="&emsp; &emsp; 抵制克苏恩(100/100)（概率与期望）"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/31/%E6%8A%B5%E5%88%B6%E5%85%8B%E8%8B%8F%E6%81%A9/" target="_blank" rel="noopener">抵制克苏恩</a>(100/100)（概率与期望）</h3><h3 id="emsp-emsp-烁烁的游戏-30-100-（可持久化线段树）一开始以为是-n-2-暴力乱搞题，后面发现不对，然后写可持久化线段树（最后场上没写出来的原因是新增的一条链没继承之前的状态）。没调出来就没敢交（幸亏没交）。"><a href="#emsp-emsp-烁烁的游戏-30-100-（可持久化线段树）一开始以为是-n-2-暴力乱搞题，后面发现不对，然后写可持久化线段树（最后场上没写出来的原因是新增的一条链没继承之前的状态）。没调出来就没敢交（幸亏没交）。" class="headerlink" title="&emsp; &emsp; 烁烁的游戏(30/100)（可持久化线段树）一开始以为是$n^2$暴力乱搞题，后面发现不对，然后写可持久化线段树（最后场上没写出来的原因是新增的一条链没继承之前的状态）。没调出来就没敢交（幸亏没交）。"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/24/%E7%83%81%E7%83%81%E7%9A%84%E6%B8%B8%E6%88%8F/" target="_blank" rel="noopener">烁烁的游戏</a>(30/100)（可持久化线段树）一开始以为是$n^2$暴力乱搞题，后面发现不对，然后写可持久化线段树（最后场上没写出来的原因是新增的一条链没继承之前的状态）。没调出来就没敢交（幸亏没交）。</h3><h3 id="emsp-emsp-终于又有训练赛打了。"><a href="#emsp-emsp-终于又有训练赛打了。" class="headerlink" title="&emsp; &emsp; 终于又有训练赛打了。"></a>&emsp; &emsp; 终于又有训练赛打了。</h3><h2 id="2018-7-23"><a href="#2018-7-23" class="headerlink" title="2018-7-23"></a>2018-7-23</h2><h3 id="emsp-emsp-礼物-100-100"><a href="#emsp-emsp-礼物-100-100" class="headerlink" title="&emsp; &emsp; 礼物(100/100)"></a>&emsp; &emsp; <a href="http://localhost:4000/2018/07/24/%E7%A4%BC%E7%89%A9/" target="_blank" rel="noopener">礼物</a>(100/100)</h3><h3 id="emsp-emsp-小奇的博弈-20-100-（逻辑语句写错）"><a href="#emsp-emsp-小奇的博弈-20-100-（逻辑语句写错）" class="headerlink" title="&emsp; &emsp; 小奇的博弈(20/100)（逻辑语句写错）"></a>&emsp; &emsp; <a href="http://localhost:4000/2018/07/24/%E5%B0%8F%E5%A5%87%E7%9A%84%E5%8D%9A%E5%BC%88/" target="_blank" rel="noopener">小奇的博弈</a>(20/100)（逻辑语句写错）</h3><h3 id="emsp-emsp-烁烁的游戏-10-100-打的就是暴力，然后学了动态树分治，觉得这题蛮ok。"><a href="#emsp-emsp-烁烁的游戏-10-100-打的就是暴力，然后学了动态树分治，觉得这题蛮ok。" class="headerlink" title="&emsp; &emsp; 烁烁的游戏(10/100)打的就是暴力，然后学了动态树分治，觉得这题蛮ok。"></a>&emsp; &emsp; <a href="http://localhost:4000/2018/07/24/%E7%83%81%E7%83%81%E7%9A%84%E6%B8%B8%E6%88%8F/" target="_blank" rel="noopener">烁烁的游戏</a>(10/100)打的就是暴力，然后学了动态树分治，觉得这题蛮ok。</h3><h2 id="2018-7-22"><a href="#2018-7-22" class="headerlink" title="2018-7-22"></a>2018-7-22</h2><h3 id="这场训练赛太水了，全部人都ak了，就不写了"><a href="#这场训练赛太水了，全部人都ak了，就不写了" class="headerlink" title="(这场训练赛太水了，全部人都ak了，就不写了)"></a>(这场训练赛太水了，全部人都ak了，就不写了)</h3><h2 id="2018-7-21"><a href="#2018-7-21" class="headerlink" title="2018-7-21"></a>2018-7-21</h2><h3 id="训练赛："><a href="#训练赛：" class="headerlink" title="训练赛："></a>训练赛：</h3><h3 id="emsp-emsp-Division-expression-100-100"><a href="#emsp-emsp-Division-expression-100-100" class="headerlink" title="&emsp; &emsp; Division expression(100/100)"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/21/%E9%99%A4%E6%B3%95%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank" rel="noopener">Division expression</a>(100/100)</h3><h3 id="emsp-emsp-清理雪道-100-100"><a href="#emsp-emsp-清理雪道-100-100" class="headerlink" title="&emsp; &emsp; 清理雪道(100/100)"></a>&emsp; &emsp; <a href="http:/www.illyasviel.top/2018/07/21/%E6%B8%85%E7%90%86%E9%9B%AA%E9%81%93/" target="_blank" rel="noopener">清理雪道</a>(100/100)</h3><h3 id="emsp-emsp-奇数国-50-100-发现struct开大数组会不稳定，以后改用namespace"><a href="#emsp-emsp-奇数国-50-100-发现struct开大数组会不稳定，以后改用namespace" class="headerlink" title="&emsp; &emsp; 奇数国(50/100)发现struct开大数组会不稳定，以后改用namespace"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/21/%E5%A5%87%E6%95%B0%E5%9B%BD/" target="_blank" rel="noopener">奇数国</a>(50/100)发现struct开大数组会不稳定，以后改用namespace</h3><h3 id="emsp-emsp-场上得分-250-300"><a href="#emsp-emsp-场上得分-250-300" class="headerlink" title="&emsp; &emsp; 场上得分(250/300)"></a>&emsp; &emsp; 场上得分(250/300)</h3><h3 id="emsp-emsp-今天还去看了看前两天被卡技能树的拓展crt（我还是更喜欢抽出质因子直接crt），写了道模板题。"><a href="#emsp-emsp-今天还去看了看前两天被卡技能树的拓展crt（我还是更喜欢抽出质因子直接crt），写了道模板题。" class="headerlink" title="&emsp; &emsp; 今天还去看了看前两天被卡技能树的拓展crt（我还是更喜欢抽出质因子直接crt），写了道模板题。"></a>&emsp; &emsp; 今天还去看了看前两天被卡技能树的拓展crt（我还是更喜欢抽出质因子直接crt），写了道模板题。</h3><h2 id="2018-7-20"><a href="#2018-7-20" class="headerlink" title="2018-7-20"></a>2018-7-20</h2><h3 id="NOI网络同步赛："><a href="#NOI网络同步赛：" class="headerlink" title="NOI网络同步赛："></a>NOI网络同步赛：</h3><h3 id="emsp-emsp-第一题写了很久才过了大样例，但因为用了set以及crt合并时三个数直接乘在一起，再加上用的是lower-bound，从一百崩成五十，第二题没交上去。（CCF的服务器是真的垃圾。）"><a href="#emsp-emsp-第一题写了很久才过了大样例，但因为用了set以及crt合并时三个数直接乘在一起，再加上用的是lower-bound，从一百崩成五十，第二题没交上去。（CCF的服务器是真的垃圾。）" class="headerlink" title="&emsp; &emsp; 第一题写了很久才过了大样例，但因为用了set以及crt合并时三个数直接乘在一起，再加上用的是lower_bound，从一百崩成五十，第二题没交上去。（CCF的服务器是真的垃圾。）"></a>&emsp; &emsp; 第一题写了很久才过了大样例，但因为用了set以及crt合并时三个数直接乘在一起，再加上用的是lower_bound，从一百崩成五十，第二题没交上去。（CCF的服务器是真的垃圾。）</h3><h3 id="emsp-emsp-总观这次同步赛，现在最大的问题不是我想不到，而是我眼高手低，手速跟不上自己的思维，并且没有完全理顺就开始写，以及注释加的不够，导致写的过程中较为混乱（场上大家都会进水，只是进多少的问题了。）。还有就是受环境干扰太大。接下来的训练中还得加强对代码复杂度较高的题的训练，并且还得再了解多一些编译原理，避免系统之间的误差出错。"><a href="#emsp-emsp-总观这次同步赛，现在最大的问题不是我想不到，而是我眼高手低，手速跟不上自己的思维，并且没有完全理顺就开始写，以及注释加的不够，导致写的过程中较为混乱（场上大家都会进水，只是进多少的问题了。）。还有就是受环境干扰太大。接下来的训练中还得加强对代码复杂度较高的题的训练，并且还得再了解多一些编译原理，避免系统之间的误差出错。" class="headerlink" title="&emsp; &emsp; 总观这次同步赛，现在最大的问题不是我想不到，而是我眼高手低，手速跟不上自己的思维，并且没有完全理顺就开始写，以及注释加的不够，导致写的过程中较为混乱（场上大家都会进水，只是进多少的问题了。）。还有就是受环境干扰太大。接下来的训练中还得加强对代码复杂度较高的题的训练，并且还得再了解多一些编译原理，避免系统之间的误差出错。"></a>&emsp; &emsp; 总观这次同步赛，现在最大的问题不是我想不到，而是我眼高手低，手速跟不上自己的思维，并且没有完全理顺就开始写，以及注释加的不够，导致写的过程中较为混乱（场上大家都会进水，只是进多少的问题了。）。还有就是受环境干扰太大。接下来的训练中还得加强对代码复杂度较高的题的训练，并且还得再了解多一些编译原理，避免系统之间的误差出错。</h3><h3 id="emsp-emsp-心中想到的做法是能进集训队的分，打出来的是却是铜牌靠前得分。从前路一直看过来，我的问题一直都不是思维不严谨，也不是粗心什么的，更不是运气。而是一个眼高手低的问题，学东西过于偏向于理论，而轻视实践。接下来的训练就是要排掉自己写的不熟的东西，加快自己的写码速度。"><a href="#emsp-emsp-心中想到的做法是能进集训队的分，打出来的是却是铜牌靠前得分。从前路一直看过来，我的问题一直都不是思维不严谨，也不是粗心什么的，更不是运气。而是一个眼高手低的问题，学东西过于偏向于理论，而轻视实践。接下来的训练就是要排掉自己写的不熟的东西，加快自己的写码速度。" class="headerlink" title="&emsp; &emsp; 心中想到的做法是能进集训队的分，打出来的是却是铜牌靠前得分。从前路一直看过来，我的问题一直都不是思维不严谨，也不是粗心什么的，更不是运气。而是一个眼高手低的问题，学东西过于偏向于理论，而轻视实践。接下来的训练就是要排掉自己写的不熟的东西，加快自己的写码速度。"></a>&emsp; &emsp; 心中想到的做法是能进集训队的分，打出来的是却是铜牌靠前得分。从前路一直看过来，我的问题一直都不是思维不严谨，也不是粗心什么的，更不是运气。而是一个眼高手低的问题，学东西过于偏向于理论，而轻视实践。接下来的训练就是要排掉自己写的不熟的东西，加快自己的写码速度。</h3><h3 id="NOI2018-屠龙勇士"><a href="#NOI2018-屠龙勇士" class="headerlink" title="NOI2018 屠龙勇士"></a><a href="http://www.illyasviel.top/2018/07/20/NOI2018-%E5%B1%A0%E9%BE%99%E5%8B%87%E5%A3%AB/" target="_blank" rel="noopener">NOI2018 屠龙勇士</a></h3><h2 id="2018-7-19"><a href="#2018-7-19" class="headerlink" title="2018-7-19"></a>2018-7-19</h2><h3 id="训练赛：-1"><a href="#训练赛：-1" class="headerlink" title="训练赛："></a>训练赛：</h3><h3 id="emsp-emsp-PRZ-100-100"><a href="#emsp-emsp-PRZ-100-100" class="headerlink" title="&emsp; &emsp; PRZ(100/100)"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/19/%E9%9B%AA%E5%B4%A9/" target="_blank" rel="noopener">PRZ</a>(100/100)</h3><h3 id="emsp-emsp-Race-37-100-错因：求重心时返回值出错"><a href="#emsp-emsp-Race-37-100-错因：求重心时返回值出错" class="headerlink" title="&emsp; &emsp; Race(37/100)错因：求重心时返回值出错"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/19/%E7%82%B9%E5%88%86x/" target="_blank" rel="noopener">Race</a>(37/100)错因：求重心时返回值出错</h3><h3 id="emsp-emsp-Milk-Patterns-100-100"><a href="#emsp-emsp-Milk-Patterns-100-100" class="headerlink" title="&emsp; &emsp; Milk Patterns(100/100)"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/19/%E5%A5%B6%E7%89%9B%E8%B4%A8%E9%87%8F/" target="_blank" rel="noopener">Milk Patterns</a>(100/100)</h3><h3 id="emsp-emsp-场上得分-237-300"><a href="#emsp-emsp-场上得分-237-300" class="headerlink" title="&emsp; &emsp; 场上得分(237/300)"></a>&emsp; &emsp; 场上得分(237/300)</h3><h2 id="2018-7-18"><a href="#2018-7-18" class="headerlink" title="2018-7-18"></a>2018-7-18</h2><h3 id="NOI网络同步赛：-1"><a href="#NOI网络同步赛：-1" class="headerlink" title="NOI网络同步赛："></a>NOI网络同步赛：</h3><h3 id="emsp-emsp-A了一题，剩下的暴力一分没拿，算上送的笔试（140-350），不过比较不擅长的字符串考完了（68分送的，然而最后一小时自闭了，没写出来。）希望后天能翻盘吧。"><a href="#emsp-emsp-A了一题，剩下的暴力一分没拿，算上送的笔试（140-350），不过比较不擅长的字符串考完了（68分送的，然而最后一小时自闭了，没写出来。）希望后天能翻盘吧。" class="headerlink" title="&emsp; &emsp; A了一题，剩下的暴力一分没拿，算上送的笔试（140/350），不过比较不擅长的字符串考完了（68分送的，然而最后一小时自闭了，没写出来。）希望后天能翻盘吧。"></a>&emsp; &emsp; A了一题，剩下的暴力一分没拿，算上送的笔试（140/350），不过比较不擅长的字符串考完了（68分送的，然而最后一小时自闭了，没写出来。）希望后天能翻盘吧。</h3><h3 id="NOI-2018归程"><a href="#NOI-2018归程" class="headerlink" title="NOI 2018归程"></a><a href="http://www.illyasviel.top/2018/07/17/NOI2018-%E5%BD%92%E7%A8%8B/" target="_blank" rel="noopener">NOI 2018归程</a></h3><h2 id="2018-7-17"><a href="#2018-7-17" class="headerlink" title="2018-7-17"></a>2018-7-17</h2><h3 id="训练赛：-2"><a href="#训练赛：-2" class="headerlink" title="训练赛："></a>训练赛：</h3><h3 id="emsp-emsp-Find-the-outlier-0-100-eps精度出错"><a href="#emsp-emsp-Find-the-outlier-0-100-eps精度出错" class="headerlink" title="&emsp; &emsp; Find the outlier(0/100)eps精度出错"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/17/Find-the-outlier%E5%BC%82%E5%B8%B8/" target="_blank" rel="noopener">Find the outlier</a>(0/100)eps精度出错</h3><h3 id="emsp-emsp-征服王-0-100-想当然地写然后思路错误"><a href="#emsp-emsp-征服王-0-100-想当然地写然后思路错误" class="headerlink" title="&emsp; &emsp; 征服王(0/100)想当然地写然后思路错误"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/17/%E5%BE%81%E6%9C%8D%E7%8E%8B/" target="_blank" rel="noopener">征服王</a>(0/100)想当然地写然后思路错误</h3><h3 id="emsp-emsp-相似字串-0-100-模板打错"><a href="#emsp-emsp-相似字串-0-100-模板打错" class="headerlink" title="&emsp; &emsp; 相似字串(0/100)模板打错"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/17/%E7%9B%B8%E4%BC%BC%E5%AD%97%E4%B8%B2/" target="_blank" rel="noopener">相似字串</a>(0/100)模板打错</h3><h3 id="emsp-emsp-场上得分-0-300"><a href="#emsp-emsp-场上得分-0-300" class="headerlink" title="&emsp; &emsp; 场上得分(0/300)"></a>&emsp; &emsp; 场上得分(0/300)</h3><h3 id="emsp-emsp-今天的情绪不是很高，文化课炸了，虽然早就有预计，但这样下去不太行。接下来的日子里不仅是OI得搞，文化课也得补了，计划暑假得把理综的知识点和英语的单词语法给搞定了。"><a href="#emsp-emsp-今天的情绪不是很高，文化课炸了，虽然早就有预计，但这样下去不太行。接下来的日子里不仅是OI得搞，文化课也得补了，计划暑假得把理综的知识点和英语的单词语法给搞定了。" class="headerlink" title="&emsp; &emsp; 今天的情绪不是很高，文化课炸了，虽然早就有预计，但这样下去不太行。接下来的日子里不仅是OI得搞，文化课也得补了，计划暑假得把理综的知识点和英语的单词语法给搞定了。"></a>&emsp; &emsp; 今天的情绪不是很高，文化课炸了，虽然早就有预计，但这样下去不太行。接下来的日子里不仅是OI得搞，文化课也得补了，计划暑假得把理综的知识点和英语的单词语法给搞定了。</h3><h3 id="emsp-emsp-在课堂上觉得十分没有效率，所以索性就放弃了，或许是不适应课堂的那种节奏吧。接下来全都是自学，也没有什么借口能给自己找了。总之按照之前布置的作业，把本该做的做了吧。"><a href="#emsp-emsp-在课堂上觉得十分没有效率，所以索性就放弃了，或许是不适应课堂的那种节奏吧。接下来全都是自学，也没有什么借口能给自己找了。总之按照之前布置的作业，把本该做的做了吧。" class="headerlink" title="&emsp; &emsp; 在课堂上觉得十分没有效率，所以索性就放弃了，或许是不适应课堂的那种节奏吧。接下来全都是自学，也没有什么借口能给自己找了。总之按照之前布置的作业，把本该做的做了吧。"></a>&emsp; &emsp; 在课堂上觉得十分没有效率，所以索性就放弃了，或许是不适应课堂的那种节奏吧。接下来全都是自学，也没有什么借口能给自己找了。总之按照之前布置的作业，把本该做的做了吧。</h3><h3 id="emsp-emsp-今天还爆了0，真是充满负能量的一天，一晚上啥也没做，满脑子都是挥之不去的负面想法，后路是自己断的，现在想要重新准备后路的也是自己，相当于是把前段时间的工作都推到了暑假，策略上有点失误了。现在自己满脑子都是自己彻底失败的后果，也不是太清醒，明天就是网络同步赛，愿能给自己前段时间的一点交代吧。我不想否定我考前一个月逃各种课写码的时间，所以明天这种错误一定不能犯了啊。"><a href="#emsp-emsp-今天还爆了0，真是充满负能量的一天，一晚上啥也没做，满脑子都是挥之不去的负面想法，后路是自己断的，现在想要重新准备后路的也是自己，相当于是把前段时间的工作都推到了暑假，策略上有点失误了。现在自己满脑子都是自己彻底失败的后果，也不是太清醒，明天就是网络同步赛，愿能给自己前段时间的一点交代吧。我不想否定我考前一个月逃各种课写码的时间，所以明天这种错误一定不能犯了啊。" class="headerlink" title="&emsp; &emsp; 今天还爆了0，真是充满负能量的一天，一晚上啥也没做，满脑子都是挥之不去的负面想法，后路是自己断的，现在想要重新准备后路的也是自己，相当于是把前段时间的工作都推到了暑假，策略上有点失误了。现在自己满脑子都是自己彻底失败的后果，也不是太清醒，明天就是网络同步赛，愿能给自己前段时间的一点交代吧。我不想否定我考前一个月逃各种课写码的时间，所以明天这种错误一定不能犯了啊。"></a>&emsp; &emsp; 今天还爆了0，真是充满负能量的一天，一晚上啥也没做，满脑子都是挥之不去的负面想法，后路是自己断的，现在想要重新准备后路的也是自己，相当于是把前段时间的工作都推到了暑假，策略上有点失误了。现在自己满脑子都是自己彻底失败的后果，也不是太清醒，明天就是网络同步赛，愿能给自己前段时间的一点交代吧。我不想否定我考前一个月逃各种课写码的时间，所以明天这种错误一定不能犯了啊。</h3><h3 id="emsp-emsp-文化课炸了我找的借口是去搞OI了，而今天OI暴零了，我又想给自己找去文化课状态没回过来的借口。但这样应该是不行的啊。找再多借口也不能改变暴零的事情，找再多借口也挽回不了文化课已经远远落下，愿自己不再找借口，别人也不再帮我找借口，以后考砸了，只有一个原因，就是实力太垃圾。"><a href="#emsp-emsp-文化课炸了我找的借口是去搞OI了，而今天OI暴零了，我又想给自己找去文化课状态没回过来的借口。但这样应该是不行的啊。找再多借口也不能改变暴零的事情，找再多借口也挽回不了文化课已经远远落下，愿自己不再找借口，别人也不再帮我找借口，以后考砸了，只有一个原因，就是实力太垃圾。" class="headerlink" title="&emsp; &emsp; 文化课炸了我找的借口是去搞OI了，而今天OI暴零了，我又想给自己找去文化课状态没回过来的借口。但这样应该是不行的啊。找再多借口也不能改变暴零的事情，找再多借口也挽回不了文化课已经远远落下，愿自己不再找借口，别人也不再帮我找借口，以后考砸了，只有一个原因，就是实力太垃圾。"></a>&emsp; &emsp; 文化课炸了我找的借口是去搞OI了，而今天OI暴零了，我又想给自己找去文化课状态没回过来的借口。但这样应该是不行的啊。找再多借口也不能改变暴零的事情，找再多借口也挽回不了文化课已经远远落下，愿自己不再找借口，别人也不再帮我找借口，以后考砸了，只有一个原因，就是实力太垃圾。</h3><h3 id="emsp-emsp-在qq里跟父母讲了近况，得到了理解和支持，虽然眼前是一片迷茫，但摸着黑也要走下去。我相信我的智商和付出。"><a href="#emsp-emsp-在qq里跟父母讲了近况，得到了理解和支持，虽然眼前是一片迷茫，但摸着黑也要走下去。我相信我的智商和付出。" class="headerlink" title="&emsp; &emsp; 在qq里跟父母讲了近况，得到了理解和支持，虽然眼前是一片迷茫，但摸着黑也要走下去。我相信我的智商和付出。"></a>&emsp; &emsp; 在qq里跟父母讲了近况，得到了理解和支持，虽然眼前是一片迷茫，但摸着黑也要走下去。我相信我的智商和付出。</h3><h3 id="emsp-emsp-今天还刷了几题水题，但都觉得没有写题解的意义，不加入做题数。"><a href="#emsp-emsp-今天还刷了几题水题，但都觉得没有写题解的意义，不加入做题数。" class="headerlink" title="&emsp; &emsp; 今天还刷了几题水题，但都觉得没有写题解的意义，不加入做题数。"></a>&emsp; &emsp; 今天还刷了几题水题，但都觉得没有写题解的意义，不加入做题数。</h3><h2 id="2018-7-16"><a href="#2018-7-16" class="headerlink" title="2018-7-16"></a>2018-7-16</h2><h3 id="emsp-emsp-大包子的完美组合"><a href="#emsp-emsp-大包子的完美组合" class="headerlink" title="&emsp; &emsp; 大包子的完美组合"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/16/%E5%A4%A7%E5%8C%85%E5%AD%90%E7%9A%84%E5%AE%8C%E7%BE%8E%E7%BB%84%E5%90%88/" target="_blank" rel="noopener">大包子的完美组合</a></h3><h3 id="emsp-emsp-等差子序列"><a href="#emsp-emsp-等差子序列" class="headerlink" title="&emsp; &emsp; 等差子序列"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/16/%E7%AD%89%E5%B7%AE%E5%AD%90%E5%BA%8F%E5%88%97/" target="_blank" rel="noopener">等差子序列</a></h3><h3 id="emsp-emsp-普通平衡树"><a href="#emsp-emsp-普通平衡树" class="headerlink" title="&emsp; &emsp; 普通平衡树"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/16/splay%E6%9D%BF%E5%AD%90/" target="_blank" rel="noopener">普通平衡树</a></h3><h3 id="训练赛：-3"><a href="#训练赛：-3" class="headerlink" title="训练赛："></a>训练赛：</h3><h3 id="emsp-emsp-gcd-100-100"><a href="#emsp-emsp-gcd-100-100" class="headerlink" title="&emsp; &emsp; gcd(100/100)"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/16/%E5%BC%B1%E6%99%BA%E5%8F%8D%E6%BC%94/" target="_blank" rel="noopener">gcd</a>(100/100)</h3><h3 id="emsp-emsp-次小生成树-tree-100-100"><a href="#emsp-emsp-次小生成树-tree-100-100" class="headerlink" title="&emsp; &emsp; 次小生成树 tree(100/100)"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/16/%E6%AC%A1%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91-tree/" target="_blank" rel="noopener">次小生成树 tree</a>(100/100)</h3><h3 id="emsp-emsp-k个串-kstring-10-100-失分原因：NM打反导致线段树节点不够。"><a href="#emsp-emsp-k个串-kstring-10-100-失分原因：NM打反导致线段树节点不够。" class="headerlink" title="&emsp; &emsp; k个串 kstring(10/100)失分原因：NM打反导致线段树节点不够。"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/16/k%E4%B8%AA%E4%B8%B2-kstring/" target="_blank" rel="noopener">k个串 kstring</a>(10/100)失分原因：NM打反导致线段树节点不够。</h3><h3 id="emsp-emsp-场上得分：-210-300"><a href="#emsp-emsp-场上得分：-210-300" class="headerlink" title="&emsp; &emsp; 场上得分：(210/300)"></a>&emsp; &emsp; 场上得分：(210/300)</h3><h2 id="2018-7-15"><a href="#2018-7-15" class="headerlink" title="2018-7-15"></a>2018-7-15</h2><h3 id="emsp-emsp-JSOI2008-火星人prefix"><a href="#emsp-emsp-JSOI2008-火星人prefix" class="headerlink" title="&emsp; &emsp; JSOI2008 火星人prefix"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/15/%E7%81%AB%E6%98%9F%E4%BA%BA/" target="_blank" rel="noopener">JSOI2008 火星人prefix</a></h3><h3 id="emsp-emsp-Bracket"><a href="#emsp-emsp-Bracket" class="headerlink" title="&emsp; &emsp; Bracket"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/15/%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D/" target="_blank" rel="noopener">Bracket</a></h3><h3 id="emsp-emsp-zuma"><a href="#emsp-emsp-zuma" class="headerlink" title="&emsp; &emsp; zuma"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/15/%E6%B6%88%E9%99%A4%E5%9B%9E%E6%96%87%E4%B8%B2/" target="_blank" rel="noopener">zuma</a></h3><h3 id="训练赛：-4"><a href="#训练赛：-4" class="headerlink" title="训练赛："></a>训练赛：</h3><h3 id="emsp-emsp-兔子与樱花-100-100"><a href="#emsp-emsp-兔子与樱花-100-100" class="headerlink" title="&emsp; &emsp; 兔子与樱花(100/100)"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/15/%E5%85%94%E5%AD%90%E4%B8%8E%E6%A8%B1%E8%8A%B1/" target="_blank" rel="noopener">兔子与樱花</a>(100/100)</h3><h3 id="emsp-emsp-矩阵乘法-100-100"><a href="#emsp-emsp-矩阵乘法-100-100" class="headerlink" title="&emsp; &emsp; 矩阵乘法(100/100)"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/15/%E7%9F%A9%E9%98%B5%E7%AC%ACk%E5%A4%A7/" target="_blank" rel="noopener">矩阵乘法</a>(100/100)</h3><h3 id="emsp-emsp-聪聪可可-100-100"><a href="#emsp-emsp-聪聪可可-100-100" class="headerlink" title="&emsp; &emsp; 聪聪可可(100/100)"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/15/%E8%81%AA%E8%81%AA%E5%8F%AF%E5%8F%AF/" target="_blank" rel="noopener">聪聪可可</a>(100/100)</h3><h3 id="emsp-emsp-场上得分-300-300"><a href="#emsp-emsp-场上得分-300-300" class="headerlink" title="&emsp; &emsp; 场上得分(300/300)"></a>&emsp; &emsp; 场上得分(300/300)</h3><h2 id="2018-7-14"><a href="#2018-7-14" class="headerlink" title="2018-7-14"></a>2018-7-14</h2><h3 id="emsp-emsp-rank"><a href="#emsp-emsp-rank" class="headerlink" title="&emsp; &emsp; rank"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/14/%E6%9C%9F%E6%9C%9B%E6%8E%92%E5%90%8D/" target="_blank" rel="noopener">rank</a></h3><h3 id="emsp-emsp-sequence"><a href="#emsp-emsp-sequence" class="headerlink" title="&emsp; &emsp; sequence"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/14/%E4%B8%8A%E5%8D%87%E5%AD%90%E4%B8%B2/" target="_blank" rel="noopener">sequence</a></h3><h3 id="emsp-emsp-string"><a href="#emsp-emsp-string" class="headerlink" title="&emsp; &emsp; string"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/14/k%E9%87%8D%E5%A4%8D/" target="_blank" rel="noopener">string</a></h3><h3 id="训练赛：-5"><a href="#训练赛：-5" class="headerlink" title="训练赛："></a>训练赛：</h3><h3 id="emsp-emsp-game-with-probability-100-100"><a href="#emsp-emsp-game-with-probability-100-100" class="headerlink" title="&emsp; &emsp; game with probability(100/100)"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/14/%E6%A6%82%E7%8E%87%E6%B8%B8%E6%88%8F/" target="_blank" rel="noopener">game with probability</a>(100/100)</h3><h3 id="emsp-emsp-病毒-100-100"><a href="#emsp-emsp-病毒-100-100" class="headerlink" title="&emsp; &emsp; 病毒(100/100)"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/14/%E7%97%85%E6%AF%92/" target="_blank" rel="noopener">病毒</a>(100/100)</h3><h3 id="emsp-emsp-Count-on-a-tree-0-100-失分原因-MLE"><a href="#emsp-emsp-Count-on-a-tree-0-100-失分原因-MLE" class="headerlink" title="&emsp; &emsp; Count on a tree(0/100)失分原因:MLE"></a>&emsp; &emsp; <a href="http://www.illyasviel.top/2018/07/14/%E6%A0%91%E4%B8%8A%E8%AE%A1%E6%95%B0/" target="_blank" rel="noopener">Count on a tree</a>(0/100)失分原因:MLE</h3><h3 id="emsp-emsp-场上得分-200-300"><a href="#emsp-emsp-场上得分-200-300" class="headerlink" title="&emsp; &emsp; 场上得分(200/300)"></a>&emsp; &emsp; 场上得分(200/300)</h3>
         
     </article>
     <footer class="cube-excerpt-footer">
@@ -1689,26 +1538,11 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/BZOJ/">#BZOJ</a>
+            <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/分数规划/">#分数规划</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/树链剖分/">#树链剖分</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/凸包/">#凸包</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/点分治/">#点分治</a>
         </div>
         
@@ -1718,8 +1552,33 @@ int main(){
         </div>
         
         
+        <div class="cube-box ">
+            <a href="/tags/BZOJ/">#BZOJ</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/分数规划/">#分数规划</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/树链剖分/">#树链剖分</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
-            <a href="/tags/状压DP/">#状压DP</a>
+            <a href="/tags/凸包/">#凸包</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/好题/">#好题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
         
@@ -1744,27 +1603,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/好题/">#好题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/博弈论/">#博弈论</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/树形DP/">#树形DP</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
@@ -1779,6 +1623,21 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/树形DP/">#树形DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/hash/">#hash</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/二分/">#二分</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/线性基/">#线性基</a>
         </div>
         
@@ -1788,48 +1647,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/二分/">#二分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/斜率优化/">#斜率优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
@@ -1849,7 +1673,12 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/模拟/">#模拟</a>
+            <a href="/tags/人类智慧/">#人类智慧</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
@@ -1859,17 +1688,32 @@ int main(){
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/模拟/">#模拟</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/斜率优化/">#斜率优化</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/CDQ分治/">#CDQ分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/杜教筛/">#杜教筛</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
         </div>
         
         
@@ -1878,17 +1722,12 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/分块/">#分块</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -1899,72 +1738,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/哈希/">#哈希</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/数学/">#数学</a>
+            <a href="/tags/分块/">#分块</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/dp优化/">#dp优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/期望/">#期望</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/积性函数/">#积性函数</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/最小生成树/">#最小生成树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/搜索/">#搜索</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/上下界网络流/">#上下界网络流</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/整体二分/">#整体二分</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/FFT/">#FFT</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/树状数组/">#树状数组</a>
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
         </div>
         
         
@@ -1980,6 +1759,76 @@ int main(){
         
         <div class="cube-box ">
             <a href="/tags/费用流/">#费用流</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/哈希/">#哈希</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/数学/">#数学</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/dp优化/">#dp优化</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/期望/">#期望</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/积性函数/">#积性函数</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/最小生成树/">#最小生成树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/搜索/">#搜索</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/上下界网络流/">#上下界网络流</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/AC自动机/">#AC自动机</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/整体二分/">#整体二分</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/FFT/">#FFT</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
     </div>
@@ -2075,6 +1924,12 @@ int main(){
             <!-- TODO change avatar.png to friend.png-->
             <img src="https://raw.githubusercontent.com/yyxxqq/yyxxqq.github.io/master/picture/xzy.jpg">
             <a href="https://www.cnblogs.com/Cmd2001" target="_blank">邢泽宇</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="https://yyxxqq.github.io/picture/xd.jpg">
+            <a href="http://tgotp.science/" target="_blank">向东</a>
         </li>
         
     </ul>

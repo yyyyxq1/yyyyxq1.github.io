@@ -195,29 +195,8 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目:</h2>
-<p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20180108/20180108095719_59335.png" alt="img"></p>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解:</h2>
-<h3 id="考虑每个幸运点对都是相对独立的就可以通过计算每个点对的概率来得到答案"><a class="markdownIt-Anchor" href="#考虑每个幸运点对都是相对独立的就可以通过计算每个点对的概率来得到答案"></a>     考虑每个幸运点对都是相对独立的，就可以通过计算每个点对的概率来得到答案。</h3>
-<h3 id="统计幸运点对个数并乘上概率就是答案了"><a class="markdownIt-Anchor" href="#统计幸运点对个数并乘上概率就是答案了"></a>     统计幸运点对个数并乘上概率就是答案了。</h3>
-<h2 id="官方题解"><a class="markdownIt-Anchor" href="#官方题解"></a> 官方题解:</h2>
-<h3 id="题目来源原创"><a class="markdownIt-Anchor" href="#题目来源原创"></a> 题目来源：原创</h3>
-<h3 id="考察要点树的基于点边的分治-概率与期望"><a class="markdownIt-Anchor" href="#考察要点树的基于点边的分治-概率与期望"></a> 考察要点：树的基于点/边的分治、概率与期望</h3>
-<h3 id="涉及要点动态规划-广度优先搜索"><a class="markdownIt-Anchor" href="#涉及要点动态规划-广度优先搜索"></a> 涉及要点：动态规划、广度优先搜索</h3>
-<h3 id="解题报告"><a class="markdownIt-Anchor" href="#解题报告"></a> 解题报告：</h3>
-<h3 id="对于某位玩家其占据每个点的概率是相同的因为点与点之间没有区别-同样其占据某对点对的概率也是固定的-不妨设这位玩家最终占据了n个点中的x个点因为三人轮流选取的顺序固定所以x可以简单求得-则该玩家占据某对点对的概率可以这么计算"><a class="markdownIt-Anchor" href="#对于某位玩家其占据每个点的概率是相同的因为点与点之间没有区别-同样其占据某对点对的概率也是固定的-不妨设这位玩家最终占据了n个点中的x个点因为三人轮流选取的顺序固定所以x可以简单求得-则该玩家占据某对点对的概率可以这么计算"></a>     对于某位玩家，其占据每个点的概率是相同的（因为点与点之间没有区别）。同样，其占据某对点对的概率也是固定的。不妨设这位玩家最终占据了n个点中的x个点，因为三人轮流选取的顺序固定，所以x可以简单求得。则该玩家占据某对点对的概率可以这么计算：</h3>
-<h3 id="该玩家从n个点中选取x个点的方案数为cnx"><a class="markdownIt-Anchor" href="#该玩家从n个点中选取x个点的方案数为cnx"></a>     该玩家从n个点中选取x个点的方案数为C(n,x)。</h3>
-<h3 id="在这些方案中选取了某对点对的方案数为cn-2x-2"><a class="markdownIt-Anchor" href="#在这些方案中选取了某对点对的方案数为cn-2x-2"></a>     在这些方案中，选取了某对点对的方案数为C(n-2,x-2)。</h3>
-<h3 id="与前面分析类似易得每个方案的概率是相等的故该玩家占据某对点对的概率为fraccn-2x-2cnx-fracxx-1nn-1"><a class="markdownIt-Anchor" href="#与前面分析类似易得每个方案的概率是相等的故该玩家占据某对点对的概率为fraccn-2x-2cnx-fracxx-1nn-1"></a>     与前面分析类似，易得每个方案的概率是相等的，故该玩家占据某对点对的概率为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>C</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo separator="true">,</mo><mi>x</mi><mo>−</mo><mn>2</mn><mo>)</mo></mrow><mrow><mi>C</mi><mo>(</mo><mi>n</mi><mo separator="true">,</mo><mi>x</mi><mo>)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>x</mi><mo>(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><mrow><mi>n</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{C(n-2,x-2)}{C(n,x)}= \frac{x(x-1)}{n(n-1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.53em;vertical-align:-0.52em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mpunct">,</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">x</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>。</h3>
-<h3 id="故问题转换为求距离为某个幸运数的点对对数将其乘以fracxx-1nn-1即为答案"><a class="markdownIt-Anchor" href="#故问题转换为求距离为某个幸运数的点对对数将其乘以fracxx-1nn-1即为答案"></a>     故问题转换为求距离为某个幸运数的点对对数，将其乘以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>x</mi><mo>(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><mrow><mi>n</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{x(x-1)}{n(n-1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.53em;vertical-align:-0.52em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">x</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>即为答案。</h3>
-<h3 id="对于数据点1n-1000bfs即可"><a class="markdownIt-Anchor" href="#对于数据点1n-1000bfs即可"></a>     对于数据点1，n &lt;= 1000，bfs即可。</h3>
-<h3 id="对于数据点2-3-4第i个幸运数为i因为幸运数10故可以使用树形动态规划求解-fx110表示子树x中与节点x距离为110的点数转移略"><a class="markdownIt-Anchor" href="#对于数据点2-3-4第i个幸运数为i因为幸运数10故可以使用树形动态规划求解-fx110表示子树x中与节点x距离为110的点数转移略"></a>     对于数据点2、3、4，第i个幸运数为i，因为幸运数&lt;=10，故可以使用树形动态规划求解。F[x][1…10]表示子树x中与节点x距离为1…10的点数，转移略。</h3>
-<h3 id="如果在bfs中加入剪枝优化距离超过最大的幸运数后就不再搜索亦可通过这三个数据点"><a class="markdownIt-Anchor" href="#如果在bfs中加入剪枝优化距离超过最大的幸运数后就不再搜索亦可通过这三个数据点"></a>     如果在bfs中加入剪枝优化（距离超过最大的幸运数后就不再搜索），亦可通过这三个数据点。</h3>
-<h3 id="对于数据点5-6-7n为3的倍数三人答案相同方便选手计算"><a class="markdownIt-Anchor" href="#对于数据点5-6-7n为3的倍数三人答案相同方便选手计算"></a>     对于数据点5、6、7，n为3的倍数，三人答案相同，方便选手计算。</h3>
-<h3 id="对于所有数据点3-n-50000m-10幸运数大小-n使用树的基于点边的分治求解-其中树的基于边的分治需要重建树以防止星形图数据点7和数据点10时复杂度退化-另外在不开编译优化的情况下使用vector等stl存图的程序也容易在这两个数据点超时"><a class="markdownIt-Anchor" href="#对于所有数据点3-n-50000m-10幸运数大小-n使用树的基于点边的分治求解-其中树的基于边的分治需要重建树以防止星形图数据点7和数据点10时复杂度退化-另外在不开编译优化的情况下使用vector等stl存图的程序也容易在这两个数据点超时"></a>     对于所有数据点，3 &lt;= n &lt;= 50000，m &lt;= 10，幸运数大小 &lt;= n，使用树的基于点/边的分治求解。其中树的基于边的分治需要重建树以防止星形图（数据点7和数据点10）时复杂度退化。另外在不开编译优化的情况下，使用vector等STL存图的程序也容易在这两个数据点超时。</h3>
-<h3 id="出题思路"><a class="markdownIt-Anchor" href="#出题思路"></a> 出题思路：</h3>
-<h3 id="本题要求选手对期望与概率的独立性有最基本的认识分析出藏在轮流选取背后的是每个点对相同的概率-之后本题的题目模型考察选手的硬编程实力在所有树分治题目中本题属于最简单的一类熟练掌握的选手应可以在半小时至一小时内关于这个表示赞同解决"><a class="markdownIt-Anchor" href="#本题要求选手对期望与概率的独立性有最基本的认识分析出藏在轮流选取背后的是每个点对相同的概率-之后本题的题目模型考察选手的硬编程实力在所有树分治题目中本题属于最简单的一类熟练掌握的选手应可以在半小时至一小时内关于这个表示赞同解决"></a>     本题要求选手对期望与概率的独立性有最基本的认识，分析出藏在轮流选取背后的是每个点对相同的概率。之后本题的题目模型考察选手的硬编程实力，在所有树分治题目中，本题属于最简单的一类，熟练掌握的选手应可以在半小时至一小时内（关于这个表示赞同）解决。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h2><p><img src="http://xsy.gdgzez.com.cn/JudgeOnline/upload/attachment/image/20180108/20180108095719_59335.png" alt="img"></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解:"></a>题解:</h2><h3 id="emsp-emsp-考虑每个幸运点对都是相对独立的，就可以通过计算每个点对的概率来得到答案。"><a href="#emsp-emsp-考虑每个幸运点对都是相对独立的，就可以通过计算每个点对的概率来得到答案。" class="headerlink" title="&emsp; &emsp; 考虑每个幸运点对都是相对独立的，就可以通过计算每个点对的概率来得到答案。"></a>&emsp; &emsp; 考虑每个幸运点对都是相对独立的，就可以通过计算每个点对的概率来得到答案。</h3><h3 id="emsp-emsp-统计幸运点对个数并乘上概率就是答案了。"><a href="#emsp-emsp-统计幸运点对个数并乘上概率就是答案了。" class="headerlink" title="&emsp; &emsp; 统计幸运点对个数并乘上概率就是答案了。"></a>&emsp; &emsp; 统计幸运点对个数并乘上概率就是答案了。</h3><h2 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a>官方题解:</h2><h3 id="题目来源：原创"><a href="#题目来源：原创" class="headerlink" title="题目来源：原创"></a>题目来源：原创</h3><h3 id="考察要点：树的基于点-边的分治、概率与期望"><a href="#考察要点：树的基于点-边的分治、概率与期望" class="headerlink" title="考察要点：树的基于点/边的分治、概率与期望"></a>考察要点：树的基于点/边的分治、概率与期望</h3><h3 id="涉及要点：动态规划、广度优先搜索"><a href="#涉及要点：动态规划、广度优先搜索" class="headerlink" title="涉及要点：动态规划、广度优先搜索"></a>涉及要点：动态规划、广度优先搜索</h3><h3 id="解题报告："><a href="#解题报告：" class="headerlink" title="解题报告："></a>解题报告：</h3><h3 id="emsp-emsp-对于某位玩家，其占据每个点的概率是相同的（因为点与点之间没有区别）。同样，其占据某对点对的概率也是固定的。不妨设这位玩家最终占据了n个点中的x个点，因为三人轮流选取的顺序固定，所以x可以简单求得。则该玩家占据某对点对的概率可以这么计算："><a href="#emsp-emsp-对于某位玩家，其占据每个点的概率是相同的（因为点与点之间没有区别）。同样，其占据某对点对的概率也是固定的。不妨设这位玩家最终占据了n个点中的x个点，因为三人轮流选取的顺序固定，所以x可以简单求得。则该玩家占据某对点对的概率可以这么计算：" class="headerlink" title="&emsp; &emsp; 对于某位玩家，其占据每个点的概率是相同的（因为点与点之间没有区别）。同样，其占据某对点对的概率也是固定的。不妨设这位玩家最终占据了n个点中的x个点，因为三人轮流选取的顺序固定，所以x可以简单求得。则该玩家占据某对点对的概率可以这么计算："></a>&emsp; &emsp; 对于某位玩家，其占据每个点的概率是相同的（因为点与点之间没有区别）。同样，其占据某对点对的概率也是固定的。不妨设这位玩家最终占据了n个点中的x个点，因为三人轮流选取的顺序固定，所以x可以简单求得。则该玩家占据某对点对的概率可以这么计算：</h3><h3 id="emsp-emsp-该玩家从n个点中选取x个点的方案数为C-n-x-。"><a href="#emsp-emsp-该玩家从n个点中选取x个点的方案数为C-n-x-。" class="headerlink" title="&emsp; &emsp; 该玩家从n个点中选取x个点的方案数为C(n,x)。"></a>&emsp; &emsp; 该玩家从n个点中选取x个点的方案数为C(n,x)。</h3><h3 id="emsp-emsp-在这些方案中，选取了某对点对的方案数为C-n-2-x-2-。"><a href="#emsp-emsp-在这些方案中，选取了某对点对的方案数为C-n-2-x-2-。" class="headerlink" title="&emsp; &emsp; 在这些方案中，选取了某对点对的方案数为C(n-2,x-2)。"></a>&emsp; &emsp; 在这些方案中，选取了某对点对的方案数为C(n-2,x-2)。</h3><h3 id="emsp-emsp-与前面分析类似，易得每个方案的概率是相等的，故该玩家占据某对点对的概率为-frac-C-n-2-x-2-C-n-x-frac-x-x-1-n-n-1-。"><a href="#emsp-emsp-与前面分析类似，易得每个方案的概率是相等的，故该玩家占据某对点对的概率为-frac-C-n-2-x-2-C-n-x-frac-x-x-1-n-n-1-。" class="headerlink" title="&emsp; &emsp; 与前面分析类似，易得每个方案的概率是相等的，故该玩家占据某对点对的概率为$\frac{C(n-2,x-2)}{C(n,x)}= \frac{x(x-1)}{n(n-1)}$。"></a>&emsp; &emsp; 与前面分析类似，易得每个方案的概率是相等的，故该玩家占据某对点对的概率为$\frac{C(n-2,x-2)}{C(n,x)}= \frac{x(x-1)}{n(n-1)}$。</h3><h3 id="emsp-emsp-故问题转换为求距离为某个幸运数的点对对数，将其乘以-frac-x-x-1-n-n-1-即为答案。"><a href="#emsp-emsp-故问题转换为求距离为某个幸运数的点对对数，将其乘以-frac-x-x-1-n-n-1-即为答案。" class="headerlink" title="&emsp; &emsp; 故问题转换为求距离为某个幸运数的点对对数，将其乘以$\frac{x(x-1)}{n(n-1)}$即为答案。"></a>&emsp; &emsp; 故问题转换为求距离为某个幸运数的点对对数，将其乘以$\frac{x(x-1)}{n(n-1)}$即为答案。</h3><h3 id="emsp-emsp-对于数据点1，n-lt-1000，bfs即可。"><a href="#emsp-emsp-对于数据点1，n-lt-1000，bfs即可。" class="headerlink" title="&emsp; &emsp; 对于数据点1，n &lt;= 1000，bfs即可。"></a>&emsp; &emsp; 对于数据点1，n &lt;= 1000，bfs即可。</h3><h3 id="emsp-emsp-对于数据点2、3、4，第i个幸运数为i，因为幸运数-lt-10，故可以使用树形动态规划求解。F-x-1-10-表示子树x中与节点x距离为1-10的点数，转移略。"><a href="#emsp-emsp-对于数据点2、3、4，第i个幸运数为i，因为幸运数-lt-10，故可以使用树形动态规划求解。F-x-1-10-表示子树x中与节点x距离为1-10的点数，转移略。" class="headerlink" title="&emsp; &emsp; 对于数据点2、3、4，第i个幸运数为i，因为幸运数&lt;=10，故可以使用树形动态规划求解。F[x][1..10]表示子树x中与节点x距离为1..10的点数，转移略。"></a>&emsp; &emsp; 对于数据点2、3、4，第i个幸运数为i，因为幸运数&lt;=10，故可以使用树形动态规划求解。F[x][1..10]表示子树x中与节点x距离为1..10的点数，转移略。</h3><h3 id="emsp-emsp-如果在bfs中加入剪枝优化（距离超过最大的幸运数后就不再搜索），亦可通过这三个数据点。"><a href="#emsp-emsp-如果在bfs中加入剪枝优化（距离超过最大的幸运数后就不再搜索），亦可通过这三个数据点。" class="headerlink" title="&emsp; &emsp; 如果在bfs中加入剪枝优化（距离超过最大的幸运数后就不再搜索），亦可通过这三个数据点。"></a>&emsp; &emsp; 如果在bfs中加入剪枝优化（距离超过最大的幸运数后就不再搜索），亦可通过这三个数据点。</h3><h3 id="emsp-emsp-对于数据点5、6、7，n为3的倍数，三人答案相同，方便选手计算。"><a href="#emsp-emsp-对于数据点5、6、7，n为3的倍数，三人答案相同，方便选手计算。" class="headerlink" title="&emsp; &emsp; 对于数据点5、6、7，n为3的倍数，三人答案相同，方便选手计算。"></a>&emsp; &emsp; 对于数据点5、6、7，n为3的倍数，三人答案相同，方便选手计算。</h3><h3 id="emsp-emsp-对于所有数据点，3-lt-n-lt-50000，m-lt-10，幸运数大小-lt-n，使用树的基于点-边的分治求解。其中树的基于边的分治需要重建树以防止星形图（数据点7和数据点10）时复杂度退化。另外在不开编译优化的情况下，使用vector等STL存图的程序也容易在这两个数据点超时。"><a href="#emsp-emsp-对于所有数据点，3-lt-n-lt-50000，m-lt-10，幸运数大小-lt-n，使用树的基于点-边的分治求解。其中树的基于边的分治需要重建树以防止星形图（数据点7和数据点10）时复杂度退化。另外在不开编译优化的情况下，使用vector等STL存图的程序也容易在这两个数据点超时。" class="headerlink" title="&emsp; &emsp; 对于所有数据点，3 &lt;= n &lt;= 50000，m &lt;= 10，幸运数大小 &lt;= n，使用树的基于点/边的分治求解。其中树的基于边的分治需要重建树以防止星形图（数据点7和数据点10）时复杂度退化。另外在不开编译优化的情况下，使用vector等STL存图的程序也容易在这两个数据点超时。"></a>&emsp; &emsp; 对于所有数据点，3 &lt;= n &lt;= 50000，m &lt;= 10，幸运数大小 &lt;= n，使用树的基于点/边的分治求解。其中树的基于边的分治需要重建树以防止星形图（数据点7和数据点10）时复杂度退化。另外在不开编译优化的情况下，使用vector等STL存图的程序也容易在这两个数据点超时。</h3><h3 id="出题思路："><a href="#出题思路：" class="headerlink" title="出题思路："></a>出题思路：</h3><h3 id="emsp-emsp-本题要求选手对期望与概率的独立性有最基本的认识，分析出藏在轮流选取背后的是每个点对相同的概率。之后本题的题目模型考察选手的硬编程实力，在所有树分治题目中，本题属于最简单的一类，熟练掌握的选手应可以在半小时至一小时内（关于这个表示赞同）解决。"><a href="#emsp-emsp-本题要求选手对期望与概率的独立性有最基本的认识，分析出藏在轮流选取背后的是每个点对相同的概率。之后本题的题目模型考察选手的硬编程实力，在所有树分治题目中，本题属于最简单的一类，熟练掌握的选手应可以在半小时至一小时内（关于这个表示赞同）解决。" class="headerlink" title="&emsp; &emsp; 本题要求选手对期望与概率的独立性有最基本的认识，分析出藏在轮流选取背后的是每个点对相同的概率。之后本题的题目模型考察选手的硬编程实力，在所有树分治题目中，本题属于最简单的一类，熟练掌握的选手应可以在半小时至一小时内（关于这个表示赞同）解决。"></a>&emsp; &emsp; 本题要求选手对期望与概率的独立性有最基本的认识，分析出藏在轮流选取背后的是每个点对相同的概率。之后本题的题目模型考察选手的硬编程实力，在所有树分治题目中，本题属于最简单的一类，熟练掌握的选手应可以在半小时至一小时内（关于这个表示赞同）解决。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 120000
@@ -284,7 +263,7 @@ int solve(int x){
                 if(luck[k]&gt;j&amp;&amp;luck[k]-j&lt;=cnt)ans+=1LL*q[luck[k]-j]*l[j];
         for(int j=1;j&lt;=ill;j++)q[j]+=l[j];
     }
-     
+
     for(int i=h[x];i;i=Next[i]){
         if(p[v[i]]==1)continue;
         int o=get_son(v[i]);
@@ -309,7 +288,6 @@ int main(){
     cal(n/3+(n%3&gt;=2));
     cal(n/3+(n%3&gt;=3));
 }
-
 </code></pre>
 
     </div>
@@ -488,7 +466,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -510,6 +488,21 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -524,23 +517,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/好题/">#好题</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/状压DP/">#状压DP</a>
+            <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
         
@@ -565,27 +553,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/好题/">#好题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/博弈论/">#博弈论</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/树形DP/">#树形DP</a>
+        <div class="cube-box ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
@@ -600,6 +573,21 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/树形DP/">#树形DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/hash/">#hash</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/二分/">#二分</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/线性基/">#线性基</a>
         </div>
         
@@ -609,48 +597,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/二分/">#二分</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/NOI/">#NOI</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/斜率优化/">#斜率优化</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
@@ -669,32 +622,52 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/人类智慧/">#人类智慧</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/模拟/">#模拟</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/斜率优化/">#斜率优化</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/CDQ分治/">#CDQ分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
@@ -705,11 +678,6 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/分块/">#分块</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
@@ -720,7 +688,27 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
+            <a href="/tags/分块/">#分块</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/概率与期望/">#概率与期望</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
@@ -736,11 +724,6 @@ int main(){
         
         <div class="cube-box ">
             <a href="/tags/dp优化/">#dp优化</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
@@ -770,7 +753,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+            <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
@@ -779,8 +762,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/FFT/">#FFT</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
@@ -790,17 +778,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/概率与期望/">#概率与期望</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/费用流/">#费用流</a>
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
     </div>
@@ -896,6 +874,12 @@ int main(){
             <!-- TODO change avatar.png to friend.png-->
             <img src="https://raw.githubusercontent.com/yyxxqq/yyxxqq.github.io/master/picture/xzy.jpg">
             <a href="https://www.cnblogs.com/Cmd2001" target="_blank">邢泽宇</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="https://yyxxqq.github.io/picture/xd.jpg">
+            <a href="http://tgotp.science/" target="_blank">向东</a>
         </li>
         
     </ul>

@@ -194,7 +194,7 @@
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;map&gt;
@@ -240,115 +240,12 @@ int main(){
     }
 }
 </code></pre>
-<p>题目链接<a href="https://loj.ac/problem/2033" target="_blank" rel="noopener">「SDOI2016」生成魔咒</a></p>
+<p>题目链接<a href="https://loj.ac/problem/2033" target="_blank" rel="noopener">「SDOI2016」生成魔咒</a> </p>
 
         
     </article>
     <footer class="cube-excerpt-footer">
         <a class="cube-excerpt-more" href="/2018/07/25/SDOI2016-生成魔咒/">Read More</a>
-    </footer>
-</div>
-
-<div class="cube-excerpt" id="cube-excerpt-TJOI2015 弦论">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/25/TJOI2015-弦论/">TJOI2015 弦论</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-25
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/后缀自动机/" class="cube-excerpt-tag-link">#后缀自动机</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#define N 1200000
-using namespace std;
-int n;
-char s[N];
-long long T,K;
-namespace sam{
-    int ch[N][27],fail[N],last,len[N],val[N],tot,v[N],q[N],sum[N];
-    int newnode(int x){
-        len[++tot]=x;
-        return tot;
-    }
-    int extend(int x){
-        int p=last;
-        int np=newnode(len[p]+1);
-        val[np]=1;
-        while(p&amp;&amp;!ch[p][x])ch[p][x]=np,p=fail[p];
-        if(p==0)fail[np]=1;
-        else{
-            int q=ch[p][x];
-            if(len[q]==len[p]+1)fail[np]=q;
-            else{
-                int nq=newnode(len[p]+1);
-                memcpy(ch[nq],ch[q],sizeof(ch[q]));
-                fail[nq]=fail[q];
-                fail[q]=fail[np]=nq;
-                while(ch[p][x]==q)ch[p][x]=nq,p=fail[p];
-            } 
-        }
-        last=np;
-        return last;
-    }
-    int pre(){
-        for(int i=1;i&lt;=tot;i++)v[len[i]]++;
-        for(int i=1;i&lt;=n;i++)v[i]+=v[i-1];
-        for(int i=tot;i;i--)q[v[len[i]]--]=i;
-        for(int i=tot;i;i--){
-            int t=q[i];
-            if(T==1)val[fail[t]]+=val[t];
-            else val[t]=1;
-        }
-        val[1]=0;
-        for(int i=tot;i;i--){
-            int t=q[i];sum[t]=val[t];
-            for(int j=1;j&lt;=26;j++)
-                sum[t]+=sum[ch[t][j]];
-        }
-    }
-    int dfs(int x,int k){
-        if(k&lt;=val[x])return 0;
-        k-=val[x];
-        for(int i=1;i&lt;=26;i++)
-            if(int t=ch[x][i]){
-                if(k&lt;=sum[t]){
-                    putchar(i+'a'-1);
-                    dfs(t,k);
-                    return 0;
-                }
-                k-=sum[t];
-            }
-    }
-}
-int main(){
-    scanf(&quot;%s&quot;,s+1);
-    n=strlen(s+1);
-    scanf(&quot;%lld%lld&quot;,&amp;T,&amp;K);
-    sam::last=sam::tot=1;
-    for(int i=1;i&lt;=n;i++)sam::extend(s[i]-'a'+1);
-    sam::pre();
-    if(K&gt;sam::sum[1])puts(&quot;-1&quot;);
-    else sam::dfs(1,K);
-}
-</code></pre>
-<p>题目链接:<a href="https://loj.ac/problem/2102" target="_blank" rel="noopener">「TJOI2015」弦论</a></p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/25/TJOI2015-弦论/">Read More</a>
     </footer>
 </div>
 
@@ -371,7 +268,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define N 220000
@@ -433,12 +330,115 @@ int main(){
     printf(&quot;%lld\n&quot;,ans);
 }
 </code></pre>
-<p>题目链接:<a href="https://loj.ac/problem/2137" target="_blank" rel="noopener">「ZJOI2015」诸神眷顾的幻想乡</a></p>
+<p>题目链接:<a href="https://loj.ac/problem/2137" target="_blank" rel="noopener">「ZJOI2015」诸神眷顾的幻想乡</a> </p>
 
         
     </article>
     <footer class="cube-excerpt-footer">
         <a class="cube-excerpt-more" href="/2018/07/25/ZJOI2015-诸神眷顾的幻想乡/">Read More</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-TJOI2015 弦论">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/25/TJOI2015-弦论/">TJOI2015 弦论</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-25
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/后缀自动机/" class="cube-excerpt-tag-link">#后缀自动机</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define N 1200000
+using namespace std;
+int n;
+char s[N];
+long long T,K;
+namespace sam{
+    int ch[N][27],fail[N],last,len[N],val[N],tot,v[N],q[N],sum[N];
+    int newnode(int x){
+        len[++tot]=x;
+        return tot;
+    }
+    int extend(int x){
+        int p=last;
+        int np=newnode(len[p]+1);
+        val[np]=1;
+        while(p&amp;&amp;!ch[p][x])ch[p][x]=np,p=fail[p];
+        if(p==0)fail[np]=1;
+        else{
+            int q=ch[p][x];
+            if(len[q]==len[p]+1)fail[np]=q;
+            else{
+                int nq=newnode(len[p]+1);
+                memcpy(ch[nq],ch[q],sizeof(ch[q]));
+                fail[nq]=fail[q];
+                fail[q]=fail[np]=nq;
+                while(ch[p][x]==q)ch[p][x]=nq,p=fail[p];
+            } 
+        }
+        last=np;
+        return last;
+    }
+    int pre(){
+        for(int i=1;i&lt;=tot;i++)v[len[i]]++;
+        for(int i=1;i&lt;=n;i++)v[i]+=v[i-1];
+        for(int i=tot;i;i--)q[v[len[i]]--]=i;
+        for(int i=tot;i;i--){
+            int t=q[i];
+            if(T==1)val[fail[t]]+=val[t];
+            else val[t]=1;
+        }
+        val[1]=0;
+        for(int i=tot;i;i--){
+            int t=q[i];sum[t]=val[t];
+            for(int j=1;j&lt;=26;j++)
+                sum[t]+=sum[ch[t][j]];
+        }
+    }
+    int dfs(int x,int k){
+        if(k&lt;=val[x])return 0;
+        k-=val[x];
+        for(int i=1;i&lt;=26;i++)
+            if(int t=ch[x][i]){
+                if(k&lt;=sum[t]){
+                    putchar(i+&#39;a&#39;-1);
+                    dfs(t,k);
+                    return 0;
+                }
+                k-=sum[t];
+            }
+    }
+}
+int main(){
+    scanf(&quot;%s&quot;,s+1);
+    n=strlen(s+1);
+    scanf(&quot;%lld%lld&quot;,&amp;T,&amp;K);
+    sam::last=sam::tot=1;
+    for(int i=1;i&lt;=n;i++)sam::extend(s[i]-&#39;a&#39;+1);
+    sam::pre();
+    if(K&gt;sam::sum[1])puts(&quot;-1&quot;);
+    else sam::dfs(1,K);
+}
+</code></pre>
+<p>题目链接:<a href="https://loj.ac/problem/2102" target="_blank" rel="noopener">「TJOI2015」弦论</a> </p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/25/TJOI2015-弦论/">Read More</a>
     </footer>
 </div>
 
@@ -465,16 +465,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="背景烁烁很喜欢爬树这吓坏了树上的皮皮鼠"><a class="markdownIt-Anchor" href="#背景烁烁很喜欢爬树这吓坏了树上的皮皮鼠"></a>     背景：烁烁很喜欢爬树，这吓坏了树上的皮皮鼠。</h3>
-<h3 id="题意-给定一颗n个节点的树边权均为1初始树上没有皮皮鼠-烁烁他每次会跳到一个节点u把周围与他距离不超过d的节点各吸引出w只皮皮鼠-皮皮鼠会被烁烁吸引所以会一直待在节点上不动-烁烁很好奇在当前时刻节点u有多少个他的好朋友皮皮鼠"><a class="markdownIt-Anchor" href="#题意-给定一颗n个节点的树边权均为1初始树上没有皮皮鼠-烁烁他每次会跳到一个节点u把周围与他距离不超过d的节点各吸引出w只皮皮鼠-皮皮鼠会被烁烁吸引所以会一直待在节点上不动-烁烁很好奇在当前时刻节点u有多少个他的好朋友皮皮鼠"></a>     题意： 给定一颗n个节点的树，边权均为1，初始树上没有皮皮鼠。烁烁他每次会跳到一个节点u，把周围与他距离不超过d的节点各吸引出w只皮皮鼠。皮皮鼠会被烁烁吸引，所以会一直待在节点上不动。 烁烁很好奇，在当前时刻，节点u有多少个他的好朋友—皮皮鼠。</h3>
-<h3 id="大意"><a class="markdownIt-Anchor" href="#大意"></a>     大意：</h3>
-<h3 id="给一颗n个节点的树边权均为1初始点权均为0m次操作"><a class="markdownIt-Anchor" href="#给一颗n个节点的树边权均为1初始点权均为0m次操作"></a>      给一颗n个节点的树，边权均为1，初始点权均为0，m次操作：</h3>
-<h3 id="q-x询问x的点权"><a class="markdownIt-Anchor" href="#q-x询问x的点权"></a>     Q x：询问x的点权。</h3>
-<h3 id="m-x-d-w将树上与节点x距离不超过d的节点的点权均加上w"><a class="markdownIt-Anchor" href="#m-x-d-w将树上与节点x距离不超过d的节点的点权均加上w"></a>     M x d w：将树上与节点x距离不超过d的节点的点权均加上w。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="建出点分树以后容斥用线段树求后缀和即可-虽然每层都扫好暴力但好像复杂度就是对的"><a class="markdownIt-Anchor" href="#建出点分树以后容斥用线段树求后缀和即可-虽然每层都扫好暴力但好像复杂度就是对的"></a>     建出点分树以后容斥用线段树求后缀和即可。（虽然每层都扫好暴力但好像复杂度就是对的）</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-背景：烁烁很喜欢爬树，这吓坏了树上的皮皮鼠。"><a href="#emsp-emsp-背景：烁烁很喜欢爬树，这吓坏了树上的皮皮鼠。" class="headerlink" title="&emsp; &emsp; 背景：烁烁很喜欢爬树，这吓坏了树上的皮皮鼠。"></a>&emsp; &emsp; 背景：烁烁很喜欢爬树，这吓坏了树上的皮皮鼠。</h3><h3 id="emsp-emsp-题意：-给定一颗n个节点的树，边权均为1，初始树上没有皮皮鼠。烁烁他每次会跳到一个节点u，把周围与他距离不超过d的节点各吸引出w只皮皮鼠。皮皮鼠会被烁烁吸引，所以会一直待在节点上不动。-烁烁很好奇，在当前时刻，节点u有多少个他的好朋友—-皮皮鼠。"><a href="#emsp-emsp-题意：-给定一颗n个节点的树，边权均为1，初始树上没有皮皮鼠。烁烁他每次会跳到一个节点u，把周围与他距离不超过d的节点各吸引出w只皮皮鼠。皮皮鼠会被烁烁吸引，所以会一直待在节点上不动。-烁烁很好奇，在当前时刻，节点u有多少个他的好朋友—-皮皮鼠。" class="headerlink" title="&emsp; &emsp; 题意： 给定一颗n个节点的树，边权均为1，初始树上没有皮皮鼠。烁烁他每次会跳到一个节点u，把周围与他距离不超过d的节点各吸引出w只皮皮鼠。皮皮鼠会被烁烁吸引，所以会一直待在节点上不动。 烁烁很好奇，在当前时刻，节点u有多少个他的好朋友—-皮皮鼠。"></a>&emsp; &emsp; 题意： 给定一颗n个节点的树，边权均为1，初始树上没有皮皮鼠。烁烁他每次会跳到一个节点u，把周围与他距离不超过d的节点各吸引出w只皮皮鼠。皮皮鼠会被烁烁吸引，所以会一直待在节点上不动。 烁烁很好奇，在当前时刻，节点u有多少个他的好朋友—-皮皮鼠。</h3><h3 id="emsp-emsp-大意："><a href="#emsp-emsp-大意：" class="headerlink" title="&emsp; &emsp; 大意："></a>&emsp; &emsp; 大意：</h3><h3 id="emsp-emsp-给一颗n个节点的树，边权均为1，初始点权均为0，m次操作："><a href="#emsp-emsp-给一颗n个节点的树，边权均为1，初始点权均为0，m次操作：" class="headerlink" title="&emsp; &emsp;  给一颗n个节点的树，边权均为1，初始点权均为0，m次操作："></a>&emsp; &emsp;  给一颗n个节点的树，边权均为1，初始点权均为0，m次操作：</h3><h3 id="emsp-emsp-Q-x：询问x的点权。"><a href="#emsp-emsp-Q-x：询问x的点权。" class="headerlink" title="&emsp; &emsp; Q x：询问x的点权。"></a>&emsp; &emsp; Q x：询问x的点权。</h3><h3 id="emsp-emsp-M-x-d-w：将树上与节点x距离不超过d的节点的点权均加上w。"><a href="#emsp-emsp-M-x-d-w：将树上与节点x距离不超过d的节点的点权均加上w。" class="headerlink" title="&emsp; &emsp; M x d w：将树上与节点x距离不超过d的节点的点权均加上w。"></a>&emsp; &emsp; M x d w：将树上与节点x距离不超过d的节点的点权均加上w。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-建出点分树以后容斥用线段树求后缀和即可。（虽然每层都扫好暴力但好像复杂度就是对的）"><a href="#emsp-emsp-建出点分树以后容斥用线段树求后缀和即可。（虽然每层都扫好暴力但好像复杂度就是对的）" class="headerlink" title="&emsp; &emsp; 建出点分树以后容斥用线段树求后缀和即可。（虽然每层都扫好暴力但好像复杂度就是对的）"></a>&emsp; &emsp; 建出点分树以后容斥用线段树求后缀和即可。（虽然每层都扫好暴力但好像复杂度就是对的）</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;algorithm&gt;
@@ -648,7 +639,7 @@ int main(){
     dfs(1);
     for(int i=1;i&lt;=m;i++){
         scanf(&quot;%s&quot;,s+1);
-        if(s[1]=='Q'){
+        if(s[1]==&#39;Q&#39;){
             int x;
             scanf(&quot;%d&quot;,&amp;x);
             printf(&quot;%d\n&quot;,query(x));
@@ -661,7 +652,7 @@ int main(){
     }
 }
 </code></pre>
-<p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4372" target="_blank" rel="noopener"> 烁烁的游戏</a></p>
+<p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4372" target="_blank" rel="noopener"> 烁烁的游戏</a> </p>
 
         
     </article>
@@ -681,9 +672,9 @@ int main(){
             <div class="cube-excerpt-tags">
                 <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
                 
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
-                
                 <a href="/tags/博弈论/" class="cube-excerpt-tag-link">#博弈论</a>
+                
+                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
                 
             </div>
         </div>
@@ -691,18 +682,8 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="这个游戏是在一个1n的棋盘上进行的棋盘上有k个棋子一半是黑色一半是白色-最左边是白色棋子最右边"><a class="markdownIt-Anchor" href="#这个游戏是在一个1n的棋盘上进行的棋盘上有k个棋子一半是黑色一半是白色-最左边是白色棋子最右边"></a>     这个游戏是在一个1*n的棋盘上进行的，棋盘上有k个棋子，一半是黑色，一半是白色。最左边是白色棋子，最右边</h3>
-<h3 id="是黑色棋子相邻的棋子颜色不同"><a class="markdownIt-Anchor" href="#是黑色棋子相邻的棋子颜色不同"></a>     是黑色棋子，相邻的棋子颜色不同。</h3>
-<p><img src="https://www.lydsy.com/JudgeOnline/upload/201604/dd(6).png" alt="img"></p>
-<h3 id="小奇可以移动白色棋子提比可以移动黑色的棋子它们每次操作可以移动1到d个棋子-每当移动某一个棋子时"><a class="markdownIt-Anchor" href="#小奇可以移动白色棋子提比可以移动黑色的棋子它们每次操作可以移动1到d个棋子-每当移动某一个棋子时"></a>     小奇可以移动白色棋子，提比可以移动黑色的棋子，它们每次操作可以移动1到d个棋子。每当移动某一个棋子时，</h3>
-<h3 id="这个棋子不能跨越两边的棋子当然也不可以出界-当谁不可以操作时谁就失败了-小奇和提比轮流操作现在"><a class="markdownIt-Anchor" href="#这个棋子不能跨越两边的棋子当然也不可以出界-当谁不可以操作时谁就失败了-小奇和提比轮流操作现在"></a>    这个棋子不能跨越两边的棋子，当然也不可以出界。当谁不可以操作时，谁就失败了。小奇和提比轮流操作，现在</h3>
-<h3 id="小奇先移动有多少种初始棋子的布局会使它有必胜策略"><a class="markdownIt-Anchor" href="#小奇先移动有多少种初始棋子的布局会使它有必胜策略"></a>     小奇先移动，有多少种初始棋子的布局会使它有必胜策略？</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="网上已经有诸多题解了其中有一些说这题缺了限制条件但我分析了一下可能不太需要"><a class="markdownIt-Anchor" href="#网上已经有诸多题解了其中有一些说这题缺了限制条件但我分析了一下可能不太需要"></a>     网上已经有诸多题解了，其中有一些说这题缺了限制条件，但我分析了一下，可能不太需要。</h3>
-<h3 id="缺限制条件的原因是当白棋进入必败点后他可以通过加石子的方式来使得黑棋进入必败点"><a class="markdownIt-Anchor" href="#缺限制条件的原因是当白棋进入必败点后他可以通过加石子的方式来使得黑棋进入必败点"></a>     缺限制条件的原因是当白棋进入必败点后，他可以通过加石子的方式来使得黑棋进入必败点。</h3>
-<h3 id="但是白棋能加的棋子是有限的而只要白棋加石子黑旗就能跟进那么就可以还原成之前的局面并且白棋能加的棋子变少了这里是谁先进入必败点谁就输-就是如果一种状态进入到必败点虽然可以继续转移到必败点这里的必败点是与到终点时输的在某种意义上相同的状态但是会消耗一些东西可增加的空间而另一方跟进是无消耗的最后是谁先进入必败点谁就输了"><a class="markdownIt-Anchor" href="#但是白棋能加的棋子是有限的而只要白棋加石子黑旗就能跟进那么就可以还原成之前的局面并且白棋能加的棋子变少了这里是谁先进入必败点谁就输-就是如果一种状态进入到必败点虽然可以继续转移到必败点这里的必败点是与到终点时输的在某种意义上相同的状态但是会消耗一些东西可增加的空间而另一方跟进是无消耗的最后是谁先进入必败点谁就输了"></a>     但是，白棋能加的棋子是有限的，而只要白棋加石子，黑旗就能跟进，那么就可以还原成之前的局面，并且白棋能加的棋子变少了，这里是谁先进入必败点谁就输。就是，如果一种状态进入到必败点，虽然可以继续转移到必败点（这里的必败点是与到终点时输的在某种意义上相同的状态），但是会消耗一些东西（可增加的空间），而另一方跟进是无消耗的，最后是谁先进入必败点谁就输了。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-这个游戏是在一个1-n的棋盘上进行的，棋盘上有k个棋子，一半是黑色，一半是白色。最左边是白色棋子，最右边"><a href="#emsp-emsp-这个游戏是在一个1-n的棋盘上进行的，棋盘上有k个棋子，一半是黑色，一半是白色。最左边是白色棋子，最右边" class="headerlink" title="&emsp; &emsp; 这个游戏是在一个1*n的棋盘上进行的，棋盘上有k个棋子，一半是黑色，一半是白色。最左边是白色棋子，最右边"></a>&emsp; &emsp; 这个游戏是在一个1*n的棋盘上进行的，棋盘上有k个棋子，一半是黑色，一半是白色。最左边是白色棋子，最右边</h3><h3 id="emsp-emsp-是黑色棋子，相邻的棋子颜色不同。"><a href="#emsp-emsp-是黑色棋子，相邻的棋子颜色不同。" class="headerlink" title="&emsp; &emsp; 是黑色棋子，相邻的棋子颜色不同。"></a>&emsp; &emsp; 是黑色棋子，相邻的棋子颜色不同。</h3><p> <img src="https://www.lydsy.com/JudgeOnline/upload/201604/dd(6" alt="img">.png)</p>
+<h3 id="emsp-emsp-小奇可以移动白色棋子，提比可以移动黑色的棋子，它们每次操作可以移动1到d个棋子。每当移动某一个棋子时，"><a href="#emsp-emsp-小奇可以移动白色棋子，提比可以移动黑色的棋子，它们每次操作可以移动1到d个棋子。每当移动某一个棋子时，" class="headerlink" title="&emsp; &emsp; 小奇可以移动白色棋子，提比可以移动黑色的棋子，它们每次操作可以移动1到d个棋子。每当移动某一个棋子时，"></a>&emsp; &emsp; 小奇可以移动白色棋子，提比可以移动黑色的棋子，它们每次操作可以移动1到d个棋子。每当移动某一个棋子时，</h3><h3 id="emsp-emsp-这个棋子不能跨越两边的棋子，当然也不可以出界。当谁不可以操作时，谁就失败了。小奇和提比轮流操作，现在"><a href="#emsp-emsp-这个棋子不能跨越两边的棋子，当然也不可以出界。当谁不可以操作时，谁就失败了。小奇和提比轮流操作，现在" class="headerlink" title="&emsp; &emsp;这个棋子不能跨越两边的棋子，当然也不可以出界。当谁不可以操作时，谁就失败了。小奇和提比轮流操作，现在"></a>&emsp; &emsp;这个棋子不能跨越两边的棋子，当然也不可以出界。当谁不可以操作时，谁就失败了。小奇和提比轮流操作，现在</h3><h3 id="emsp-emsp-小奇先移动，有多少种初始棋子的布局会使它有必胜策略？"><a href="#emsp-emsp-小奇先移动，有多少种初始棋子的布局会使它有必胜策略？" class="headerlink" title="&emsp; &emsp; 小奇先移动，有多少种初始棋子的布局会使它有必胜策略？"></a>&emsp; &emsp; 小奇先移动，有多少种初始棋子的布局会使它有必胜策略？</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-网上已经有诸多题解了，其中有一些说这题缺了限制条件，但我分析了一下，可能不太需要。"><a href="#emsp-emsp-网上已经有诸多题解了，其中有一些说这题缺了限制条件，但我分析了一下，可能不太需要。" class="headerlink" title="&emsp; &emsp; 网上已经有诸多题解了，其中有一些说这题缺了限制条件，但我分析了一下，可能不太需要。"></a>&emsp; &emsp; 网上已经有诸多题解了，其中有一些说这题缺了限制条件，但我分析了一下，可能不太需要。</h3><h3 id="emsp-emsp-缺限制条件的原因是当白棋进入必败点后，他可以通过加石子的方式来使得黑棋进入必败点。"><a href="#emsp-emsp-缺限制条件的原因是当白棋进入必败点后，他可以通过加石子的方式来使得黑棋进入必败点。" class="headerlink" title="&emsp; &emsp; 缺限制条件的原因是当白棋进入必败点后，他可以通过加石子的方式来使得黑棋进入必败点。"></a>&emsp; &emsp; 缺限制条件的原因是当白棋进入必败点后，他可以通过加石子的方式来使得黑棋进入必败点。</h3><h3 id="emsp-emsp-但是，白棋能加的棋子是有限的，而只要白棋加石子，黑旗就能跟进，那么就可以还原成之前的局面，并且白棋能加的棋子变少了，这里是谁先进入必败点谁就输。就是，如果一种状态进入到必败点，虽然可以继续转移到必败点（这里的必败点是与到终点时输的在某种意义上相同的状态），但是会消耗一些东西（可增加的空间），而另一方跟进是无消耗的，最后是谁先进入必败点谁就输了。"><a href="#emsp-emsp-但是，白棋能加的棋子是有限的，而只要白棋加石子，黑旗就能跟进，那么就可以还原成之前的局面，并且白棋能加的棋子变少了，这里是谁先进入必败点谁就输。就是，如果一种状态进入到必败点，虽然可以继续转移到必败点（这里的必败点是与到终点时输的在某种意义上相同的状态），但是会消耗一些东西（可增加的空间），而另一方跟进是无消耗的，最后是谁先进入必败点谁就输了。" class="headerlink" title="&emsp; &emsp; 但是，白棋能加的棋子是有限的，而只要白棋加石子，黑旗就能跟进，那么就可以还原成之前的局面，并且白棋能加的棋子变少了，这里是谁先进入必败点谁就输。就是，如果一种状态进入到必败点，虽然可以继续转移到必败点（这里的必败点是与到终点时输的在某种意义上相同的状态），但是会消耗一些东西（可增加的空间），而另一方跟进是无消耗的，最后是谁先进入必败点谁就输了。"></a>&emsp; &emsp; 但是，白棋能加的棋子是有限的，而只要白棋加石子，黑旗就能跟进，那么就可以还原成之前的局面，并且白棋能加的棋子变少了，这里是谁先进入必败点谁就输。就是，如果一种状态进入到必败点，虽然可以继续转移到必败点（这里的必败点是与到终点时输的在某种意义上相同的状态），但是会消耗一些东西（可增加的空间），而另一方跟进是无消耗的，最后是谁先进入必败点谁就输了。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define P 1000000007 
@@ -730,7 +711,7 @@ int main(){
     printf(&quot;%lld\n&quot;,ans);
 }
 </code></pre>
-<p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4550" target="_blank" rel="noopener"> 小奇的博弈</a></p>
+<p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4550" target="_blank" rel="noopener"> 小奇的博弈</a> </p>
 
         
     </article>
@@ -760,11 +741,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目：</h2>
-<h3 id="我的室友最近喜欢上了一个可爱的小女生-马上就要到她的生日了他决定买一对情侣手环一个留给自己一个送给她-每个手环上各有-n-个装饰物并且每个装饰物都有一定的亮度-但是在她生日的前一天我的室友突然发现他好像拿错了一个手环而且已经没时间去更换它了他只能使用一种特殊的方法将其中一个手环中所有装饰物的亮度增加一个相同的自然数-c即非负整数-并且由于这个手环是一个圆可以以任意的角度旋转它但是由于上面-装饰物的方向是固定的所以手环不能翻转-需要在经过亮度改造和旋转之后使得两个手环的差异值最小-在将两个手环旋转且装饰物对齐了之后从对齐的某个位置开始逆时针方向对装饰物编号-12n其中-n-为每个手环的装饰物个数第-1-个手环的-i-号位置装饰物亮度为x_i第-2-个手-环的-i-号位置装饰物亮度为y_i两个手环之间的差异值为参见输入输出样例和样例解释-sum_i1nx_i-y_i2麻烦你帮他计算一下进行调整亮度改造和旋转使得两个手环之间的差异值最小-这个最小值是多少呢"><a class="markdownIt-Anchor" href="#我的室友最近喜欢上了一个可爱的小女生-马上就要到她的生日了他决定买一对情侣手环一个留给自己一个送给她-每个手环上各有-n-个装饰物并且每个装饰物都有一定的亮度-但是在她生日的前一天我的室友突然发现他好像拿错了一个手环而且已经没时间去更换它了他只能使用一种特殊的方法将其中一个手环中所有装饰物的亮度增加一个相同的自然数-c即非负整数-并且由于这个手环是一个圆可以以任意的角度旋转它但是由于上面-装饰物的方向是固定的所以手环不能翻转-需要在经过亮度改造和旋转之后使得两个手环的差异值最小-在将两个手环旋转且装饰物对齐了之后从对齐的某个位置开始逆时针方向对装饰物编号-12n其中-n-为每个手环的装饰物个数第-1-个手环的-i-号位置装饰物亮度为x_i第-2-个手-环的-i-号位置装饰物亮度为y_i两个手环之间的差异值为参见输入输出样例和样例解释-sum_i1nx_i-y_i2麻烦你帮他计算一下进行调整亮度改造和旋转使得两个手环之间的差异值最小-这个最小值是多少呢"></a>     我的室友最近喜欢上了一个可爱的小女生。马上就要到她的生日了，他决定买一对情侣手环，一个留给自己，一个送给她。每个手环上各有 n 个装饰物，并且每个装饰物都有一定的亮度。但是在她生日的前一天，我的室友突然发现他好像拿错了一个手环，而且已经没时间去更换它了！他只能使用一种特殊的方法，将其中一个手环中所有装饰物的亮度增加一个相同的自然数 c（即非负整数）。并且由于这个手环是一个圆，可以以任意的角度旋转它，但是由于上面 装饰物的方向是固定的，所以手环不能翻转。需要在经过亮度改造和旋转之后，使得两个手环的差异值最小。在将两个手环旋转且装饰物对齐了之后，从对齐的某个位置开始逆时针方向对装饰物编号 1,2,…,n，其中 n 为每个手环的装饰物个数，第 1 个手环的 i 号位置装饰物亮度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，第 2 个手 环的 i 号位置装饰物亮度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">y_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>，两个手环之间的差异值为(参见输入输出样例和样例解释)： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></msubsup><mo>(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><msup><mo>)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sum_{i=1}^{n}(x_i-y_i)^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.114118em;vertical-align:-0.30001em;"></span><span class="base textstyle uncramped"><span class="mop"><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>麻烦你帮他计算一下，进行调整（亮度改造和旋转），使得两个手环之间的差异值最小， 这个最小值是多少呢？</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="将x_i-y_i2乘开以后fft暴力就好了"><a class="markdownIt-Anchor" href="#将x_i-y_i2乘开以后fft暴力就好了"></a>     将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><msup><mo>)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(x_i-y_i)^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>乘开以后fft暴力就好了。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><h3 id="emsp-emsp-我的室友最近喜欢上了一个可爱的小女生。马上就要到她的生日了，他决定买一对情侣手环，一个留给自己，一个送给她。每个手环上各有-n-个装饰物，并且每个装饰物都有一定的亮度。但是在她生日的前一天，我的室友突然发现他好像拿错了一个手环，而且已经没时间去更换它了！他只能使用一种特殊的方法，将其中一个手环中所有装饰物的亮度增加一个相同的自然数-c（即非负整数）。并且由于这个手环是一个圆，可以以任意的角度旋转它，但是由于上面-装饰物的方向是固定的，所以手环不能翻转。需要在经过亮度改造和旋转之后，使得两个手环的差异值最小。在将两个手环旋转且装饰物对齐了之后，从对齐的某个位置开始逆时针方向对装饰物编号-1-2-…-n，其中-n-为每个手环的装饰物个数，第-1-个手环的-i-号位置装饰物亮度为-x-i-，第-2-个手-环的-i-号位置装饰物亮度为-y-i-，两个手环之间的差异值为-参见输入输出样例和样例解释-：-sum-i-1-n-x-i-y-i-2-麻烦你帮他计算一下，进行调整（亮度改造和旋转），使得两个手环之间的差异值最小，-这个最小值是多少呢？"><a href="#emsp-emsp-我的室友最近喜欢上了一个可爱的小女生。马上就要到她的生日了，他决定买一对情侣手环，一个留给自己，一个送给她。每个手环上各有-n-个装饰物，并且每个装饰物都有一定的亮度。但是在她生日的前一天，我的室友突然发现他好像拿错了一个手环，而且已经没时间去更换它了！他只能使用一种特殊的方法，将其中一个手环中所有装饰物的亮度增加一个相同的自然数-c（即非负整数）。并且由于这个手环是一个圆，可以以任意的角度旋转它，但是由于上面-装饰物的方向是固定的，所以手环不能翻转。需要在经过亮度改造和旋转之后，使得两个手环的差异值最小。在将两个手环旋转且装饰物对齐了之后，从对齐的某个位置开始逆时针方向对装饰物编号-1-2-…-n，其中-n-为每个手环的装饰物个数，第-1-个手环的-i-号位置装饰物亮度为-x-i-，第-2-个手-环的-i-号位置装饰物亮度为-y-i-，两个手环之间的差异值为-参见输入输出样例和样例解释-：-sum-i-1-n-x-i-y-i-2-麻烦你帮他计算一下，进行调整（亮度改造和旋转），使得两个手环之间的差异值最小，-这个最小值是多少呢？" class="headerlink" title="&emsp; &emsp; 我的室友最近喜欢上了一个可爱的小女生。马上就要到她的生日了，他决定买一对情侣手环，一个留给自己，一个送给她。每个手环上各有 n 个装饰物，并且每个装饰物都有一定的亮度。但是在她生日的前一天，我的室友突然发现他好像拿错了一个手环，而且已经没时间去更换它了！他只能使用一种特殊的方法，将其中一个手环中所有装饰物的亮度增加一个相同的自然数 c（即非负整数）。并且由于这个手环是一个圆，可以以任意的角度旋转它，但是由于上面 装饰物的方向是固定的，所以手环不能翻转。需要在经过亮度改造和旋转之后，使得两个手环的差异值最小。在将两个手环旋转且装饰物对齐了之后，从对齐的某个位置开始逆时针方向对装饰物编号 1,2,…,n，其中 n 为每个手环的装饰物个数，第 1 个手环的 i 号位置装饰物亮度为$x_i$，第 2 个手 环的 i 号位置装饰物亮度为$y_i$，两个手环之间的差异值为(参见输入输出样例和样例解释)： $\sum_{i=1}^{n}(x_i-y_i)^2$麻烦你帮他计算一下，进行调整（亮度改造和旋转），使得两个手环之间的差异值最小， 这个最小值是多少呢？"></a>&emsp; &emsp; 我的室友最近喜欢上了一个可爱的小女生。马上就要到她的生日了，他决定买一对情侣手环，一个留给自己，一个送给她。每个手环上各有 n 个装饰物，并且每个装饰物都有一定的亮度。但是在她生日的前一天，我的室友突然发现他好像拿错了一个手环，而且已经没时间去更换它了！他只能使用一种特殊的方法，将其中一个手环中所有装饰物的亮度增加一个相同的自然数 c（即非负整数）。并且由于这个手环是一个圆，可以以任意的角度旋转它，但是由于上面 装饰物的方向是固定的，所以手环不能翻转。需要在经过亮度改造和旋转之后，使得两个手环的差异值最小。在将两个手环旋转且装饰物对齐了之后，从对齐的某个位置开始逆时针方向对装饰物编号 1,2,…,n，其中 n 为每个手环的装饰物个数，第 1 个手环的 i 号位置装饰物亮度为$x_i$，第 2 个手 环的 i 号位置装饰物亮度为$y_i$，两个手环之间的差异值为(参见输入输出样例和样例解释)： $\sum_{i=1}^{n}(x_i-y_i)^2$麻烦你帮他计算一下，进行调整（亮度改造和旋转），使得两个手环之间的差异值最小， 这个最小值是多少呢？</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-将-x-i-y-i-2-乘开以后fft暴力就好了。"><a href="#emsp-emsp-将-x-i-y-i-2-乘开以后fft暴力就好了。" class="headerlink" title="&emsp; &emsp; 将$(x_i-y_i)^2$乘开以后fft暴力就好了。"></a>&emsp; &emsp; 将$(x_i-y_i)^2$乘开以后fft暴力就好了。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;complex&gt;
@@ -832,7 +809,7 @@ int main(){
     printf(&quot;%lld\n&quot;,ans);
 }
 </code></pre>
-<p>题目链接: <a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4827" target="_blank" rel="noopener">Hnoi2017 礼物</a></p>
+<p>题目链接: <a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4827" target="_blank" rel="noopener">Hnoi2017 礼物</a> </p>
 
         
     </article>
@@ -862,11 +839,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="求区间乘积的phi"><a class="markdownIt-Anchor" href="#求区间乘积的phi"></a>     求区间乘积的phi。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="用把有哪些质因数压成longlong维护乘积然后乘上逆元变为phi"><a class="markdownIt-Anchor" href="#用把有哪些质因数压成longlong维护乘积然后乘上逆元变为phi"></a>     用把有哪些质因数压成longlong，维护乘积，然后乘上逆元变为phi。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><h3 id="emsp-emsp-求区间乘积的phi。"><a href="#emsp-emsp-求区间乘积的phi。" class="headerlink" title="&emsp; &emsp; 求区间乘积的phi。"></a>&emsp; &emsp; 求区间乘积的phi。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-用把有哪些质因数压成longlong，维护乘积，然后乘上逆元变为phi。"><a href="#emsp-emsp-用把有哪些质因数压成longlong，维护乘积，然后乘上逆元变为phi。" class="headerlink" title="&emsp; &emsp; 用把有哪些质因数压成longlong，维护乘积，然后乘上逆元变为phi。"></a>&emsp; &emsp; 用把有哪些质因数压成longlong，维护乘积，然后乘上逆元变为phi。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #define P 19961993
@@ -977,7 +950,7 @@ int main(){
     }
 }
 </code></pre>
-<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1471&amp;pid=2" target="_blank" rel="noopener">奇数国</a></p>
+<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1471&amp;pid=2" target="_blank" rel="noopener">奇数国</a> </p>
 
         
     </article>
@@ -1007,9 +980,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h3 id="上下界网络流的板子题"><a class="markdownIt-Anchor" href="#上下界网络流的板子题"></a>     上下界网络流的板子题。</h3>
-<h3 id="或者费用流也可以"><a class="markdownIt-Anchor" href="#或者费用流也可以"></a>     或者费用流也可以。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h3 id="emsp-emsp-上下界网络流的板子题。"><a href="#emsp-emsp-上下界网络流的板子题。" class="headerlink" title="&emsp; &emsp; 上下界网络流的板子题。"></a>&emsp; &emsp; 上下界网络流的板子题。</h3><h3 id="emsp-emsp-或者费用流也可以。"><a href="#emsp-emsp-或者费用流也可以。" class="headerlink" title="&emsp; &emsp; 或者费用流也可以。"></a>&emsp; &emsp; 或者费用流也可以。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;cstring&gt;
 #include&lt;cstdio&gt;
 #define N 22000
@@ -1098,7 +1069,7 @@ int main(){
     return 0;
 }
 </code></pre>
-<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1471&amp;pid=1" target="_blank" rel="noopener">清理雪道</a></p>
+<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1471&amp;pid=1" target="_blank" rel="noopener">清理雪道</a> </p>
 
         
     </article>
@@ -1128,11 +1099,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意:</h2>
-<h3 id="给出序列a问加上括号后a_1a_2a_3a_5a_n能否变为整数"><a class="markdownIt-Anchor" href="#给出序列a问加上括号后a_1a_2a_3a_5a_n能否变为整数"></a>     给出序列a，问加上括号后<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mi mathvariant="normal">/</mi><msub><mi>a</mi><mn>2</mn></msub><mi mathvariant="normal">/</mi><msub><mi>a</mi><mn>3</mn></msub><mi mathvariant="normal">/</mi><msub><mi>a</mi><mn>5</mn></msub><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">/</mi><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">a_1/a_2/a_3/a_5.../a_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathrm">/</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathrm">/</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathrm">/</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">/</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>能否变为整数。</h3>
-<h3 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h3>
-<h3 id="发现a_2一定会是分母而其他都可以为分子贪心即可"><a class="markdownIt-Anchor" href="#发现a_2一定会是分母而其他都可以为分子贪心即可"></a>     发现<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">a_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>一定会是分母，而其他都可以为分子，贪心即可。</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h2><h3 id="emsp-emsp-给出序列a，问加上括号后-a-1-a-2-a-3-a-5…-a-n-能否变为整数。"><a href="#emsp-emsp-给出序列a，问加上括号后-a-1-a-2-a-3-a-5…-a-n-能否变为整数。" class="headerlink" title="&emsp; &emsp; 给出序列a，问加上括号后$a_1/a_2/a_3/a_5…/a_n$能否变为整数。"></a>&emsp; &emsp; 给出序列a，问加上括号后$a_1/a_2/a_3/a_5…/a_n$能否变为整数。</h3><h3 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h3><h3 id="emsp-emsp-发现-a-2-一定会是分母，而其他都可以为分子，贪心即可。"><a href="#emsp-emsp-发现-a-2-一定会是分母，而其他都可以为分子，贪心即可。" class="headerlink" title="&emsp; &emsp; 发现$a_2$一定会是分母，而其他都可以为分子，贪心即可。"></a>&emsp; &emsp; 发现$a_2$一定会是分母，而其他都可以为分子，贪心即可。</h3><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 using namespace std;
@@ -1160,9 +1127,8 @@ int main(){
         else printf(&quot;NO\n&quot;);
     }
 }
-
 </code></pre>
-<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1471&amp;pid=0" target="_blank" rel="noopener">Division expression</a></p>
+<p>题目链接：<a href="http://xsy.gdgzez.com.cn/JudgeOnline/problem.php?cid=1471&amp;pid=0" target="_blank" rel="noopener">Division expression</a> </p>
 
         
     </article>
@@ -1192,7 +1158,7 @@ int main(){
     <article class="cube-excerpt-entry cube-markdown">
         
         
-           <pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+           <pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;vector&gt;
@@ -1392,7 +1358,7 @@ int main(){
     } 
 }
 </code></pre>
-<p>题目链接：<a href="https://loj.ac/problem/2721" target="_blank" rel="noopener"> 「NOI2018」屠龙勇士</a></p>
+<p>题目链接：<a href="https://loj.ac/problem/2721" target="_blank" rel="noopener"> 「NOI2018」屠龙勇士</a> </p>
 
         
     </article>
@@ -1622,6 +1588,21 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -1642,17 +1623,12 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/点分治/">#点分治</a>
+            <a href="/tags/好题/">#好题</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/状压DP/">#状压DP</a>
+        <div class="cube-box ">
+            <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
         
@@ -1666,7 +1642,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
@@ -1676,23 +1652,23 @@ int main(){
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
         <div class="cube-box ">
             <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/好题/">#好题</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/博弈论/">#博弈论</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
@@ -1702,12 +1678,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+            <a href="/tags/hash/">#hash</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
+            <a href="/tags/二分/">#二分</a>
         </div>
         
         
@@ -1726,28 +1702,43 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/hash/">#hash</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/二分/">#二分</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/KMP/">#KMP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/卡常/">#卡常</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/贪心/">#贪心</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/人类智慧/">#人类智慧</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/模拟/">#模拟</a>
         </div>
         
         
@@ -1761,63 +1752,28 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/CDQ分治/">#CDQ分治</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/KMP/">#KMP</a>
-        </div>
-        
-        
         <div class="cube-box-bg ">
-            <a href="/tags/卡常/">#卡常</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/贪心/">#贪心</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/模拟/">#模拟</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
-        </div>
-        
-        
         <div class="cube-box ">
-            <a href="/tags/分块/">#分块</a>
+            <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
@@ -1831,12 +1787,32 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/分块/">#分块</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率与期望/">#概率与期望</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/费用流/">#费用流</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/哈希/">#哈希</a>
         </div>
         
@@ -1851,12 +1827,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
@@ -1882,7 +1853,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+            <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
@@ -1897,22 +1868,17 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/树状数组/">#树状数组</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/概率与期望/">#概率与期望</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/记忆化搜索/">#记忆化搜索</a>
+            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
+            <a href="/tags/树状数组/">#树状数组</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
     </div>
@@ -2008,6 +1974,12 @@ int main(){
             <!-- TODO change avatar.png to friend.png-->
             <img src="https://raw.githubusercontent.com/yyxxqq/yyxxqq.github.io/master/picture/xzy.jpg">
             <a href="https://www.cnblogs.com/Cmd2001" target="_blank">邢泽宇</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="https://yyxxqq.github.io/picture/xd.jpg">
+            <a href="http://tgotp.science/" target="_blank">向东</a>
         </li>
         
     </ul>
