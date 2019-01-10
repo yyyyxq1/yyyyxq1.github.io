@@ -175,6 +175,56 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-斜率优化">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/06/24/斜率优化/">斜率优化</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-06-24
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/数学/" class="cube-excerpt-tag-link">#数学</a>
+                
+                <a href="/tags/dp优化/" class="cube-excerpt-tag-link">#dp优化</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h1 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h1><font size="4" face="黑体">    　　  将某些复杂度不对的dp方程降一个维度，譬如O（n^2）的dp方程，若其满足决策单调性，既可通过斜率优化对其进行降维打击，让它强行变成O（n）的。</font>
+#决策单调性：
+ <font size="4" face="黑体">    　　   若对于$f_i$来说，选择k这个决策是最优的，那么对于$f_{i+1}$到$f_n$来说，选择k之前的决策不会比选择k更优。例如：若f具有决策单调性$f_{i+1}$的决策一定是k或在k后面的决策。</font>
+
+<h1 id="【证明决策单调性】："><a href="#【证明决策单调性】：" class="headerlink" title="【证明决策单调性】："></a>【证明决策单调性】：</h1><h2 id="【数学归纳法】："><a href="#【数学归纳法】：" class="headerlink" title="【数学归纳法】："></a>【数学归纳法】：</h2><ol>
+<li>设$f_i=min(f_j+a_i-a_j)$</li>
+<li>假设有两个决策j和k,k&gt;j且k优于j</li>
+<li>$f_k+a_i-a_k&lt;f_j+a_i-a_j$</li>
+<li>$f_k-a_k&lt;f_j-a_j$</li>
+<li>那么对于$f_{i+1}$来说选择$k$即$f_{i+1}=f_k+a_{i+1}-a_k$</li>
+<li>而选择$j$的话即$f_{i+1}=f_j+a_{i+1}-a_j$</li>
+<li>因为第$4$行的式子，对于$f_{i+1}$选择k明显比选择j更优，同理$f_i+2$可通过$f_{i+1}$得到，那么，可既可说这个dp方程具有决策单调性。</li>
+</ol>
+<h3 id="斜率优化："><a href="#斜率优化：" class="headerlink" title="斜率优化："></a>斜率优化：</h3> <font size="4" face="黑体">　　举例子说明总是比较直观的，下面我们来看一道例题。</font>
+
+<h2 id="【-题目-】"><a href="#【-题目-】" class="headerlink" title="$【$题目$】:$"></a>$【$题目$】:$</h2><h5 id="现在我们有一个序列-a-，我们能把序列-a-切成若干段，对于在-i-和-j-被断开的一段序列，既-a-i-j-，我们可以得到一个分数-sum-k-i-j-a-k-。我们在i位置切割一次，就会得到-c-i-的分数。那么对于整个序列a，我们希望它的总分最小，求这个分数和。"><a href="#现在我们有一个序列-a-，我们能把序列-a-切成若干段，对于在-i-和-j-被断开的一段序列，既-a-i-j-，我们可以得到一个分数-sum-k-i-j-a-k-。我们在i位置切割一次，就会得到-c-i-的分数。那么对于整个序列a，我们希望它的总分最小，求这个分数和。" class="headerlink" title="现在我们有一个序列$a$，我们能把序列$a$切成若干段，对于在$i$和$j$被断开的一段序列，既$a_{i..j}$，我们可以得到一个分数$\sum_{k=i}^j a_k$。我们在i位置切割一次，就会得到$c_i$的分数。那么对于整个序列a，我们希望它的总分最小，求这个分数和。"></a>现在我们有一个序列$a$，我们能把序列$a$切成若干段，对于在$i$和$j$被断开的一段序列，既$a_{i..j}$，我们可以得到一个分数$\sum_{k=i}^j a_k$。我们在i位置切割一次，就会得到$c_i$的分数。那么对于整个序列a，我们希望它的总分最小，求这个分数和。</h5><h2 id="【-n-2-做法】"><a href="#【-n-2-做法】" class="headerlink" title="【$n^2$做法】:"></a>【$n^2$做法】:</h2><h5 id="显然，我们能得到一个效率为-n-2-的dp方程"><a href="#显然，我们能得到一个效率为-n-2-的dp方程" class="headerlink" title="显然，我们能得到一个效率为$n^2$的dp方程"></a>显然，我们能得到一个效率为$n^2$的dp方程</h5><h5 id="我们先设"><a href="#我们先设" class="headerlink" title="我们先设"></a>我们先设</h5><script type="math/tex; mode=display">sum_k=\sum_{i=1}^ka_i</script><script type="math/tex; mode=display">f_i=min(f_j+(sim_i-sum_j)^2+c_i)</script><h5 id="若-n-leq10-5-那么这个复杂度不能令人满意，我们就要接着对他进行一些处理。"><a href="#若-n-leq10-5-那么这个复杂度不能令人满意，我们就要接着对他进行一些处理。" class="headerlink" title="若$n\leq10^5$那么这个复杂度不能令人满意，我们就要接着对他进行一些处理。"></a>若$n\leq10^5$那么这个复杂度不能令人满意，我们就要接着对他进行一些处理。</h5><h2 id="【证明决策单调性】"><a href="#【证明决策单调性】" class="headerlink" title="【证明决策单调性】"></a>【证明决策单调性】</h2><h5 id="若-k-gt-j-且-k-优于-j"><a href="#若-k-gt-j-且-k-优于-j" class="headerlink" title="若$k&gt; j$且$k$优于$j$"></a>若$k&gt; j$且$k$优于$j$</h5><script type="math/tex; mode=display">f_j+(sum_i-sum_j)^2+c_i>f_k+(sum_i-sum_k)^2+c_i</script><script type="math/tex; mode=display">f_j+sum_i^2-2\times sum_i\times sum_j+sum_j^2+c_i>f_k+sum_i^2-2\times sum_i\times sum_k+sum_k^2+c_i</script><script type="math/tex; mode=display">f_j-2\times sum_i\times sum_j+sum_j^2>f_k-2\times sum_i*sum_k+sum_k^2</script><h5 id="那么对于-f-i-1-来说"><a href="#那么对于-f-i-1-来说" class="headerlink" title="那么对于$f_{i+1}$来说:"></a>那么对于$f_{i+1}$来说:</h5><h5 id="选择j为决策既：-f-i-1-f-j-sum-i-1-sum-j-2-c-i-1"><a href="#选择j为决策既：-f-i-1-f-j-sum-i-1-sum-j-2-c-i-1" class="headerlink" title="选择j为决策既：$f_{i+1}=f_j+(sum_{i+1}-sum_j)^2+c_{i+1}$"></a>选择j为决策既：$f_{i+1}=f_j+(sum_{i+1}-sum_j)^2+c_{i+1}$</h5><h5 id="选择k为决策既：-f-i-1-f-k-sum-i-1-sum-k-2-c-i-1"><a href="#选择k为决策既：-f-i-1-f-k-sum-i-1-sum-k-2-c-i-1" class="headerlink" title="选择k为决策既：$f_{i+1}=f_k+(sum_{i+1}-sum_k)^2+c_{i+1}$"></a>选择k为决策既：$f_{i+1}=f_k+(sum_{i+1}-sum_k)^2+c_{i+1}$</h5><h5 id="从上面的式子可以得到选择k优于选择j（不信的话可以自己展开）"><a href="#从上面的式子可以得到选择k优于选择j（不信的话可以自己展开）" class="headerlink" title="从上面的式子可以得到选择k优于选择j（不信的话可以自己展开）"></a>从上面的式子可以得到选择k优于选择j（不信的话可以自己展开）</h5><h5 id="那么可以证明这个dp方程式具有决策单调性的。"><a href="#那么可以证明这个dp方程式具有决策单调性的。" class="headerlink" title="那么可以证明这个dp方程式具有决策单调性的。"></a>那么可以证明这个dp方程式具有决策单调性的。</h5><h2 id="【推导斜率式】"><a href="#【推导斜率式】" class="headerlink" title="【推导斜率式】"></a>【推导斜率式】</h2><script type="math/tex; mode=display">f_j-2\times sum_i\times sum_j+sum_j^2>f_k-2\times sum_i*sum_k+sum_k^2</script><p>　从这条式子继续 </p>
+<script type="math/tex; mode=display">f_j-f_k+sum_j^2-sum_k^2>2\times sum_i*(sum_j-sum_k)</script><script type="math/tex; mode=display">\frac{f_j-f_k+sum_j^2-sum_k^2}{sum_j-sum_k}>2*sum_i</script><p>　</p>
+<h5 id="根据这条式子的定义，我们可以得到，对于-k-gt-j-，只有在满足上面式子的情况下才会k比j优"><a href="#根据这条式子的定义，我们可以得到，对于-k-gt-j-，只有在满足上面式子的情况下才会k比j优" class="headerlink" title="根据这条式子的定义，我们可以得到，对于$k&gt;j$，只有在满足上面式子的情况下才会k比j优"></a>根据这条式子的定义，我们可以得到，对于$k&gt;j$，只有在满足上面式子的情况下才会k比j优</h5><h5 id="我们把-f-j-sum-j-2-sum-j-和-f-k-sum-k-2-sum-k-分别看做坐标系上面的点，那么小于号左边的式子的含义恰好是这两个点之间的斜率。"><a href="#我们把-f-j-sum-j-2-sum-j-和-f-k-sum-k-2-sum-k-分别看做坐标系上面的点，那么小于号左边的式子的含义恰好是这两个点之间的斜率。" class="headerlink" title="我们把$(f_j+sum_j^2,sum_j)$和$(f_k+sum_k^2,sum_k)$分别看做坐标系上面的点，那么小于号左边的式子的含义恰好是这两个点之间的斜率。"></a>我们把$(f_j+sum_j^2,sum_j)$和$(f_k+sum_k^2,sum_k)$分别看做坐标系上面的点，那么小于号左边的式子的含义恰好是这两个点之间的斜率。</h5><h5 id="现在我们假设找到了一个点-x-y-对于-f-i-最优。我们在x点上画一条斜率为-2-sum-i-的斜线，那么，对于其他所有点，都必须在这条斜线上方。"><a href="#现在我们假设找到了一个点-x-y-对于-f-i-最优。我们在x点上画一条斜率为-2-sum-i-的斜线，那么，对于其他所有点，都必须在这条斜线上方。" class="headerlink" title="现在我们假设找到了一个点(x,y)对于$f_i$最优。我们在x点上画一条斜率为$2*sum_i$的斜线，那么，对于其他所有点，都必须在这条斜线上方。"></a>现在我们假设找到了一个点(x,y)对于$f_i$最优。我们在x点上画一条斜率为$2*sum_i$的斜线，那么，对于其他所有点，都必须在这条斜线上方。</h5><h5 id="证明：若-a-b-在斜线下方，且-a"><a href="#证明：若-a-b-在斜线下方，且-a" class="headerlink" title="证明：若$(a,b)$在斜线下方，且$a"></a>证明：若$(a,b)$在斜线下方，且$a<x$那么根据上面的式子$(a,b)(x,y)$之间的斜率会大于$2\times sum_i$并且$a<x$，那么(x,y)则不是最优点。若(a,b)在斜线下方，且$a="">x$那么根据上面的式子$(a,b)(x,y)$之间的斜率会小于$2\times sum_i$并且$a&gt;x$，那么(x,y)则不是最优点。</x$那么根据上面的式子$(a,b)(x,y)$之间的斜率会大于$2\times></h5><p><img src="http://images2017.cnblogs.com/blog/1216492/201708/1216492-20170810195252824-1523165336.png" alt=""></p>
+<h5 id="换句话说，对于-f-i-来说，最优解x是斜率-k-2-sum-i-从下往上扫扫到点集里最优的那个点。"><a href="#换句话说，对于-f-i-来说，最优解x是斜率-k-2-sum-i-从下往上扫扫到点集里最优的那个点。" class="headerlink" title="换句话说，对于$f_i$来说，最优解x是斜率$k=2*sum_i$从下往上扫扫到点集里最优的那个点。"></a>换句话说，对于$f_i$来说，最优解x是斜率$k=2*sum_i$从下往上扫扫到点集里最优的那个点。</h5><h5 id="显然，我们可以得到一个很显然的结论，那就是这个最优解x在下凸壳上。那么我们可以通过一个队列来维护凸包，并且根据决策单调性，还有-frac-f-j-f-k-sum-j-2-sum-k-2-sum-j-sum-k-gt-2-sum-i-这条斜率式，我们可以每次比对下凸壳上相邻的两个点（也就是队首元素），若队列中第二个元素比队首元素优，那么我们可以删除队首元素（决策单调性，队首元素再也用不到）。"><a href="#显然，我们可以得到一个很显然的结论，那就是这个最优解x在下凸壳上。那么我们可以通过一个队列来维护凸包，并且根据决策单调性，还有-frac-f-j-f-k-sum-j-2-sum-k-2-sum-j-sum-k-gt-2-sum-i-这条斜率式，我们可以每次比对下凸壳上相邻的两个点（也就是队首元素），若队列中第二个元素比队首元素优，那么我们可以删除队首元素（决策单调性，队首元素再也用不到）。" class="headerlink" title="显然，我们可以得到一个很显然的结论，那就是这个最优解x在下凸壳上。那么我们可以通过一个队列来维护凸包，并且根据决策单调性，还有$\frac{f_j-f_k+sum_j^2-sum_k^2}{sum_j-sum_k}&gt;2*sum_i$这条斜率式，我们可以每次比对下凸壳上相邻的两个点（也就是队首元素），若队列中第二个元素比队首元素优，那么我们可以删除队首元素（决策单调性，队首元素再也用不到）。"></a>显然，我们可以得到一个很显然的结论，那就是这个最优解x在下凸壳上。那么我们可以通过一个队列来维护凸包，并且根据决策单调性，还有$\frac{f_j-f_k+sum_j^2-sum_k^2}{sum_j-sum_k}&gt;2*sum_i$这条斜率式，我们可以每次比对下凸壳上相邻的两个点（也就是队首元素），若队列中第二个元素比队首元素优，那么我们可以删除队首元素（决策单调性，队首元素再也用不到）。</h5><h5 id="我们注意到，对于点i来说，他的横坐标是-sum-i-因为-sum-i-是前缀和，是递增的，所以加入的点的横坐标也是递增的，那么对于每个点，我们只要把它加入维护凸包的那个队列就好了。"><a href="#我们注意到，对于点i来说，他的横坐标是-sum-i-因为-sum-i-是前缀和，是递增的，所以加入的点的横坐标也是递增的，那么对于每个点，我们只要把它加入维护凸包的那个队列就好了。" class="headerlink" title="我们注意到，对于点i来说，他的横坐标是$sum_i$,因为$sum_i$是前缀和，是递增的，所以加入的点的横坐标也是递增的，那么对于每个点，我们只要把它加入维护凸包的那个队列就好了。"></a>我们注意到，对于点i来说，他的横坐标是$sum_i$,因为$sum_i$是前缀和，是递增的，所以加入的点的横坐标也是递增的，那么对于每个点，我们只要把它加入维护凸包的那个队列就好了。</h5><h1 id="【某些不得不说的东西】："><a href="#【某些不得不说的东西】：" class="headerlink" title="【某些不得不说的东西】："></a>【某些不得不说的东西】：</h1><h5 id="最后我们推出来的式子一般都是长这样："><a href="#最后我们推出来的式子一般都是长这样：" class="headerlink" title="最后我们推出来的式子一般都是长这样："></a>最后我们推出来的式子一般都是长这样：</h5><font size="4" face="黑体">$x与j和k有关，y与j和k有关并且递增$</font>
+<font size="4" face="黑体">$\frac{x}{y}$<或>只与i有关并且递增的常数</或></font>
+
+<h5 id="如果右边的与i有关的常数不是递增的，那意味着我们要扫的答案的斜率不是递增的，那么决策单调性就会消失，我们就要用平衡树或者三分去维护。所以一般，正常，好写的斜率优化最后推出来的式子一般都形如上面那条√"><a href="#如果右边的与i有关的常数不是递增的，那意味着我们要扫的答案的斜率不是递增的，那么决策单调性就会消失，我们就要用平衡树或者三分去维护。所以一般，正常，好写的斜率优化最后推出来的式子一般都形如上面那条√" class="headerlink" title="如果右边的与i有关的常数不是递增的，那意味着我们要扫的答案的斜率不是递增的，那么决策单调性就会消失，我们就要用平衡树或者三分去维护。所以一般，正常，好写的斜率优化最后推出来的式子一般都形如上面那条√"></a>如果右边的与i有关的常数不是递增的，那意味着我们要扫的答案的斜率不是递增的，那么决策单调性就会消失，我们就要用平衡树或者三分去维护。所以一般，正常，好写的斜率优化最后推出来的式子一般都形如上面那条√</h5>
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/06/24/斜率优化/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-最喜欢的话">
     <header class="cube-excerpt-header">
         <h1><a href="/2002/06/07/最喜欢的话/">最喜欢的话</a></h1>
@@ -289,9 +339,9 @@
     
     
     <div class="count">
-        <a class="count articles"><span>71</span>Article</a>
-        <a class="count tags"><span>59</span>Tags</a>
-        <a class="count categories"><span>2</span>Categories</a>
+        <a class="count articles"><span>72</span>Article</a>
+        <a class="count tags"><span>61</span>Tags</a>
+        <a class="count categories"><span>3</span>Categories</a>
     </div>
 </div>
 
@@ -328,7 +378,7 @@
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/11/19/字符串/" title="string[BZOJ某题加强版]">string[BZOJ某题加强版]</a>
+                    <a href="/2019/01/10/超现实数-Surreal-number/" title="超现实数 Surreal numbers">超现实数 Surreal numbers</a>
                 </p>
             </div>
             
@@ -342,7 +392,7 @@
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/25/「雅礼集训-2018-Day10」贪玩蓝月/" title="「雅礼集训 2018 Day10」贪玩蓝月">「雅礼集训 2018 Day10」贪玩蓝月</a>
+                    <a href="/2018/11/19/字符串/" title="string[BZOJ某题加强版]">string[BZOJ某题加强版]</a>
                 </p>
             </div>
         </li>
@@ -355,7 +405,7 @@
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/09/BZOJ4676-Xor-Mul棋盘/" title="BZOJ4676 Xor-Mul棋盘">BZOJ4676 Xor-Mul棋盘</a>
+                    <a href="/2018/10/25/「雅礼集训-2018-Day10」贪玩蓝月/" title="「雅礼集训 2018 Day10」贪玩蓝月">「雅礼集训 2018 Day10」贪玩蓝月</a>
                 </p>
             </div>
         </li>
@@ -368,7 +418,7 @@
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/09/BZOJ4675-点对游戏/" title="BZOJ4675 点对游戏">BZOJ4675 点对游戏</a>
+                    <a href="/2018/10/09/BZOJ4676-Xor-Mul棋盘/" title="BZOJ4676 Xor-Mul棋盘">BZOJ4676 Xor-Mul棋盘</a>
                 </p>
             </div>
         </li>
@@ -381,7 +431,7 @@
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/09/BZOJ4695-最假女选手/" title="BZOJ4695 最假女选手">BZOJ4695 最假女选手</a>
+                    <a href="/2018/10/09/BZOJ4675-点对游戏/" title="BZOJ4675 点对游戏">BZOJ4675 点对游戏</a>
                 </p>
             </div>
         </li>
@@ -404,8 +454,13 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/人生/">#人生</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/Math/">#Math</a>
         </div>
         
     </div>
@@ -420,22 +475,7 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -456,12 +496,17 @@
         
         
         <div class="cube-box ">
-            <a href="/tags/好题/">#好题</a>
+            <a href="/tags/点分治/">#点分治</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/博弈论/">#博弈论</a>
+            <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
         
@@ -470,7 +515,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/吉利线段树/">#吉利线段树</a>
         </div>
         
@@ -486,22 +531,22 @@
         
         
         <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/后缀自动机/">#后缀自动机</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+            <a href="/tags/好题/">#好题</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/特征方程/">#特征方程</a>
+            <a href="/tags/博弈论/">#博弈论</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/倍增/">#倍增</a>
         </div>
         
         
@@ -510,7 +555,37 @@
         </div>
         
         
+        <div class="cube-box ">
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
+            <a href="/tags/特征方程/">#特征方程</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/线性基/">#线性基</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/组合数学/">#组合数学</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/计数/">#计数</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/人类智慧/">#人类智慧</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/hash/">#hash</a>
         </div>
         
@@ -521,66 +596,21 @@
         
         
         <div class="cube-box ">
-            <a href="/tags/线性基/">#线性基</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/组合数学/">#组合数学</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/计数/">#计数</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/KMP/">#KMP</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/卡常/">#卡常</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/贪心/">#贪心</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/模拟/">#模拟</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/SPFA/">#SPFA</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
@@ -591,27 +621,57 @@
         
         
         <div class="cube-box ">
+            <a href="/tags/KMP/">#KMP</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/卡常/">#卡常</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/贪心/">#贪心</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/模拟/">#模拟</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/莫比乌斯反演/">#莫比乌斯反演</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/splay/">#splay</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/分块/">#分块</a>
         </div>
         
         
@@ -621,12 +681,17 @@
         
         
         <div class="cube-box ">
-            <a href="/tags/分块/">#分块</a>
+            <a href="/tags/splay/">#splay</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+            <a href="/tags/AC自动机/">#AC自动机</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
@@ -640,13 +705,13 @@
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/哈希/">#哈希</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/哈希/">#哈希</a>
+            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
@@ -655,12 +720,12 @@
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
@@ -671,12 +736,12 @@
         
         
         <div class="cube-box ">
-            <a href="/tags/最小生成树/">#最小生成树</a>
+            <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/搜索/">#搜索</a>
+        <div class="cube-box-bg ">
+            <a href="/tags/最小生成树/">#最小生成树</a>
         </div>
         
         
@@ -686,7 +751,7 @@
         
         
         <div class="cube-box ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
@@ -700,18 +765,18 @@
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树状数组/">#树状数组</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+            <a href="/tags/超现实数/">#超现实数</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Surreal-numbers/">#Surreal numbers</a>
         </div>
         
     </div>
