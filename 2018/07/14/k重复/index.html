@@ -193,7 +193,18 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意:"></a>题目大意:</h2><h3 id="emsp-emsp-给出一个长度为n的字符串s（由前p个小写字母组成），若给出由前p个小写字母组成的排列ts-并且将其首尾相连至少K次之后得到最终串ss-例如ts-abc-k-3，ts重复k次之后得到abcabcabc-使得原串s是ss的一个子序列，则我们称s是关于ts的“K-repeat”。"><a href="#emsp-emsp-给出一个长度为n的字符串s（由前p个小写字母组成），若给出由前p个小写字母组成的排列ts-并且将其首尾相连至少K次之后得到最终串ss-例如ts-abc-k-3，ts重复k次之后得到abcabcabc-使得原串s是ss的一个子序列，则我们称s是关于ts的“K-repeat”。" class="headerlink" title="&emsp; &emsp;给出一个长度为n的字符串s（由前p个小写字母组成），若给出由前p个小写字母组成的排列ts,并且将其首尾相连至少K次之后得到最终串ss(例如ts=abc,k=3，ts重复k次之后得到abcabcabc)使得原串s是ss的一个子序列，则我们称s是关于ts的“K-repeat”。"></a>&emsp; &emsp;给出一个长度为n的字符串s（由前p个小写字母组成），若给出由前p个小写字母组成的排列ts,并且将其首尾相连至少K次之后得到最终串ss(例如ts=abc,k=3，ts重复k次之后得到abcabcabc)使得原串s是ss的一个子序列，则我们称s是关于ts的“K-repeat”。</h3><h3 id="emsp-emsp-现在给出m个操作："><a href="#emsp-emsp-现在给出m个操作：" class="headerlink" title="&emsp; &emsp;现在给出m个操作："></a>&emsp; &emsp;现在给出m个操作：</h3><h3 id="emsp-emsp-emsp-emsp-1：将字符串s的第L到R个字符全部替换为ch；"><a href="#emsp-emsp-emsp-emsp-1：将字符串s的第L到R个字符全部替换为ch；" class="headerlink" title="&emsp; &emsp; &emsp; &emsp; 1：将字符串s的第L到R个字符全部替换为ch；"></a>&emsp; &emsp; &emsp; &emsp; 1：将字符串s的第L到R个字符全部替换为ch；</h3><h3 id="emsp-emsp-emsp-emsp-2：给出一个字符串ts，询问s是否为关于ts的“K-repeat”，输出K。"><a href="#emsp-emsp-emsp-emsp-2：给出一个字符串ts，询问s是否为关于ts的“K-repeat”，输出K。" class="headerlink" title="&emsp; &emsp; &emsp; &emsp; 2：给出一个字符串ts，询问s是否为关于ts的“K-repeat”，输出K。"></a>&emsp; &emsp; &emsp; &emsp; 2：给出一个字符串ts，询问s是否为关于ts的“K-repeat”，输出K。</h3><h3 id="emsp-emsp-emsp-emsp-注意：读入所给出的s-ch全部都由前p个小写字母组成。"><a href="#emsp-emsp-emsp-emsp-注意：读入所给出的s-ch全部都由前p个小写字母组成。" class="headerlink" title="&emsp; &emsp; &emsp; &emsp; 注意：读入所给出的s,ch全部都由前p个小写字母组成。"></a>&emsp; &emsp; &emsp; &emsp; 注意：读入所给出的s,ch全部都由前p个小写字母组成。</h3><h3 id="emsp-emsp-注意：读入所给出的s-ch全部都由前p个小写字母组成。"><a href="#emsp-emsp-注意：读入所给出的s-ch全部都由前p个小写字母组成。" class="headerlink" title="&emsp;&emsp;注意：读入所给出的s,ch全部都由前p个小写字母组成。"></a>&emsp;&emsp;注意：读入所给出的s,ch全部都由前p个小写字母组成。</h3><h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><h3 id="emsp-emsp-考虑答案为（n-多余次数）"><a href="#emsp-emsp-考虑答案为（n-多余次数）" class="headerlink" title="&emsp; &emsp; 考虑答案为（n-多余次数）"></a>&emsp; &emsp; 考虑答案为（n-多余次数）</h3><h3 id="emsp-emsp-多余次数为ts在s中出现了一段长度为o的，多余次数就是o-1。"><a href="#emsp-emsp-多余次数为ts在s中出现了一段长度为o的，多余次数就是o-1。" class="headerlink" title="&emsp; &emsp; 多余次数为ts在s中出现了一段长度为o的，多余次数就是o-1。"></a>&emsp; &emsp; 多余次数为ts在s中出现了一段长度为o的，多余次数就是o-1。</h3><h3 id="emsp-emsp-那么维护s中相邻字符的点对，减掉这样的点对即可。"><a href="#emsp-emsp-那么维护s中相邻字符的点对，减掉这样的点对即可。" class="headerlink" title="&emsp; &emsp; 那么维护s中相邻字符的点对，减掉这样的点对即可。"></a>&emsp; &emsp; 那么维护s中相邻字符的点对，减掉这样的点对即可。</h3><pre><code class="lang-cpp">#include&lt;cstdio&gt;
+        <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意:</h2>
+<h3 id="给出一个长度为n的字符串s由前p个小写字母组成若给出由前p个小写字母组成的排列ts并且将其首尾相连至少k次之后得到最终串ss例如tsabck3ts重复k次之后得到abcabcabc使得原串s是ss的一个子序列则我们称s是关于ts的k-repeat"><a class="markdownIt-Anchor" href="#给出一个长度为n的字符串s由前p个小写字母组成若给出由前p个小写字母组成的排列ts并且将其首尾相连至少k次之后得到最终串ss例如tsabck3ts重复k次之后得到abcabcabc使得原串s是ss的一个子序列则我们称s是关于ts的k-repeat"></a>    给出一个长度为n的字符串s（由前p个小写字母组成），若给出由前p个小写字母组成的排列ts,并且将其首尾相连至少K次之后得到最终串ss(例如ts=abc,k=3，ts重复k次之后得到abcabcabc)使得原串s是ss的一个子序列，则我们称s是关于ts的“K-repeat”。</h3>
+<h3 id="现在给出m个操作"><a class="markdownIt-Anchor" href="#现在给出m个操作"></a>    现在给出m个操作：</h3>
+<h3 id="1将字符串s的第l到r个字符全部替换为ch"><a class="markdownIt-Anchor" href="#1将字符串s的第l到r个字符全部替换为ch"></a>         1：将字符串s的第L到R个字符全部替换为ch；</h3>
+<h3 id="2给出一个字符串ts询问s是否为关于ts的k-repeat输出k"><a class="markdownIt-Anchor" href="#2给出一个字符串ts询问s是否为关于ts的k-repeat输出k"></a>         2：给出一个字符串ts，询问s是否为关于ts的“K-repeat”，输出K。</h3>
+<h3 id="注意读入所给出的sch全部都由前p个小写字母组成"><a class="markdownIt-Anchor" href="#注意读入所给出的sch全部都由前p个小写字母组成"></a>         注意：读入所给出的s,ch全部都由前p个小写字母组成。</h3>
+<h3 id="注意读入所给出的sch全部都由前p个小写字母组成-2"><a class="markdownIt-Anchor" href="#注意读入所给出的sch全部都由前p个小写字母组成-2"></a>   注意：读入所给出的s,ch全部都由前p个小写字母组成。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="考虑答案为n-多余次数"><a class="markdownIt-Anchor" href="#考虑答案为n-多余次数"></a>     考虑答案为（n-多余次数）</h3>
+<h3 id="多余次数为ts在s中出现了一段长度为o的多余次数就是o-1"><a class="markdownIt-Anchor" href="#多余次数为ts在s中出现了一段长度为o的多余次数就是o-1"></a>     多余次数为ts在s中出现了一段长度为o的，多余次数就是o-1。</h3>
+<h3 id="那么维护s中相邻字符的点对减掉这样的点对即可"><a class="markdownIt-Anchor" href="#那么维护s中相邻字符的点对减掉这样的点对即可"></a>     那么维护s中相邻字符的点对，减掉这样的点对即可。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;cstdio&gt;
 #include&lt;cstring&gt;
 #include&lt;algorithm&gt;
 #define N 820000
@@ -222,7 +233,7 @@ int pushup(int x){
 }
 int build(int i,int l,int r){
     if(l==r){
-        ls[i]=rs[i]=s[l]-&#39;a&#39;+1;
+        ls[i]=rs[i]=s[l]-'a'+1;
         return 0;
     }
     int mid=(l+r)/2;
@@ -253,19 +264,19 @@ int main(){
             char ch;
             scanf(&quot;%d%d&quot;,&amp;l,&amp;r);
             scanf(&quot;%c%c&quot;,&amp;ch,&amp;ch);
-            change(1,1,n,l,r,ch-&#39;a&#39;+1);
+            change(1,1,n,l,r,ch-'a'+1);
         }else{
             scanf(&quot;%s&quot;,s+1);
             ans=n;
             for(int j=1;j&lt;=p;j++)
                 for(int i=1;i&lt;j;i++)
-                    ans-=v[1][s[i]-&#39;a&#39;+1][s[j]-&#39;a&#39;+1];
+                    ans-=v[1][s[i]-'a'+1][s[j]-'a'+1];
             printf(&quot;%d\n&quot;,ans);
         }
     }
 }
 </code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1199&amp;pid=1" target="_blank" rel="noopener">string</a> </p>
+<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1199&amp;pid=1" target="_blank" rel="noopener">string</a></p>
 
     </div>
 </div>
@@ -443,12 +454,12 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/人生/">#人生</a>
         </div>
         
@@ -469,12 +480,12 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/分数规划/">#分数规划</a>
         </div>
         
@@ -484,7 +495,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
         </div>
         
@@ -494,23 +505,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/概率/">#概率</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/线段树/">#线段树</a>
-        </div>
-        
-        
         <div class="cube-box ">
-            <a href="/tags/吉利线段树/">#吉利线段树</a>
+            <a href="/tags/概率/">#概率</a>
         </div>
         
         
@@ -519,23 +515,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/后缀自动机/">#后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/好题/">#好题</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
         
@@ -544,7 +525,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
@@ -554,17 +535,22 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/线性基/">#线性基</a>
+        <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/后缀自动机/">#后缀自动机</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/组合数学/">#组合数学</a>
         </div>
         
@@ -575,7 +561,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/人类智慧/">#人类智慧</a>
+            <a href="/tags/好题/">#好题</a>
         </div>
         
         
@@ -595,16 +581,6 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/最小表示法/">#最小表示法</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/SPFA/">#SPFA</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/斜率优化/">#斜率优化</a>
         </div>
         
@@ -614,7 +590,17 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/线性基/">#线性基</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/SPFA/">#SPFA</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/KMP/">#KMP</a>
         </div>
         
@@ -625,7 +611,17 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/最小表示法/">#最小表示法</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/贪心/">#贪心</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
         </div>
         
         
@@ -635,7 +631,7 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+            <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
         
@@ -655,12 +651,17 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
+            <a href="/tags/线段树/">#线段树</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
         
@@ -670,22 +671,22 @@ int main(){
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/构造/">#构造</a>
-        </div>
-        
-        
-        <div class="cube-box ">
             <a href="/tags/splay/">#splay</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/AC自动机/">#AC自动机</a>
+            <a href="/tags/博弈论/">#博弈论</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/费用流/">#费用流</a>
+            <a href="/tags/构造/">#构造</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/吉利线段树/">#吉利线段树</a>
         </div>
         
         
@@ -704,28 +705,23 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/计划表/">#计划表</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/数学/">#数学</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
         
         <div class="cube-box-bg ">
-            <a href="/tags/积性函数/">#积性函数</a>
+            <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
@@ -735,22 +731,37 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/最小生成树/">#最小生成树</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/上下界网络流/">#上下界网络流</a>
         </div>
         
         
+        <div class="cube-box-bg ">
+            <a href="/tags/积性函数/">#积性函数</a>
+        </div>
+        
+        
         <div class="cube-box ">
-            <a href="/tags/后缀数组/">#后缀数组</a>
+            <a href="/tags/AC自动机/">#AC自动机</a>
         </div>
         
         
         <div class="cube-box ">
             <a href="/tags/整体二分/">#整体二分</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/最小生成树/">#最小生成树</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/后缀数组/">#后缀数组</a>
         </div>
         
         
@@ -764,7 +775,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/超现实数/">#超现实数</a>
         </div>
         
