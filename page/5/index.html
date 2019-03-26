@@ -175,6 +175,103 @@
     <div class="cube-content">
         <div class="cube-left">
             
+<div class="cube-excerpt" id="cube-excerpt-等差子序列">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2018/07/16/等差子序列/">等差子序列</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2018-07-16
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/hash/" class="cube-excerpt-tag-link">#hash</a>
+                
+                <a href="/tags/树状数组/" class="cube-excerpt-tag-link">#树状数组</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
+<h3 id="给一个1到n的排列a_i询问是否存在1leq-p_1p_2p_3p_4p_5p_lenleq-n-lengeq-3"><a class="markdownIt-Anchor" href="#给一个1到n的排列a_i询问是否存在1leq-p_1p_2p_3p_4p_5p_lenleq-n-lengeq-3"></a>     给一个1到N的排列{A_i}，询问是否存在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><msub><mi>p</mi><mn>1</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>2</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>3</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>4</mn></msub><mo>&lt;</mo><msub><mi>p</mi><mn>5</mn></msub><mo>&lt;</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>&lt;</mo><msub><mi>p</mi><mrow><mi>L</mi><mi>e</mi><mi>n</mi></mrow></msub><mo>≤</mo><mi>N</mi><mo>(</mo><mi>L</mi><mi>e</mi><mi>n</mi><mo>≥</mo><mn>3</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">1\leq p_1&lt;p_2&lt;p_3&lt;p_4&lt;p_5&lt;...&lt;p_{Len}\leq N (Len\geq 3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mrel">&lt;</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">L</span><span class="mord mathit">e</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord mathit">L</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mrel">≥</span><span class="mord mathrm">3</span><span class="mclose">)</span></span></span></span>，</h3>
+<h3 id="使得a_p1ap2ap3aplen是一个等差序列"><a class="markdownIt-Anchor" href="#使得a_p1ap2ap3aplen是一个等差序列"></a>     使得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mrow><mi>p</mi><mn>1</mn></mrow></msub><mo separator="true">,</mo><mi>A</mi><mrow><mi>p</mi><mn>2</mn></mrow><mo separator="true">,</mo><mi>A</mi><mrow><mi>p</mi><mn>3</mn></mrow><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>A</mi><mrow><mi>p</mi><mi>L</mi><mi>e</mi><mi>n</mi></mrow></mrow><annotation encoding="application/x-tex">A_{p1},A{p2},A{p3},...A{pLen}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">p</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord mathit">A</span><span class="mord textstyle uncramped"><span class="mord mathit">p</span><span class="mord mathrm">2</span></span><span class="mpunct">,</span><span class="mord mathit">A</span><span class="mord textstyle uncramped"><span class="mord mathit">p</span><span class="mord mathrm">3</span></span><span class="mpunct">,</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathrm">.</span><span class="mord mathit">A</span><span class="mord textstyle uncramped"><span class="mord mathit">p</span><span class="mord mathit">L</span><span class="mord mathit">e</span><span class="mord mathit">n</span></span></span></span></span>是一个等差序列。</h3>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
+<h3 id="树状数组维护hash值"><a class="markdownIt-Anchor" href="#树状数组维护hash值"></a>     树状数组维护hash值。</h3>
+<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
+#include&lt;string.h&gt;
+#include&lt;stdio.h&gt;
+#define N 120000
+#define P 1000000007
+#define lowbit(x) (x&amp;-x)
+using namespace std;
+int n,pw[N],a[N];
+struct node{
+    long long a[N];    
+    int add(int x,int b){
+        for(int i=x;i&lt;=n;i+=lowbit(i))(a[i]+=b)%=P;
+    }
+    long long sum(int x){
+        long long ans=0;
+        for(int i=x;i&gt;0;i-=lowbit(i))(ans+=a[i])%=P;
+        return ans;
+    }
+    int clear(){
+        memset(a,0,sizeof(a));
+    }
+}L,R;
+long long power(long long x,int k){
+    long long ans=1;
+    while(k){
+        if(k&amp;1)(ans*=x)%=P;
+        (x*=x)%=P;
+        k&gt;&gt;=1;
+    }
+    return ans;
+}
+int main(){
+    int T;
+    pw[0]=1;
+    scanf(&quot;%d&quot;,&amp;T);
+    for(int i=1;i&lt;=N-10;i++)pw[i]=pw[i-1]*2%P;
+    while(T--){
+        scanf(&quot;%d&quot;,&amp;n);
+        for(int i=1;i&lt;=n;i++)scanf(&quot;%lld&quot;,&amp;a[i]);
+        bool ans=false;
+        L.clear();
+        R.clear();
+        for(int i=1;i&lt;=n;i++){
+            int o=a[i];
+            L.add(o,pw[o]);
+            R.add(n-o+1,pw[n-o+1]);
+            if(o&lt;=n/2)
+            if(L.sum(o-1)!=((R.sum(n-o)-R.sum(n-o-o+1))*power(pw[n-o-o+1],P-2)%P+P)%P){
+                ans=true;
+                break;
+            }
+            if(o&gt;n/2)
+            if(((L.sum(o-1)-L.sum(o-1-(n-o)))*power(pw[o-1-(n-o)],P-2)%P+P)%P!=R.sum(n-o)){
+                ans=true;
+                break;
+            }
+        }
+        if(ans)printf(&quot;Y\n&quot;);
+        else printf(&quot;N\n&quot;);
+    }
+}
+</code></pre>
+<p>原题链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2124" target="_blank" rel="noopener">等差子序列</a></p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2018/07/16/等差子序列/">Read More</a>
+    </footer>
+</div>
+
 <div class="cube-excerpt" id="cube-excerpt-普通平衡树">
     <header class="cube-excerpt-header">
         <h1><a href="/2018/07/16/splay板子/">普通平衡树</a></h1>
@@ -1160,89 +1257,6 @@ int main(){
     </footer>
 </div>
 
-<div class="cube-excerpt" id="cube-excerpt-兔子与樱花">
-    <header class="cube-excerpt-header">
-        <h1><a href="/2018/07/15/兔子与樱花/">兔子与樱花</a></h1>
-        <div class="cube-excerpt-header-msg">
-            <div class="cube-excerpt-date">
-                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-                2018-07-15
-            </div>
-            <div class="cube-excerpt-tags">
-                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-                
-                <a href="/tags/NOIP模拟题/" class="cube-excerpt-tag-link">#NOIP模拟题</a>
-                
-                <a href="/tags/贪心/" class="cube-excerpt-tag-link">#贪心</a>
-                
-            </div>
-        </div>
-    </header>
-    <article class="cube-excerpt-entry cube-markdown">
-        
-        
-           <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意：</h2>
-<h3 id="很久很久之前森林里住着一群兔子-有一天兔子们突然决定要去看樱花-兔子们所在森林里的樱花树很特殊-樱花树由n个树枝分叉点组成编号从0到n-1这n个分叉点由n-1个树枝连接我们可以把它看成一个有根树结构其中0号节点是根节点-这个树的每个节点上都会有一些樱花其中第i个节点有c_i朵樱花-樱花树的每一个节点都有最大的载重m对于每一个节点i它的儿子节点的个数和i节点上樱花个数之和不能超过m即son_ic_ileq-m其中son_i表示i的儿子的个数如果i为叶子节点则son_i0"><a class="markdownIt-Anchor" href="#很久很久之前森林里住着一群兔子-有一天兔子们突然决定要去看樱花-兔子们所在森林里的樱花树很特殊-樱花树由n个树枝分叉点组成编号从0到n-1这n个分叉点由n-1个树枝连接我们可以把它看成一个有根树结构其中0号节点是根节点-这个树的每个节点上都会有一些樱花其中第i个节点有c_i朵樱花-樱花树的每一个节点都有最大的载重m对于每一个节点i它的儿子节点的个数和i节点上樱花个数之和不能超过m即son_ic_ileq-m其中son_i表示i的儿子的个数如果i为叶子节点则son_i0"></a>     很久很久之前，森林里住着一群兔子。有一天，兔子们突然决定要去看樱花。兔子们所在森林里的樱花树很特殊。樱花树由n个树枝分叉点组成，编号从0到n-1，这n个分叉点由n-1个树枝连接，我们可以把它看成一个有根树结构，其中0号节点是根节点。这个树的每个节点上都会有一些樱花，其中第i个节点有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">c_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>朵樱花。樱花树的每一个节点都有最大的载重m，对于每一个节点i，它的儿子节点的个数和i节点上樱花个数之和不能超过m，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub><mo>+</mo><msub><mi>c</mi><mi>i</mi></msub><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">son_i+c_i\leq m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.63597em;"></span><span class="strut bottom" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">c</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit">m</span></span></span></span>，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">son_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>表示i的儿子的个数，如果i为叶子节点，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">son_i=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span>。</h3>
-<h3 id="现在兔子们觉得樱花树上节点太多希望去掉一些节点-当一个节点被去掉之后这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上-如果父节点也被删除那么就会继续向上连接直到第一个没有被删除的节点为止"><a class="markdownIt-Anchor" href="#现在兔子们觉得樱花树上节点太多希望去掉一些节点-当一个节点被去掉之后这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上-如果父节点也被删除那么就会继续向上连接直到第一个没有被删除的节点为止"></a>     现在兔子们觉得樱花树上节点太多，希望去掉一些节点。当一个节点被去掉之后，这个节点上的樱花和它的儿子节点都被连到删掉节点的父节点上。如果父节点也被删除，那么就会继续向上连接，直到第一个没有被删除的节点为止。</h3>
-<h3 id="现在兔子们希望计算在不违背最大载重的情况下最多能删除多少节点"><a class="markdownIt-Anchor" href="#现在兔子们希望计算在不违背最大载重的情况下最多能删除多少节点"></a>     现在兔子们希望计算在不违背最大载重的情况下，最多能删除多少节点。</h3>
-<h3 id="注意根节点不能被删除被删除的节点不被计入载重"><a class="markdownIt-Anchor" href="#注意根节点不能被删除被删除的节点不被计入载重"></a>     注意根节点不能被删除，被删除的节点不被计入载重。</h3>
-<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解：</h2>
-<h3 id="对于最终删完之后的树来说先删上层的点还是先删下层的点的顺序没有影响-而如果一个第i层的点删到i-2层的点上则意味着第i-1层的点往上删了那么也就相当于先把第i层删到第i-1层再往上删到第i-2层-意味着每个点往父亲删就可以了-对于每个节点往儿子贪心即可"><a class="markdownIt-Anchor" href="#对于最终删完之后的树来说先删上层的点还是先删下层的点的顺序没有影响-而如果一个第i层的点删到i-2层的点上则意味着第i-1层的点往上删了那么也就相当于先把第i层删到第i-1层再往上删到第i-2层-意味着每个点往父亲删就可以了-对于每个节点往儿子贪心即可"></a>     对于最终删完之后的树来说，先删上层的点还是先删下层的点的顺序没有影响。而如果一个第i层的点删到i-2层的点上，则意味着第i-1层的点往上删了，那么，也就相当于先把第i层删到第i-1层再往上删到第i-2层。意味着，每个点往父亲删就可以了。对于每个节点往儿子贪心即可。</h3>
-<h3 id="场上随手写的一个贪心居然a掉了qwq"><a class="markdownIt-Anchor" href="#场上随手写的一个贪心居然a掉了qwq"></a>     (场上随手写的一个贪心居然A掉了qwq)</h3>
-<pre class="highlight"><code class="cpp">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;algorithm&gt;
-#define N 4200000
-using namespace std;
-int tot,Next[N],v[N],h[N],a[N],b[N];
-int ans,m,n;
-int add(int x,int y){
-    tot++;
-    Next[tot]=h[x];
-    v[tot]=y;
-    h[x]=tot;
-}
-int dfs(int x,int fa){
-    for(int i=h[x];i;i=Next[i]){
-        a[x]++;
-        dfs(v[i],x);
-    }
-    int tot=0;
-    for(int i=h[x];i;i=Next[i]){
-        b[++tot]=a[v[i]];
-    }
-    sort(b+1,b+1+tot);
-    for(int i=1;i&lt;=tot;i++){
-        if(a[x]+b[i]-1&lt;=m)a[x]+=b[i]-1,ans++;
-    }
-}
-int main(){
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]); 
-    for(int i=1;i&lt;=n;i++){
-        int o;
-        scanf(&quot;%d&quot;,&amp;o);
-        for(int j=1;j&lt;=o;j++){
-            int x;
-            scanf(&quot;%d&quot;,&amp;x);
-            x++;
-            add(i,x);
-        }
-    }
-    dfs(1,0);
-    printf(&quot;%d\n&quot;,ans);
-}
-</code></pre>
-<p>原题链接：<a href="http://192.168.102.138/JudgeOnline/problem.php?cid=1467&amp;pid=0" target="_blank" rel="noopener">兔子与樱花</a></p>
-
-        
-    </article>
-    <footer class="cube-excerpt-footer">
-        <a class="cube-excerpt-more" href="/2018/07/15/兔子与樱花/">Read More</a>
-    </footer>
-</div>
-
 
 
 <ul class="cube-pagination cube-pagination-9">
@@ -1332,8 +1346,8 @@ int main(){
     
     
     <div class="count">
-        <a class="count articles"><span>72</span>Article</a>
-        <a class="count tags"><span>61</span>Tags</a>
+        <a class="count articles"><span>73</span>Article</a>
+        <a class="count tags"><span>62</span>Tags</a>
         <a class="count categories"><span>3</span>Categories</a>
     </div>
 </div>
@@ -1371,7 +1385,7 @@ int main(){
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2019/01/15/超现实数-Surreal-number/" title="超现实数 Surreal numbers">超现实数 Surreal numbers</a>
+                    <a href="/2019/03/26/ModularPowerEquation-欧拉函数/" title="ModularPowerEquation!!">ModularPowerEquation!!</a>
                 </p>
             </div>
             
@@ -1385,7 +1399,7 @@ int main(){
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/11/19/字符串/" title="string[BZOJ某题加强版]">string[BZOJ某题加强版]</a>
+                    <a href="/2019/01/15/超现实数-Surreal-number/" title="超现实数 Surreal numbers">超现实数 Surreal numbers</a>
                 </p>
             </div>
         </li>
@@ -1398,7 +1412,7 @@ int main(){
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/25/「雅礼集训-2018-Day10」贪玩蓝月/" title="「雅礼集训 2018 Day10」贪玩蓝月">「雅礼集训 2018 Day10」贪玩蓝月</a>
+                    <a href="/2018/11/19/字符串/" title="string[BZOJ某题加强版]">string[BZOJ某题加强版]</a>
                 </p>
             </div>
         </li>
@@ -1411,7 +1425,7 @@ int main(){
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/09/BZOJ4676-Xor-Mul棋盘/" title="BZOJ4676 Xor-Mul棋盘">BZOJ4676 Xor-Mul棋盘</a>
+                    <a href="/2018/10/25/「雅礼集训-2018-Day10」贪玩蓝月/" title="「雅礼集训 2018 Day10」贪玩蓝月">「雅礼集训 2018 Day10」贪玩蓝月</a>
                 </p>
             </div>
         </li>
@@ -1424,7 +1438,7 @@ int main(){
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2018/10/09/BZOJ4675-点对游戏/" title="BZOJ4675 点对游戏">BZOJ4675 点对游戏</a>
+                    <a href="/2018/10/09/BZOJ4676-Xor-Mul棋盘/" title="BZOJ4676 Xor-Mul棋盘">BZOJ4676 Xor-Mul棋盘</a>
                 </p>
             </div>
         </li>
@@ -1442,7 +1456,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/categories/OI/">#OI</a>
         </div>
         
@@ -1468,7 +1482,7 @@ int main(){
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/BZOJ/">#BZOJ</a>
         </div>
         
@@ -1483,18 +1497,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/凸包/">#凸包</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/点分治/">#点分治</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/概率/">#概率</a>
         </div>
         
         
@@ -1508,13 +1512,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/高斯消元/">#高斯消元</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/NOIP模拟题/">#NOIP模拟题</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/状压DP/">#状压DP</a>
         </div>
         
         
@@ -1524,7 +1533,12 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/倍增/">#倍增</a>
+            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/特征方程/">#特征方程</a>
         </div>
         
         
@@ -1539,21 +1553,16 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/倍增/">#倍增</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/树形DP/">#树形DP</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/矩阵快速幂/">#矩阵快速幂</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/特征方程/">#特征方程</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/线性基/">#线性基</a>
         </div>
         
@@ -1563,37 +1572,37 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/计数/">#计数</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/人类智慧/">#人类智慧</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
+            <a href="/tags/欧拉定理/">#欧拉定理</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/hash/">#hash</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/二分/">#二分</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/NOI/">#NOI</a>
         </div>
         
         
         <div class="cube-box ">
-            <a href="/tags/状压DP/">#状压DP</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
             <a href="/tags/最小表示法/">#最小表示法</a>
         </div>
         
@@ -1613,18 +1622,8 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
-            <a href="/tags/KMP/">#KMP</a>
-        </div>
-        
-        
         <div class="cube-box ">
-            <a href="/tags/卡常/">#卡常</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/贪心/">#贪心</a>
+            <a href="/tags/点分治/">#点分治</a>
         </div>
         
         
@@ -1634,12 +1633,22 @@ int main(){
         
         
         <div class="cube-box ">
-            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
+            <a href="/tags/卡常/">#卡常</a>
         </div>
         
         
         <div class="cube-box-bg ">
+            <a href="/tags/贪心/">#贪心</a>
+        </div>
+        
+        
+        <div class="cube-box ">
             <a href="/tags/可持久化并查集/">#可持久化并查集</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
         </div>
         
         
@@ -1648,23 +1657,13 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/杜教筛/">#杜教筛</a>
         </div>
         
         
-        <div class="cube-box ">
-            <a href="/tags/广义后缀自动机/">#广义后缀自动机</a>
-        </div>
-        
-        
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/可持久化线段树/">#可持久化线段树</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/分块/">#分块</a>
         </div>
         
         
@@ -1674,7 +1673,22 @@ int main(){
         
         
         <div class="cube-box ">
+            <a href="/tags/KMP/">#KMP</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/分块/">#分块</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/构造/">#构造</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/中国剩余定理/">#中国剩余定理</a>
         </div>
         
         
@@ -1683,28 +1697,18 @@ int main(){
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/费用流/">#费用流</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/概率与期望/">#概率与期望</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/记忆化搜索/">#记忆化搜索</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/哈希/">#哈希</a>
-        </div>
-        
-        
-        <div class="cube-box-bg ">
-            <a href="/tags/计划表/">#计划表</a>
         </div>
         
         
@@ -1713,12 +1717,22 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/dp优化/">#dp优化</a>
         </div>
         
         
         <div class="cube-box ">
+            <a href="/tags/哈希/">#哈希</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/计划表/">#计划表</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
             <a href="/tags/期望/">#期望</a>
         </div>
         
@@ -1728,17 +1742,22 @@ int main(){
         </div>
         
         
+        <div class="cube-box ">
+            <a href="/tags/概率/">#概率</a>
+        </div>
+        
+        
         <div class="cube-box-bg ">
             <a href="/tags/最小生成树/">#最小生成树</a>
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/搜索/">#搜索</a>
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/上下界网络流/">#上下界网络流</a>
         </div>
         
@@ -1748,7 +1767,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/整体二分/">#整体二分</a>
         </div>
         
@@ -1763,7 +1782,7 @@ int main(){
         </div>
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/超现实数/">#超现实数</a>
         </div>
         
